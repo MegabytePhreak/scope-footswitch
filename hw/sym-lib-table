@@ -1,0 +1,13 @@
+(sym_lib_table
+  (lib (name power)(type Legacy)(uri ${KIPRJMOD}/kicad-library/symbols/power.lib)(options "")(descr ""))
+  (lib (name crystals)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/crystals.lib)(options "")(descr ""))
+  (lib (name transistors)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/transistors.lib)(options "")(descr ""))
+  (lib (name inductors)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/inductors.lib)(options "")(descr ""))
+  (lib (name leds)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/leds.lib)(options "")(descr ""))
+  (lib (name ics)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/ics.lib)(options "")(descr ""))
+  (lib (name connectors)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/connectors.lib)(options "")(descr ""))
+  (lib (name misc)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/misc.lib)(options "")(descr ""))
+  (lib (name diodes)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/diodes.lib)(options "")(descr ""))
+  (lib (name capacitors)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/capacitors.lib)(options "")(descr ""))
+  (lib (name resistors)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/resistors.lib)(options "")(descr ""))
+)
