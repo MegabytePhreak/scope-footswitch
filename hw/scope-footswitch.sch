@@ -1,0 +1,4123 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr B 17000 11000
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:VBUS #PWR?
+U 1 1 5B5E0E8E
+P 14750 5700
+F 0 "#PWR?" H 14750 5550 50  0001 C CNN
+F 1 "VBUS" H 14765 5873 50  0000 C CNN
+F 2 "" H 14750 5700 50  0001 C CNN
+F 3 "" H 14750 5700 50  0001 C CNN
+	1    14750 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B5E0F47
+P 6650 1400
+F 0 "#PWR?" H 6650 1250 50  0001 C CNN
+F 1 "+3.3V" H 6665 1573 50  0000 C CNN
+F 2 "" H 6650 1400 50  0001 C CNN
+F 3 "" H 6650 1400 50  0001 C CNN
+	1    6650 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VBUS #PWR?
+U 1 1 5B5E100E
+P 1450 1450
+F 0 "#PWR?" H 1450 1300 50  0001 C CNN
+F 1 "VBUS" H 1465 1623 50  0000 C CNN
+F 2 "" H 1450 1450 50  0001 C CNN
+F 3 "" H 1450 1450 50  0001 C CNN
+	1    1450 1450
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 1500 1450 1500
+Wire Wire Line
+	1450 1500 1450 1450
+Text Label 1950 1600 2    50   ~ 0
+EN_DEVICE_5V
+Text Label 1950 1700 2    50   ~ 0
+EN_HOST_5V
+Wire Wire Line
+	2150 1600 2150 1500
+Text Label 3050 1600 2    50   ~ 0
+PWR_EN
+NoConn ~ 600  1500
+NoConn ~ 600  1600
+$Comp
+L resistors:R00025 R?
+U 1 1 5B5E31D5
+P 2050 2350
+F 0 "R?" H 2118 2441 50  0000 L CNN
+F 1 "R00025" H 2050 2350 50  0001 C CNN
+F 2 "R_0603_1608M" H 2050 2320 60  0001 C CNN
+F 3 "http://www.seielect.com/Catalog/SEI-RMCF_RMCP.pdf" H 2050 2350 60  0001 C CNN
+F 4 "23K2" H 2118 2350 50  0000 L CNN "Resistance"
+F 5 "1/10W" H 2120 2280 50  0001 L CNN "Power"
+F 6 "0603" H 2050 2380 60  0001 C CNN "Package"
+F 7 "1%" H 2118 2259 50  0000 L CNN "Tolerance"
+F 8 "Digi-key" H 2120 2350 50  0001 L CNN "Supplier 2"
+F 9 "" H 2120 2350 50  0001 L CNN "Supplier Part Number 3"
+F 10 "" H 2120 2350 50  0001 L CNN "Supplier 3"
+F 11 "Thick Film" H 2120 2350 50  0001 L CNN "Type"
+F 12 "06/06/2012" H 2120 2350 50  0001 L CNN "Created On"
+F 13 "Stackpole Electronics" H 2120 2350 50  0001 L CNN "Manufacturer"
+F 14 "RMCF0603FT23K2TR-ND" H 2120 2350 50  0001 L CNN "Supplier Part Number 1"
+F 15 "RMCF0603FT23K2" H 2120 2350 50  0001 L CNN "Manufacturer Part Number"
+F 16 "RMCF0603FT23K2CT-ND" H 2120 2350 50  0001 L CNN "Supplier Part Number 2"
+F 17 "RES TF 23K2 OHM 1% 0.1W 0603" H 2120 2350 50  0001 L CNN "Description"
+F 18 "Digi-key" H 2120 2350 50  0001 L CNN "Supplier 1"
+	1    2050 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B5E341F
+P 2050 2550
+F 0 "#PWR?" H 2050 2300 50  0001 C CNN
+F 1 "GND" H 2055 2377 50  0000 C CNN
+F 2 "" H 2050 2550 50  0001 C CNN
+F 3 "" H 2050 2550 50  0001 C CNN
+	1    2050 2550
+	-1   0    0    -1  
+$EndComp
+Text Label 2600 2200 2    50   ~ 0
+EN_DEVICE
+Wire Wire Line
+	9050 4000 9150 4000
+Wire Wire Line
+	9050 3550 9150 3550
+Connection ~ 9150 3550
+Wire Wire Line
+	9150 3550 9150 3500
+Wire Wire Line
+	9050 3650 9150 3650
+Connection ~ 9150 3650
+Wire Wire Line
+	9150 3650 9150 3550
+Wire Wire Line
+	9050 3750 9150 3750
+Connection ~ 9150 3750
+Wire Wire Line
+	9150 3750 9150 3650
+Wire Wire Line
+	9050 3850 9150 3850
+Wire Wire Line
+	9150 3750 9150 3850
+Connection ~ 9150 3850
+Wire Wire Line
+	9150 3850 9150 4000
+$Comp
+L ics:U00084 U?
+U 1 1 5B5E99AA
+P 8350 4200
+F 0 "U?" H 8350 5115 50  0000 C CNN
+F 1 "U00084" H 8650 1650 50  0001 C CNN
+F 2 "footprints:QFN_48_500_7000X7000X600_ST" H 8450 1450 50  0001 C CNN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/9e/50/b1/5a/5f/ae/4d/c1/DM00086815.pdf/files/DM00086815.pdf/jcr:content/translations/en.DM00086815.pdf" H 8900 1350 50  0001 C CNN
+F 4 "ST" H 8350 4200 50  0001 L CNN "Manufacturer"
+F 5 "STM32F401CBU6" H 8350 5024 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "IC MCU 32BIT 128KB FLASH 48QFPN" H 8350 4200 50  0001 L CNN "Description"
+F 7 "07/28/18 00:00:00" H 8350 4200 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 8350 4200 50  0001 L CNN "ComponentLink1Description"
+F 9 "Digi-Key" H 8350 4200 50  0001 L CNN "Supplier 1"
+F 10 "497-17425-ND" H 8350 4200 50  0001 L CNN "Supplier Part Number 1"
+	1    8350 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L ics:U00049 U?
+U 1 1 5B5E9C4C
+P 6150 1600
+F 0 "U?" H 6150 1965 50  0000 C CNN
+F 1 "U00049" H 6150 1350 50  0001 C CNN
+F 2 "footprints:SOT_5_950_2900X1600X1100_DIODES" H 6500 1050 50  0001 C CNN
+F 3 "http://www.diodes.com/datasheets/AP2138_9.pdf" H 6850 1150 50  0001 C CNN
+F 4 "Diodes" H 6150 1600 50  0001 L CNN "Manufacturer"
+F 5 "AP2139AK-3.3TRG1" H 6150 1874 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "IC REG LDO 3.3V 0.25A SOT25" H 6150 1600 50  0001 L CNN "Description"
+F 7 "01/03/15 00:00:00" H 6150 1600 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 6150 1600 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 6150 1600 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 6150 1600 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 6150 1600 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 6150 1600 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 6150 1600 50  0001 L CNN "Supplier 1"
+F 14 "AP2139AK-3.3TRG1DICT-ND" H 6150 1600 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 6150 1600 50  0001 L CNN "Supplier 2"
+F 16 "" H 6150 1600 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 6150 1600 50  0001 L CNN "Supplier 3"
+F 18 "" H 6150 1600 50  0001 L CNN "Supplier Part Number 3"
+	1    6150 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 1500 6650 1500
+Wire Wire Line
+	6650 1500 6650 1400
+$Comp
+L ics:U00085 U?
+U 1 1 5B5EA842
+P 12400 4350
+F 0 "U?" H 12400 4915 50  0000 C CNN
+F 1 "U00085" H 12450 3800 50  0001 C CNN
+F 2 "footprints:SSOP_10_500_3000X3000_ONSEMI" H 12750 3500 50  0001 C CNN
+F 3 "https://www.fairchildsemi.com/datasheets/FS/FSUSB42.pdf" H 13050 3600 50  0001 C CNN
+F 4 "ONSEMI" H 12400 4350 50  0001 L CNN "Manufacturer"
+F 5 "FSUSB42MUX" H 12400 4824 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "IC USB SWITCH DPDT 10MSOP" H 12400 4350 50  0001 L CNN "Description"
+F 7 "07/28/18 00:00:00" H 12400 4350 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 12400 4350 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 12400 4350 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 12400 4350 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 12400 4350 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 12400 4350 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 12400 4350 50  0001 L CNN "Supplier 1"
+F 14 "	FSUSB42MUXCT-ND" H 12400 4350 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 12400 4350 50  0001 L CNN "Supplier 2"
+F 16 "" H 12400 4350 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 12400 4350 50  0001 L CNN "Supplier 3"
+F 18 "" H 12400 4350 50  0001 L CNN "Supplier Part Number 3"
+	1    12400 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L connectors:CN00023 J?
+U 1 1 5B5EB30C
+P 15250 6100
+F 0 "J?" H 15250 6665 50  0000 C CNN
+F 1 "CN00023" H 15200 5650 50  0001 C CNN
+F 2 "footprints:J_FCI_10118194" H 15550 5450 50  0001 C CNN
+F 3 "http://portal.fciconnect.com/Comergent//fci/drawing/10118194.pdf" H 16350 5350 50  0001 C CNN
+F 4 "FCI" H 15250 6100 50  0001 L CNN "Manufacturer"
+F 5 "10118194-0001LF" H 15250 6574 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "CONN USB MICRO B RECPT SMT R/A" H 15250 6100 50  0001 L CNN "Description"
+F 7 "01/02/15 00:00:00" H 15250 6100 50  0001 L CNN "CREATED_ON"
+F 8 "Drawing" H 15250 6100 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 15250 6100 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 15250 6100 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 15250 6100 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 15250 6100 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 15250 6100 50  0001 L CNN "Supplier 1"
+F 14 "609-4618-1-ND" H 15250 6100 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 15250 6100 50  0001 L CNN "Supplier 2"
+F 16 "" H 15250 6100 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 15250 6100 50  0001 L CNN "Supplier 3"
+F 18 "" H 15250 6100 50  0001 L CNN "Supplier Part Number 3"
+	1    15250 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L connectors:CN00049 J?
+U 1 1 5B5EB4A1
+P 15250 3000
+F 0 "J?" H 15250 3465 50  0000 C CNN
+F 1 "CN00049" H 15300 2550 50  0001 C CNN
+F 2 "footprints:J_AMPHENOL_UE27AC54100" H 15550 2350 50  0001 C CNN
+F 3 "https://www.amphenolcanada.com/ProductSearch/drawings/AC/UE27ACX4X0X.pdf" H 16400 2250 50  0001 C CNN
+F 4 "Amphenol" H 15250 3000 50  0001 L CNN "Manufacturer"
+F 5 "UE27AC54100" H 15250 3374 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "CONN RCPT USB TYPE A R/A GOLD" H 15250 3000 50  0001 L CNN "Description"
+F 7 "07/28/18 00:00:00" H 15250 3000 50  0001 L CNN "CREATED_ON"
+F 8 "Drawing" H 15250 3000 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 15250 3000 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 15250 3000 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 15250 3000 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 15250 3000 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 15250 3000 50  0001 L CNN "Supplier 1"
+F 14 "	UE27AC54100-ND" H 15250 3000 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 15250 3000 50  0001 L CNN "Supplier 2"
+F 16 "" H 15250 3000 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 15250 3000 50  0001 L CNN "Supplier 3"
+F 18 "" H 15250 3000 50  0001 L CNN "Supplier Part Number 3"
+	1    15250 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L connectors:CN00050 J?
+U 1 1 5B5EB658
+P 5700 8650
+F 0 "J?" H 6077 8646 50  0000 L CNN
+F 1 "CN00050" H 5800 8300 50  0001 C CNN
+F 2 "footprints:J_CUI_SJ1-3533NG" H 5500 8650 50  0001 C CNN
+F 3 "https://www.cui.com/product/resource/digikeypdf/sj1-353xng.pdf" H 5500 8650 50  0001 C CNN
+F 4 "CUI" H 5700 8650 50  0001 L CNN "Manufacturer"
+F 5 "SJ1-3533NG" H 6077 8555 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
+F 6 "CONN JACK STEREO 3.5MM R/A" H 5700 8650 50  0001 L CNN "Description"
+F 7 "07/29/18 00:00:00" H 5700 8650 50  0001 L CNN "CREATED_ON"
+F 8 "Drawing" H 5700 8650 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 5700 8650 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 5700 8650 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 5700 8650 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 5700 8650 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 5700 8650 50  0001 L CNN "Supplier 1"
+F 14 "CP1-3533NG-ND" H 5700 8650 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 5700 8650 50  0001 L CNN "Supplier 2"
+F 16 "" H 5700 8650 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 5700 8650 50  0001 L CNN "Supplier 3"
+F 18 "" H 5700 8650 50  0001 L CNN "Supplier Part Number 3"
+	1    5700 8650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L diodes:D00003 D?
+U 1 1 5B5EBA9E
+P 15250 1850
+F 0 "D?" H 15250 2415 50  0000 C CNN
+F 1 "D00003" H 15250 1400 50  0001 C CNN
+F 2 "footprints:SOT_6_950_2900X1600X1100" H 15550 1200 50  0001 C CNN
+F 3 "http://www.st.com/web/en/resource/technical/document/datasheet/CD00047494.pdf" H 16400 1100 50  0001 C CNN
+F 4 "TVS ARRAY" H 15250 1850 50  0001 L CNN "Type"
+F 5 "-" H 15250 1850 50  0001 L CNN "Power"
+F 6 "-" H 15250 1850 50  0001 L CNN "VF"
+F 7 "-" H 15250 1850 50  0001 L CNN "IF"
+F 8 "6" H 15250 1850 50  0001 L CNN "VR"
+F 9 "ST" H 15250 1850 50  0001 L CNN "Manufacturer"
+F 10 "USBLC6-4SC6" H 15250 2324 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 11 "TVS DIODE 5.25VWM 17VC SOT23-6" H 15250 1850 50  0001 L CNN "Description"
+F 12 "07/18/15 00:00:00" H 15250 1850 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 15250 1850 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15250 1850 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15250 1850 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15250 1850 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15250 1850 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 15250 1850 50  0001 L CNN "Supplier 1"
+F 19 "497-4492-1-ND" H 15250 1850 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 15250 1850 50  0001 L CNN "Supplier 2"
+F 21 "" H 15250 1850 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15250 1850 50  0001 L CNN "Supplier 3"
+F 23 "" H 15250 1850 50  0001 L CNN "Supplier Part Number 3"
+	1    15250 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L diodes:D00003 D?
+U 1 1 5B5EBC30
+P 15250 4900
+F 0 "D?" H 15250 5465 50  0000 C CNN
+F 1 "D00003" H 15250 4450 50  0001 C CNN
+F 2 "footprints:SOT_6_950_2900X1600X1100" H 15550 4250 50  0001 C CNN
+F 3 "http://www.st.com/web/en/resource/technical/document/datasheet/CD00047494.pdf" H 16400 4150 50  0001 C CNN
+F 4 "TVS ARRAY" H 15250 4900 50  0001 L CNN "Type"
+F 5 "-" H 15250 4900 50  0001 L CNN "Power"
+F 6 "-" H 15250 4900 50  0001 L CNN "VF"
+F 7 "-" H 15250 4900 50  0001 L CNN "IF"
+F 8 "6" H 15250 4900 50  0001 L CNN "VR"
+F 9 "ST" H 15250 4900 50  0001 L CNN "Manufacturer"
+F 10 "USBLC6-4SC6" H 15250 5374 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 11 "TVS DIODE 5.25VWM 17VC SOT23-6" H 15250 4900 50  0001 L CNN "Description"
+F 12 "07/18/15 00:00:00" H 15250 4900 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 15250 4900 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15250 4900 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15250 4900 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15250 4900 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15250 4900 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 15250 4900 50  0001 L CNN "Supplier 1"
+F 19 "497-4492-1-ND" H 15250 4900 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 15250 4900 50  0001 L CNN "Supplier 2"
+F 21 "" H 15250 4900 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15250 4900 50  0001 L CNN "Supplier 3"
+F 23 "" H 15250 4900 50  0001 L CNN "Supplier Part Number 3"
+	1    15250 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L diodes:D00003 D?
+U 1 1 5B5EBD52
+P 6550 9650
+F 0 "D?" H 6550 10215 50  0000 C CNN
+F 1 "D00003" H 6550 9200 50  0001 C CNN
+F 2 "footprints:SOT_6_950_2900X1600X1100" H 6850 9000 50  0001 C CNN
+F 3 "http://www.st.com/web/en/resource/technical/document/datasheet/CD00047494.pdf" H 7700 8900 50  0001 C CNN
+F 4 "TVS ARRAY" H 6550 9650 50  0001 L CNN "Type"
+F 5 "-" H 6550 9650 50  0001 L CNN "Power"
+F 6 "-" H 6550 9650 50  0001 L CNN "VF"
+F 7 "-" H 6550 9650 50  0001 L CNN "IF"
+F 8 "6" H 6550 9650 50  0001 L CNN "VR"
+F 9 "ST" H 6550 9650 50  0001 L CNN "Manufacturer"
+F 10 "USBLC6-4SC6" H 6550 10124 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 11 "TVS DIODE 5.25VWM 17VC SOT23-6" H 6550 9650 50  0001 L CNN "Description"
+F 12 "07/18/15 00:00:00" H 6550 9650 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 6550 9650 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6550 9650 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6550 9650 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6550 9650 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6550 9650 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 6550 9650 50  0001 L CNN "Supplier 1"
+F 19 "497-4492-1-ND" H 6550 9650 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 6550 9650 50  0001 L CNN "Supplier 2"
+F 21 "" H 6550 9650 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6550 9650 50  0001 L CNN "Supplier 3"
+F 23 "" H 6550 9650 50  0001 L CNN "Supplier Part Number 3"
+	1    6550 9650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L diodes:D00005 D?
+U 1 1 5B5EC13B
+P 2350 1600
+F 0 "D?" H 2350 1925 50  0000 C CNN
+F 1 "D00005" H 2450 1300 50  0001 C CNN
+F 2 "footprints:SOT_3_950_2900X1300X1000_ONSEMI" H 2350 1600 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/BAV70LT1-D.PDF" H 2350 1800 50  0001 C CNN
+F 4 "Array" H 2350 1600 50  0001 L CNN "Type"
+F 5 "225mW" H 2350 1600 50  0001 L CNN "Power"
+F 6 "70mV @ 1mA" H 2350 1600 50  0001 L CNN "VF"
+F 7 "200mA" H 2350 1600 50  0001 L CNN "IF"
+F 8 "100V" H 2350 1600 50  0001 L CNN "VR"
+F 9 "ON Semiconductior" H 2350 1600 50  0001 L CNN "Manufacturer"
+F 10 "BAV70LT3G" H 2350 1834 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 11 "DIODE ARRAY GP 100V 200MA SOT23" H 2350 1600 50  0001 L CNN "Description"
+F 12 "07/29/18 00:00:00" H 2350 1600 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 2350 1600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 2350 1600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 2350 1600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 2350 1600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 2350 1600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 2350 1600 50  0001 L CNN "Supplier 1"
+F 19 "BAV70LT3GOSCT-ND" H 2350 1600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 2350 1600 50  0001 L CNN "Supplier 2"
+F 21 "" H 2350 1600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 2350 1600 50  0001 L CNN "Supplier 3"
+F 23 "" H 2350 1600 50  0001 L CNN "Supplier Part Number 3"
+	1    2350 1600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L misc:M00027 SW?
+U 1 1 5B5EC4AF
+P 1000 1600
+F 0 "SW?" H 1000 1285 50  0000 C CNN
+F 1 "M00027" H 1150 1400 50  0001 C CNN
+F 2 "footprints:SW_NKK_G13AV" H 750 1750 50  0001 C CNN
+F 3 "http://www.nkkswitches.com/pdf/Gtoggles.pdf" H 850 1850 50  0001 C CNN
+F 4 "SWITCH TOGGLE SPDT 0.4VA 28V" H 1000 1600 50  0001 L CNN "Description"
+F 5 "NKK Switches" H 1000 1600 50  0001 L CNN "Manufacturer"
+F 6 "G13AV" H 1000 1376 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 7 "07/18/29 00:00:00" H 1000 1600 50  0001 L CNN "CREATED_ON"
+F 8 "Series Datasheet" H 1000 1600 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 1000 1600 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 1000 1600 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 1000 1600 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 1000 1600 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 1000 1600 50  0001 L CNN "Supplier 1"
+F 14 "360-1770-ND" H 1000 1600 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 1000 1600 50  0001 L CNN "Supplier 2"
+F 16 "" H 1000 1600 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 1000 1600 50  0001 L CNN "Supplier 3"
+F 18 "" H 1000 1600 50  0001 L CNN "Supplier Part Number 3"
+	1    1000 1600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	14850 5800 14750 5800
+Wire Wire Line
+	14750 5800 14750 5700
+Wire Wire Line
+	2050 2200 2700 2200
+$Comp
+L ics:U00086 U?
+U 1 1 5B5F2964
+P 3650 1600
+F 0 "U?" H 3650 1965 50  0000 C CNN
+F 1 "U00086" H 3650 1150 50  0001 C CNN
+F 2 "footprints:SOT_6_950_2800x1600x110_DIODES_SOT26" H 3650 1600 50  0001 C CNN
+F 3 "https://www.diodes.com/assets/Datasheets/AP255x.pdf" H 3650 1600 50  0001 C CNN
+F 4 "Diodes" H 3650 1600 50  0001 L CNN "Manufacturer"
+F 5 "AP2553AW6-7" H 3650 1874 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "IC PD SW CURR LIMIT SOT26" H 3650 1600 50  0001 L CNN "Description"
+F 7 "07/29/18 00:00:00" H 3650 1600 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 3650 1600 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 3650 1600 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 3650 1600 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 3650 1600 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 3650 1600 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 3650 1600 50  0001 L CNN "Supplier 1"
+F 14 "AP2553AW6-7DICT-ND" H 3650 1600 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 3650 1600 50  0001 L CNN "Supplier 2"
+F 16 "" H 3650 1600 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 3650 1600 50  0001 L CNN "Supplier 3"
+F 18 "" H 3650 1600 50  0001 L CNN "Supplier Part Number 3"
+	1    3650 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L ics:U00086 U?
+U 1 1 5B5F2C10
+P 12700 1300
+F 0 "U?" H 12700 1665 50  0000 C CNN
+F 1 "U00086" H 12700 850 50  0001 C CNN
+F 2 "footprints:SOT_6_950_2800x1600x110_DIODES_SOT26" H 12700 1300 50  0001 C CNN
+F 3 "https://www.diodes.com/assets/Datasheets/AP255x.pdf" H 12700 1300 50  0001 C CNN
+F 4 "Diodes" H 12700 1300 50  0001 L CNN "Manufacturer"
+F 5 "AP2553AW6-7" H 12700 1574 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "IC PD SW CURR LIMIT SOT26" H 12700 1300 50  0001 L CNN "Description"
+F 7 "07/29/18 00:00:00" H 12700 1300 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 12700 1300 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 12700 1300 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 12700 1300 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 12700 1300 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 12700 1300 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 12700 1300 50  0001 L CNN "Supplier 1"
+F 14 "AP2553AW6-7DICT-ND" H 12700 1300 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 12700 1300 50  0001 L CNN "Supplier 2"
+F 16 "" H 12700 1300 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 12700 1300 50  0001 L CNN "Supplier 3"
+F 18 "" H 12700 1300 50  0001 L CNN "Supplier Part Number 3"
+	1    12700 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VBUS #PWR?
+U 1 1 5B5F3D6B
+P 3150 1400
+F 0 "#PWR?" H 3150 1250 50  0001 C CNN
+F 1 "VBUS" H 3165 1573 50  0000 C CNN
+F 2 "" H 3150 1400 50  0001 C CNN
+F 3 "" H 3150 1400 50  0001 C CNN
+	1    3150 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 1500 3150 1500
+Wire Wire Line
+	3150 1500 3150 1400
+$Comp
+L power:GND #PWR?
+U 1 1 5B5F40A6
+P 3150 1900
+F 0 "#PWR?" H 3150 1650 50  0001 C CNN
+F 1 "GND" H 3155 1727 50  0000 C CNN
+F 2 "" H 3150 1900 50  0001 C CNN
+F 3 "" H 3150 1900 50  0001 C CNN
+	1    3150 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 1900 3150 1800
+Wire Wire Line
+	3150 1800 3250 1800
+$Comp
+L capacitors:C00002 C?
+U 1 1 5B5F4583
+P 15850 4850
+F 0 "C?" H 15773 4713 50  0000 R CNN
+F 1 "C00002" H 15850 4850 50  0001 C CNN
+F 2 "footprints:C_0603_1608M" H 16130 4700 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM188R61A105KA61.pdf" H 15850 4860 50  0001 C CNN
+F 4 "1µ" H 15773 4804 50  0000 R CNN "Capacitance"
+F 5 "X5R" H 15773 4895 50  0000 R CNN "Dielectric"
+F 6 "0603" H 16050 4700 50  0001 C CNN "Package"
+F 7 "±10%" H 15960 4710 50  0001 C CNN "Tolerance"
+F 8 "10V" H 15773 4986 50  0000 R CNN "Voltage"
+F 9 "Murata" H 15850 4850 50  0001 L CNN "Manufacturer"
+F 10 "GRM188R61A105KA61D" H 15850 4850 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 1.0UF 10V 10% X5R 0603" H 15850 4850 50  0001 L CNN "Description"
+F 12 "02/18/11 00:00:00" H 15850 4850 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 15850 4850 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15850 4850 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15850 4850 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15850 4850 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15850 4850 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 15850 4850 50  0001 L CNN "Supplier 1"
+F 19 "490-1543-2-ND" H 15850 4850 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 15850 4850 50  0001 L CNN "Supplier 2"
+F 21 "490-1543-2-ND" H 15850 4850 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15850 4850 50  0001 L CNN "Supplier 3"
+F 23 "" H 15850 4850 50  0001 L CNN "Supplier Part Number 3"
+	1    15850 4850
+	1    0    0    1   
+$EndComp
+$Comp
+L capacitors:C00002 C?
+U 1 1 5B5F4695
+P 5550 1600
+F 0 "C?" H 5473 1463 50  0000 R CNN
+F 1 "C00002" H 5550 1600 50  0001 C CNN
+F 2 "footprints:C_0603_1608M" H 5830 1450 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM188R61A105KA61.pdf" H 5550 1610 50  0001 C CNN
+F 4 "1µ" H 5473 1554 50  0000 R CNN "Capacitance"
+F 5 "X5R" H 5473 1645 50  0000 R CNN "Dielectric"
+F 6 "0603" H 5750 1450 50  0001 C CNN "Package"
+F 7 "±10%" H 5660 1460 50  0001 C CNN "Tolerance"
+F 8 "10V" H 5473 1736 50  0000 R CNN "Voltage"
+F 9 "Murata" H 5550 1600 50  0001 L CNN "Manufacturer"
+F 10 "GRM188R61A105KA61D" H 5550 1600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 1.0UF 10V 10% X5R 0603" H 5550 1600 50  0001 L CNN "Description"
+F 12 "02/18/11 00:00:00" H 5550 1600 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 5550 1600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 5550 1600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 5550 1600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 5550 1600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 5550 1600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 5550 1600 50  0001 L CNN "Supplier 1"
+F 19 "490-1543-2-ND" H 5550 1600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 5550 1600 50  0001 L CNN "Supplier 2"
+F 21 "490-1543-2-ND" H 5550 1600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 5550 1600 50  0001 L CNN "Supplier 3"
+F 23 "" H 5550 1600 50  0001 L CNN "Supplier Part Number 3"
+	1    5550 1600
+	1    0    0    1   
+$EndComp
+$Comp
+L capacitors:C00004 C?
+U 1 1 5B5F484F
+P 6650 1600
+F 0 "C?" H 6728 1737 50  0000 L CNN
+F 1 "C00004" H 6650 1600 50  0001 C CNN
+F 2 "footprints:C_0805_2012M" H 6930 1450 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM21BR60J106ME19.pdf" H 6650 1610 50  0001 C CNN
+F 4 "10µ" H 6728 1646 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 6728 1555 50  0000 L CNN "Dielectric"
+F 6 "0805" H 6850 1450 50  0001 C CNN "Package"
+F 7 "±20%" H 6760 1460 50  0001 C CNN "Tolerance"
+F 8 "6.3V" H 6728 1464 50  0000 L CNN "Voltage"
+F 9 "Murata" H 6650 1600 50  0001 L CNN "Manufacturer"
+F 10 "GRM21BR60J106ME19L" H 6650 1600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 10UF 6.3V 20% X5R 0805" H 6650 1600 50  0001 L CNN "Description"
+F 12 "02/18/11 00:00:00" H 6650 1600 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 6650 1600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6650 1600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6650 1600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6650 1600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6650 1600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 6650 1600 50  0001 L CNN "Supplier 1"
+F 19 "490-1718-2-ND" H 6650 1600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 6650 1600 50  0001 L CNN "Supplier 2"
+F 21 "490-1718-1-ND" H 6650 1600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6650 1600 50  0001 L CNN "Supplier 3"
+F 23 "" H 6650 1600 50  0001 L CNN "Supplier Part Number 3"
+	1    6650 1600
+	1    0    0    -1  
+$EndComp
+Connection ~ 6650 1500
+$Comp
+L resistors:R00014 R?
+U 1 1 5B5F7086
+P 2050 2050
+F 0 "R?" H 1983 1959 50  0000 R CNN
+F 1 "R00014" H 2050 2050 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 2050 2020 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2050 2050 60  0001 C CNN
+F 4 "10K" H 1983 2050 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 2120 1980 50  0001 L CNN "Power"
+F 6 "0402" H 2050 2080 60  0001 C CNN "Package"
+F 7 "1%" H 1983 2141 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 2050 2050 50  0001 L CNN "Type"
+F 9 "Yageo" H 2050 2050 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 2050 2050 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2050 2050 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 2050 2050 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 2050 2050 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 2050 2050 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 2050 2050 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 2050 2050 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 2050 2050 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 2050 2050 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 2050 2050 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 2050 2050 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 2050 2050 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 2050 2050 50  0001 L CNN "Supplier 3"
+F 23 "" H 2050 2050 50  0001 L CNN "Supplier Part Number 3"
+	1    2050 2050
+	1    0    0    1   
+$EndComp
+Connection ~ 2050 2200
+$Comp
+L power:GND #PWR?
+U 1 1 5B5F76F5
+P 6650 1800
+F 0 "#PWR?" H 6650 1550 50  0001 C CNN
+F 1 "GND" H 6655 1627 50  0000 C CNN
+F 2 "" H 6650 1800 50  0001 C CNN
+F 3 "" H 6650 1800 50  0001 C CNN
+	1    6650 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 1800 6650 1700
+Wire Wire Line
+	5750 1600 5650 1600
+Wire Wire Line
+	5650 1600 5650 1500
+Connection ~ 5650 1500
+Wire Wire Line
+	5650 1500 5750 1500
+$Comp
+L power:GND #PWR?
+U 1 1 5B5F7E0C
+P 5550 1750
+F 0 "#PWR?" H 5550 1500 50  0001 C CNN
+F 1 "GND" H 5555 1577 50  0000 C CNN
+F 2 "" H 5550 1750 50  0001 C CNN
+F 3 "" H 5550 1750 50  0001 C CNN
+	1    5550 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 1750 5550 1700
+Wire Wire Line
+	5550 1700 5750 1700
+Wire Wire Line
+	2550 1600 3250 1600
+$Comp
+L resistors:R00009 R?
+U 1 1 5B5F88F9
+P 4650 2000
+F 0 "R?" H 4718 2091 50  0000 L CNN
+F 1 "R00009" H 4650 2000 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 4650 1970 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4650 2000 60  0001 C CNN
+F 4 "56K" H 4718 2000 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 4720 1930 50  0001 L CNN "Power"
+F 6 "0402" H 4650 2030 60  0001 C CNN "Package"
+F 7 "5%" H 4718 1909 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 4650 2000 50  0001 L CNN "Type"
+F 9 "Yageo" H 4650 2000 50  0001 L CNN "Manufacturer"
+F 10 "RC0402JR-0756KL" H 4650 2000 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 56K OHM 1/16W 5% 0402 SMD" H 4650 2000 50  0001 L CNN "Description"
+F 12 "08/21/11 00:00:00" H 4650 2000 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 4650 2000 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 4650 2000 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 4650 2000 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 4650 2000 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 4650 2000 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 4650 2000 50  0001 L CNN "Supplier 1"
+F 19 "311-56KJRTR-ND" H 4650 2000 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 4650 2000 50  0001 L CNN "Supplier 2"
+F 21 "311-56KJRCT-ND" H 4650 2000 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 4650 2000 50  0001 L CNN "Supplier 3"
+F 23 "" H 4650 2000 50  0001 L CNN "Supplier Part Number 3"
+	1    4650 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 1800 4650 1850
+$Comp
+L power:GND #PWR?
+U 1 1 5B5F8EE7
+P 4650 2200
+F 0 "#PWR?" H 4650 1950 50  0001 C CNN
+F 1 "GND" H 4655 2027 50  0000 C CNN
+F 2 "" H 4650 2200 50  0001 C CNN
+F 3 "" H 4650 2200 50  0001 C CNN
+	1    4650 2200
+	1    0    0    -1  
+$EndComp
+Connection ~ 5550 1500
+Wire Wire Line
+	5550 1500 5650 1500
+Connection ~ 5550 1700
+$Comp
+L resistors:R00014 R?
+U 1 1 5B5FA641
+P 4650 1250
+F 0 "R?" H 4718 1341 50  0000 L CNN
+F 1 "R00014" H 4650 1250 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 4650 1220 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4650 1250 60  0001 C CNN
+F 4 "10K" H 4718 1250 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 4720 1180 50  0001 L CNN "Power"
+F 6 "0402" H 4650 1280 60  0001 C CNN "Package"
+F 7 "1%" H 4718 1159 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 4650 1250 50  0001 L CNN "Type"
+F 9 "Yageo" H 4650 1250 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 4650 1250 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4650 1250 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 4650 1250 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 4650 1250 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 4650 1250 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 4650 1250 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 4650 1250 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 4650 1250 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 4650 1250 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 4650 1250 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 4650 1250 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 4650 1250 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 4650 1250 50  0001 L CNN "Supplier 3"
+F 23 "" H 4650 1250 50  0001 L CNN "Supplier Part Number 3"
+	1    4650 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VBUS #PWR?
+U 1 1 5B5FB07F
+P 4650 1050
+F 0 "#PWR?" H 4650 900 50  0001 C CNN
+F 1 "VBUS" H 4665 1223 50  0000 C CNN
+F 2 "" H 4650 1050 50  0001 C CNN
+F 3 "" H 4650 1050 50  0001 C CNN
+	1    4650 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 1700 4650 1400
+Wire Wire Line
+	4650 1100 4650 1050
+Wire Wire Line
+	4650 2200 4650 2150
+Wire Wire Line
+	2050 2550 2050 2500
+$Comp
+L capacitors:C00001 C?
+U 1 1 5B5FEB96
+P 16000 4850
+F 0 "C?" H 16078 4987 50  0000 L CNN
+F 1 "C00001" H 16000 4850 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 16280 4700 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 16000 4860 50  0001 C CNN
+F 4 "100n" H 16078 4896 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 16078 4805 50  0000 L CNN "Dielectric"
+F 6 "0402" H 16200 4700 50  0001 C CNN "Package"
+F 7 "±10%" H 16110 4710 50  0001 C CNN "Tolerance"
+F 8 "10V" H 16078 4714 50  0000 L CNN "Voltage"
+F 9 "Murata" H 16000 4850 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 16000 4850 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 16000 4850 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 16000 4850 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 16000 4850 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 16000 4850 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 16000 4850 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 16000 4850 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 16000 4850 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 16000 4850 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 16000 4850 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 16000 4850 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 16000 4850 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 16000 4850 50  0001 L CNN "Supplier 3"
+F 23 "" H 16000 4850 50  0001 L CNN "Supplier Part Number 3"
+	1    16000 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	16000 4600 16000 4750
+Wire Wire Line
+	15850 4750 15850 4600
+Wire Wire Line
+	15850 4950 16000 4950
+$Comp
+L power:VBUS #PWR?
+U 1 1 5B600325
+P 16000 4600
+F 0 "#PWR?" H 16000 4450 50  0001 C CNN
+F 1 "VBUS" H 16015 4773 50  0000 C CNN
+F 2 "" H 16000 4600 50  0001 C CNN
+F 3 "" H 16000 4600 50  0001 C CNN
+	1    16000 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B6003BA
+P 14750 5250
+F 0 "#PWR?" H 14750 5000 50  0001 C CNN
+F 1 "GND" H 14755 5077 50  0000 C CNN
+F 2 "" H 14750 5250 50  0001 C CNN
+F 3 "" H 14750 5250 50  0001 C CNN
+	1    14750 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14750 5200 14850 5200
+Wire Wire Line
+	14750 5250 14750 5200
+Wire Wire Line
+	14850 6000 14600 6000
+Wire Wire Line
+	14600 6000 14600 4700
+Wire Wire Line
+	14600 4700 14850 4700
+Wire Wire Line
+	14850 6100 14500 6100
+Wire Wire Line
+	14500 6100 14500 5000
+Wire Wire Line
+	14850 4900 14750 4900
+Connection ~ 14750 5200
+Wire Wire Line
+	14750 4900 14750 5200
+Wire Wire Line
+	14500 5000 14850 5000
+Wire Wire Line
+	14750 4900 14750 4800
+Wire Wire Line
+	14750 4800 14850 4800
+Connection ~ 14750 4900
+$Comp
+L power:GND #PWR?
+U 1 1 5B6059D2
+P 14800 6800
+F 0 "#PWR?" H 14800 6550 50  0001 C CNN
+F 1 "GND" H 14805 6627 50  0000 C CNN
+F 2 "" H 14800 6800 50  0001 C CNN
+F 3 "" H 14800 6800 50  0001 C CNN
+	1    14800 6800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14800 6400 14850 6400
+$Comp
+L misc:M00012 SW?
+U 1 1 5B60ADD7
+P 1500 8300
+F 0 "SW?" H 1500 8585 50  0000 C CNN
+F 1 "M00012" H 1600 7900 50  0001 C CNN
+F 2 "footprints:SW_TL1105JA" H 1500 8300 50  0001 C CNN
+F 3 "http://spec_sheets.e-switch.com/specs/P010205.pdf" H 1500 8300 50  0001 C CNN
+F 4 "SWITCH TACTILE SPST-NO 0.05A 12V" H 1500 8300 50  0001 L CNN "Description"
+F 5 "E-Switch" H 1500 8300 50  0001 L CNN "Manufacturer"
+F 6 "TL1105JAF160Q" H 1500 8494 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 7 "07/05/15 00:00:00" H 1500 8300 50  0001 L CNN "CREATED_ON"
+F 8 "Drawing" H 1500 8300 50  0001 L CNN "ComponentLink1Description"
+F 9 "https://www.e-switch.com/system/asset/product_line/data_sheet/140/TL1105.pdf" H 1500 8300 50  0001 L CNN "ComponentLink2URL"
+F 10 "Series Datasheet" H 1500 8300 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 1500 8300 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 1500 8300 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 1500 8300 50  0001 L CNN "Supplier 1"
+F 14 "EG1863-ND" H 1500 8300 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 1500 8300 50  0001 L CNN "Supplier 2"
+F 16 "" H 1500 8300 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 1500 8300 50  0001 L CNN "Supplier 3"
+F 18 "" H 1500 8300 50  0001 L CNN "Supplier Part Number 3"
+	1    1500 8300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5B60B2DF
+P 5550 1400
+F 0 "#PWR?" H 5550 1250 50  0001 C CNN
+F 1 "+5V" H 5565 1573 50  0000 C CNN
+F 2 "" H 5550 1400 50  0001 C CNN
+F 3 "" H 5550 1400 50  0001 C CNN
+	1    5550 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L ics:U00054 U?
+U 1 1 5B60BEA2
+P 1900 9600
+F 0 "U?" H 1750 9850 50  0000 C CNN
+F 1 "U00054" H 1900 9350 50  0001 C CNN
+F 2 "footprints:SOT_5_950_2900X1600X1100_DIODES" H 1900 9600 50  0001 C CNN
+F 3 "http://www.diodes.com/_files/datasheets/74AHCT1G125.pdf" H 1900 9600 50  0001 C CNN
+F 4 "Diodes" H 1900 9600 50  0001 L CNN "Manufacturer"
+F 5 "74AHCT1G125W5-7" H 2050 9350 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "74AHCT1G125W5-7" H 1900 9600 50  0001 L CNN "Description"
+F 7 "04/29/16 00:00:00" H 1900 9600 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 1900 9600 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 1900 9600 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 1900 9600 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 1900 9600 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 1900 9600 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 1900 9600 50  0001 L CNN "Supplier 1"
+F 14 "74AHCT1G125W5-7DICT-ND" H 1900 9600 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 1900 9600 50  0001 L CNN "Supplier 2"
+F 16 "" H 1900 9600 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 1900 9600 50  0001 L CNN "Supplier 3"
+F 18 "" H 1900 9600 50  0001 L CNN "Supplier Part Number 3"
+	1    1900 9600
+	1    0    0    -1  
+$EndComp
+$Comp
+L leds:LED00006 D?
+U 1 1 5B60C0EB
+P 4050 9600
+F 0 "D?" H 4050 9965 50  0000 C CNN
+F 1 "LED00006" H 3950 9350 50  0001 C CNN
+F 2 "footprints:LED_3535_NEOPIXEL_MINI" H 4050 9600 50  0001 C CNN
+F 3 "https://cdn-shop.adafruit.com/product-files/2686/SK6812MINI_REV.01-1-2.pdf" H 4050 9600 50  0001 C CNN
+F 4 "RGB" H 4050 9600 50  0001 L CNN "COLOR"
+F 5 "5V" H 4050 9600 50  0001 L CNN "Voltage"
+F 6 "" H 4050 9600 50  0001 L CNN "CURRENT"
+F 7 "3535" H 4050 9600 50  0001 L CNN "Package"
+F 8 "DONGGUANG OPSCO OPTOELECTRONICS CO., LTD" H 4050 9600 50  0001 L CNN "Manufacturer"
+F 9 "SK6812MINI" H 4050 9874 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 10 "LED RGB, ADDRESSABLE, 3535" H 4050 9600 50  0001 L CNN "Description"
+F 11 "04/29/16 00:00:00" H 4050 9600 50  0001 L CNN "CREATED_ON"
+F 12 "Datasheet" H 4050 9600 50  0001 L CNN "ComponentLink1Description"
+F 13 "" H 4050 9600 50  0001 L CNN "ComponentLink2URL"
+F 14 "" H 4050 9600 50  0001 L CNN "ComponentLink2Description"
+F 15 "" H 4050 9600 50  0001 L CNN "ComponentLink3URL"
+F 16 "" H 4050 9600 50  0001 L CNN "ComponentLink3Description"
+F 17 "Digi-Key" H 4050 9600 50  0001 L CNN "Supplier 1"
+F 18 "1528-1541-ND" H 4050 9600 50  0001 L CNN "Supplier Part Number 1"
+F 19 "Adafruit" H 4050 9600 50  0001 L CNN "Supplier 2"
+F 20 "2686" H 4050 9600 50  0001 L CNN "Supplier Part Number 2"
+F 21 "" H 4050 9600 50  0001 L CNN "Supplier 3"
+F 22 "" H 4050 9600 50  0001 L CNN "Supplier Part Number 3"
+	1    4050 9600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B60C93B
+P 9150 3500
+F 0 "#PWR?" H 9150 3350 50  0001 C CNN
+F 1 "+3.3V" H 9165 3673 50  0000 C CNN
+F 2 "" H 9150 3500 50  0001 C CNN
+F 3 "" H 9150 3500 50  0001 C CNN
+	1    9150 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B60CA83
+P 7550 6650
+F 0 "#PWR?" H 7550 6400 50  0001 C CNN
+F 1 "GND" H 7555 6477 50  0000 C CNN
+F 2 "" H 7550 6650 50  0001 C CNN
+F 3 "" H 7550 6650 50  0001 C CNN
+	1    7550 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 6650 7550 6600
+Wire Wire Line
+	7550 6200 7650 6200
+Wire Wire Line
+	7650 6300 7550 6300
+Connection ~ 7550 6300
+Wire Wire Line
+	7550 6300 7550 6200
+Wire Wire Line
+	7650 6400 7550 6400
+Connection ~ 7550 6400
+Wire Wire Line
+	7550 6400 7550 6300
+Wire Wire Line
+	7650 6500 7550 6500
+Connection ~ 7550 6500
+Wire Wire Line
+	7550 6500 7550 6400
+Wire Wire Line
+	7650 6600 7550 6600
+Wire Wire Line
+	7550 6600 7550 6500
+Wire Wire Line
+	15650 4600 15850 4600
+$Comp
+L power:GND #PWR?
+U 1 1 5B6186CD
+P 850 4650
+F 0 "#PWR?" H 850 4400 50  0001 C CNN
+F 1 "GND" H 855 4477 50  0000 C CNN
+F 2 "" H 850 4650 50  0001 C CNN
+F 3 "" H 850 4650 50  0001 C CNN
+	1    850  4650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B61870E
+P 850 4150
+F 0 "#PWR?" H 850 4000 50  0001 C CNN
+F 1 "+3.3V" H 865 4323 50  0000 C CNN
+F 2 "" H 850 4150 50  0001 C CNN
+F 3 "" H 850 4150 50  0001 C CNN
+	1    850  4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  4200 850  4200
+Wire Wire Line
+	850  4200 850  4150
+Wire Wire Line
+	900  4300 850  4300
+Wire Wire Line
+	850  4300 850  4400
+Wire Wire Line
+	900  4400 850  4400
+Connection ~ 850  4400
+Wire Wire Line
+	850  4400 850  4600
+Wire Wire Line
+	900  4600 850  4600
+Connection ~ 850  4600
+Wire Wire Line
+	850  4600 850  4650
+NoConn ~ 900  4500
+Wire Wire Line
+	1400 4200 1550 4200
+Wire Wire Line
+	1400 4300 1550 4300
+$Comp
+L resistors:R00016 R?
+U 1 1 5B627348
+P 1550 3950
+F 0 "R?" H 1618 4041 50  0000 L CNN
+F 1 "R00016" H 1550 3950 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 1550 3920 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1550 3950 60  0001 C CNN
+F 4 "100K" H 1618 3950 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 1620 3880 50  0001 L CNN "Power"
+F 6 "0402" H 1550 3980 60  0001 C CNN "Package"
+F 7 "1%" H 1618 3859 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 1550 3950 50  0001 L CNN "Type"
+F 9 "Yageo" H 1550 3950 50  0001 L CNN "Manufacturer"
+F 10 "RC0402JR-07100KL" H 1550 3950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 100K OHM 1/16W 5% 0402 SMD" H 1550 3950 50  0001 L CNN "Description"
+F 12 "09/25/11 00:00:00" H 1550 3950 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 1550 3950 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 1550 3950 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 1550 3950 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 1550 3950 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 1550 3950 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 1550 3950 50  0001 L CNN "Supplier 1"
+F 19 "311-100KJRTR-ND" H 1550 3950 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 1550 3950 50  0001 L CNN "Supplier 2"
+F 21 "311-100KJRCT-ND" H 1550 3950 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 1550 3950 50  0001 L CNN "Supplier 3"
+F 23 "" H 1550 3950 50  0001 L CNN "Supplier Part Number 3"
+	1    1550 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00016 R?
+U 1 1 5B62745E
+P 1550 4850
+F 0 "R?" H 1618 4941 50  0000 L CNN
+F 1 "R00016" H 1550 4850 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 1550 4820 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1550 4850 60  0001 C CNN
+F 4 "100K" H 1618 4850 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 1620 4780 50  0001 L CNN "Power"
+F 6 "0402" H 1550 4880 60  0001 C CNN "Package"
+F 7 "1%" H 1618 4759 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 1550 4850 50  0001 L CNN "Type"
+F 9 "Yageo" H 1550 4850 50  0001 L CNN "Manufacturer"
+F 10 "RC0402JR-07100KL" H 1550 4850 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 100K OHM 1/16W 5% 0402 SMD" H 1550 4850 50  0001 L CNN "Description"
+F 12 "09/25/11 00:00:00" H 1550 4850 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 1550 4850 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 1550 4850 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 1550 4850 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 1550 4850 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 1550 4850 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 1550 4850 50  0001 L CNN "Supplier 1"
+F 19 "311-100KJRTR-ND" H 1550 4850 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 1550 4850 50  0001 L CNN "Supplier 2"
+F 21 "311-100KJRCT-ND" H 1550 4850 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 1550 4850 50  0001 L CNN "Supplier 3"
+F 23 "" H 1550 4850 50  0001 L CNN "Supplier Part Number 3"
+	1    1550 4850
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1400 4400
+NoConn ~ 1400 4500
+Wire Wire Line
+	1550 4200 1550 4100
+Connection ~ 1550 4200
+Wire Wire Line
+	1550 4300 1550 4700
+Connection ~ 1550 4300
+$Comp
+L power:GND #PWR?
+U 1 1 5B62EE16
+P 1550 5050
+F 0 "#PWR?" H 1550 4800 50  0001 C CNN
+F 1 "GND" H 1555 4877 50  0000 C CNN
+F 2 "" H 1550 5050 50  0001 C CNN
+F 3 "" H 1550 5050 50  0001 C CNN
+	1    1550 5050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B62EE5B
+P 1550 3750
+F 0 "#PWR?" H 1550 3600 50  0001 C CNN
+F 1 "+3.3V" H 1565 3923 50  0000 C CNN
+F 2 "" H 1550 3750 50  0001 C CNN
+F 3 "" H 1550 3750 50  0001 C CNN
+	1    1550 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 3800 1550 3750
+Wire Wire Line
+	1550 5050 1550 5000
+Text Label 2000 4200 0    50   ~ 0
+SWDIO
+Text Label 2000 4300 0    50   ~ 0
+SWDCLK
+Text Label 2000 4600 0    50   ~ 0
+NRST
+$Comp
+L resistors:R00014 R?
+U 1 1 5B6336C2
+P 1900 3950
+F 0 "R?" H 1833 3859 50  0000 R CNN
+F 1 "R00014" H 1900 3950 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 1900 3920 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1900 3950 60  0001 C CNN
+F 4 "10K" H 1833 3950 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 1970 3880 50  0001 L CNN "Power"
+F 6 "0402" H 1900 3980 60  0001 C CNN "Package"
+F 7 "1%" H 1833 4041 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 1900 3950 50  0001 L CNN "Type"
+F 9 "Yageo" H 1900 3950 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 1900 3950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 1900 3950 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 1900 3950 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 1900 3950 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 1900 3950 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 1900 3950 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 1900 3950 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 1900 3950 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 1900 3950 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 1900 3950 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 1900 3950 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 1900 3950 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 1900 3950 50  0001 L CNN "Supplier 3"
+F 23 "" H 1900 3950 50  0001 L CNN "Supplier Part Number 3"
+	1    1900 3950
+	-1   0    0    -1  
+$EndComp
+Connection ~ 15850 4600
+Wire Wire Line
+	15850 4600 16000 4600
+Connection ~ 16000 4600
+$Comp
+L power:GND #PWR?
+U 1 1 5B635B13
+P 16000 4950
+F 0 "#PWR?" H 16000 4700 50  0001 C CNN
+F 1 "GND" H 16005 4777 50  0000 C CNN
+F 2 "" H 16000 4950 50  0001 C CNN
+F 3 "" H 16000 4950 50  0001 C CNN
+	1    16000 4950
+	1    0    0    -1  
+$EndComp
+Connection ~ 16000 4950
+$Comp
+L capacitors:C00001 C?
+U 1 1 5B635B6E
+P 1900 4850
+F 0 "C?" H 1978 4987 50  0000 L CNN
+F 1 "C00001" H 1900 4850 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 2180 4700 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 1900 4860 50  0001 C CNN
+F 4 "100n" H 1978 4896 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 1978 4805 50  0000 L CNN "Dielectric"
+F 6 "0402" H 2100 4700 50  0001 C CNN "Package"
+F 7 "±10%" H 2010 4710 50  0001 C CNN "Tolerance"
+F 8 "10V" H 1978 4714 50  0000 L CNN "Voltage"
+F 9 "Murata" H 1900 4850 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 1900 4850 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 1900 4850 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 1900 4850 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 1900 4850 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 1900 4850 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 1900 4850 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 1900 4850 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 1900 4850 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 1900 4850 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 1900 4850 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 1900 4850 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 1900 4850 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 1900 4850 50  0001 L CNN "Supplier 3"
+F 23 "" H 1900 4850 50  0001 L CNN "Supplier Part Number 3"
+	1    1900 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 4600 1900 4600
+Wire Wire Line
+	1900 4750 1900 4600
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B63D0E0
+P 1900 3700
+F 0 "#PWR?" H 1900 3550 50  0001 C CNN
+F 1 "+3.3V" H 1915 3873 50  0000 C CNN
+F 2 "" H 1900 3700 50  0001 C CNN
+F 3 "" H 1900 3700 50  0001 C CNN
+	1    1900 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 3800 1900 3700
+$Comp
+L power:GND #PWR?
+U 1 1 5B63F9C2
+P 1900 5050
+F 0 "#PWR?" H 1900 4800 50  0001 C CNN
+F 1 "GND" H 1905 4877 50  0000 C CNN
+F 2 "" H 1900 5050 50  0001 C CNN
+F 3 "" H 1900 5050 50  0001 C CNN
+	1    1900 5050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 5050 1900 4950
+Text Label 7250 3550 0    50   ~ 0
+NRST
+Wire Wire Line
+	9050 5500 9550 5500
+Wire Wire Line
+	9050 5600 9550 5600
+Text Label 9200 5500 0    50   ~ 0
+SWDIO
+Text Label 9200 5600 0    50   ~ 0
+SWDCLK
+Connection ~ 7550 6600
+Wire Wire Line
+	7650 5900 6350 5900
+Wire Wire Line
+	6350 5900 6350 6250
+Wire Wire Line
+	7650 6000 6750 6000
+Wire Wire Line
+	6750 6000 6750 6250
+$Comp
+L crystals:Y00015 Y?
+U 1 1 5B66AA7F
+P 6550 6250
+F 0 "Y?" H 6500 6400 50  0000 C CNN
+F 1 "Y00015" H 6550 6100 50  0001 C CNN
+F 2 "footprints:XTAL_2_5000X3200X1300_ABRACON" H 6550 6250 50  0001 C CNN
+F 3 "https://abracon.com/Resonators/abm3.pdf" H 6550 6250 50  0001 C CNN
+F 4 "8 MHz" H 6550 6150 50  0000 C CNN "Frequency"
+F 5 "18pF" H 6550 6050 50  0000 C CNN "Capacitance"
+F 6 "20ppm" H 6550 5950 50  0000 C CNN "Tolerance"
+F 7 "5mm x 3.2mm" H 6550 6250 50  0001 L CNN "Package"
+F 8 "Crystal" H 6550 6250 50  0001 L CNN "Type"
+F 9 "Abracon" H 6550 6250 50  0001 L CNN "Manufacturer"
+F 10 "ABM3-8.000MHZ-D2Y-T" H 6550 6250 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CRYSTAL 8.0000MHZ 18PF SMD" H 6550 6250 50  0001 L CNN "Description"
+F 12 "07/29/18 00:00:00" H 6550 6250 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 6550 6250 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6550 6250 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6550 6250 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6550 6250 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6550 6250 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 6550 6250 50  0001 L CNN "Supplier 1"
+F 19 "535-10630-1-ND" H 6550 6250 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 6550 6250 50  0001 L CNN "Supplier 2"
+F 21 "" H 6550 6250 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6550 6250 50  0001 L CNN "Supplier 3"
+F 23 "" H 6550 6250 50  0001 L CNN "Supplier Part Number 3"
+	1    6550 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00033 C?
+U 1 1 5B679D54
+P 6750 6400
+F 0 "C?" H 6672 6263 50  0000 R CNN
+F 1 "C00033" H 6750 6400 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 7030 6250 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM1555C1H220JA01-01.pdf" H 6750 6410 50  0001 C CNN
+F 4 "22p" H 6672 6354 50  0000 R CNN "Capacitance"
+F 5 "C0G" H 6672 6445 50  0000 R CNN "Dielectric"
+F 6 "0402" H 6950 6250 50  0001 C CNN "Package"
+F 7 "±5%" H 6860 6260 50  0001 C CNN "Tolerance"
+F 8 "50V" H 6672 6536 50  0000 R CNN "Voltage"
+F 9 "Murata" H 6750 6400 50  0001 L CNN "Manufacturer"
+F 10 "GRM1555C1H220JA01J" H 6750 6400 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 22PF 50V C0G/NP0 0402" H 6750 6400 50  0001 L CNN "Description"
+F 12 "08/04/17 00:00:00" H 6750 6400 50  0001 L CNN "CREATED_ON"
+F 13 "Spec Sheet" H 6750 6400 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6750 6400 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6750 6400 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6750 6400 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6750 6400 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 6750 6400 50  0001 L CNN "Supplier 1"
+F 19 "490-11382-2-ND" H 6750 6400 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-Key" H 6750 6400 50  0001 L CNN "Supplier 2"
+F 21 "490-11382-1-ND" H 6750 6400 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6750 6400 50  0001 L CNN "Supplier 3"
+F 23 "" H 6750 6400 50  0001 L CNN "Supplier Part Number 3"
+	1    6750 6400
+	-1   0    0    1   
+$EndComp
+$Comp
+L capacitors:C00033 C?
+U 1 1 5B679F8A
+P 6350 6400
+F 0 "C?" H 6272 6263 50  0000 R CNN
+F 1 "C00033" H 6350 6400 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 6630 6250 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM1555C1H220JA01-01.pdf" H 6350 6410 50  0001 C CNN
+F 4 "22p" H 6272 6354 50  0000 R CNN "Capacitance"
+F 5 "C0G" H 6272 6445 50  0000 R CNN "Dielectric"
+F 6 "0402" H 6550 6250 50  0001 C CNN "Package"
+F 7 "±5%" H 6460 6260 50  0001 C CNN "Tolerance"
+F 8 "50V" H 6272 6536 50  0000 R CNN "Voltage"
+F 9 "Murata" H 6350 6400 50  0001 L CNN "Manufacturer"
+F 10 "GRM1555C1H220JA01J" H 6350 6400 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 22PF 50V C0G/NP0 0402" H 6350 6400 50  0001 L CNN "Description"
+F 12 "08/04/17 00:00:00" H 6350 6400 50  0001 L CNN "CREATED_ON"
+F 13 "Spec Sheet" H 6350 6400 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6350 6400 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6350 6400 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6350 6400 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6350 6400 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 6350 6400 50  0001 L CNN "Supplier 1"
+F 19 "490-11382-2-ND" H 6350 6400 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-Key" H 6350 6400 50  0001 L CNN "Supplier 2"
+F 21 "490-11382-1-ND" H 6350 6400 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6350 6400 50  0001 L CNN "Supplier 3"
+F 23 "" H 6350 6400 50  0001 L CNN "Supplier Part Number 3"
+	1    6350 6400
+	1    0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B67A16D
+P 6350 6550
+F 0 "#PWR?" H 6350 6300 50  0001 C CNN
+F 1 "GND" H 6355 6377 50  0000 C CNN
+F 2 "" H 6350 6550 50  0001 C CNN
+F 3 "" H 6350 6550 50  0001 C CNN
+	1    6350 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B67A1BA
+P 6750 6550
+F 0 "#PWR?" H 6750 6300 50  0001 C CNN
+F 1 "GND" H 6755 6377 50  0000 C CNN
+F 2 "" H 6750 6550 50  0001 C CNN
+F 3 "" H 6750 6550 50  0001 C CNN
+	1    6750 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 6550 6350 6500
+Connection ~ 6350 6250
+Wire Wire Line
+	6350 6300 6350 6250
+Wire Wire Line
+	6750 6300 6750 6250
+Connection ~ 6750 6250
+Wire Wire Line
+	6750 6550 6750 6500
+$Comp
+L resistors:R00014 R?
+U 1 1 5B686B37
+P 2150 8300
+F 0 "R?" V 1855 8300 50  0000 C CNN
+F 1 "R00014" H 2150 8300 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 2150 8270 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2150 8300 60  0001 C CNN
+F 4 "10K" V 1946 8300 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 2220 8230 50  0001 L CNN "Power"
+F 6 "0402" H 2150 8330 60  0001 C CNN "Package"
+F 7 "1%" V 2037 8300 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 2150 8300 50  0001 L CNN "Type"
+F 9 "Yageo" H 2150 8300 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 2150 8300 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2150 8300 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 2150 8300 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 2150 8300 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 2150 8300 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 2150 8300 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 2150 8300 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 2150 8300 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 2150 8300 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 2150 8300 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 2150 8300 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 2150 8300 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 2150 8300 50  0001 L CNN "Supplier 3"
+F 23 "" H 2150 8300 50  0001 L CNN "Supplier Part Number 3"
+	1    2150 8300
+	0    -1   1    0   
+$EndComp
+$Comp
+L resistors:R00014 R?
+U 1 1 5B686C54
+P 2000 8600
+F 0 "R?" H 1932 8691 50  0000 R CNN
+F 1 "R00014" H 2000 8600 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 2000 8570 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2000 8600 60  0001 C CNN
+F 4 "10K" H 1932 8600 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 2070 8530 50  0001 L CNN "Power"
+F 6 "0402" H 2000 8630 60  0001 C CNN "Package"
+F 7 "1%" H 1932 8509 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 2000 8600 50  0001 L CNN "Type"
+F 9 "Yageo" H 2000 8600 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 2000 8600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2000 8600 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 2000 8600 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 2000 8600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 2000 8600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 2000 8600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 2000 8600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 2000 8600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 2000 8600 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 2000 8600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 2000 8600 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 2000 8600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 2000 8600 50  0001 L CNN "Supplier 3"
+F 23 "" H 2000 8600 50  0001 L CNN "Supplier Part Number 3"
+	1    2000 8600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5B686D5E
+P 2450 8600
+F 0 "C?" H 2528 8737 50  0000 L CNN
+F 1 "C00001" H 2450 8600 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 2730 8450 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 2450 8610 50  0001 C CNN
+F 4 "100n" H 2528 8646 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 2528 8555 50  0000 L CNN "Dielectric"
+F 6 "0402" H 2650 8450 50  0001 C CNN "Package"
+F 7 "±10%" H 2560 8460 50  0001 C CNN "Tolerance"
+F 8 "10V" H 2528 8464 50  0000 L CNN "Voltage"
+F 9 "Murata" H 2450 8600 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 2450 8600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 2450 8600 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 2450 8600 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 2450 8600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 2450 8600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 2450 8600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 2450 8600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 2450 8600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 2450 8600 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 2450 8600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 2450 8600 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 2450 8600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 2450 8600 50  0001 L CNN "Supplier 3"
+F 23 "" H 2450 8600 50  0001 L CNN "Supplier Part Number 3"
+	1    2450 8600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B69385C
+P 1050 8100
+F 0 "#PWR?" H 1050 7950 50  0001 C CNN
+F 1 "+3.3V" H 1065 8273 50  0000 C CNN
+F 2 "" H 1050 8100 50  0001 C CNN
+F 3 "" H 1050 8100 50  0001 C CNN
+	1    1050 8100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 8300 2450 8500
+Wire Wire Line
+	2000 8450 2000 8300
+Wire Wire Line
+	1300 8300 1050 8300
+Wire Wire Line
+	1050 8300 1050 8100
+$Comp
+L power:GND #PWR?
+U 1 1 5B6A7AFF
+P 2000 8850
+F 0 "#PWR?" H 2000 8600 50  0001 C CNN
+F 1 "GND" H 2005 8677 50  0000 C CNN
+F 2 "" H 2000 8850 50  0001 C CNN
+F 3 "" H 2000 8850 50  0001 C CNN
+	1    2000 8850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B6A7B52
+P 2450 8850
+F 0 "#PWR?" H 2450 8600 50  0001 C CNN
+F 1 "GND" H 2455 8677 50  0000 C CNN
+F 2 "" H 2450 8850 50  0001 C CNN
+F 3 "" H 2450 8850 50  0001 C CNN
+	1    2450 8850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B6A7BA5
+P 1250 8550
+F 0 "#PWR?" H 1250 8300 50  0001 C CNN
+F 1 "GND" H 1255 8377 50  0000 C CNN
+F 2 "" H 1250 8550 50  0001 C CNN
+F 3 "" H 1250 8550 50  0001 C CNN
+	1    1250 8550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 8450 1250 8450
+Wire Wire Line
+	1250 8450 1250 8550
+Wire Wire Line
+	1250 8550 1700 8550
+Wire Wire Line
+	1700 8550 1700 8450
+Connection ~ 1250 8550
+Wire Wire Line
+	2000 8750 2000 8850
+Wire Wire Line
+	2450 8850 2450 8700
+$Comp
+L power:+5V #PWR?
+U 1 1 5B6C26B6
+P 12850 3950
+F 0 "#PWR?" H 12850 3800 50  0001 C CNN
+F 1 "+5V" H 12865 4123 50  0000 C CNN
+F 2 "" H 12850 3950 50  0001 C CNN
+F 3 "" H 12850 3950 50  0001 C CNN
+	1    12850 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B6C27A4
+P 11950 4800
+F 0 "#PWR?" H 11950 4550 50  0001 C CNN
+F 1 "GND" H 11955 4627 50  0000 C CNN
+F 2 "" H 11950 4800 50  0001 C CNN
+F 3 "" H 11950 4800 50  0001 C CNN
+	1    11950 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12800 4050 12850 4050
+Wire Wire Line
+	12850 4050 12850 3950
+Wire Wire Line
+	12000 4250 11950 4250
+Wire Wire Line
+	11950 4250 11950 4750
+Wire Wire Line
+	12000 4750 11950 4750
+Connection ~ 11950 4750
+Wire Wire Line
+	11950 4750 11950 4800
+Wire Wire Line
+	14750 3000 14750 1850
+Wire Wire Line
+	14750 1650 14850 1650
+Wire Wire Line
+	14650 3100 14650 1950
+Wire Wire Line
+	14650 1950 14850 1950
+Wire Wire Line
+	14650 3100 14850 3100
+Wire Wire Line
+	14500 1200 14500 2800
+Wire Wire Line
+	14500 2800 14850 2800
+Wire Wire Line
+	14500 1200 15750 1200
+Wire Wire Line
+	15750 1200 15750 1550
+Wire Wire Line
+	15750 1550 15650 1550
+$Comp
+L power:GND #PWR?
+U 1 1 5B6EA3EF
+P 14850 2250
+F 0 "#PWR?" H 14850 2000 50  0001 C CNN
+F 1 "GND" H 14855 2077 50  0000 C CNN
+F 2 "" H 14850 2250 50  0001 C CNN
+F 3 "" H 14850 2250 50  0001 C CNN
+	1    14850 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14850 2250 14850 2150
+$Comp
+L capacitors:C00001 C?
+U 1 1 5B6FDCEA
+P 15750 1750
+F 0 "C?" H 15828 1887 50  0000 L CNN
+F 1 "C00001" H 15750 1750 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 16030 1600 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 15750 1760 50  0001 C CNN
+F 4 "100n" H 15828 1796 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 15828 1705 50  0000 L CNN "Dielectric"
+F 6 "0402" H 15950 1600 50  0001 C CNN "Package"
+F 7 "±10%" H 15860 1610 50  0001 C CNN "Tolerance"
+F 8 "10V" H 15828 1614 50  0000 L CNN "Voltage"
+F 9 "Murata" H 15750 1750 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 15750 1750 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 15750 1750 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 15750 1750 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 15750 1750 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15750 1750 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15750 1750 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15750 1750 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15750 1750 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 15750 1750 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 15750 1750 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 15750 1750 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 15750 1750 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15750 1750 50  0001 L CNN "Supplier 3"
+F 23 "" H 15750 1750 50  0001 L CNN "Supplier Part Number 3"
+	1    15750 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B6FDD90
+P 15750 1950
+F 0 "#PWR?" H 15750 1700 50  0001 C CNN
+F 1 "GND" H 15755 1777 50  0000 C CNN
+F 2 "" H 15750 1950 50  0001 C CNN
+F 3 "" H 15750 1950 50  0001 C CNN
+	1    15750 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	15750 1950 15750 1850
+Wire Wire Line
+	15750 1650 15750 1550
+Connection ~ 15750 1550
+Text Label 13300 1200 0    50   ~ 0
+HOST_VBUS
+Wire Wire Line
+	15650 5900 15700 5900
+Wire Wire Line
+	15700 5900 15700 6000
+Wire Wire Line
+	15700 6400 15650 6400
+Wire Wire Line
+	15650 6300 15700 6300
+Connection ~ 15700 6300
+Wire Wire Line
+	15700 6300 15700 6400
+Wire Wire Line
+	15650 6200 15700 6200
+Connection ~ 15700 6200
+Wire Wire Line
+	15700 6200 15700 6300
+Wire Wire Line
+	15700 6100 15650 6100
+Connection ~ 15700 6100
+Wire Wire Line
+	15700 6100 15700 6200
+Wire Wire Line
+	15650 6000 15700 6000
+Connection ~ 15700 6000
+Wire Wire Line
+	15700 6000 15700 6100
+$Comp
+L power:+5V #PWR?
+U 1 1 5B73CA69
+P 12250 1150
+F 0 "#PWR?" H 12250 1000 50  0001 C CNN
+F 1 "+5V" H 12265 1323 50  0000 C CNN
+F 2 "" H 12250 1150 50  0001 C CNN
+F 3 "" H 12250 1150 50  0001 C CNN
+	1    12250 1150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12300 1200 12250 1200
+Wire Wire Line
+	12250 1200 12250 1150
+$Comp
+L power:GND #PWR?
+U 1 1 5B74DDC3
+P 12250 1550
+F 0 "#PWR?" H 12250 1300 50  0001 C CNN
+F 1 "GND" H 12255 1377 50  0000 C CNN
+F 2 "" H 12250 1550 50  0001 C CNN
+F 3 "" H 12250 1550 50  0001 C CNN
+	1    12250 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12300 1500 12250 1500
+Wire Wire Line
+	12250 1500 12250 1550
+$Comp
+L resistors:R00014 R?
+U 1 1 5B753DE5
+P 13200 950
+F 0 "R?" H 13268 1041 50  0000 L CNN
+F 1 "R00014" H 13200 950 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 13200 920 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 13200 950 60  0001 C CNN
+F 4 "10K" H 13268 950 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 13270 880 50  0001 L CNN "Power"
+F 6 "0402" H 13200 980 60  0001 C CNN "Package"
+F 7 "1%" H 13268 859 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 13200 950 50  0001 L CNN "Type"
+F 9 "Yageo" H 13200 950 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 13200 950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 13200 950 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 13200 950 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 13200 950 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 13200 950 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 13200 950 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 13200 950 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 13200 950 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 13200 950 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 13200 950 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 13200 950 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 13200 950 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 13200 950 50  0001 L CNN "Supplier 3"
+F 23 "" H 13200 950 50  0001 L CNN "Supplier Part Number 3"
+	1    13200 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13200 1400 13200 1100
+Wire Wire Line
+	13100 1400 13200 1400
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B760091
+P 13200 750
+F 0 "#PWR?" H 13200 600 50  0001 C CNN
+F 1 "+3.3V" H 13215 923 50  0000 C CNN
+F 2 "" H 13200 750 50  0001 C CNN
+F 3 "" H 13200 750 50  0001 C CNN
+	1    13200 750 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13200 750  13200 800 
+Connection ~ 13200 1400
+Text Label 13300 1400 0    50   ~ 0
+HOST_FAULT_N
+Wire Wire Line
+	13200 1400 13850 1400
+$Comp
+L resistors:R00016 R?
+U 1 1 5B78B94B
+P 13800 1700
+F 0 "R?" H 13868 1791 50  0000 L CNN
+F 1 "R00016" H 13800 1700 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 13800 1670 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 13800 1700 60  0001 C CNN
+F 4 "100K" H 13868 1700 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 13870 1630 50  0001 L CNN "Power"
+F 6 "0402" H 13800 1730 60  0001 C CNN "Package"
+F 7 "1%" H 13868 1609 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 13800 1700 50  0001 L CNN "Type"
+F 9 "Yageo" H 13800 1700 50  0001 L CNN "Manufacturer"
+F 10 "RC0402JR-07100KL" H 13800 1700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 100K OHM 1/16W 5% 0402 SMD" H 13800 1700 50  0001 L CNN "Description"
+F 12 "09/25/11 00:00:00" H 13800 1700 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 13800 1700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 13800 1700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 13800 1700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 13800 1700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 13800 1700 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 13800 1700 50  0001 L CNN "Supplier 1"
+F 19 "311-100KJRTR-ND" H 13800 1700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 13800 1700 50  0001 L CNN "Supplier 2"
+F 21 "311-100KJRCT-ND" H 13800 1700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 13800 1700 50  0001 L CNN "Supplier 3"
+F 23 "" H 13800 1700 50  0001 L CNN "Supplier Part Number 3"
+	1    13800 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B78BC40
+P 13800 1900
+F 0 "#PWR?" H 13800 1650 50  0001 C CNN
+F 1 "GND" H 13805 1727 50  0000 C CNN
+F 2 "" H 13800 1900 50  0001 C CNN
+F 3 "" H 13800 1900 50  0001 C CNN
+	1    13800 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13800 1900 13800 1850
+Wire Wire Line
+	13800 1550 13800 1500
+Text Label 13300 1500 0    50   ~ 0
+HOST_ILIM
+Text Label 4100 1700 0    50   ~ 0
+VIN_FAULT_N
+Text Label 4100 1800 0    50   ~ 0
+VIN_ILIM
+Wire Wire Line
+	4050 1800 4650 1800
+Wire Wire Line
+	4050 1700 4650 1700
+Wire Wire Line
+	13100 1500 13800 1500
+Wire Wire Line
+	14750 3000 14850 3000
+Text Label 9200 5300 0    50   ~ 0
+STM32_DM
+Text Label 9200 5400 0    50   ~ 0
+STM32_DP
+Connection ~ 2000 8300
+Wire Wire Line
+	2300 8300 2450 8300
+Connection ~ 2450 8300
+Wire Wire Line
+	2450 8300 2750 8300
+$Comp
+L power:GND #PWR?
+U 1 1 5B852515
+P 7000 10000
+F 0 "#PWR?" H 7000 9750 50  0001 C CNN
+F 1 "GND" H 7005 9827 50  0000 C CNN
+F 2 "" H 7000 10000 50  0001 C CNN
+F 3 "" H 7000 10000 50  0001 C CNN
+	1    7000 10000
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7000 8850 7000 9550
+Wire Wire Line
+	6950 9950 7000 9950
+Connection ~ 7000 9950
+Wire Wire Line
+	7000 9950 7000 10000
+Wire Wire Line
+	6950 9450 7050 9450
+Wire Wire Line
+	7050 9450 7050 8750
+Wire Wire Line
+	6950 9750 7100 9750
+Wire Wire Line
+	7100 9750 7100 8550
+Connection ~ 7050 8750
+Wire Wire Line
+	7100 8550 7250 8550
+Connection ~ 7100 8550
+Text Label 2350 9600 0    50   ~ 0
+LED_DATA_R
+$Comp
+L resistors:R00037 R?
+U 1 1 5B8919EE
+P 3000 9600
+F 0 "R?" V 2705 9600 50  0000 C CNN
+F 1 "R00037" H 3000 9600 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 3000 9570 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 3000 9600 60  0001 C CNN
+F 4 "240R" V 2796 9600 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 3070 9530 50  0001 L CNN "Power"
+F 6 "0402" H 3000 9630 60  0001 C CNN "Package"
+F 7 "1%" V 2887 9600 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 3000 9600 50  0001 L CNN "Type"
+F 9 "Yageo" H 3000 9600 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-07240R1L" H 3000 9600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 240 OHM 1/16W 1% 0402 SMD" H 3000 9600 50  0001 L CNN "Description"
+F 12 "07/24/17 00:00:00" H 3000 9600 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 3000 9600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 3000 9600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 3000 9600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 3000 9600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 3000 9600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 3000 9600 50  0001 L CNN "Supplier 1"
+F 19 "311-240LRTR-ND" H 3000 9600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 3000 9600 50  0001 L CNN "Supplier 2"
+F 21 "311-240LRCT-ND" H 3000 9600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 3000 9600 50  0001 L CNN "Supplier 3"
+F 23 "" H 3000 9600 50  0001 L CNN "Supplier Part Number 3"
+	1    3000 9600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3150 9600 3650 9600
+Wire Wire Line
+	2850 9600 2200 9600
+Text Label 3200 9600 0    50   ~ 0
+LED_DATA
+Text Label 950  9600 0    50   ~ 0
+LED_DATA_LS
+$Comp
+L power:GND #PWR?
+U 1 1 5B8AAF5D
+P 1550 9750
+F 0 "#PWR?" H 1550 9500 50  0001 C CNN
+F 1 "GND" H 1555 9577 50  0000 C CNN
+F 2 "" H 1550 9750 50  0001 C CNN
+F 3 "" H 1550 9750 50  0001 C CNN
+	1    1550 9750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 9750 1550 9700
+Wire Wire Line
+	1550 9500 1600 9500
+Wire Wire Line
+	1600 9700 1550 9700
+Connection ~ 1550 9700
+Wire Wire Line
+	1550 9700 1550 9500
+Wire Wire Line
+	1600 9600 900  9600
+$Comp
+L power:GND #PWR?
+U 1 1 5B8C4F6F
+P 3600 9750
+F 0 "#PWR?" H 3600 9500 50  0001 C CNN
+F 1 "GND" H 3605 9577 50  0000 C CNN
+F 2 "" H 3600 9750 50  0001 C CNN
+F 3 "" H 3600 9750 50  0001 C CNN
+	1    3600 9750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 9750 3600 9700
+Wire Wire Line
+	3600 9700 3650 9700
+$Comp
+L power:+5V #PWR?
+U 1 1 5B8CE13A
+P 2250 9450
+F 0 "#PWR?" H 2250 9300 50  0001 C CNN
+F 1 "+5V" H 2265 9623 50  0000 C CNN
+F 2 "" H 2250 9450 50  0001 C CNN
+F 3 "" H 2250 9450 50  0001 C CNN
+	1    2250 9450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5B8CE34D
+P 4500 9450
+F 0 "#PWR?" H 4500 9300 50  0001 C CNN
+F 1 "+5V" H 4515 9623 50  0000 C CNN
+F 2 "" H 4500 9450 50  0001 C CNN
+F 3 "" H 4500 9450 50  0001 C CNN
+	1    4500 9450
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 9500 4500 9500
+Wire Wire Line
+	4500 9500 4500 9450
+Wire Wire Line
+	2200 9500 2250 9500
+Wire Wire Line
+	2250 9500 2250 9450
+$Comp
+L capacitors:C00007 C?
+U 1 1 5B8F4A79
+P 6950 4050
+F 0 "C?" H 6872 3913 50  0000 R CNN
+F 1 "C00007" H 6950 4050 50  0001 C CNN
+F 2 "footprints:C_0603_1608M" H 7230 3900 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM188R60J475ME19.pdf" H 6950 4060 50  0001 C CNN
+F 4 "4u7" H 6872 4004 50  0000 R CNN "Capacitance"
+F 5 "X5R" H 6872 4095 50  0000 R CNN "Dielectric"
+F 6 "0603" H 7150 3900 50  0001 C CNN "Package"
+F 7 "±20%" H 7060 3910 50  0001 C CNN "Tolerance"
+F 8 "6.3V" H 6872 4186 50  0000 R CNN "Voltage"
+F 9 "Murata" H 6950 4050 50  0001 L CNN "Manufacturer"
+F 10 "GRM188R60J475ME19D" H 6950 4050 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 4.7UF 6.3V X5R 0603" H 6950 4050 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 6950 4050 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 6950 4050 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6950 4050 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6950 4050 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6950 4050 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6950 4050 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 6950 4050 50  0001 L CNN "Supplier 1"
+F 19 "490-5421-2-ND" H 6950 4050 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 6950 4050 50  0001 L CNN "Supplier 2"
+F 21 "490-5421-1-ND" H 6950 4050 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6950 4050 50  0001 L CNN "Supplier 3"
+F 23 "" H 6950 4050 50  0001 L CNN "Supplier Part Number 3"
+	1    6950 4050
+	1    0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B8F4F0B
+P 6950 4200
+F 0 "#PWR?" H 6950 3950 50  0001 C CNN
+F 1 "GND" H 6955 4027 50  0000 C CNN
+F 2 "" H 6950 4200 50  0001 C CNN
+F 3 "" H 6950 4200 50  0001 C CNN
+	1    6950 4200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 4100 6950 4050
+Wire Wire Line
+	6950 3850 7100 3850
+Text Label 7100 3850 0    50   ~ 0
+VCAP
+Text Label 2700 8300 2    50   ~ 0
+BTN
+Text Label 1950 8300 2    50   ~ 0
+BTN_R
+Wire Wire Line
+	1700 8300 2000 8300
+$Comp
+L resistors:R00014 R?
+U 1 1 5B9385F6
+P 8550 8550
+F 0 "R?" V 8500 8750 50  0000 C CNN
+F 1 "R00014" H 8550 8550 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 8550 8520 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 8550 8550 60  0001 C CNN
+F 4 "10K" V 8600 8750 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 8620 8480 50  0001 L CNN "Power"
+F 6 "0402" H 8550 8580 60  0001 C CNN "Package"
+F 7 "1%" V 8600 8400 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 8550 8550 50  0001 L CNN "Type"
+F 9 "Yageo" H 8550 8550 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 8550 8550 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 8550 8550 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 8550 8550 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 8550 8550 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 8550 8550 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 8550 8550 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 8550 8550 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 8550 8550 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 8550 8550 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 8550 8550 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 8550 8550 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 8550 8550 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 8550 8550 50  0001 L CNN "Supplier 3"
+F 23 "" H 8550 8550 50  0001 L CNN "Supplier Part Number 3"
+	1    8550 8550
+	0    -1   1    0   
+$EndComp
+$Comp
+L resistors:R00014 R?
+U 1 1 5B938611
+P 7250 8300
+F 0 "R?" H 7182 8391 50  0000 R CNN
+F 1 "R00014" H 7250 8300 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 7250 8270 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 7250 8300 60  0001 C CNN
+F 4 "10K" H 7182 8300 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 7320 8230 50  0001 L CNN "Power"
+F 6 "0402" H 7250 8330 60  0001 C CNN "Package"
+F 7 "1%" H 7182 8209 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 7250 8300 50  0001 L CNN "Type"
+F 9 "Yageo" H 7250 8300 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 7250 8300 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 7250 8300 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 7250 8300 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 7250 8300 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 7250 8300 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 7250 8300 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 7250 8300 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 7250 8300 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 7250 8300 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 7250 8300 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 7250 8300 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 7250 8300 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 7250 8300 50  0001 L CNN "Supplier 3"
+F 23 "" H 7250 8300 50  0001 L CNN "Supplier Part Number 3"
+	1    7250 8300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5B93862C
+P 8850 9050
+F 0 "C?" H 8928 9187 50  0000 L CNN
+F 1 "C00001" H 8850 9050 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 9130 8900 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 8850 9060 50  0001 C CNN
+F 4 "100n" H 8928 9096 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 8928 9005 50  0000 L CNN "Dielectric"
+F 6 "0402" H 9050 8900 50  0001 C CNN "Package"
+F 7 "±10%" H 8960 8910 50  0001 C CNN "Tolerance"
+F 8 "10V" H 8928 8914 50  0000 L CNN "Voltage"
+F 9 "Murata" H 8850 9050 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 8850 9050 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 8850 9050 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 8850 9050 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 8850 9050 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 8850 9050 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 8850 9050 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 8850 9050 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 8850 9050 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 8850 9050 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 8850 9050 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 8850 9050 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 8850 9050 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 8850 9050 50  0001 L CNN "Supplier 3"
+F 23 "" H 8850 9050 50  0001 L CNN "Supplier Part Number 3"
+	1    8850 9050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B93863B
+P 8850 9300
+F 0 "#PWR?" H 8850 9050 50  0001 C CNN
+F 1 "GND" H 8855 9127 50  0000 C CNN
+F 2 "" H 8850 9300 50  0001 C CNN
+F 3 "" H 8850 9300 50  0001 C CNN
+	1    8850 9300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8850 9300 8850 9150
+$Comp
+L connectors:CN00052 P?
+U 1 1 5B9448B4
+P 1050 6600
+F 0 "P?" H 969 5985 50  0000 C CNN
+F 1 "CN00052" H 1000 6150 50  0001 C CNN
+F 2 "footprints:P_FCI_68000-206" H 1050 6550 50  0001 C CNN
+F 3 "http://portal.fciconnect.com/Comergent//fci/drawing/68000.pdf" H 1050 6550 50  0001 C CNN
+F 4 "FCI" H 1050 6600 50  0001 L CNN "Manufacturer"
+F 5 "68000-206HLF" H 969 6076 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "BERGSTIK II 6POS .100\" SR STRAIGHT" H 1050 6600 50  0001 L CNN "Description"
+F 7 "07/31/18 00:00:00" H 1050 6600 50  0001 L CNN "CREATED_ON"
+F 8 "Drawing" H 1050 6600 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 1050 6600 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 1050 6600 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 1050 6600 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 1050 6600 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 1050 6600 50  0001 L CNN "Supplier 1"
+F 14 "609-3256-ND" H 1050 6600 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 1050 6600 50  0001 L CNN "Supplier 2"
+F 16 "" H 1050 6600 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 1050 6600 50  0001 L CNN "Supplier 3"
+F 18 "" H 1050 6600 50  0001 L CNN "Supplier Part Number 3"
+	1    1050 6600
+	-1   0    0    1   
+$EndComp
+Text Label 1750 6400 0    50   ~ 0
+UART_RX
+Text Label 1750 6300 0    50   ~ 0
+UART_TX
+$Comp
+L power:GND #PWR?
+U 1 1 5B94558C
+P 1300 6750
+F 0 "#PWR?" H 1300 6500 50  0001 C CNN
+F 1 "GND" H 1305 6577 50  0000 C CNN
+F 2 "" H 1300 6750 50  0001 C CNN
+F 3 "" H 1300 6750 50  0001 C CNN
+	1    1300 6750
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1250 6700 1300 6700
+Wire Wire Line
+	1300 6700 1300 6750
+Wire Wire Line
+	1250 6400 1500 6400
+$Comp
+L resistors:R00014 R?
+U 1 1 5B96FBD1
+P 1500 6100
+F 0 "R?" H 1432 6191 50  0000 R CNN
+F 1 "R00014" H 1500 6100 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 1500 6070 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1500 6100 60  0001 C CNN
+F 4 "10K" H 1432 6100 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 1570 6030 50  0001 L CNN "Power"
+F 6 "0402" H 1500 6130 60  0001 C CNN "Package"
+F 7 "1%" H 1432 6009 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 1500 6100 50  0001 L CNN "Type"
+F 9 "Yageo" H 1500 6100 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 1500 6100 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 1500 6100 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 1500 6100 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 1500 6100 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 1500 6100 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 1500 6100 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 1500 6100 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 1500 6100 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 1500 6100 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 1500 6100 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 1500 6100 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 1500 6100 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 1500 6100 50  0001 L CNN "Supplier 3"
+F 23 "" H 1500 6100 50  0001 L CNN "Supplier Part Number 3"
+	1    1500 6100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B97A91C
+P 1500 5900
+F 0 "#PWR?" H 1500 5750 50  0001 C CNN
+F 1 "+3.3V" H 1515 6073 50  0000 C CNN
+F 2 "" H 1500 5900 50  0001 C CNN
+F 3 "" H 1500 5900 50  0001 C CNN
+	1    1500 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 5950 1500 5900
+Wire Wire Line
+	1500 6250 1500 6400
+Connection ~ 1500 6400
+Wire Wire Line
+	1500 6400 2150 6400
+Wire Wire Line
+	1250 6300 2150 6300
+$Comp
+L transistors:Q00002 Q?
+U 1 1 5B9D8EF8
+P 10950 8400
+F 0 "Q?" H 11137 8400 50  0000 L CNN
+F 1 "Q00002" H 11700 8350 50  0001 C CNN
+F 2 "footprints:SOT_6_650_2150X1300x1100_DIODES" H 11150 8400 50  0001 C CNN
+F 3 "http://www.diodes.com/datasheets/DMN63D8LDW.pdf" H 11150 8400 50  0001 C CNN
+F 4 "N-FET" H 10950 8400 50  0001 L CNN "Type"
+F 5 "300mW" H 10950 8400 50  0001 L CNN "Power"
+F 6 "30V" H 10950 8400 50  0001 L CNN "Vdss"
+F 7 "1.5V" H 10950 8400 50  0001 L CNN "Vgsth"
+F 8 "220mA" H 10950 8400 50  0001 L CNN "Id"
+F 9 "2" H 10950 8400 50  0001 L CNN "NUMBER"
+F 10 "Diodes Inc" H 10950 8400 50  0001 L CNN "Manufacturer"
+F 11 "DMN63D8LDW-7" H 11150 8300 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
+F 12 "MOSFET 2N-CH 30V 220MA SOT363" H 10950 8400 50  0001 L CNN "Description"
+F 13 "07/08/15 00:00:00" H 10950 8400 50  0001 L CNN "CREATED_ON"
+F 14 "Datasheet" H 10950 8400 50  0001 L CNN "ComponentLink1Description"
+F 15 "Digi-Key" H 10950 8400 50  0001 L CNN "Supplier 1"
+F 16 "DMN63D8LDW-7CT-ND" H 10950 8400 50  0001 L CNN "Supplier Part Number 1"
+	1    10950 8400
+	1    0    0    -1  
+$EndComp
+$Comp
+L transistors:Q00002 Q?
+U 2 1 5B9D9127
+P 11750 8950
+F 0 "Q?" H 11937 8996 50  0000 L CNN
+F 1 "Q00002" H 12500 8900 50  0001 C CNN
+F 2 "footprints:SOT_6_650_2150X1300x1100_DIODES" H 11950 8950 50  0001 C CNN
+F 3 "http://www.diodes.com/datasheets/DMN63D8LDW.pdf" H 11950 8950 50  0001 C CNN
+F 4 "N-FET" H 11750 8950 50  0001 L CNN "Type"
+F 5 "300mW" H 11750 8950 50  0001 L CNN "Power"
+F 6 "30V" H 11750 8950 50  0001 L CNN "Vdss"
+F 7 "1.5V" H 11750 8950 50  0001 L CNN "Vgsth"
+F 8 "220mA" H 11750 8950 50  0001 L CNN "Id"
+F 9 "2" H 11750 8950 50  0001 L CNN "NUMBER"
+F 10 "Diodes Inc" H 11750 8950 50  0001 L CNN "Manufacturer"
+F 11 "DMN63D8LDW-7" H 11937 8905 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
+F 12 "MOSFET 2N-CH 30V 220MA SOT363" H 11750 8950 50  0001 L CNN "Description"
+F 13 "07/08/15 00:00:00" H 11750 8950 50  0001 L CNN "CREATED_ON"
+F 14 "Datasheet" H 11750 8950 50  0001 L CNN "ComponentLink1Description"
+F 15 "" H 11750 8950 50  0001 L CNN "ComponentLink2URL"
+F 16 "" H 11750 8950 50  0001 L CNN "ComponentLink2Description"
+F 17 "" H 11750 8950 50  0001 L CNN "ComponentLink3URL"
+F 18 "" H 11750 8950 50  0001 L CNN "ComponentLink3Description"
+F 19 "Digi-Key" H 11750 8950 50  0001 L CNN "Supplier 1"
+F 20 "DMN63D8LDW-7CT-ND" H 11750 8950 50  0001 L CNN "Supplier Part Number 1"
+F 21 "" H 11750 8950 50  0001 L CNN "Supplier 2"
+F 22 "" H 11750 8950 50  0001 L CNN "Supplier Part Number 2"
+F 23 "" H 11750 8950 50  0001 L CNN "Supplier 3"
+F 24 "" H 11750 8950 50  0001 L CNN "Supplier Part Number 3"
+F 25 "" H 11750 8950 50  0001 L CNN "Ic"
+F 26 "" H 11750 8950 50  0001 L CNN "Vce"
+F 27 "" H 11750 8950 50  0001 L CNN "hFE"
+	2    11750 8950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11900 7700 11850 7700
+Wire Wire Line
+	11850 7700 11850 7500
+Wire Wire Line
+	11900 7500 11850 7500
+Connection ~ 11850 7500
+Wire Wire Line
+	11850 7500 11850 7150
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5B9FDFC6
+P 11850 7150
+F 0 "#PWR?" H 11850 7000 50  0001 C CNN
+F 1 "+3.3V" H 11865 7323 50  0000 C CNN
+F 2 "" H 11850 7150 50  0001 C CNN
+F 3 "" H 11850 7150 50  0001 C CNN
+	1    11850 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00079 R?
+U 1 1 5B9FE0E6
+P 11850 8250
+F 0 "R?" H 11918 8341 50  0000 L CNN
+F 1 "R00079" H 11850 8250 50  0001 C CNN
+F 2 "footprints:R_0603_1608M" H 11850 8220 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_2.pdf" H 11850 8250 60  0001 C CNN
+F 4 "100R" H 11918 8250 50  0000 L CNN "Resistance"
+F 5 "1/10W" H 11920 8180 50  0001 L CNN "Power"
+F 6 "0603" H 11850 8280 60  0001 C CNN "Package"
+F 7 "1%" H 11918 8159 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 11850 8250 50  0001 L CNN "Type"
+F 9 "Yageo" H 11850 8250 50  0001 L CNN "Manufacturer"
+F 10 "RC0603FR-07100RL" H 11850 8250 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES SMD 100 OHM 1% 1/10W 0603" H 11850 8250 50  0001 L CNN "Description"
+F 12 "07/15/15 00:00:00" H 11850 8250 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 11850 8250 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 11850 8250 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 11850 8250 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 11850 8250 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 11850 8250 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 11850 8250 50  0001 L CNN "Supplier 1"
+F 19 "311-100HRCT-ND" H 11850 8250 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 11850 8250 50  0001 L CNN "Supplier 2"
+F 21 "311-100HRTR-ND" H 11850 8250 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 11850 8250 50  0001 L CNN "Supplier 3"
+F 23 "" H 11850 8250 50  0001 L CNN "Supplier Part Number 3"
+	1    11850 8250
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00079 R?
+U 1 1 5B9FE226
+P 11050 8000
+F 0 "R?" H 11118 8091 50  0000 L CNN
+F 1 "R00079" H 11050 8000 50  0001 C CNN
+F 2 "footprints:R_0603_1608M" H 11050 7970 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_2.pdf" H 11050 8000 60  0001 C CNN
+F 4 "100R" H 11118 8000 50  0000 L CNN "Resistance"
+F 5 "1/10W" H 11120 7930 50  0001 L CNN "Power"
+F 6 "0603" H 11050 8030 60  0001 C CNN "Package"
+F 7 "1%" H 11118 7909 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 11050 8000 50  0001 L CNN "Type"
+F 9 "Yageo" H 11050 8000 50  0001 L CNN "Manufacturer"
+F 10 "RC0603FR-07100RL" H 11050 8000 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES SMD 100 OHM 1% 1/10W 0603" H 11050 8000 50  0001 L CNN "Description"
+F 12 "07/15/15 00:00:00" H 11050 8000 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 11050 8000 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 11050 8000 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 11050 8000 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 11050 8000 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 11050 8000 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 11050 8000 50  0001 L CNN "Supplier 1"
+F 19 "311-100HRCT-ND" H 11050 8000 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 11050 8000 50  0001 L CNN "Supplier 2"
+F 21 "311-100HRTR-ND" H 11050 8000 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 11050 8000 50  0001 L CNN "Supplier 3"
+F 23 "" H 11050 8000 50  0001 L CNN "Supplier Part Number 3"
+	1    11050 8000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11850 7900 11900 7900
+Wire Wire Line
+	11050 8150 11050 8200
+$Comp
+L power:GND #PWR?
+U 1 1 5BA46C9A
+P 11850 9200
+F 0 "#PWR?" H 11850 8950 50  0001 C CNN
+F 1 "GND" H 11855 9027 50  0000 C CNN
+F 2 "" H 11850 9200 50  0001 C CNN
+F 3 "" H 11850 9200 50  0001 C CNN
+	1    11850 9200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5BA5F567
+P 11050 8650
+F 0 "#PWR?" H 11050 8400 50  0001 C CNN
+F 1 "GND" H 11055 8477 50  0000 C CNN
+F 2 "" H 11050 8650 50  0001 C CNN
+F 3 "" H 11050 8650 50  0001 C CNN
+	1    11050 8650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11850 9200 11850 9150
+Wire Wire Line
+	11050 8650 11050 8600
+$Comp
+L resistors:R00014 R?
+U 1 1 5BAD027D
+P 10600 7300
+F 0 "R?" V 10305 7300 50  0000 C CNN
+F 1 "R00014" H 10600 7300 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 10600 7270 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10600 7300 60  0001 C CNN
+F 4 "10K" V 10396 7300 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 10670 7230 50  0001 L CNN "Power"
+F 6 "0402" H 10600 7330 60  0001 C CNN "Package"
+F 7 "1%" V 10487 7300 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 10600 7300 50  0001 L CNN "Type"
+F 9 "Yageo" H 10600 7300 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 10600 7300 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10600 7300 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 10600 7300 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 10600 7300 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 10600 7300 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 10600 7300 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 10600 7300 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 10600 7300 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 10600 7300 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 10600 7300 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 10600 7300 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 10600 7300 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 10600 7300 50  0001 L CNN "Supplier 3"
+F 23 "" H 10600 7300 50  0001 L CNN "Supplier Part Number 3"
+	1    10600 7300
+	0    1    1    0   
+$EndComp
+$Comp
+L resistors:R00014 R?
+U 1 1 5BAD0298
+P 10750 7600
+F 0 "R?" H 10682 7691 50  0000 R CNN
+F 1 "R00014" H 10750 7600 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 10750 7570 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10750 7600 60  0001 C CNN
+F 4 "10K" H 10682 7600 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 10820 7530 50  0001 L CNN "Power"
+F 6 "0402" H 10750 7630 60  0001 C CNN "Package"
+F 7 "1%" H 10682 7509 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 10750 7600 50  0001 L CNN "Type"
+F 9 "Yageo" H 10750 7600 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 10750 7600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10750 7600 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 10750 7600 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 10750 7600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 10750 7600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 10750 7600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 10750 7600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 10750 7600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 10750 7600 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 10750 7600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 10750 7600 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 10750 7600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 10750 7600 50  0001 L CNN "Supplier 3"
+F 23 "" H 10750 7600 50  0001 L CNN "Supplier Part Number 3"
+	1    10750 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5BAD02B3
+P 10400 7600
+F 0 "C?" H 10478 7737 50  0000 L CNN
+F 1 "C00001" H 10400 7600 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 10680 7450 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 10400 7610 50  0001 C CNN
+F 4 "100n" H 10478 7646 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 10478 7555 50  0000 L CNN "Dielectric"
+F 6 "0402" H 10600 7450 50  0001 C CNN "Package"
+F 7 "±10%" H 10510 7460 50  0001 C CNN "Tolerance"
+F 8 "10V" H 10478 7464 50  0000 L CNN "Voltage"
+F 9 "Murata" H 10400 7600 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 10400 7600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 10400 7600 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 10400 7600 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 10400 7600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 10400 7600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 10400 7600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 10400 7600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 10400 7600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 10400 7600 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 10400 7600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 10400 7600 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 10400 7600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 10400 7600 50  0001 L CNN "Supplier 3"
+F 23 "" H 10400 7600 50  0001 L CNN "Supplier Part Number 3"
+	1    10400 7600
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10400 7300 10400 7500
+Wire Wire Line
+	10750 7450 10750 7300
+$Comp
+L power:GND #PWR?
+U 1 1 5BAD02BC
+P 10750 7850
+F 0 "#PWR?" H 10750 7600 50  0001 C CNN
+F 1 "GND" H 10755 7677 50  0000 C CNN
+F 2 "" H 10750 7850 50  0001 C CNN
+F 3 "" H 10750 7850 50  0001 C CNN
+	1    10750 7850
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5BAD02C2
+P 10400 7850
+F 0 "#PWR?" H 10400 7600 50  0001 C CNN
+F 1 "GND" H 10405 7677 50  0000 C CNN
+F 2 "" H 10400 7850 50  0001 C CNN
+F 3 "" H 10400 7850 50  0001 C CNN
+	1    10400 7850
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10750 7750 10750 7850
+Wire Wire Line
+	10400 7850 10400 7700
+Connection ~ 10750 7300
+Wire Wire Line
+	10450 7300 10400 7300
+Text Label 11150 7300 0    50   ~ 0
+MODE_R
+Text Label 10100 7300 0    50   ~ 0
+MODE
+Wire Wire Line
+	11850 8100 11850 7900
+Wire Wire Line
+	11850 8400 11850 8750
+Wire Wire Line
+	11550 8950 11300 8950
+Wire Wire Line
+	10750 8400 10500 8400
+Text Label 10250 8400 0    50   ~ 0
+MODE_LED_R
+Text Label 10250 8950 0    50   ~ 0
+MODE_LED_G
+$Comp
+L resistors:R00014 R?
+U 1 1 5BBBEEFA
+P 10650 8600
+F 0 "R?" V 10750 8700 50  0000 R CNN
+F 1 "R00014" H 10650 8600 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 10650 8570 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10650 8600 60  0001 C CNN
+F 4 "10K" V 10550 8750 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 10720 8530 50  0001 L CNN "Power"
+F 6 "0402" H 10650 8630 60  0001 C CNN "Package"
+F 7 "1%" V 10550 8550 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 10650 8600 50  0001 L CNN "Type"
+F 9 "Yageo" H 10650 8600 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 10650 8600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10650 8600 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 10650 8600 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 10650 8600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 10650 8600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 10650 8600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 10650 8600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 10650 8600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 10650 8600 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 10650 8600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 10650 8600 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 10650 8600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 10650 8600 50  0001 L CNN "Supplier 3"
+F 23 "" H 10650 8600 50  0001 L CNN "Supplier Part Number 3"
+	1    10650 8600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	11050 8600 10800 8600
+Connection ~ 11050 8600
+Wire Wire Line
+	10500 8600 10500 8400
+Connection ~ 10500 8400
+Wire Wire Line
+	10500 8400 10150 8400
+$Comp
+L resistors:R00014 R?
+U 1 1 5BBD9B89
+P 11450 9150
+F 0 "R?" V 11550 9250 50  0000 R CNN
+F 1 "R00014" H 11450 9150 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 11450 9120 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 11450 9150 60  0001 C CNN
+F 4 "10K" V 11350 9300 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 11520 9080 50  0001 L CNN "Power"
+F 6 "0402" H 11450 9180 60  0001 C CNN "Package"
+F 7 "1%" V 11350 9100 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 11450 9150 50  0001 L CNN "Type"
+F 9 "Yageo" H 11450 9150 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 11450 9150 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 11450 9150 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 11450 9150 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 11450 9150 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 11450 9150 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 11450 9150 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 11450 9150 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 11450 9150 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 11450 9150 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 11450 9150 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 11450 9150 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 11450 9150 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 11450 9150 50  0001 L CNN "Supplier 3"
+F 23 "" H 11450 9150 50  0001 L CNN "Supplier Part Number 3"
+	1    11450 9150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	11850 9150 11600 9150
+Connection ~ 11850 9150
+Wire Wire Line
+	11300 9150 11300 8950
+Connection ~ 11300 8950
+Connection ~ 10400 7300
+Wire Wire Line
+	9850 7300 10400 7300
+Wire Wire Line
+	10750 7300 11900 7300
+Wire Wire Line
+	11050 7800 11050 7850
+Wire Wire Line
+	11050 7800 11900 7800
+Wire Wire Line
+	10150 8950 11300 8950
+NoConn ~ 12700 7800
+NoConn ~ 12700 7900
+Text Label 9200 4400 0    50   ~ 0
+UART_TX
+Text Label 9200 4500 0    50   ~ 0
+UART_RX
+Wire Wire Line
+	9050 4500 9650 4500
+Wire Wire Line
+	9050 4400 9650 4400
+Wire Wire Line
+	12300 1300 11950 1300
+Text Label 11300 1300 0    50   ~ 0
+HOST_VBUS_EN
+$Comp
+L resistors:R00014 R?
+U 1 1 5BCAD79F
+P 11950 1600
+F 0 "R?" H 11882 1691 50  0000 R CNN
+F 1 "R00014" H 11950 1600 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 11950 1570 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 11950 1600 60  0001 C CNN
+F 4 "10K" H 11882 1600 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 12020 1530 50  0001 L CNN "Power"
+F 6 "0402" H 11950 1630 60  0001 C CNN "Package"
+F 7 "1%" H 11882 1509 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 11950 1600 50  0001 L CNN "Type"
+F 9 "Yageo" H 11950 1600 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 11950 1600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 11950 1600 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 11950 1600 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 11950 1600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 11950 1600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 11950 1600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 11950 1600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 11950 1600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 11950 1600 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 11950 1600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 11950 1600 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 11950 1600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 11950 1600 50  0001 L CNN "Supplier 3"
+F 23 "" H 11950 1600 50  0001 L CNN "Supplier Part Number 3"
+	1    11950 1600
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	11950 1450 11950 1300
+$Comp
+L power:GND #PWR?
+U 1 1 5BCAD7A7
+P 11950 1850
+F 0 "#PWR?" H 11950 1600 50  0001 C CNN
+F 1 "GND" H 11955 1677 50  0000 C CNN
+F 2 "" H 11950 1850 50  0001 C CNN
+F 3 "" H 11950 1850 50  0001 C CNN
+	1    11950 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11950 1750 11950 1850
+NoConn ~ 14850 6300
+$Comp
+L capacitors:C00003 C?
+U 1 1 5BCCA367
+P 14150 1450
+F 0 "C?" H 14228 1541 50  0000 L CNN
+F 1 "C00003" H 14150 1450 50  0001 C CNN
+F 2 "footprints:CRADIAL_6.3x11.2_2.5" H 14430 1300 50  0001 C CNN
+F 3 "http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+ABA0012+ECA1EM101+7+WW" H 14150 1460 50  0001 C CNN
+F 4 "100µ" H 14228 1450 50  0000 L CNN "Capacitance"
+F 5 "Electrolytic" H 14228 1405 50  0001 L CNN "Dielectric"
+F 6 "Radial" H 14350 1300 50  0001 C CNN "Package"
+F 7 "±20%" H 14260 1310 50  0001 C CNN "Tolerance"
+F 8 "25V" H 14228 1359 50  0000 L CNN "Voltage"
+F 9 "Panasonic" H 14150 1450 50  0001 L CNN "Manufacturer"
+F 10 "ECA-1EM101" H 14150 1450 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP 100UF 25V ALUM LYTIC RADIA" H 14150 1450 50  0001 L CNN "Description"
+F 12 "02/18/11 00:00:00" H 14150 1450 50  0001 L CNN "CREATED_ON"
+F 13 "Component Page" H 14150 1450 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 14150 1450 50  0001 L CNN "Supplier 1"
+F 15 "P5152-ND" H 14150 1450 50  0001 L CNN "Supplier Part Number 1"
+	1    14150 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L misc:M00026 SW?
+U 1 1 5BCF5D66
+P 12300 7300
+F 0 "SW?" H 12300 7565 50  0000 C CNN
+F 1 "M00026" H 12300 6500 50  0001 C CNN
+F 2 "footprints:SW_NKK_G12JVCF" H 12050 7450 50  0001 C CNN
+F 3 "http://www.nkkswitches.com/pdf/gtogglesilluminated.pdf" H 12150 7550 50  0001 C CNN
+F 4 "SWITCH ILLUMINATED TOGGLE SPDT 0.4VA 28V" H 12300 7300 50  0001 L CNN "Description"
+F 5 "NKK Switches" H 12300 7300 50  0001 L CNN "Manufacturer"
+F 6 "G12JVCF" H 12300 7474 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 7 "07/29/18 00:00:00" H 12300 7300 50  0001 L CNN "CREATED_ON"
+F 8 "Series Datasheet" H 12300 7300 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 12300 7300 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 12300 7300 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 12300 7300 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 12300 7300 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 12300 7300 50  0001 L CNN "Supplier 1"
+F 14 "360-1765-ND" H 12300 7300 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 12300 7300 50  0001 L CNN "Supplier 2"
+F 16 "" H 12300 7300 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 12300 7300 50  0001 L CNN "Supplier 3"
+F 18 "" H 12300 7300 50  0001 L CNN "Supplier Part Number 3"
+	1    12300 7300
+	1    0    0    -1  
+$EndComp
+Text Label 14200 3000 0    50   ~ 0
+HOST_DM
+Text Label 14200 3100 0    50   ~ 0
+HOST_DP
+Text Label 14050 6000 0    50   ~ 0
+DEVICE_DM
+Text Label 14050 6100 0    50   ~ 0
+DEVICE_DP
+Text Label 12900 4650 0    50   ~ 0
+DEVICE_DM
+Text Label 12900 4550 0    50   ~ 0
+DEVICE_DP
+Text Label 12900 4350 0    50   ~ 0
+HOST_DM
+Text Label 12900 4250 0    50   ~ 0
+HOST_DP
+Wire Wire Line
+	11400 4550 12000 4550
+Text Label 11450 4450 0    50   ~ 0
+STM32_DP
+Text Label 11450 4550 0    50   ~ 0
+STM32_DM
+Wire Wire Line
+	12000 4150 11350 4150
+Text Label 11450 4150 0    50   ~ 0
+EN_DEVICE
+Text Label 5200 5350 0    50   ~ 0
+EN_DEVICE
+Text Label 7250 3650 0    50   ~ 0
+BOOT0
+Wire Wire Line
+	7650 3550 7150 3550
+Connection ~ 1900 4600
+Wire Wire Line
+	1900 4100 1900 4600
+Wire Wire Line
+	1550 4200 2350 4200
+Wire Wire Line
+	1550 4300 2350 4300
+Wire Wire Line
+	1900 4600 2350 4600
+Wire Wire Line
+	9050 5400 9650 5400
+Wire Wire Line
+	9050 5300 9650 5300
+Wire Wire Line
+	11400 4450 12000 4450
+Connection ~ 11950 1300
+Wire Wire Line
+	11950 1300 11100 1300
+Wire Wire Line
+	13100 1200 14150 1200
+Connection ~ 14500 1200
+Wire Wire Line
+	14150 1350 14150 1200
+Connection ~ 14150 1200
+Wire Wire Line
+	14150 1200 14500 1200
+$Comp
+L power:GND #PWR?
+U 1 1 5C028043
+P 14150 1900
+F 0 "#PWR?" H 14150 1650 50  0001 C CNN
+F 1 "GND" H 14155 1727 50  0000 C CNN
+F 2 "" H 14150 1900 50  0001 C CNN
+F 3 "" H 14150 1900 50  0001 C CNN
+	1    14150 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14150 1900 14150 1550
+Wire Wire Line
+	15650 3300 15650 3200
+Connection ~ 15700 6400
+$Comp
+L capacitors:C00027 C?
+U 1 1 5C06EC8D
+P 15250 6800
+F 0 "C?" V 15200 6700 50  0000 C CNN
+F 1 "C00027" H 15250 6800 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 15530 6650 50  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/UPY-GP_NP0_16V-to-50V_10.pdf" H 15250 6810 50  0001 C CNN
+F 4 "4n7" V 15300 6700 50  0000 C CNN "Capacitance"
+F 5 "X7R" V 15200 6900 50  0000 C CNN "Dielectric"
+F 6 "0402" H 15450 6650 50  0001 C CNN "Package"
+F 7 "±10%" H 15360 6660 50  0001 C CNN "Tolerance"
+F 8 "50V" V 15300 6900 50  0000 C CNN "Voltage"
+F 9 "Wurth" H 15250 6800 50  0001 L CNN "Manufacturer"
+F 10 "885012205065" H 15250 6800 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 4700PF 50V X7R 0402" H 15250 6800 50  0001 L CNN "Description"
+F 12 "08/02/18 00:00:00" H 15250 6800 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 15250 6800 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15250 6800 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15250 6800 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15250 6800 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15250 6800 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 15250 6800 50  0001 L CNN "Supplier 1"
+F 19 "732-7560-1-ND" H 15250 6800 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-Key" H 15250 6800 50  0001 L CNN "Supplier 2"
+F 21 "732-7560-2-ND" H 15250 6800 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15250 6800 50  0001 L CNN "Supplier 3"
+F 23 "" H 15250 6800 50  0001 L CNN "Supplier Part Number 3"
+	1    15250 6800
+	0    1    1    0   
+$EndComp
+$Comp
+L resistors:R00008 R?
+U 1 1 5C06F087
+P 15250 6600
+F 0 "R?" V 15300 6750 50  0000 C CNN
+F 1 "R00008" H 15250 6600 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 15250 6570 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 15250 6600 60  0001 C CNN
+F 4 "1M" V 15200 6750 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 15320 6530 50  0001 L CNN "Power"
+F 6 "0402" H 15250 6630 60  0001 C CNN "Package"
+F 7 "5%" V 15200 6450 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 15250 6600 50  0001 L CNN "Type"
+F 9 "Yageo" H 15250 6600 50  0001 L CNN "Manufacturer"
+F 10 "RC0402JR-071ML" H 15250 6600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 1.0M OHM 1/16W 5% 0402 SMD" H 15250 6600 50  0001 L CNN "Description"
+F 12 "08/20/11 00:00:00" H 15250 6600 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 15250 6600 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15250 6600 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15250 6600 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15250 6600 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15250 6600 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 15250 6600 50  0001 L CNN "Supplier 1"
+F 19 "311-1.0MJRTR-ND" H 15250 6600 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 15250 6600 50  0001 L CNN "Supplier 2"
+F 21 "311-1.0MJRCT-ND" H 15250 6600 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15250 6600 50  0001 L CNN "Supplier 3"
+F 23 "" H 15250 6600 50  0001 L CNN "Supplier Part Number 3"
+	1    15250 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	15400 6600 15700 6600
+Wire Wire Line
+	15700 6400 15700 6600
+Wire Wire Line
+	15350 6800 15700 6800
+Wire Wire Line
+	15700 6800 15700 6600
+Connection ~ 15700 6600
+Wire Wire Line
+	15150 6800 14800 6800
+Wire Wire Line
+	15100 6600 14800 6600
+Connection ~ 14800 6600
+Wire Wire Line
+	14800 6600 14800 6800
+Connection ~ 14800 6800
+$Comp
+L power:GND #PWR?
+U 1 1 5C0DB8EE
+P 14850 3750
+F 0 "#PWR?" H 14850 3500 50  0001 C CNN
+F 1 "GND" H 14855 3577 50  0000 C CNN
+F 2 "" H 14850 3750 50  0001 C CNN
+F 3 "" H 14850 3750 50  0001 C CNN
+	1    14850 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00027 C?
+U 1 1 5C0DB908
+P 15300 3750
+F 0 "C?" V 15250 3650 50  0000 C CNN
+F 1 "C00027" H 15300 3750 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 15580 3600 50  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/UPY-GP_NP0_16V-to-50V_10.pdf" H 15300 3760 50  0001 C CNN
+F 4 "4n7" V 15350 3650 50  0000 C CNN "Capacitance"
+F 5 "X7R" V 15250 3850 50  0000 C CNN "Dielectric"
+F 6 "0402" H 15500 3600 50  0001 C CNN "Package"
+F 7 "±10%" H 15410 3610 50  0001 C CNN "Tolerance"
+F 8 "50V" V 15350 3850 50  0000 C CNN "Voltage"
+F 9 "Wurth" H 15300 3750 50  0001 L CNN "Manufacturer"
+F 10 "885012205065" H 15300 3750 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 4700PF 50V X7R 0402" H 15300 3750 50  0001 L CNN "Description"
+F 12 "08/02/18 00:00:00" H 15300 3750 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 15300 3750 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15300 3750 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15300 3750 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15300 3750 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15300 3750 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-Key" H 15300 3750 50  0001 L CNN "Supplier 1"
+F 19 "732-7560-1-ND" H 15300 3750 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-Key" H 15300 3750 50  0001 L CNN "Supplier 2"
+F 21 "732-7560-2-ND" H 15300 3750 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15300 3750 50  0001 L CNN "Supplier 3"
+F 23 "" H 15300 3750 50  0001 L CNN "Supplier Part Number 3"
+	1    15300 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L resistors:R00008 R?
+U 1 1 5C0DB923
+P 15300 3550
+F 0 "R?" V 15350 3700 50  0000 C CNN
+F 1 "R00008" H 15300 3550 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 15300 3520 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 15300 3550 60  0001 C CNN
+F 4 "1M" V 15250 3700 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 15370 3480 50  0001 L CNN "Power"
+F 6 "0402" H 15300 3580 60  0001 C CNN "Package"
+F 7 "5%" V 15250 3400 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 15300 3550 50  0001 L CNN "Type"
+F 9 "Yageo" H 15300 3550 50  0001 L CNN "Manufacturer"
+F 10 "RC0402JR-071ML" H 15300 3550 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 1.0M OHM 1/16W 5% 0402 SMD" H 15300 3550 50  0001 L CNN "Description"
+F 12 "08/20/11 00:00:00" H 15300 3550 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 15300 3550 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 15300 3550 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 15300 3550 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 15300 3550 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 15300 3550 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 15300 3550 50  0001 L CNN "Supplier 1"
+F 19 "311-1.0MJRTR-ND" H 15300 3550 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 15300 3550 50  0001 L CNN "Supplier 2"
+F 21 "311-1.0MJRCT-ND" H 15300 3550 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 15300 3550 50  0001 L CNN "Supplier 3"
+F 23 "" H 15300 3550 50  0001 L CNN "Supplier Part Number 3"
+	1    15300 3550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	15200 3750 14850 3750
+Wire Wire Line
+	15150 3550 14850 3550
+Connection ~ 14850 3550
+Wire Wire Line
+	14850 3550 14850 3750
+Connection ~ 14850 3750
+Connection ~ 15650 3300
+Wire Wire Line
+	14850 3300 14850 3550
+Wire Wire Line
+	15400 3750 15650 3750
+Wire Wire Line
+	15450 3550 15650 3550
+Wire Wire Line
+	15650 3300 15650 3550
+Connection ~ 15650 3550
+Wire Wire Line
+	15650 3550 15650 3750
+Wire Wire Line
+	1400 1600 2050 1600
+$Comp
+L resistors:R00014 R?
+U 1 1 5C1EDE31
+P 7550 8300
+F 0 "R?" H 7482 8391 50  0000 R CNN
+F 1 "R00014" H 7550 8300 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 7550 8270 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 7550 8300 60  0001 C CNN
+F 4 "10K" H 7482 8300 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 7620 8230 50  0001 L CNN "Power"
+F 6 "0402" H 7550 8330 60  0001 C CNN "Package"
+F 7 "1%" H 7482 8209 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 7550 8300 50  0001 L CNN "Type"
+F 9 "Yageo" H 7550 8300 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 7550 8300 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 7550 8300 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 7550 8300 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 7550 8300 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 7550 8300 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 7550 8300 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 7550 8300 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 7550 8300 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 7550 8300 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 7550 8300 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 7550 8300 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 7550 8300 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 7550 8300 50  0001 L CNN "Supplier 3"
+F 23 "" H 7550 8300 50  0001 L CNN "Supplier Part Number 3"
+	1    7550 8300
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 8450 7250 8550
+Wire Wire Line
+	7550 8450 7550 8750
+Wire Wire Line
+	7050 8750 7550 8750
+$Comp
+L resistors:R00014 R?
+U 1 1 5C23E17C
+P 8550 8750
+F 0 "R?" V 8500 8950 50  0000 C CNN
+F 1 "R00014" H 8550 8750 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 8550 8720 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 8550 8750 60  0001 C CNN
+F 4 "10K" V 8600 8950 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 8620 8680 50  0001 L CNN "Power"
+F 6 "0402" H 8550 8780 60  0001 C CNN "Package"
+F 7 "1%" V 8600 8600 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 8550 8750 50  0001 L CNN "Type"
+F 9 "Yageo" H 8550 8750 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 8550 8750 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 8550 8750 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 8550 8750 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 8550 8750 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 8550 8750 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 8550 8750 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 8550 8750 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 8550 8750 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 8550 8750 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 8550 8750 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 8550 8750 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 8550 8750 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 8550 8750 50  0001 L CNN "Supplier 3"
+F 23 "" H 8550 8750 50  0001 L CNN "Supplier Part Number 3"
+	1    8550 8750
+	0    -1   1    0   
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5C2A1B47
+P 9200 9050
+F 0 "C?" H 9278 9187 50  0000 L CNN
+F 1 "C00001" H 9200 9050 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 9480 8900 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 9200 9060 50  0001 C CNN
+F 4 "100n" H 9278 9096 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 9278 9005 50  0000 L CNN "Dielectric"
+F 6 "0402" H 9400 8900 50  0001 C CNN "Package"
+F 7 "±10%" H 9310 8910 50  0001 C CNN "Tolerance"
+F 8 "10V" H 9278 8914 50  0000 L CNN "Voltage"
+F 9 "Murata" H 9200 9050 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 9200 9050 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 9200 9050 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 9200 9050 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 9200 9050 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 9200 9050 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 9200 9050 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 9200 9050 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 9200 9050 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 9200 9050 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 9200 9050 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 9200 9050 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 9200 9050 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 9200 9050 50  0001 L CNN "Supplier 3"
+F 23 "" H 9200 9050 50  0001 L CNN "Supplier Part Number 3"
+	1    9200 9050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 8750 9200 8950
+$Comp
+L power:GND #PWR?
+U 1 1 5C2A1B4F
+P 9200 9300
+F 0 "#PWR?" H 9200 9050 50  0001 C CNN
+F 1 "GND" H 9205 9127 50  0000 C CNN
+F 2 "" H 9200 9300 50  0001 C CNN
+F 3 "" H 9200 9300 50  0001 C CNN
+	1    9200 9300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 9300 9200 9150
+Wire Wire Line
+	8700 8550 8850 8550
+Wire Wire Line
+	8850 8550 8850 8950
+Wire Wire Line
+	8700 8750 9200 8750
+Wire Wire Line
+	8850 8550 9500 8550
+Connection ~ 8850 8550
+Wire Wire Line
+	9200 8750 9500 8750
+Connection ~ 9200 8750
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C306F2B
+P 7250 8100
+F 0 "#PWR?" H 7250 7950 50  0001 C CNN
+F 1 "+3.3V" H 7265 8273 50  0000 C CNN
+F 2 "" H 7250 8100 50  0001 C CNN
+F 3 "" H 7250 8100 50  0001 C CNN
+	1    7250 8100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 8150 7250 8100
+Wire Wire Line
+	7550 8150 7550 8100
+Wire Wire Line
+	7550 8100 7250 8100
+Connection ~ 7250 8100
+NoConn ~ 4450 9600
+Text Label 8950 8750 0    50   ~ 0
+FOOTSW_BTN1
+Text Label 8950 8550 0    50   ~ 0
+FOOTSW_BTN2
+Text Label 7600 8550 0    50   ~ 0
+FOOTSW_BTN2_R
+Text Label 7600 8750 0    50   ~ 0
+FOOTSW_BTN1_R
+Wire Wire Line
+	7550 8750 8400 8750
+Connection ~ 7550 8750
+Wire Wire Line
+	7250 8550 8400 8550
+Connection ~ 7250 8550
+Text Label 6450 4800 0    50   ~ 0
+FOOTSW_BTN2
+Text Label 6500 4950 0    50   ~ 0
+FOOTSW_BTN1
+Text Label 6750 5150 0    50   ~ 0
+MODE
+Text Label 6300 5400 0    50   ~ 0
+MODE_LED_R
+Text Label 6250 5600 0    50   ~ 0
+MODE_LED_G
+Text Label 6050 4600 0    50   ~ 0
+HOST_VBUS_EN
+Text Label 5850 5100 0    50   ~ 0
+LED_DATA_LS
+Text Label 5700 4900 2    50   ~ 0
+BTN
+Text Label 5500 4300 0    50   ~ 0
+HOST_FAULT_N
+NoConn ~ 11900 7400
+NoConn ~ 1250 6500
+NoConn ~ 1250 6600
+NoConn ~ 1250 6200
+Text Notes 900  7700 0    75   ~ 15
+Pushbutton with Illuminated LightPipe\n
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C4ECE23
+P 6050 9300
+F 0 "#PWR?" H 6050 9150 50  0001 C CNN
+F 1 "+3.3V" H 6065 9473 50  0000 C CNN
+F 2 "" H 6050 9300 50  0001 C CNN
+F 3 "" H 6050 9300 50  0001 C CNN
+	1    6050 9300
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5C4ED160
+P 6050 9500
+F 0 "C?" H 6128 9637 50  0000 L CNN
+F 1 "C00001" H 6050 9500 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 6330 9350 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 6050 9510 50  0001 C CNN
+F 4 "100n" H 6128 9546 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 6128 9455 50  0000 L CNN "Dielectric"
+F 6 "0402" H 6250 9350 50  0001 C CNN "Package"
+F 7 "±10%" H 6160 9360 50  0001 C CNN "Tolerance"
+F 8 "10V" H 6128 9364 50  0000 L CNN "Voltage"
+F 9 "Murata" H 6050 9500 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 6050 9500 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 6050 9500 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 6050 9500 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 6050 9500 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6050 9500 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6050 9500 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6050 9500 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6050 9500 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 6050 9500 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 6050 9500 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 6050 9500 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 6050 9500 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6050 9500 50  0001 L CNN "Supplier 3"
+F 23 "" H 6050 9500 50  0001 L CNN "Supplier Part Number 3"
+	1    6050 9500
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 9300 6050 9350
+Wire Wire Line
+	6150 9350 6050 9350
+Connection ~ 6050 9350
+Wire Wire Line
+	6050 9350 6050 9400
+$Comp
+L power:GND #PWR?
+U 1 1 5C518031
+P 6050 9700
+F 0 "#PWR?" H 6050 9450 50  0001 C CNN
+F 1 "GND" H 6055 9527 50  0000 C CNN
+F 2 "" H 6050 9700 50  0001 C CNN
+F 3 "" H 6050 9700 50  0001 C CNN
+	1    6050 9700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 9700 6050 9600
+Text Notes 5900 7650 0    75   ~ 15
+Footswitch Connector
+Text Notes 950  5600 0    75   ~ 15
+UART Header\n
+Text Notes 950  3400 0    75   ~ 15
+Cortex Debug Header
+Text Notes 11900 3550 0    75   ~ 15
+USB Mux
+Text Notes 10050 6750 0    75   ~ 15
+Mode Switch
+Wire Wire Line
+	14800 6450 14800 6600
+Wire Wire Line
+	14800 6400 14800 6600
+Wire Wire Line
+	12800 4650 13550 4650
+Wire Wire Line
+	12800 4550 13450 4550
+Wire Wire Line
+	12800 4250 13500 4250
+Wire Wire Line
+	12800 4350 13400 4350
+Wire Wire Line
+	13550 4650 13550 6000
+Wire Wire Line
+	13450 4550 13450 6100
+Text Notes 14850 4200 0    75   ~ 15
+USB Device
+Text Notes 14800 1000 0    75   ~ 15
+USB Host
+Wire Wire Line
+	1400 1700 2150 1700
+Wire Wire Line
+	2050 1900 2050 1600
+Connection ~ 2050 1600
+Wire Wire Line
+	2050 1600 2150 1600
+Wire Wire Line
+	13400 4350 13400 3000
+Wire Wire Line
+	13500 4250 13500 3100
+$Comp
+L resistors:R00047 R?
+U 1 1 5C68FBF8
+P 13700 5700
+F 0 "R?" H 13768 5746 50  0000 L CNN
+F 1 "R00047" H 13700 5700 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 13700 5670 60  0001 C CNN
+F 3 "" H 13700 5700 60  0001 C CNN
+F 4 "DNP" H 13768 5655 50  0000 L CNN "Resistance"
+F 5 "" H 13770 5630 50  0001 L CNN "Power"
+F 6 "0402" H 13700 5730 60  0001 C CNN "Package"
+F 7 "" H 13770 5700 50  0000 L CNN "Tolerance"
+F 8 "" H 13700 5700 50  0001 L CNN "Type"
+F 9 "" H 13700 5700 50  0001 L CNN "Manufacturer"
+F 10 "" H 13700 5700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "No Place" H 13700 5700 50  0001 L CNN "Description"
+F 12 "08/01/17 00:00:00" H 13700 5700 50  0001 L CNN "CREATED_ON"
+F 13 "" H 13700 5700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 13700 5700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 13700 5700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 13700 5700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 13700 5700 50  0001 L CNN "ComponentLink3Description"
+F 18 "" H 13700 5700 50  0001 L CNN "Supplier 1"
+F 19 "" H 13700 5700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 13700 5700 50  0001 L CNN "Supplier 2"
+F 21 "" H 13700 5700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 13700 5700 50  0001 L CNN "Supplier 3"
+F 23 "" H 13700 5700 50  0001 L CNN "Supplier Part Number 3"
+	1    13700 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00047 R?
+U 1 1 5C68FE05
+P 13800 3350
+F 0 "R?" H 13868 3396 50  0000 L CNN
+F 1 "R00047" H 13800 3350 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 13800 3320 60  0001 C CNN
+F 3 "" H 13800 3350 60  0001 C CNN
+F 4 "DNP" H 13868 3305 50  0000 L CNN "Resistance"
+F 5 "" H 13870 3280 50  0001 L CNN "Power"
+F 6 "0402" H 13800 3380 60  0001 C CNN "Package"
+F 7 "" H 13870 3350 50  0000 L CNN "Tolerance"
+F 8 "" H 13800 3350 50  0001 L CNN "Type"
+F 9 "" H 13800 3350 50  0001 L CNN "Manufacturer"
+F 10 "" H 13800 3350 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "No Place" H 13800 3350 50  0001 L CNN "Description"
+F 12 "08/01/17 00:00:00" H 13800 3350 50  0001 L CNN "CREATED_ON"
+F 13 "" H 13800 3350 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 13800 3350 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 13800 3350 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 13800 3350 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 13800 3350 50  0001 L CNN "ComponentLink3Description"
+F 18 "" H 13800 3350 50  0001 L CNN "Supplier 1"
+F 19 "" H 13800 3350 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 13800 3350 50  0001 L CNN "Supplier 2"
+F 21 "" H 13800 3350 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 13800 3350 50  0001 L CNN "Supplier 3"
+F 23 "" H 13800 3350 50  0001 L CNN "Supplier Part Number 3"
+	1    13800 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00047 R?
+U 1 1 5C68FEDB
+P 14100 3350
+F 0 "R?" H 14168 3396 50  0000 L CNN
+F 1 "R00047" H 14100 3350 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 14100 3320 60  0001 C CNN
+F 3 "" H 14100 3350 60  0001 C CNN
+F 4 "DNP" H 14168 3305 50  0000 L CNN "Resistance"
+F 5 "" H 14170 3280 50  0001 L CNN "Power"
+F 6 "0402" H 14100 3380 60  0001 C CNN "Package"
+F 7 "" H 14170 3350 50  0000 L CNN "Tolerance"
+F 8 "" H 14100 3350 50  0001 L CNN "Type"
+F 9 "" H 14100 3350 50  0001 L CNN "Manufacturer"
+F 10 "" H 14100 3350 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "No Place" H 14100 3350 50  0001 L CNN "Description"
+F 12 "08/01/17 00:00:00" H 14100 3350 50  0001 L CNN "CREATED_ON"
+F 13 "" H 14100 3350 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 14100 3350 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 14100 3350 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 14100 3350 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 14100 3350 50  0001 L CNN "ComponentLink3Description"
+F 18 "" H 14100 3350 50  0001 L CNN "Supplier 1"
+F 19 "" H 14100 3350 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 14100 3350 50  0001 L CNN "Supplier 2"
+F 21 "" H 14100 3350 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 14100 3350 50  0001 L CNN "Supplier 3"
+F 23 "" H 14100 3350 50  0001 L CNN "Supplier Part Number 3"
+	1    14100 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13550 6000 14000 6000
+Connection ~ 14600 6000
+Wire Wire Line
+	13450 6100 13700 6100
+Connection ~ 14500 6100
+Wire Wire Line
+	13400 3000 14100 3000
+Connection ~ 14750 3000
+Wire Wire Line
+	13500 3100 13800 3100
+Connection ~ 14650 3100
+Wire Wire Line
+	13800 3200 13800 3100
+Connection ~ 13800 3100
+Wire Wire Line
+	13800 3100 14650 3100
+Wire Wire Line
+	14100 3200 14100 3000
+Connection ~ 14100 3000
+Wire Wire Line
+	14100 3000 14750 3000
+Wire Wire Line
+	13800 3500 13800 3550
+Wire Wire Line
+	13800 3550 14100 3550
+Wire Wire Line
+	14100 3550 14100 3500
+$Comp
+L resistors:R00047 R?
+U 1 1 5C76D957
+P 14000 5700
+F 0 "R?" H 14068 5746 50  0000 L CNN
+F 1 "R00047" H 14000 5700 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 14000 5670 60  0001 C CNN
+F 3 "" H 14000 5700 60  0001 C CNN
+F 4 "DNP" H 14068 5655 50  0000 L CNN "Resistance"
+F 5 "" H 14070 5630 50  0001 L CNN "Power"
+F 6 "0402" H 14000 5730 60  0001 C CNN "Package"
+F 7 "" H 14070 5700 50  0000 L CNN "Tolerance"
+F 8 "" H 14000 5700 50  0001 L CNN "Type"
+F 9 "" H 14000 5700 50  0001 L CNN "Manufacturer"
+F 10 "" H 14000 5700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "No Place" H 14000 5700 50  0001 L CNN "Description"
+F 12 "08/01/17 00:00:00" H 14000 5700 50  0001 L CNN "CREATED_ON"
+F 13 "" H 14000 5700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 14000 5700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 14000 5700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 14000 5700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 14000 5700 50  0001 L CNN "ComponentLink3Description"
+F 18 "" H 14000 5700 50  0001 L CNN "Supplier 1"
+F 19 "" H 14000 5700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "" H 14000 5700 50  0001 L CNN "Supplier 2"
+F 21 "" H 14000 5700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 14000 5700 50  0001 L CNN "Supplier 3"
+F 23 "" H 14000 5700 50  0001 L CNN "Supplier Part Number 3"
+	1    14000 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14000 5850 14000 6000
+Connection ~ 14000 6000
+Wire Wire Line
+	14000 6000 14600 6000
+Wire Wire Line
+	13700 5850 13700 6100
+Connection ~ 13700 6100
+Wire Wire Line
+	13700 6100 14500 6100
+Wire Wire Line
+	13700 5550 13700 5500
+Wire Wire Line
+	13700 5500 14000 5500
+Wire Wire Line
+	14000 5500 14000 5550
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C7B38C9
+P 13700 5500
+F 0 "#PWR?" H 13700 5350 50  0001 C CNN
+F 1 "+3.3V" H 13715 5673 50  0000 C CNN
+F 2 "" H 13700 5500 50  0001 C CNN
+F 3 "" H 13700 5500 50  0001 C CNN
+	1    13700 5500
+	1    0    0    -1  
+$EndComp
+Connection ~ 13700 5500
+$Comp
+L power:GND #PWR?
+U 1 1 5C7B3AB7
+P 13800 3550
+F 0 "#PWR?" H 13800 3300 50  0001 C CNN
+F 1 "GND" H 13805 3377 50  0000 C CNN
+F 2 "" H 13800 3550 50  0001 C CNN
+F 3 "" H 13800 3550 50  0001 C CNN
+	1    13800 3550
+	1    0    0    -1  
+$EndComp
+Connection ~ 13800 3550
+NoConn ~ 7650 4600
+NoConn ~ 7650 4500
+NoConn ~ 9050 5700
+$Comp
+L capacitors:C00001 C?
+U 1 1 5C817014
+P 7450 2700
+F 0 "C?" H 7528 2837 50  0000 L CNN
+F 1 "C00001" H 7450 2700 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 7730 2550 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 7450 2710 50  0001 C CNN
+F 4 "100n" H 7528 2746 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 7528 2655 50  0000 L CNN "Dielectric"
+F 6 "0402" H 7650 2550 50  0001 C CNN "Package"
+F 7 "±10%" H 7560 2560 50  0001 C CNN "Tolerance"
+F 8 "10V" H 7528 2564 50  0000 L CNN "Voltage"
+F 9 "Murata" H 7450 2700 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 7450 2700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 7450 2700 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 7450 2700 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 7450 2700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 7450 2700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 7450 2700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 7450 2700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 7450 2700 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 7450 2700 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 7450 2700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 7450 2700 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 7450 2700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 7450 2700 50  0001 L CNN "Supplier 3"
+F 23 "" H 7450 2700 50  0001 L CNN "Supplier Part Number 3"
+	1    7450 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5C8171BF
+P 7800 2700
+F 0 "C?" H 7878 2837 50  0000 L CNN
+F 1 "C00001" H 7800 2700 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 8080 2550 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 7800 2710 50  0001 C CNN
+F 4 "100n" H 7878 2746 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 7878 2655 50  0000 L CNN "Dielectric"
+F 6 "0402" H 8000 2550 50  0001 C CNN "Package"
+F 7 "±10%" H 7910 2560 50  0001 C CNN "Tolerance"
+F 8 "10V" H 7878 2564 50  0000 L CNN "Voltage"
+F 9 "Murata" H 7800 2700 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 7800 2700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 7800 2700 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 7800 2700 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 7800 2700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 7800 2700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 7800 2700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 7800 2700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 7800 2700 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 7800 2700 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 7800 2700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 7800 2700 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 7800 2700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 7800 2700 50  0001 L CNN "Supplier 3"
+F 23 "" H 7800 2700 50  0001 L CNN "Supplier Part Number 3"
+	1    7800 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5C8172A6
+P 8150 2700
+F 0 "C?" H 8228 2837 50  0000 L CNN
+F 1 "C00001" H 8150 2700 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 8430 2550 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 8150 2710 50  0001 C CNN
+F 4 "100n" H 8228 2746 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 8228 2655 50  0000 L CNN "Dielectric"
+F 6 "0402" H 8350 2550 50  0001 C CNN "Package"
+F 7 "±10%" H 8260 2560 50  0001 C CNN "Tolerance"
+F 8 "10V" H 8228 2564 50  0000 L CNN "Voltage"
+F 9 "Murata" H 8150 2700 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 8150 2700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 8150 2700 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 8150 2700 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 8150 2700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 8150 2700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 8150 2700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 8150 2700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 8150 2700 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 8150 2700 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 8150 2700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 8150 2700 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 8150 2700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 8150 2700 50  0001 L CNN "Supplier 3"
+F 23 "" H 8150 2700 50  0001 L CNN "Supplier Part Number 3"
+	1    8150 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5C81737E
+P 8500 2700
+F 0 "C?" H 8578 2837 50  0000 L CNN
+F 1 "C00001" H 8500 2700 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 8780 2550 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 8500 2710 50  0001 C CNN
+F 4 "100n" H 8578 2746 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 8578 2655 50  0000 L CNN "Dielectric"
+F 6 "0402" H 8700 2550 50  0001 C CNN "Package"
+F 7 "±10%" H 8610 2560 50  0001 C CNN "Tolerance"
+F 8 "10V" H 8578 2564 50  0000 L CNN "Voltage"
+F 9 "Murata" H 8500 2700 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 8500 2700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 8500 2700 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 8500 2700 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 8500 2700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 8500 2700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 8500 2700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 8500 2700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 8500 2700 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 8500 2700 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 8500 2700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 8500 2700 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 8500 2700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 8500 2700 50  0001 L CNN "Supplier 3"
+F 23 "" H 8500 2700 50  0001 L CNN "Supplier Part Number 3"
+	1    8500 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00001 C?
+U 1 1 5C817452
+P 8850 2700
+F 0 "C?" H 8928 2837 50  0000 L CNN
+F 1 "C00001" H 8850 2700 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 9130 2550 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 8850 2710 50  0001 C CNN
+F 4 "100n" H 8928 2746 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 8928 2655 50  0000 L CNN "Dielectric"
+F 6 "0402" H 9050 2550 50  0001 C CNN "Package"
+F 7 "±10%" H 8960 2560 50  0001 C CNN "Tolerance"
+F 8 "10V" H 8928 2564 50  0000 L CNN "Voltage"
+F 9 "Murata" H 8850 2700 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 8850 2700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 8850 2700 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 8850 2700 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 8850 2700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 8850 2700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 8850 2700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 8850 2700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 8850 2700 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 8850 2700 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 8850 2700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 8850 2700 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 8850 2700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 8850 2700 50  0001 L CNN "Supplier 3"
+F 23 "" H 8850 2700 50  0001 L CNN "Supplier Part Number 3"
+	1    8850 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitors:C00002 C?
+U 1 1 5C817572
+P 9200 2700
+F 0 "C?" H 9123 2563 50  0000 R CNN
+F 1 "C00002" H 9200 2700 50  0001 C CNN
+F 2 "footprints:C_0603_1608M" H 9480 2550 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM188R61A105KA61.pdf" H 9200 2710 50  0001 C CNN
+F 4 "1µ" H 9123 2654 50  0000 R CNN "Capacitance"
+F 5 "X5R" H 9123 2745 50  0000 R CNN "Dielectric"
+F 6 "0603" H 9400 2550 50  0001 C CNN "Package"
+F 7 "±10%" H 9310 2560 50  0001 C CNN "Tolerance"
+F 8 "10V" H 9123 2836 50  0000 R CNN "Voltage"
+F 9 "Murata" H 9200 2700 50  0001 L CNN "Manufacturer"
+F 10 "GRM188R61A105KA61D" H 9200 2700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER 1.0UF 10V 10% X5R 0603" H 9200 2700 50  0001 L CNN "Description"
+F 12 "02/18/11 00:00:00" H 9200 2700 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 9200 2700 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 9200 2700 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 9200 2700 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 9200 2700 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 9200 2700 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 9200 2700 50  0001 L CNN "Supplier 1"
+F 19 "490-1543-2-ND" H 9200 2700 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 9200 2700 50  0001 L CNN "Supplier 2"
+F 21 "490-1543-2-ND" H 9200 2700 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 9200 2700 50  0001 L CNN "Supplier 3"
+F 23 "" H 9200 2700 50  0001 L CNN "Supplier Part Number 3"
+	1    9200 2700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7450 2600 7450 2450
+Wire Wire Line
+	7450 2450 7800 2450
+Wire Wire Line
+	9200 2450 9200 2600
+Wire Wire Line
+	9200 2800 9200 2950
+Wire Wire Line
+	9200 2950 8850 2950
+Wire Wire Line
+	7450 2950 7450 2800
+Wire Wire Line
+	7800 2800 7800 2950
+Connection ~ 7800 2950
+Wire Wire Line
+	7800 2950 7450 2950
+Wire Wire Line
+	8150 2800 8150 2950
+Connection ~ 8150 2950
+Wire Wire Line
+	8150 2950 7800 2950
+Wire Wire Line
+	8500 2800 8500 2950
+Connection ~ 8500 2950
+Wire Wire Line
+	8500 2950 8150 2950
+Wire Wire Line
+	8850 2800 8850 2950
+Connection ~ 8850 2950
+Wire Wire Line
+	8850 2950 8500 2950
+Wire Wire Line
+	8850 2600 8850 2450
+Connection ~ 8850 2450
+Wire Wire Line
+	8850 2450 9200 2450
+Wire Wire Line
+	8500 2600 8500 2450
+Connection ~ 8500 2450
+Wire Wire Line
+	8500 2450 8850 2450
+Wire Wire Line
+	8150 2600 8150 2450
+Connection ~ 8150 2450
+Wire Wire Line
+	8150 2450 8500 2450
+Wire Wire Line
+	7800 2600 7800 2450
+Connection ~ 7800 2450
+Wire Wire Line
+	7800 2450 8150 2450
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C92F72F
+P 9200 2450
+F 0 "#PWR?" H 9200 2300 50  0001 C CNN
+F 1 "+3.3V" H 9215 2623 50  0000 C CNN
+F 2 "" H 9200 2450 50  0001 C CNN
+F 3 "" H 9200 2450 50  0001 C CNN
+	1    9200 2450
+	1    0    0    -1  
+$EndComp
+Connection ~ 9200 2450
+$Comp
+L power:GND #PWR?
+U 1 1 5C92F7D5
+P 7450 2950
+F 0 "#PWR?" H 7450 2700 50  0001 C CNN
+F 1 "GND" H 7455 2777 50  0000 C CNN
+F 2 "" H 7450 2950 50  0001 C CNN
+F 3 "" H 7450 2950 50  0001 C CNN
+	1    7450 2950
+	-1   0    0    -1  
+$EndComp
+Connection ~ 7450 2950
+Text Notes 3550 3300 0    75   ~ 15
+Bootloader Enable
+Text Notes 3600 4400 0    75   ~ 15
+I2C EEPROM
+$Comp
+L power:+5V #PWR?
+U 1 1 5C94B8AD
+P 4200 1500
+F 0 "#PWR?" H 4200 1350 50  0001 C CNN
+F 1 "+5V" H 4215 1673 50  0000 C CNN
+F 2 "" H 4200 1500 50  0001 C CNN
+F 3 "" H 4200 1500 50  0001 C CNN
+	1    4200 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 1500 4050 1500
+Text Notes 700  750  0    75   ~ 15
+Power/Mode Switch 
+Wire Wire Line
+	5500 1500 5550 1500
+Wire Wire Line
+	5550 1400 5550 1500
+Text Notes 5400 850  0    75   ~ 15
++3.3V Supply
+$Comp
+L resistors:R00011 R?
+U 1 1 5C9F0B92
+P 6550 8750
+F 0 "R?" V 6500 8500 50  0000 C CNN
+F 1 "R00011" H 6550 8750 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 6550 8720 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 6550 8750 60  0001 C CNN
+F 4 "100R" V 6600 8550 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 6620 8680 50  0001 L CNN "Power"
+F 6 "0402" H 6550 8780 60  0001 C CNN "Package"
+F 7 "1%" V 6600 8900 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 6550 8750 50  0001 L CNN "Type"
+F 9 "Yageo" H 6550 8750 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-07100RL" H 6550 8750 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 100 OHM 1/16W 1% 0402 SMD" H 6550 8750 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 6550 8750 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 6550 8750 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6550 8750 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6550 8750 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6550 8750 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6550 8750 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 6550 8750 50  0001 L CNN "Supplier 1"
+F 19 "311-100LRTR-ND" H 6550 8750 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 6550 8750 50  0001 L CNN "Supplier 2"
+F 21 "311-100LRCT-ND" H 6550 8750 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6550 8750 50  0001 L CNN "Supplier 3"
+F 23 "" H 6550 8750 50  0001 L CNN "Supplier Part Number 3"
+	1    6550 8750
+	0    1    1    0   
+$EndComp
+$Comp
+L resistors:R00011 R?
+U 1 1 5C9F118E
+P 6550 8550
+F 0 "R?" V 6500 8300 50  0000 C CNN
+F 1 "R00011" H 6550 8550 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 6550 8520 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 6550 8550 60  0001 C CNN
+F 4 "100R" V 6600 8350 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 6620 8480 50  0001 L CNN "Power"
+F 6 "0402" H 6550 8580 60  0001 C CNN "Package"
+F 7 "1%" V 6600 8700 50  0000 C CNN "Tolerance"
+F 8 "Thick Film" H 6550 8550 50  0001 L CNN "Type"
+F 9 "Yageo" H 6550 8550 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-07100RL" H 6550 8550 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 100 OHM 1/16W 1% 0402 SMD" H 6550 8550 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 6550 8550 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 6550 8550 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6550 8550 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6550 8550 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6550 8550 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6550 8550 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 6550 8550 50  0001 L CNN "Supplier 1"
+F 19 "311-100LRTR-ND" H 6550 8550 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 6550 8550 50  0001 L CNN "Supplier 2"
+F 21 "311-100LRCT-ND" H 6550 8550 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6550 8550 50  0001 L CNN "Supplier 3"
+F 23 "" H 6550 8550 50  0001 L CNN "Supplier Part Number 3"
+	1    6550 8550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6150 8550 6400 8550
+Wire Wire Line
+	6150 8750 6400 8750
+Wire Wire Line
+	6700 8550 7100 8550
+Wire Wire Line
+	6700 8750 7050 8750
+Wire Wire Line
+	6150 8850 7000 8850
+$Comp
+L connectors:CN00051 P?
+U 1 1 5CB447D8
+P 1150 4350
+F 0 "P?" H 700 5000 50  0000 C CNN
+F 1 "CN00051" H 1100 3900 50  0001 C CNN
+F 2 "footprints:P_CNC_3221-10-0300-00" H 1100 4350 50  0001 C CNN
+F 3 "http://cnctech.us/pdfs/3221-XX-0300-00.pdf" H 1100 4350 50  0001 C CNN
+F 4 "CNC Tech" H 1150 4350 50  0001 L CNN "Manufacturer"
+F 5 "3221-10-0300-00" H 1050 4900 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "IDC BOX HEADER .050\" 10 POS" H 1150 4350 50  0001 L CNN "Description"
+F 7 "07/30/18 00:00:00" H 1150 4350 50  0001 L CNN "CREATED_ON"
+F 8 "Drawing" H 1150 4350 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 1150 4350 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 1150 4350 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 1150 4350 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 1150 4350 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 1150 4350 50  0001 L CNN "Supplier 1"
+F 14 "1175-1735-ND" H 1150 4350 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 1150 4350 50  0001 L CNN "Supplier 2"
+F 16 "" H 1150 4350 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 1150 4350 50  0001 L CNN "Supplier 3"
+F 18 "" H 1150 4350 50  0001 L CNN "Supplier Part Number 3"
+	1    1150 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 9550 7000 9550
+Connection ~ 7000 9550
+Wire Wire Line
+	7000 9550 7000 9650
+Wire Wire Line
+	6950 9650 7000 9650
+Connection ~ 7000 9650
+Wire Wire Line
+	7000 9650 7000 9950
+Wire Wire Line
+	14850 1750 14750 1750
+Connection ~ 14750 1750
+Wire Wire Line
+	14750 1750 14750 1650
+Wire Wire Line
+	14850 1850 14750 1850
+Connection ~ 14750 1850
+Wire Wire Line
+	14750 1850 14750 1750
+$Comp
+L ics:U00087 U?
+U 1 1 5CBF23B8
+P 5300 3650
+F 0 "U?" H 5300 4015 50  0000 C CNN
+F 1 "U00087" H 5300 3400 50  0001 C CNN
+F 2 "footprints:SOT_5_950_2900X1600X1100_DIODES" H 5300 3650 50  0001 C CNN
+F 3 "https://www.diodes.com/assets/Datasheets/74AHCT1G08.pdf" H 5300 3650 50  0001 C CNN
+F 4 "Diodes" H 5300 3650 50  0001 L CNN "Manufacturer"
+F 5 "74AHCT1G08W5-7" H 5300 3924 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "IC GATE AND 1CH 2-INP SOT25" H 5300 3650 50  0001 L CNN "Description"
+F 7 "08/05/18 00:00:00" H 5300 3650 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 5300 3650 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 5300 3650 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 5300 3650 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 5300 3650 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 5300 3650 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 5300 3650 50  0001 L CNN "Supplier 1"
+F 14 "74AHCT1G08W5-7DICT-ND" H 5300 3650 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 5300 3650 50  0001 L CNN "Supplier 2"
+F 16 "" H 5300 3650 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 5300 3650 50  0001 L CNN "Supplier 3"
+F 18 "" H 5300 3650 50  0001 L CNN "Supplier Part Number 3"
+	1    5300 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 3650 5950 3650
+Text Label 5650 3650 0    50   ~ 0
+BOOT0
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5CC10207
+P 5750 3450
+F 0 "#PWR?" H 5750 3300 50  0001 C CNN
+F 1 "+3.3V" H 5765 3623 50  0000 C CNN
+F 2 "" H 5750 3450 50  0001 C CNN
+F 3 "" H 5750 3450 50  0001 C CNN
+	1    5750 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 3550 5750 3550
+Wire Wire Line
+	5750 3550 5750 3450
+$Comp
+L capacitors:C00001 C?
+U 1 1 5CC2E031
+P 7100 4050
+F 0 "C?" H 7178 4187 50  0000 L CNN
+F 1 "C00001" H 7100 4050 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 7380 3900 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 7100 4060 50  0001 C CNN
+F 4 "100n" H 7178 4096 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 7178 4005 50  0000 L CNN "Dielectric"
+F 6 "0402" H 7300 3900 50  0001 C CNN "Package"
+F 7 "±10%" H 7210 3910 50  0001 C CNN "Tolerance"
+F 8 "10V" H 7178 3914 50  0000 L CNN "Voltage"
+F 9 "Murata" H 7100 4050 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 7100 4050 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 7100 4050 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 7100 4050 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 7100 4050 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 7100 4050 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 7100 4050 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 7100 4050 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 7100 4050 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 7100 4050 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 7100 4050 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 7100 4050 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 7100 4050 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 7100 4050 50  0001 L CNN "Supplier 3"
+F 23 "" H 7100 4050 50  0001 L CNN "Supplier Part Number 3"
+	1    7100 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 4200 6950 4150
+Wire Wire Line
+	7100 4150 6950 4150
+Connection ~ 6950 4150
+Wire Wire Line
+	6950 3950 6950 3850
+Wire Wire Line
+	7100 3950 7100 3850
+Connection ~ 7100 3850
+Wire Wire Line
+	7100 3850 7650 3850
+$Comp
+L capacitors:C00001 C?
+U 1 1 5CCA737A
+P 6050 3100
+F 0 "C?" H 6128 3237 50  0000 L CNN
+F 1 "C00001" H 6050 3100 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 6330 2950 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 6050 3110 50  0001 C CNN
+F 4 "100n" H 6128 3146 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 6128 3055 50  0000 L CNN "Dielectric"
+F 6 "0402" H 6250 2950 50  0001 C CNN "Package"
+F 7 "±10%" H 6160 2960 50  0001 C CNN "Tolerance"
+F 8 "10V" H 6128 2964 50  0000 L CNN "Voltage"
+F 9 "Murata" H 6050 3100 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 6050 3100 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 6050 3100 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 6050 3100 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 6050 3100 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 6050 3100 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 6050 3100 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 6050 3100 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 6050 3100 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 6050 3100 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 6050 3100 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 6050 3100 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 6050 3100 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 6050 3100 50  0001 L CNN "Supplier 3"
+F 23 "" H 6050 3100 50  0001 L CNN "Supplier Part Number 3"
+	1    6050 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5CCA745C
+P 6050 3250
+F 0 "#PWR?" H 6050 3000 50  0001 C CNN
+F 1 "GND" H 6055 3077 50  0000 C CNN
+F 2 "" H 6050 3250 50  0001 C CNN
+F 3 "" H 6050 3250 50  0001 C CNN
+	1    6050 3250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5CCA7507
+P 6050 2950
+F 0 "#PWR?" H 6050 2800 50  0001 C CNN
+F 1 "+3.3V" H 6065 3123 50  0000 C CNN
+F 2 "" H 6050 2950 50  0001 C CNN
+F 3 "" H 6050 2950 50  0001 C CNN
+	1    6050 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 2950 6050 3000
+Wire Wire Line
+	6050 3250 6050 3200
+$Comp
+L power:GND #PWR?
+U 1 1 5CCE593A
+P 4950 3800
+F 0 "#PWR?" H 4950 3550 50  0001 C CNN
+F 1 "GND" H 4955 3627 50  0000 C CNN
+F 2 "" H 4950 3800 50  0001 C CNN
+F 3 "" H 4950 3800 50  0001 C CNN
+	1    4950 3800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 3750 4950 3750
+Wire Wire Line
+	4950 3750 4950 3800
+Text Label 4900 3650 2    50   ~ 0
+EN_DEVICE
+Text Label 4650 3550 2    50   ~ 0
+BTN
+Wire Wire Line
+	4450 3550 5000 3550
+Wire Wire Line
+	4450 3650 5000 3650
+$Comp
+L resistors:R00014 R?
+U 1 1 5CD86664
+P 5950 3800
+F 0 "R?" H 5882 3891 50  0000 R CNN
+F 1 "R00014" H 5950 3800 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 5950 3770 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 5950 3800 60  0001 C CNN
+F 4 "10K" H 5882 3800 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 6020 3730 50  0001 L CNN "Power"
+F 6 "0402" H 5950 3830 60  0001 C CNN "Package"
+F 7 "1%" H 5882 3709 50  0000 R CNN "Tolerance"
+F 8 "Thick Film" H 5950 3800 50  0001 L CNN "Type"
+F 9 "Yageo" H 5950 3800 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 5950 3800 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 5950 3800 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 5950 3800 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 5950 3800 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 5950 3800 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 5950 3800 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 5950 3800 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 5950 3800 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 5950 3800 50  0001 L CNN "Supplier 1"
+F 19 "311-10.0KLRTR-ND" H 5950 3800 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 5950 3800 50  0001 L CNN "Supplier 2"
+F 21 "311-10.0KLRCT-ND" H 5950 3800 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 5950 3800 50  0001 L CNN "Supplier 3"
+F 23 "" H 5950 3800 50  0001 L CNN "Supplier Part Number 3"
+	1    5950 3800
+	-1   0    0    -1  
+$EndComp
+Connection ~ 5950 3650
+Wire Wire Line
+	5950 3650 7650 3650
+$Comp
+L power:GND #PWR?
+U 1 1 5CD869C6
+P 5950 4000
+F 0 "#PWR?" H 5950 3750 50  0001 C CNN
+F 1 "GND" H 5955 3827 50  0000 C CNN
+F 2 "" H 5950 4000 50  0001 C CNN
+F 3 "" H 5950 4000 50  0001 C CNN
+	1    5950 4000
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5950 4000 5950 3950
+$EndSCHEMATC

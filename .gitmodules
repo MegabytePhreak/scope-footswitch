@@ -1,0 +1,3 @@
+[submodule "hw/kicad-library"]
+	path = hw/kicad-library
+	url = git@bitbucket.org:megabytephreak/kicad-library.git
