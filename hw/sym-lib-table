@@ -10,4 +10,5 @@
   (lib (name diodes)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/diodes.lib)(options "")(descr ""))
   (lib (name capacitors)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/capacitors.lib)(options "")(descr ""))
   (lib (name resistors)(type Legacy)(uri ${KIPRJMOD}/kicad-library/generated/resistors.lib)(options "")(descr ""))
+  (lib (name base-symbols)(type Legacy)(uri ${KIPRJMOD}/kicad-library/symbols/base-symbols.lib)(options "")(descr ""))
 )
