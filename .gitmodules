@@ -7,3 +7,6 @@
 [submodule "sw/target/ChibiOS-RT"]
 	path = sw/target/ChibiOS-RT
 	url = https://github.com/ChibiOS/ChibiOS.git
+[submodule "sw/target/tmcemu/scpi-parser"]
+	path = sw/target/tmcemu/scpi-parser
+	url = git@github.com:MegabytePhreak/scpi-parser.git
