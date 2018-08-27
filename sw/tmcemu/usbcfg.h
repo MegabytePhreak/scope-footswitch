@@ -20,8 +20,16 @@
 #include "usb_tmc.h"
 
 extern const USBConfig usbcfg;
-extern USBTMCConfig usbtmccfg;
+extern const USBTMCConfig usbtmccfg;
 extern USBTMCDriver TMC1;
+
+enum emu_device_t {
+    EMU_DEVICE_TMCEMU,
+    EMU_DEVICE_TEK_DPO3034, 
+    EMU_DEVICE_KEYSIGHT_DSO9404A
+};
+
+extern enum emu_device_t emu_device;
 
 void usb_init(void);
 

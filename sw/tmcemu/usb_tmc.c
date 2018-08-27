@@ -193,7 +193,7 @@ static void ibnotify(io_buffers_queue_t *bqp) {
  * @param[in] bqp       the buffers queue pointer.
  */
 static void obnotify(io_buffers_queue_t *bqp) {
-  size_t n;
+  //size_t n;
   USBTMCDriver *tmcp = bqGetLinkX(bqp);
 
   /* If the USB driver is not in the appropriate state then transactions
@@ -204,14 +204,14 @@ static void obnotify(io_buffers_queue_t *bqp) {
   }
 
   /* Checking if there is already a transaction ongoing on the endpoint.*/
-  if (!usbGetTransmitStatusI(tmcp->config->usbp, tmcp->config->bulk_in)) {
-    /* Trying to get a full buffer.*/
-    uint8_t *buf = obqGetFullBufferI(&tmcp->obqueue, &n);
-    if (buf != NULL) {
-      /* Buffer found, starting a new transaction.*/
-      usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, buf, n);
-    }
-  }
+  //if (!usbGetTransmitStatusI(tmcp->config->usbp, tmcp->config->bulk_in)) {
+  //  /* Trying to get a full buffer.*/
+  //  uint8_t *buf = obqGetFullBufferI(&tmcp->obqueue, &n);
+  //  if (buf != NULL) {
+  //    /* Buffer found, starting a new transaction.*/
+  //    usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, buf, n);
+  //  }
+  //}
 }
 
 /*===========================================================================*/
@@ -470,17 +470,7 @@ void tmcSOFHookI(USBTMCDriver *tmcp) {
   if (usbGetTransmitStatusI(tmcp->config->usbp, tmcp->config->bulk_in)) {
     return;
   }
-
-  /* Checking if there only a buffer partially filled, if so then it is
-     enforced in the queue and transmitted.*/
-  if (obqTryFlushI(&tmcp->obqueue)) {
-    size_t n;
-    uint8_t *buf = obqGetFullBufferI(&tmcp->obqueue, &n);
-
-    osalDbgAssert(buf != NULL, "queue is empty");
-
-    usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, buf, n);
-  }
+  return;
 }
 
 /**
@@ -492,8 +482,6 @@ void tmcSOFHookI(USBTMCDriver *tmcp) {
  * @param[in] ep        IN endpoint number
  */
 void tmcDataTransmitted(USBDriver *usbp, usbep_t ep) {
-  uint8_t *buf;
-  size_t n;
   USBTMCDriver *tmcp = usbp->in_params[ep - 1U];
 
   if (tmcp == NULL) {
@@ -510,29 +498,79 @@ void tmcDataTransmitted(USBDriver *usbp, usbep_t ep) {
     obqReleaseEmptyBufferI(&tmcp->obqueue);
   }
 
-  /* Checking if there is a buffer ready for transmission.*/
-  buf = obqGetFullBufferI(&tmcp->obqueue, &n);
-
-  if (buf != NULL) {
-    /* The endpoint cannot be busy, we are in the context of the callback,
-       so it is safe to transmit without a check.*/
-    usbStartTransmitI(usbp, ep, buf, n);
-  }
-  else if ((usbp->epc[ep]->in_state->txsize > 0U) &&
-           ((usbp->epc[ep]->in_state->txsize &
-            ((size_t)usbp->epc[ep]->in_maxsize - 1U)) == 0U)) {
-    /* Transmit zero sized packet in case the last one has maximum allowed
-       size. Otherwise the recipient may expect more data coming soon and
-       not return buffered data to app. See section 5.8.3 Bulk Transfer
-       Packet Size Constraints of the USB Specification document.*/
-    usbStartTransmitI(usbp, ep, usbp->setup, 0);
-
-  }
-  else {
-    /* Nothing to transmit.*/
-  }
-
   osalSysUnlockFromISR();
+}
+
+
+static int handleMsgOut(USBTMCDriver* tmcp, uint8_t* buf,size_t size)
+{
+  //uint8_t * buf = ibqGetEmptyBufferI(&(tmcp->ibqueue));
+
+  uint8_t bTag = buf[1];
+  uint8_t bTagInverse = buf[2];
+  uint32_t TransferSize = buf[4] | buf[5] << 8 | buf[6] << 16 | buf[7] << 24;
+  uint8_t bmTransferAttributes = buf[8];
+
+  if(bTag != (uint8_t)(~bTagInverse))
+  {
+    return -1;
+  }
+  if(TransferSize > (SERIAL_USB_BUFFERS_SIZE-12-1) || bmTransferAttributes != 1 
+    || size != ((TransferSize+3)/4)*4 + 12) 
+  {
+    return -1;
+  }
+  memmove(buf, buf+12, TransferSize);
+  /* Signaling that data is available in the input queue.*/
+  chnAddFlagsI(tmcp, CHN_INPUT_AVAILABLE);
+
+  /* Posting the filled buffer in the queue.*/
+  ibqPostFullBufferI(&tmcp->ibqueue, TransferSize);
+
+  return 0;
+}
+
+static int handleMsgIn(USBTMCDriver* tmcp, uint8_t* buf, size_t size)
+{
+  //uint8_t * buf = ibqGetEmptyBufferI(&(tmcp->ibqueue));
+
+  uint8_t bTag = buf[1];
+  uint8_t bTagInverse = buf[2];
+  uint32_t TransferSize = buf[4] | buf[5] << 8 | buf[6] << 16 | buf[7] << 24;
+  uint8_t bmTransferAttributes = buf[8];
+
+  if(bTag != (uint8_t)(~bTagInverse) || size != 12)
+  {
+    return -1;
+  }
+  if(bmTransferAttributes != 0)
+  {
+    return -1;
+  }
+  /* Checking if there is a buffer ready for transmission.*/
+  size_t txsize = 0;
+  uint8_t* txbuf = obqGetFullBufferI(&tmcp->obqueue, &txsize);
+  if(!txbuf || txsize > (SERIAL_USB_BUFFERS_SIZE-12))
+  {
+    return -1;
+  } 
+
+  memmove(txbuf+12, txbuf, txsize);
+  txbuf[0]  = MSGID_DEV_DEP_MSG_IN;
+  txbuf[1]  = bTag;
+  txbuf[2]  = ~bTag;
+  txbuf[3]  = 0;
+  txbuf[4]  = txsize & 0xFF;
+  txbuf[5]  = (txsize >> 8) & 0xFF;
+  txbuf[6]  = (txsize >> 16) & 0xFF;
+  txbuf[7]  = (txsize >> 24) & 0xFF;
+  txbuf[8]  = 1;
+  txbuf[9]  = 0;
+  txbuf[10]  = 0;
+  txbuf[11]  = 0;
+
+  usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, txbuf, (txsize+3)/4*4+12);
+  return 0;
 }
 
 /**
@@ -545,6 +583,7 @@ void tmcDataTransmitted(USBDriver *usbp, usbep_t ep) {
  */
 void tmcDataReceived(USBDriver *usbp, usbep_t ep) {
   size_t size;
+  int    status = -1;
   USBTMCDriver *tmcp = usbp->out_params[ep - 1U];
 
   if (tmcp == NULL) {
@@ -556,18 +595,32 @@ void tmcDataReceived(USBDriver *usbp, usbep_t ep) {
   /* Checking for zero-size transactions.*/
   size = usbGetReceiveTransactionSizeX(tmcp->config->usbp,
                                        tmcp->config->bulk_out);
-  if (size > (size_t)0) {
-    /* Signaling that data is available in the input queue.*/
-    chnAddFlagsI(tmcp, CHN_INPUT_AVAILABLE);
+  if (size >= (size_t)12) {
+    uint8_t * buf = ibqGetEmptyBufferI(&tmcp->ibqueue);
+    switch (buf[0])
+    {
+      case MSGID_DEV_DEP_MSG_OUT:
+        status = handleMsgOut(tmcp, buf, size);
+        break;
+      case MSGID_DEV_DEP_MSG_IN:
 
-    /* Posting the filled buffer in the queue.*/
-    ibqPostFullBufferI(&tmcp->ibqueue, size);
+        status = handleMsgIn(tmcp, buf, size);
+        break;
+      default: 
+        break;
+    }
+  }
+  if(status == 0)
+  {
+    /* The endpoint cannot be busy, we are in the context of the callback,
+      so a packet is in the buffer for sure. Trying to get a free buffer
+      for the next transaction.*/
+    (void) tmc_start_receive(tmcp);
+  } 
+  else {
+    usbStallReceiveI(usbp, ep);
   }
 
-  /* The endpoint cannot be busy, we are in the context of the callback,
-     so a packet is in the buffer for sure. Trying to get a free buffer
-     for the next transaction.*/
-  (void) tmc_start_receive(tmcp);
 
   osalSysUnlockFromISR();
 }

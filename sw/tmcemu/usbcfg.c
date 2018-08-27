@@ -16,9 +16,11 @@
 
 #include "hal.h"
 #include "usb_tmc.h"
+#include "usbcfg.h"
 #include <memory.h>
 
 USBTMCDriver TMC1;
+enum emu_device_t emu_device = EMU_DEVICE_TEK_DPO3034;
 
 /*
  * Endpoints to be used for USBD1.
@@ -30,7 +32,7 @@ USBTMCDriver TMC1;
 /*
  * USB Device Descriptor.
  */
-static const uint8_t tmc_device_descriptor_data[18] = {
+static const uint8_t tmcemu_device_descriptor_data[18] = {
   USB_DESC_DEVICE       (0x0110,        /* bcdUSB (1.1).                    */
                          0x00,          /* bDeviceClass                     */
                          0x00,          /* bDeviceSubClass.                 */
@@ -45,13 +47,56 @@ static const uint8_t tmc_device_descriptor_data[18] = {
                          1)             /* bNumConfigurations.              */
 };
 
+
+static const uint8_t dpo3034_device_descriptor_data[18] = {
+  USB_DESC_DEVICE       (0x0200,        /* bcdUSB (1.1).                    */
+                         0x00,          /* bDeviceClass                     */
+                         0x00,          /* bDeviceSubClass.                 */
+                         0x00,          /* bDeviceProtocol.                 */
+                         0x40,          /* bMaxPacketSize.                  */
+                         0x0699,        /* idVendor (ST).                   */
+                         0x0415,        /* idProduct.                       */
+                         0x0200,        /* bcdDevice.                       */
+                         1,             /* iManufacturer.                   */
+                         2,             /* iProduct.                        */
+                         3,             /* iSerialNumber.                   */
+                         1)             /* bNumConfigurations.              */
+};
+
+static const uint8_t dso9404a_device_descriptor_data[18] = {
+    USB_DESC_DEVICE       (0x0200,        /* bcdUSB (1.1).                    */
+                         0x00,          /* bDeviceClass                     */
+                         0x00,          /* bDeviceSubClass.                 */
+                         0x00,          /* bDeviceProtocol.                 */
+                         0x40,          /* bMaxPacketSize.                  */
+                         0x2a8d,        /* idVendor (ST).                   */
+                         0x9009,        /* idProduct.                       */
+                         0x0200,        /* bcdDevice.                       */
+                         1,             /* iManufacturer.                   */
+                         2,             /* iProduct.                        */
+                         3,             /* iSerialNumber.                   */
+                         1)             /* bNumConfigurations.              */
+};
+
 /*
  * Device Descriptor wrapper.
  */
-static const USBDescriptor tmc_device_descriptor = {
-  sizeof tmc_device_descriptor_data,
-  tmc_device_descriptor_data
+static const USBDescriptor tmcemu_device_descriptor = {
+  sizeof tmcemu_device_descriptor_data,
+  tmcemu_device_descriptor_data
 };
+
+static const USBDescriptor dpo3034_device_descriptor = {
+  sizeof dpo3034_device_descriptor_data,
+  dpo3034_device_descriptor_data
+};
+
+
+static const USBDescriptor dso9404a_device_descriptor = {
+  sizeof dso9404a_device_descriptor_data,
+  dso9404a_device_descriptor_data
+};
+
 
 /* Configuration Descriptor tree for a CDC.*/
 static const uint8_t tmc_configuration_descriptor_data[39] = {
@@ -108,7 +153,7 @@ static const uint8_t tmc_string0[] = {
 /*
  * Vendor string.
  */
-static const uint8_t tmc_string1[] = {
+static const uint8_t tmcemu_string1[] = {
   USB_DESC_BYTE(26),                    /* bLength.                         */
   USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
   'P', 0, 'a', 0, 'u', 0, 'l', 0, ' ', 0, 'R', 0, 'o', 0, 'u', 0,
@@ -118,12 +163,52 @@ static const uint8_t tmc_string1[] = {
 /*
  * Device Description string.
  */
-static const uint8_t tmc_string2[] = {
+static const uint8_t tmcemu_string2[] = {
   USB_DESC_BYTE(38),                    /* bLength.                         */
   USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
   'U', 0, 'S', 0, 'B', 0, 'T', 0, 'M', 0, 'C', 0, ' ', 0, 'T', 0,
   'e', 0, 's', 0, 't', 0, ' ', 0, 'D', 0, 'e', 0, 'v', 0, 'i', 0,
   'c', 0, 'e', 0
+};
+
+/*
+ * Vendor string.
+ */
+static const uint8_t dpo3034_string1[] = {
+  USB_DESC_BYTE(20),                    /* bLength.                         */
+  USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
+  'T', 0, 'e', 0, 'k', 0, 't', 0, 'r', 0, 'o', 0, 'n', 0, 'i', 0,
+  'x', 0,
+};
+
+/*
+ * Device Description string.
+ */
+static const uint8_t dpo3034_string2[] = {
+  USB_DESC_BYTE(16),                    /* bLength.                         */
+  USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
+  'D', 0, 'P', 0, 'O', 0, '3', 0, '0', 0, '3', 0, '4', 0,
+};
+
+
+/*
+ * Vendor string.
+ */
+static const uint8_t dso9404a_string1[] = {
+  USB_DESC_BYTE(38),                    /* bLength.                         */
+  USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
+  'K', 0, 'e', 0, 'y', 0, 's', 0, 'i', 0, 'g', 0, 'h', 0, 't', 0,
+  'T', 0, 'e', 0, 'c', 0, 'h', 0, 'n', 0, 'o', 0, 'g', 0, 'i', 0,
+  'e', 0, 's', 0,
+};
+
+/*
+ * Device Description string.
+ */
+static const uint8_t dso9404a_string2[] = {
+  USB_DESC_BYTE(18),                    /* bLength.                         */
+  USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
+  'D', 0, 'S', 0, 'O', 0, '9', 0, '4', 0, '0', 0, '4', 0, 'A', 0,
 };
 
 /*
@@ -140,12 +225,28 @@ static const uint8_t tmc_string3[] = {
 /*
  * Strings wrappers array.
  */
-static const USBDescriptor tmc_strings[] = {
+static const USBDescriptor tmcemu_strings[] = {
   {sizeof tmc_string0, tmc_string0},
-  {sizeof tmc_string1, tmc_string1},
-  {sizeof tmc_string2, tmc_string2},
+  {sizeof tmcemu_string1, tmcemu_string1},
+  {sizeof tmcemu_string2, tmcemu_string2},
   {sizeof tmc_string3, tmc_string3}
 };
+
+static const USBDescriptor  dpo3034_strings[] = {
+  {sizeof tmc_string0, tmc_string0},
+  {sizeof dpo3034_string1, dpo3034_string1},
+  {sizeof dpo3034_string2, dpo3034_string2},
+  {sizeof tmc_string3, tmc_string3}
+};
+
+
+static const USBDescriptor dso9404a_strings[] = {
+  {sizeof tmc_string0, tmc_string0},
+  {sizeof dso9404a_string1, dso9404a_string1},
+  {sizeof dso9404a_string2, dso9404a_string2},
+  {sizeof tmc_string3, tmc_string3}
+};
+
 
 /*
  * Handles the GET_DESCRIPTOR callback. All required descriptors must be
@@ -160,12 +261,28 @@ static const USBDescriptor *get_descriptor(USBDriver *usbp,
   (void)lang;
   switch (dtype) {
   case USB_DESCRIPTOR_DEVICE:
-    return &tmc_device_descriptor;
+    switch(emu_device)
+    {
+      case EMU_DEVICE_TEK_DPO3034:
+        return &dpo3034_device_descriptor;
+      case EMU_DEVICE_KEYSIGHT_DSO9404A:
+        return &dso9404a_device_descriptor;
+      default:
+        return &tmcemu_device_descriptor;
+    }
   case USB_DESCRIPTOR_CONFIGURATION:
     return &tmc_configuration_descriptor;
   case USB_DESCRIPTOR_STRING:
     if (dindex < 4)
-      return &tmc_strings[dindex];
+      switch(emu_device)
+      {
+        case EMU_DEVICE_TEK_DPO3034:
+          return &dpo3034_strings[dindex];
+        case EMU_DEVICE_KEYSIGHT_DSO9404A:
+          return &dso9404a_strings[dindex];
+        default:
+          return &tmcemu_strings[dindex];
+      }
   }
   return NULL;
 }
@@ -188,8 +305,8 @@ static const USBEndpointConfig ep1config = {
   NULL,
   tmcDataTransmitted,
   tmcDataReceived,
-  0x0040,
-  0x0040,
+  USB_TMC_MAX_PKT_SIZE,
+  USB_TMC_MAX_PKT_SIZE,
   &ep1instate,
   &ep1outstate,
   1,

@@ -23,41 +23,7 @@
 #include "chprintf.h"
 
 #include "usbcfg.h"
-
-/*===========================================================================*/
-/* Command line related.                                                     */
-/*===========================================================================*/
-
-
-static THD_FUNCTION(traceThread, arg) {
-
-  (void)arg;
-  chRegSetThreadName("trace");
-  chprintf((BaseSequentialStream *)&SD1, "USB connected");
-  msg_t msg;
-  while (ibqGetFullBufferTimeout(&(TMC1.ibqueue), TIME_INFINITE) != Q_RESET) {
-    uint8_t * buf = TMC1.ibqueue.ptr;
-    size_t len = TMC1.ibqueue.top - TMC1.ibqueue.ptr;
-    size_t offset = 0;
-
-
-    while(len){
-      if(offset % 16 == 0)
-        chprintf((BaseSequentialStream *)&SD1, "%04X:", offset);
-
-      chprintf((BaseSequentialStream *)&SD1, " %02X", buf[offset]);
-
-      offset ++;
-      len--;
-
-      if(offset % 16 == 0 || len == 0)
-      chprintf((BaseSequentialStream *)&SD1, "\r\n");
-    }
-    ibqReleaseEmptyBuffer(&(TMC1.ibqueue));
-
-  }
-  chprintf((BaseSequentialStream *)&SD1, "USB disconnected");
-}
+#include "scpi/scpi.h"
 
 
 /*===========================================================================*/
@@ -82,6 +48,8 @@ static THD_FUNCTION(Thread1, arg) {
     chThdSleepMilliseconds(time);
   }
 }
+
+THD_FUNCTION(scpiThread, arg);
 
 /*
  * Application entry point.
@@ -138,7 +106,7 @@ int main(void) {
     if (TMC1.config->usbp->state == USB_ACTIVE) {
       thread_t *tracetp = chThdCreateFromHeap(NULL, 4096,
                                              "trace", NORMALPRIO + 1,
-                                             traceThread, NULL);
+                                             scpiThread, NULL);
       chThdWait(tracetp);               /* Waiting termination.             */
     }
     chThdSleepMilliseconds(1000);

@@ -5,7 +5,7 @@
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16
+  USE_OPT = -O0 -ggdb -fomit-frame-pointer -falign-functions=16
 endif
 
 # C specific options here (added to USE_OPT).
@@ -108,6 +108,7 @@ LDSCRIPT= $(STARTUPLD)/STM32F072xB.ld
 SCPISRC = $(addprefix scpi-parser/libscpi/src/, \
     error.c fifo.c ieee488.c \
     minimal.c parser.c units.c utils.c \
+    scpi_integ.c \
     lexer.c expression.c \
   )
 

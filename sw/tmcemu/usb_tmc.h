@@ -12,6 +12,15 @@
 /*===========================================================================*/
 /* Driver pre-compile time settings.                                         */
 /*===========================================================================*/
+/**
+ * @brief   USBTMC max packet size.
+ * @details Configuration parameter, the USB data endpoint maximum packet size.
+ * @note    The default is 64 bytes for both the transmission and receive
+ *          buffers.
+ */
+#if !defined(USB_TMC_MAX_PKT_SIZE) || defined(__DOXYGEN__)
+#define USB_TMC_MAX_PKT_SIZE    64
+#endif
 
 /**
  * @brief   USBTMCbuffers size.
@@ -105,11 +114,11 @@ typedef struct {
   /* Output queue.*/                                                        \
   output_buffers_queue_t    obqueue;                                        \
   /* Input buffer.*/                                                        \
-  uint8_t                   ib[BQ_BUFFER_SIZE(SERIAL_USB_BUFFERS_NUMBER,    \
-                                              SERIAL_USB_BUFFERS_SIZE)];    \
+  uint8_t                   ib[BQ_BUFFER_SIZE(USB_TMC_BUFFERS_NUMBER,    \
+                                              USB_TMC_BUFFERS_SIZE)];    \
   /* Output buffer.*/                                                       \
-  uint8_t                   ob[BQ_BUFFER_SIZE(SERIAL_USB_BUFFERS_NUMBER,    \
-                                              SERIAL_USB_BUFFERS_SIZE)];    \
+  uint8_t                   ob[BQ_BUFFER_SIZE(USB_TMC_BUFFERS_NUMBER,    \
+                                              USB_TMC_BUFFERS_SIZE)];    \
   /* End of the mandatory fields.*/                                         \
   /* Current configuration data.*/                                          \
   const USBTMCConfig     *config;
