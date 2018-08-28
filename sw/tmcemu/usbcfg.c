@@ -20,7 +20,7 @@
 #include <memory.h>
 
 USBTMCDriver TMC1;
-enum emu_device_t emu_device = EMU_DEVICE_TEK_DPO3034;
+enum emu_device_t emu_device = EMU_DEVICE_TMCEMU;
 
 /*
  * Endpoints to be used for USBD1.
@@ -402,7 +402,7 @@ virtual_timer_t indicator_vt;
 void usb_init(void)
 {
   palClearLine(LINE_LED_ORANGE);
-  palClearLine(LINE_LED_BLUE);
+  palClearLine(LINE_LED_RED);
   palClearLine(LINE_LED_GREEN);
   chVTObjectInit(&indicator_vt);
 }
@@ -414,10 +414,10 @@ static void indicator_step(void * arg)
   {
     case 0:
       palClearLine(LINE_LED_ORANGE);
-      palSetLine(LINE_LED_BLUE);
+      palSetLine(LINE_LED_RED);
       break;
     case 1:
-      palClearLine(LINE_LED_BLUE);
+      palClearLine(LINE_LED_RED);
       palSetLine(LINE_LED_GREEN);   
       break;
     default: 

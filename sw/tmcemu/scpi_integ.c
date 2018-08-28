@@ -21,6 +21,173 @@
 #define SCPI_IDN3 NULL
 #define SCPI_IDN4 "01-02"
 
+enum scope_state {
+  STATE_STOPPED,
+  STATE_RUNNING,
+  STATE_SINGLE
+};
+
+enum stop_after {
+  STOPAFTER_RUNSTOP,
+  STOPAFTER_SEQUENCE
+};
+
+
+static enum scope_state scope_state = STATE_STOPPED;
+static enum stop_after  dpo3034_stopafter = STOPAFTER_RUNSTOP;
+static virtual_timer_t single_vt;
+
+static void dso9404a_single_timeout(void *);
+
+static void dso9404a_set_state(enum scope_state state) {
+  palClearLine(LINE_LED_ORANGE);
+  palClearLine(LINE_LED_RED);
+  palClearLine(LINE_LED_GREEN);
+
+  scope_state = state;
+  switch (state) {
+    case STATE_RUNNING:
+      palSetLine(LINE_LED_GREEN);
+      break;
+    case STATE_SINGLE:
+      palSetLine(LINE_LED_ORANGE);
+      chVTSet(&single_vt, TIME_MS2I(5000), dso9404a_single_timeout, NULL);
+      break;
+    default:
+      palSetLine(LINE_LED_RED);
+  }
+}
+
+static void dso9404a_single_timeout(void * arg)
+{
+  (void)arg;
+  dso9404a_set_state(STATE_STOPPED);
+}
+
+
+static scpi_result_t dso9404a_single(scpi_t * context) {
+    (void)context;
+    dso9404a_set_state(STATE_SINGLE);
+
+    return SCPI_RES_OK;
+}
+
+static scpi_result_t dso9404a_run(scpi_t * context) {
+    (void)context;
+    dso9404a_set_state(STATE_RUNNING);
+
+    return SCPI_RES_OK;
+}
+
+static scpi_result_t dso9404a_stop(scpi_t * context) {
+    (void)context;
+    dso9404a_set_state(STATE_STOPPED);
+
+    return SCPI_RES_OK;
+}
+
+static scpi_result_t dso9404a_rstateQ(scpi_t * context) {
+
+  switch (scope_state)
+  {
+    case STATE_RUNNING:
+      SCPI_ResultMnemonic(context, "RUN");
+      break;
+    case STATE_SINGLE:
+      SCPI_ResultMnemonic(context, "SING");
+      break;
+    default:
+      SCPI_ResultMnemonic(context, "STOP");
+  }
+  return SCPI_RES_OK;
+}
+
+static scpi_choice_def_t dpo3034_state_options[] = {
+  {"OFF", 0},
+  {"STOP", 0},
+  {"ON", 1},
+  {"RUN", 1},
+  SCPI_CHOICE_LIST_END
+};
+
+static scpi_result_t dpo3034_acquire_state(scpi_t * context) {
+    scpi_parameter_t param;
+    int32_t value = 0;
+    if(SCPI_Parameter(context, &param, TRUE))
+    {
+      if(param.type == SCPI_TOKEN_PROGRAM_MNEMONIC){
+        if(!SCPI_ParamToChoice(context, &param, dpo3034_state_options, &value))
+          return SCPI_RES_ERR;
+      }
+      else if (SCPI_ParamIsNumber(&param, FALSE))
+      {
+        if(!SCPI_ParamToInt32(context, &param, &value))
+          return SCPI_RES_ERR;
+      }
+      else
+      {
+        return SCPI_RES_ERR;
+      }
+      if(value == 0)
+      {
+        dso9404a_set_state(STATE_STOPPED);
+      } else {
+        if(dpo3034_stopafter == STOPAFTER_RUNSTOP)
+        {
+          dso9404a_set_state(STATE_RUNNING);
+        }else
+        {
+          dso9404a_set_state(STATE_SINGLE);
+        }
+      }
+      return SCPI_RES_OK;
+
+    }
+    return SCPI_RES_ERR;
+}
+
+static scpi_result_t dpo3034_acquire_stateQ(scpi_t * context) {
+    SCPI_ResultInt32(context, scope_state == STATE_STOPPED ? 0 : 1);
+
+    return SCPI_RES_OK;
+}
+
+static scpi_choice_def_t dpo3034_stopafter_options[] = {
+  {"RUNSTop", STOPAFTER_RUNSTOP},
+  {"SEQuence", STOPAFTER_SEQUENCE},
+  SCPI_CHOICE_LIST_END
+};
+
+static scpi_result_t dpo3034_acquire_stopafter(scpi_t * context) {
+    int32_t value = 0;
+    if(!SCPI_ParamChoice(context, dpo3034_stopafter_options, &value, TRUE))
+    {
+      return SCPI_RES_ERR;
+    }
+    dpo3034_stopafter = value;
+
+    return SCPI_RES_OK;
+}
+
+static scpi_result_t dpo3034_acquire_stopafterQ(scpi_t * context) {
+    SCPI_ResultMnemonic(context, dpo3034_stopafter ==  STOPAFTER_RUNSTOP ? "RUNSTOP" : "SEQUENCE");
+
+    return SCPI_RES_OK;
+}
+
+static scpi_result_t dpo3034_acquire_acquireQ(scpi_t * context) {
+    SCPI_ResultMnemonic(context, dpo3034_stopafter ==  STOPAFTER_RUNSTOP ? "RUNSTOP" : "SEQUENCE");
+    SCPI_ResultInt32(context, scope_state == STATE_STOPPED ? 0 : 1);
+    SCPI_ResultMnemonic(context, "SAMPLE");
+    SCPI_ResultMnemonic(context, "INFINITE");
+    SCPI_ResultInt32(context, 16);
+    SCPI_ResultMnemonic(context, "2.5000E+9");
+
+
+    return SCPI_RES_OK;
+}
+
+
 const scpi_command_t scpi_commands[] = {
     /* IEEE Mandated Commands (SCPI std V1999.0 4.1.1) */
     { .pattern = "*CLS", .callback = SCPI_CoreCls,},
@@ -56,16 +223,18 @@ const scpi_command_t scpi_commands[] = {
     {.pattern = "STATus:PRESet", .callback = SCPI_StatusPreset,},
 
     /* Scope Emulation: DSO9404a */
-    {.pattern = "SINGle", .callback = SCPI_StubQ,},
-    {.pattern = "RUN", .callback = SCPI_StubQ,},
-    {.pattern = "STOP", .callback = SCPI_StubQ,},
-    {.pattern = "RSTate?", .callback = SCPI_StubQ,},
+    {.pattern = "SINGle", .callback = dso9404a_single,},
+    {.pattern = "RUN", .callback = dso9404a_run,},
+    {.pattern = "STOP", .callback = dso9404a_stop,},
+    {.pattern = "RSTate?", .callback = dso9404a_rstateQ,},
 
 
     /* Scope Emulation: DPO3034 */
-    {.pattern = "ACQuire:STATE", .callback = SCPI_StubQ,},
-    {.pattern = "ACQuire:STATE?", .callback = SCPI_StubQ,},
-
+    {.pattern = "ACQuire:STATE", .callback = dpo3034_acquire_state,},
+    {.pattern = "ACQuire:STATE?", .callback = dpo3034_acquire_stateQ,},
+    {.pattern = "ACQuire:STOPAfter", .callback = dpo3034_acquire_stopafter,},
+    {.pattern = "ACQuire:STOPAfter?", .callback = dpo3034_acquire_stopafterQ,},
+    {.pattern = "ACQuire?", .callback = dpo3034_acquire_acquireQ,},
     SCPI_CMD_LIST_END
 };
 
@@ -140,6 +309,7 @@ THD_FUNCTION(scpiThread, arg) {
   chRegSetThreadName("scpi");
   chprintf((BaseSequentialStream *)&SD1, "\r\nSCPI Parser Started\r\n");
 
+  dso9404a_set_state(STATE_STOPPED);
 
   SCPI_Init(&scpi_context,
           scpi_commands,
@@ -155,13 +325,13 @@ THD_FUNCTION(scpiThread, arg) {
     size_t len = TMC1.ibqueue.top - TMC1.ibqueue.ptr;
 
 
-  	chprintf((BaseSequentialStream *)&SD1, "Got USBTMC Command: \"");
+    chprintf((BaseSequentialStream *)&SD1, "Got USBTMC Command: \"");
     streamWrite(&SD1, buf, len);
-  	chprintf((BaseSequentialStream *)&SD1, "\"\r\n");
+    chprintf((BaseSequentialStream *)&SD1, "\"\r\n");
 
     scpi_bool_t result = SCPI_Parse(&scpi_context, (char *)buf, len);
 
-  	chprintf((BaseSequentialStream *)&SD1, "SCPI Parser Result: %d\r\n", result);
+    chprintf((BaseSequentialStream *)&SD1, "SCPI Parser Result: %d\r\n", result);
     ibqReleaseEmptyBuffer(&(TMC1.ibqueue));
   }
   chprintf((BaseSequentialStream *)&SD1, "\r\nSCPI Parser Stopped\r\n");

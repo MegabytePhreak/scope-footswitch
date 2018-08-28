@@ -42,9 +42,9 @@ static THD_FUNCTION(Thread1, arg) {
     systime_t time;
 
     time = usbtmccfg.usbp->state == USB_ACTIVE ? 250 : 500;
-    palClearLine(LINE_LED_RED);
+    palClearLine(LINE_LED_BLUE);
     chThdSleepMilliseconds(time);
-    palSetLine(LINE_LED_RED);
+    palSetLine(LINE_LED_BLUE);
     chThdSleepMilliseconds(time);
   }
 }
