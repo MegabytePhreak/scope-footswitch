@@ -350,7 +350,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event) {
        must be used.*/
     usbInitEndpointI(usbp, TMC_BULK_IN_EP, &ep1config);
     usbInitEndpointI(usbp, TMC_INT_IN_EP, &ep2config);
-    
+
     /* Resetting the state of the CDC subsystem.*/
     tmcConfigureHookI(&TMC1);
 
@@ -407,23 +407,40 @@ void usb_init(void)
   chVTObjectInit(&indicator_vt);
 }
 
+static uint8_t orange_state = 0;
+static uint8_t green_state = 0;
+static uint8_t red_state = 0;
 static void indicator_step(void * arg)
 {
   int step = (int) arg;
   switch(step)
   {
     case 0:
+      orange_state = palReadLine(LINE_LED_ORANGE);
+      green_state  = palReadLine(LINE_LED_GREEN);
+      red_state    = palReadLine(LINE_LED_RED);
+      palClearLine(LINE_LED_ORANGE);
+      palClearLine(LINE_LED_GREEN);
+      palClearLine(LINE_LED_RED);
+      palSetLine(LINE_LED_ORANGE);
+      break;
+    case 1:
       palClearLine(LINE_LED_ORANGE);
       palSetLine(LINE_LED_RED);
       break;
-    case 1:
+    case 2:
       palClearLine(LINE_LED_RED);
-      palSetLine(LINE_LED_GREEN);   
+      palSetLine(LINE_LED_GREEN);
       break;
-    default: 
-      palClearLine(LINE_LED_GREEN);   
+    case 3:
+      palClearLine(LINE_LED_GREEN);
+      break;
+    default:
+      palWriteLine(LINE_LED_ORANGE, orange_state);
+      palWriteLine(LINE_LED_GREEN, green_state);
+      palWriteLine(LINE_LED_RED, red_state);
   }
-  if(step < 2)
+  if(step < 4)
   {
     osalSysLockFromISR();
     chVTSetI(&indicator_vt, TIME_MS2I(250), indicator_step, (void*)step+1);
@@ -434,11 +451,7 @@ static void indicator_step(void * arg)
 static void indicator_handler(USBTMCDriver *tmcp)
 {
   (void)tmcp;
-
-  palSetLine(LINE_LED_ORANGE);
-  osalSysLockFromISR();
-  chVTSetI(&indicator_vt, TIME_MS2I(250), indicator_step, 0);
-  osalSysUnlockFromISR();
+  indicator_step(0);
 }
 
 /*

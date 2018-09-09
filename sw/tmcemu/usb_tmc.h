@@ -99,7 +99,6 @@ typedef struct {
   usbep_t                   int_in;
 
   tmccallback_t             indicator_cb;
-
 } USBTMCConfig;
 
 /**
@@ -119,6 +118,8 @@ typedef struct {
   /* Output buffer.*/                                                       \
   uint8_t                   ob[BQ_BUFFER_SIZE(USB_TMC_BUFFERS_NUMBER,    \
                                               USB_TMC_BUFFERS_SIZE)];    \
+  uint8_t                   next_btag;                                   \
+  size_t                    in_size;                                   \
   /* End of the mandatory fields.*/                                         \
   /* Current configuration data.*/                                          \
   const USBTMCConfig     *config;

@@ -45,11 +45,11 @@
 #define TMC_GET_CAPABILITIES 7
 #define TMC_INDICATOR_PULSE 64
 
-#define TMC_STATUS_SUCCESS 1 
-#define TMC_STATUS_PENDING 2 
-#define TMC_STATUS_FAILED 0x80 
+#define TMC_STATUS_SUCCESS 1
+#define TMC_STATUS_PENDING 2
+#define TMC_STATUS_FAILED 0x80
 #define TMC_STATUS_TRANSFER_NOT_IN_PROGRESS 0x81
-#define TMC_STATUS_SPLIT_NOT_IN_PROGRESS 0x82 
+#define TMC_STATUS_SPLIT_NOT_IN_PROGRESS 0x82
 #define TMC_STATUS_SPLIT_IN_PROGRESS 0x83
 
 
@@ -158,7 +158,7 @@ static msg_t _ctl(void *ip, unsigned int operation, void *arg) {
   default:
 #if defined(TMC_IMPLEMENTS_CTL)
     /* The TMC driver does not have a LLD but the application can use this
-       hook to implement extra controls by supplying this function.*/ 
+       hook to implement extra controls by supplying this function.*/
     extern msg_t tmc_lld_control(USBTMCDriver *tmcp,
                                  unsigned int operation,
                                  void *arg);
@@ -187,13 +187,16 @@ static void ibnotify(io_buffers_queue_t *bqp) {
   (void) tmc_start_receive(tmcp);
 }
 
+
+static void txDevDepMsgIn(USBTMCDriver* tmcp, uint8_t btag, uint8_t* txbuf, size_t txsize);
+
 /**
  * @brief   Notification of filled buffer inserted into the output buffers queue.
  *
  * @param[in] bqp       the buffers queue pointer.
  */
 static void obnotify(io_buffers_queue_t *bqp) {
-  //size_t n;
+  size_t n;
   USBTMCDriver *tmcp = bqGetLinkX(bqp);
 
   /* If the USB driver is not in the appropriate state then transactions
@@ -204,14 +207,19 @@ static void obnotify(io_buffers_queue_t *bqp) {
   }
 
   /* Checking if there is already a transaction ongoing on the endpoint.*/
-  //if (!usbGetTransmitStatusI(tmcp->config->usbp, tmcp->config->bulk_in)) {
-  //  /* Trying to get a full buffer.*/
-  //  uint8_t *buf = obqGetFullBufferI(&tmcp->obqueue, &n);
-  //  if (buf != NULL) {
-  //    /* Buffer found, starting a new transaction.*/
-  //    usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, buf, n);
-  //  }
-  //}
+  if (!usbGetTransmitStatusI(tmcp->config->usbp, tmcp->config->bulk_in)) {
+    if(tmcp->next_btag){
+      /* Trying to get a full buffer.*/
+      uint8_t *buf = obqGetFullBufferI(&tmcp->obqueue, &n);
+
+      if (buf != NULL) {
+        /* Buffer found, starting a new transaction.*/
+        txDevDepMsgIn(tmcp, tmcp->next_btag, buf, n);
+        tmcp->next_btag = 0;
+        //usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, buf, n);
+      }
+    }
+  }
 }
 
 /*===========================================================================*/
@@ -381,11 +389,11 @@ bool tmcRequestsHook(USBDriver *usbp) {
 
   USBTMCDriver *tmcp = usbp->in_params[0];
   if(tmcp == NULL)
-  { 
+  {
     osalDbgAssert(tmcp != NULL, "Control request tmcp NULL");
 
     return false;
-  }  
+  }
 
   if ((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
     switch (usbp->setup[1]) {
@@ -515,8 +523,8 @@ static int handleMsgOut(USBTMCDriver* tmcp, uint8_t* buf,size_t size)
   {
     return -1;
   }
-  if(TransferSize > (SERIAL_USB_BUFFERS_SIZE-12-1) || bmTransferAttributes != 1 
-    || size != ((TransferSize+3)/4)*4 + 12) 
+  if(TransferSize > (SERIAL_USB_BUFFERS_SIZE-12-1) || bmTransferAttributes != 1
+    || size != ((TransferSize+3)/4)*4 + 12)
   {
     return -1;
   }
@@ -529,6 +537,26 @@ static int handleMsgOut(USBTMCDriver* tmcp, uint8_t* buf,size_t size)
 
   return 0;
 }
+
+static void txDevDepMsgIn(USBTMCDriver* tmcp, uint8_t btag, uint8_t* txbuf, size_t txsize)
+{
+  memmove(txbuf+12, txbuf, txsize);
+  txbuf[0]  = MSGID_DEV_DEP_MSG_IN;
+  txbuf[1]  = btag;
+  txbuf[2]  = ~btag;
+  txbuf[3]  = 0;
+  txbuf[4]  = txsize & 0xFF;
+  txbuf[5]  = (txsize >> 8) & 0xFF;
+  txbuf[6]  = (txsize >> 16) & 0xFF;
+  txbuf[7]  = (txsize >> 24) & 0xFF;
+  txbuf[8]  = 1;
+  txbuf[9]  = 0;
+  txbuf[10]  = 0;
+  txbuf[11]  = 0;
+
+  usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, txbuf, (txsize+3)/4*4+12);
+}
+
 
 static int handleMsgIn(USBTMCDriver* tmcp, uint8_t* buf, size_t size)
 {
@@ -550,26 +578,18 @@ static int handleMsgIn(USBTMCDriver* tmcp, uint8_t* buf, size_t size)
   /* Checking if there is a buffer ready for transmission.*/
   size_t txsize = 0;
   uint8_t* txbuf = obqGetFullBufferI(&tmcp->obqueue, &txsize);
-  if(!txbuf || txsize > (SERIAL_USB_BUFFERS_SIZE-12))
+  if(!txbuf && !tmcp->next_btag)
+  {
+    tmcp->next_btag = bTag;
+    tmcp->in_size = TransferSize;
+    return 0;
+  } else if(txsize > (SERIAL_USB_BUFFERS_SIZE-12) || txsize > TransferSize)
   {
     return -1;
-  } 
+  }
 
-  memmove(txbuf+12, txbuf, txsize);
-  txbuf[0]  = MSGID_DEV_DEP_MSG_IN;
-  txbuf[1]  = bTag;
-  txbuf[2]  = ~bTag;
-  txbuf[3]  = 0;
-  txbuf[4]  = txsize & 0xFF;
-  txbuf[5]  = (txsize >> 8) & 0xFF;
-  txbuf[6]  = (txsize >> 16) & 0xFF;
-  txbuf[7]  = (txsize >> 24) & 0xFF;
-  txbuf[8]  = 1;
-  txbuf[9]  = 0;
-  txbuf[10]  = 0;
-  txbuf[11]  = 0;
+  txDevDepMsgIn(tmcp, bTag, txbuf, txsize);
 
-  usbStartTransmitI(tmcp->config->usbp, tmcp->config->bulk_in, txbuf, (txsize+3)/4*4+12);
   return 0;
 }
 
@@ -602,11 +622,11 @@ void tmcDataReceived(USBDriver *usbp, usbep_t ep) {
       case MSGID_DEV_DEP_MSG_OUT:
         status = handleMsgOut(tmcp, buf, size);
         break;
-      case MSGID_DEV_DEP_MSG_IN:
+      case MSGID_REQUEST_DEV_DEP_MSG_IN:
 
         status = handleMsgIn(tmcp, buf, size);
         break;
-      default: 
+      default:
         break;
     }
   }
@@ -616,7 +636,7 @@ void tmcDataReceived(USBDriver *usbp, usbep_t ep) {
       so a packet is in the buffer for sure. Trying to get a free buffer
       for the next transaction.*/
     (void) tmc_start_receive(tmcp);
-  } 
+  }
   else {
     usbStallReceiveI(usbp, ep);
   }
