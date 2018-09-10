@@ -5,13 +5,13 @@
 #include "hal.h"
 
 
-#define WS2812_WHITE { 255, 255, 255 }
-#define WS2812_GREEN { 0 , 255, 0 }
-#define WS2812_YELLOW { 255, 255, 0 }
-#define WS2812_RED { 255, 0, 0 }
-#define WS2812_MAGENTA { 255, 0, 255 }
-#define WS2812_BLUE { 0, 0, 255 }
-#define WS2812_CYAN { 0, 255, 255 }
+#define WS2812_WHITE 0x00FFFFFF
+#define WS2812_GREEN 0x0000FF00
+#define WS2812_YELLOW 0x00FFFF00
+#define WS2812_RED 0x00FF0000
+#define WS2812_MAGENTA 0x00FF00FF
+#define WS2812_BLUE 0x000000FF
+#define WS2812_CYAN 0x0000FFFF
 
 typedef struct
 {
@@ -27,11 +27,14 @@ typedef struct
 	semaphore_t 		sem;
 } WS2812Config;
 
-typedef struct
+typedef union
 {
- 	uint8_t red;
- 	uint8_t green;
- 	uint8_t blue;
+	uint32_t raw;
+	struct {
+ 		uint8_t blue;
+ 		uint8_t green;
+ 		uint8_t red;
+ 	} comp;
 } WS2812Pixel;
 
 

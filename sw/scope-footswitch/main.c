@@ -18,92 +18,25 @@
 #include "hal.h"
 #include <string.h>
 #include "usbh/debug.h"		/* for usbDbgPuts/usbDbgPrintf */
+#include "chprintf.h"
 
 #include "led_manager.h"
 #include "ws2812.h"
 #include "events.h"
 #include  "usbh_usbtmc.h"
 
-#if HAL_USBH_USE_HID
-#include "usbh/dev/hid.h"
-#include "chprintf.h"
 
-
-
-static THD_WORKING_AREA(waTestHID, 1024);
-
-static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len) {
-    uint8_t *report = (uint8_t *)hidp->config->report_buffer;
-
-    if (hidp->type == USBHHID_DEVTYPE_BOOT_MOUSE) {
-        usbDbgPrintf("Mouse report: buttons=%02x, Dx=%d, Dy=%d",
-                report[0],
-                (int8_t)report[1],
-                (int8_t)report[2]);
-    } else if (hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
-        usbDbgPrintf("Keyboard report: modifier=%02x, keys=%02x %02x %02x %02x %02x %02x",
-                report[0],
-                report[2],
-                report[3],
-                report[4],
-                report[5],
-                report[6],
-                report[7]);
-    } else {
-        usbDbgPrintf("Generic report, %d bytes", len);
-    }
-}
-
-static USBH_DEFINE_BUFFER(uint8_t report[HAL_USBHHID_MAX_INSTANCES][8]);
-static USBHHIDConfig hidcfg[HAL_USBHHID_MAX_INSTANCES];
-
-static void ThreadTestHID(void *p) {
-    (void)p;
-    uint8_t i;
-    static uint8_t kbd_led_states[HAL_USBHHID_MAX_INSTANCES];
-
-    chRegSetThreadName("HID");
-
-    for (i = 0; i < HAL_USBHHID_MAX_INSTANCES; i++) {
-        hidcfg[i].cb_report = _hid_report_callback;
-        hidcfg[i].protocol = USBHHID_PROTOCOL_BOOT;
-        hidcfg[i].report_buffer = report[i];
-        hidcfg[i].report_len = 8;
-    }
-
-    for (;;) {
-        for (i = 0; i < HAL_USBHHID_MAX_INSTANCES; i++) {
-            if (usbhhidGetState(&USBHHIDD[i]) == USBHHID_STATE_ACTIVE) {
-                usbDbgPrintf("HID: Connected, HID%d", i);
-                usbhhidStart(&USBHHIDD[i], &hidcfg[i]);
-                if (usbhhidGetType(&USBHHIDD[i]) != USBHHID_DEVTYPE_GENERIC) {
-                    usbhhidSetIdle(&USBHHIDD[i], 0, 0);
-                }
-                kbd_led_states[i] = 1;
-            } else if (usbhhidGetState(&USBHHIDD[i]) == USBHHID_STATE_READY) {
-                if (usbhhidGetType(&USBHHIDD[i]) == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
-                    USBH_DEFINE_BUFFER(uint8_t val);
-                    val = kbd_led_states[i] << 1;
-                    if (val == 0x08) {
-                        val = 1;
-                    }
-                    usbhhidSetReport(&USBHHIDD[i], 0, USBHHID_REPORTTYPE_OUTPUT, &val, 1);
-                    kbd_led_states[i] = val;
-                }
-            }
-        }
-        chThdSleepMilliseconds(200);
-    }
-
-}
-#endif
-
-
-static THD_WORKING_AREA(waTestTMC, 1024);
 static const char runcmd[] = "ACQuire:STATE RUN\r\n";
 static const char stopcmd[] = "ACQuire:STATE STOP\r\n";
+static const char setsinglecmd[] = "ACQuire:STOPAfter SEQUENCE\r\n";
+static const char setrunstopcmd[] = "ACQuire:STOPAfter RUNSTOP\r\n";
 static const char idncmd[] = "*IDN?\r\n";
 static const char statecmd[] = "ACQuire:STATE?\r\n";
+static const char stopaftercmd[] = "ACQuire:STOPAfter?\r\n";
+static const char allstatecmd[] = "ACQuire?\r\n";
+
+#if 0
+static THD_WORKING_AREA(waTestTMC, 1024);
 
 static void ThreadTestTMC(void *p) {
     (void)p;
@@ -168,6 +101,7 @@ static void ThreadTestTMC(void *p) {
     }
 
 }
+#endif
 
 #define PWM_FREQ 2000
 static PWMConfig tim3_pwmcfg = {
@@ -202,15 +136,16 @@ static WS2812Config ws2812_config = {
 };
 
 
-
+#define LED_MODE_GREEN 1
+#define LED_MODE_RED 0
 
 static LedManagerEntry g_leds[] = {
-    {&PWMD3, 0, LED_MODE_REMAP, 2500, 0, 5000, 50},
-    {&PWMD3, 1, LED_MODE_REMAP, 0, 0, 9000, 50},
+    {&PWMD3, 0, LED_MODE_REMAP, 0, 0, 5000, 1000},
+    {&PWMD3, 1, LED_MODE_REMAP, 0, 0, 9000, 1000},
 };
 
 static LedManagerWS2812 g_rgb_leds[] = {
-    {LED_MODE_REMAP, WS2812_RED, 3000, 500, 3000, 50},
+    {LED_MODE_REMAP, {WS2812_RED} , 3000, 500, 3000, 50},
 };
 
 static WS2812Pixel ws2812_pixel_buf[1];
@@ -244,31 +179,189 @@ static THD_FUNCTION(ThreadLed, arg){
 
 
 
+
+enum {
+    SCOPE_STATE_STOPPED,
+    SCOPE_STATE_RUNNING,
+    SCOPE_STATE_SINGLE
+};
+
+static void update_leds(uint8_t state)
+{
+    if(USBHTMCD[0].state == USBHTMC_STATE_READY)
+    {
+        setLedColor(&led_config, 0, WS2812_BLUE);
+        setLedTarget(&led_config, TRUE, 0, 5000);
+    } else {
+        setLedColor(&led_config, 0, WS2812_RED);
+        setLedTarget(&led_config, TRUE, 0, 5000);
+    }
+
+    switch (state)
+    {
+        case SCOPE_STATE_RUNNING:
+            setLedTarget(&led_config, FALSE, LED_MODE_GREEN, 10000);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED,   0);
+            break;
+        case SCOPE_STATE_SINGLE:
+            setLedTarget(&led_config, FALSE, LED_MODE_GREEN, 10000);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED,   7000);
+            break;
+        case SCOPE_STATE_STOPPED:
+            setLedTarget(&led_config, FALSE, LED_MODE_GREEN, 0);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED,   10000);
+            break;
+        default:
+            setLedColor(&led_config, 0, WS2812_RED);
+            setLedFlashing(&led_config, TRUE, 0);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED,   0);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED,   0);
+            break;
+    }
+}
+
+
+static uint8_t scope_state;
+
+
+bool tektronixParseState(const char * buf)
+{
+    uint8_t newstate = SCOPE_STATE_STOPPED;
+
+    int field = 0;
+
+    if(*buf == 'R')
+    {
+        newstate = SCOPE_STATE_RUNNING;
+    } else if(*buf == 'S')
+    {
+        newstate = SCOPE_STATE_SINGLE;
+    }
+
+    while(*buf)
+    {
+        if(*buf == ',')
+        {
+            field++;
+        } else if(field == 1)
+        {
+            if(*buf == '0')
+            {
+                newstate = SCOPE_STATE_STOPPED;
+            }
+            break;
+        }
+        buf++;
+    }
+
+    if(scope_state != newstate)
+    {
+        scope_state = newstate;
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static THD_WORKING_AREA(waThreadMain, 256);
 static THD_FUNCTION(ThreadMain, arg) {
 
     (void)arg;
+    char buf[50+1];
 
     events_init();
+    scope_state = SCOPE_STATE_STOPPED;
+    systime_t last_update_time = chVTGetSystemTimeX();
 
     while (true) {
        // chSemWait(&sem);
-        msg_t evt = iqGetTimeout(&event_queue, TIME_MS2I(10));
+        msg_t evt = iqGetTimeout(&event_queue, TIME_MS2I(100));
 
-        if (evt == Q_TIMEOUT)
+        if ((chVTGetSystemTimeX() - last_update_time) > TIME_MS2I(200))
+        {
+            last_update_time = chVTGetSystemTimeX();
+            if (USBHTMCD[0].state == USBHTMC_STATE_ACTIVE) {
+                usbDbgPrintf("TMC: Connected, TMC%d", 0);
+                usbhtmcStart(&USBHTMCD[0]);
+                if(!usbhtmcAsk(&USBHTMCD[0], idncmd, strlen(idncmd), buf, sizeof(buf)-1, TIME_MS2I(1000))){
+                    usbDbgPrintf("TMC ASK IDN returned 0");
+                } else {
+                    usbDbgPrintf("TMC ASK IDN response: '%s'", buf);
+
+                }
+
+                if(evt == MSG_TIMEOUT)
+                {
+                    evt = EVT_NOP;
+                }
+            } else if(USBHTMCD[0].state == USBHTMC_STATE_READY) {
+                if(!usbhtmcAsk(&USBHTMCD[0], allstatecmd, strlen(allstatecmd), buf, sizeof(buf)-1, TIME_MS2I(1000))){
+                    usbDbgPrintf("TMC ASK returned 0");
+                } else {
+                    usbDbgPrintf("TMC ASK ACQUIRE? response: '%s'", buf);
+                    if(tektronixParseState(buf))
+                    {
+                        if(evt == MSG_TIMEOUT)
+                        {
+                            evt = EVT_NOP;
+                        }
+                    }
+                }
+            }
+        }
+        if( evt == MSG_TIMEOUT)
         {
             continue;
         }
 
+        chprintf((BaseSequentialStream*)&SD2, "evt = %d\r\n", evt);
         switch(evt)
         {
+            case EVT_FOOTSW1_PRESS:
+            case EVT_FOOTSW2_PRESS:
+            case EVT_BTN_CLICK:
+                if(USBHTMCD[0].state == USBHTMC_STATE_READY)
+                {
+                    if(scope_state == SCOPE_STATE_STOPPED)
+                    {
+                        if(palReadLine(LINE_MODE))
+                        {
+                            if(!usbhtmcWrite(&USBHTMCD[0], setrunstopcmd, strlen(setrunstopcmd), TIME_MS2I(1000) ))
+                            {
+                                usbDbgPrintf("TMC Write returned 0");
+                            }
+                            if(!usbhtmcWrite(&USBHTMCD[0], runcmd, strlen(runcmd), TIME_MS2I(1000) ))
+                            {
+                                usbDbgPrintf("TMC Write returned 0");
+                            }
+                        }else
+                        {
+                            if(!usbhtmcWrite(&USBHTMCD[0], setsinglecmd, strlen(setsinglecmd), TIME_MS2I(1000) ))
+                            {
+                                usbDbgPrintf("TMC Write returned 0");
+                            }
+                            if(!usbhtmcWrite(&USBHTMCD[0], runcmd, strlen(runcmd), TIME_MS2I(1000) ))
+                            {
+                                usbDbgPrintf("TMC Write returned 0");
+                            }
+                        }
+                    } else {
+                        if(!usbhtmcWrite(&USBHTMCD[0], stopcmd, strlen(stopcmd), TIME_MS2I(1000) ))
+                        {
+                            usbDbgPrintf("TMC Write returned 0");
+                        }
+                    }
+                }
+                break;
+            case EVT_BTN_HOLD:
+                usbhtmcIndicatorPulse(&USBHTMCD[0], NULL);
+                break;
+
             default:
-                chprintf((BaseSequentialStream*)&SD2, "evt = %d\r\n", evt);
                 break;
         }
+        update_leds(scope_state);
     }
 }
-
 
 
 int main(void) {
@@ -288,10 +381,7 @@ int main(void) {
     bool en_device = palReadLine(LINE_EN_DEVICE);
     if(!en_device)
     {
-    #if HAL_USBH_USE_HID
-        chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
-    #endif
-        chThdCreateStatic(waTestTMC, sizeof(waTestTMC), NORMALPRIO, ThreadTestTMC, 0);
+        //chThdCreateStatic(waTestTMC, sizeof(waTestTMC), NORMALPRIO, ThreadTestTMC, 0);
 
 
         //turn on USB power

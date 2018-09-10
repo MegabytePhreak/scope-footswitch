@@ -95,9 +95,9 @@ static uint32_t encode_pixels(WS2812Config* cfg, uint32_t count, WS2812Pixel pix
 	uint32_t* buf = cfg->buffer;
 	for (i=0; i<count; i++)
 	{
-		buf = encode_byte(cfg, buf, pixels[i].green);
-		buf = encode_byte(cfg, buf, pixels[i].red);
-		buf = encode_byte(cfg, buf, pixels[i].blue);
+		buf = encode_byte(cfg, buf, pixels[i].comp.green);
+		buf = encode_byte(cfg, buf, pixels[i].comp.red);
+		buf = encode_byte(cfg, buf, pixels[i].comp.blue);
 	}
 
 	for (i=0; i<WS2812_RESET_CYCLES; i++)

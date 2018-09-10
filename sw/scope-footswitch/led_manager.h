@@ -47,6 +47,9 @@ typedef struct {
 
 void __attribute__((noreturn)) runLedManager(LedManagerConfig* cfg);
 void updateLedManager(LedManagerConfig* cfg);
+void setLedTarget(LedManagerConfig* cfg, uint8_t is_ws2812, uint8_t index, uint16_t target);
+void setLedFlashing(LedManagerConfig* cfg, uint8_t is_ws2812, uint8_t index);
+void setLedColor(LedManagerConfig* cfg, uint8_t index, uint32_t color);
 
 uint16_t logarithmicLedRemap(uint16_t level);
 
