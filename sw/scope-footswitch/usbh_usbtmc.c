@@ -333,31 +333,19 @@ static size_t _write_locked(USBHTmcDriver * tmcp, const char *data, size_t n, sy
 	return n;
 }
 
-static size_t _read_locked(USBHTmcDriver * tmcp, char *data, size_t n, systime_t timeout)
+
+static msg_t  _dev_dep_request_msg_in(USBHTmcDriver * tmcp, size_t len, systime_t timeout)
 {
-	if(n+sizeof(struct dev_dep_msg_in_hdr) > tmcp->epin.wMaxPacketSize)
-	{
-		uerrf("Message size %u exceeds, max packet size %u. Multi-transfer packets not yet implemented",
-			n, tmcp->epin.wMaxPacketSize);
-		return 0;
-	}
-	if(tmcp->state != USBHTMC_STATE_READY)
-	{
-		uinfo("[TMC] Aborted read due to driver not ready");
-		return 0;
-	}
 
 	uint8_t * buf = outbuf[tmcp->index];
 	struct dev_dep_request_msg_in_hdr req_hdr = {};
 	req_hdr.bMsgId = USBH_TMC_MSGID_REQUEST_DEV_DEP_MSG_IN;
 	req_hdr.bTag = _get_next_tag(tmcp);
 	req_hdr.bTagInverse = ~req_hdr.bTag & 0xFF;
-	req_hdr.dwTransferSize = n;
+	req_hdr.dwTransferSize = len;
 	req_hdr.bmTransferAttributes = 0;
 
-
 	memcpy(buf, &req_hdr, sizeof(req_hdr));
-
 	osalDbgAssert(!usbhURBIsBusy(&tmcp->out_urb), "URB is busy");
 
 	osalSysLock();
@@ -365,69 +353,94 @@ static size_t _read_locked(USBHTmcDriver * tmcp, char *data, size_t n, systime_t
 	usbhURBObjectResetI(&tmcp->out_urb);
 	msg_t res = usbhURBSubmitAndWaitS(&tmcp->out_urb, timeout);
 	osalSysUnlock();
-	if(res == MSG_TIMEOUT)
+
+	return res;
+}
+
+static size_t _read_locked(USBHTmcDriver * tmcp, char *data, size_t n, systime_t timeout)
+{
+	if(tmcp->state != USBHTMC_STATE_READY)
 	{
-		uinfo("[TMC] Read request timeout");
-	}else if (res == MSG_RESET)
-	{
-		uinfo("[TMC] Read request reset");
-	}
-	if(res != MSG_OK)
-	{
+		uinfo("[TMC] Aborted read due to driver not ready");
 		return 0;
 	}
 
-	size_t len = sizeof(struct dev_dep_msg_in_hdr) + ((n+3)/4)*4;
-	osalSysLock();
-	tmcp->in_urb.requestedLength = len;
-	usbhURBObjectResetI(&tmcp->in_urb);
-	res = usbhURBSubmitAndWaitS(&tmcp->in_urb, timeout);
-	osalSysUnlock();
+	size_t read_len = USBH_TMC_BUF_SIZE-sizeof(struct dev_dep_msg_in_hdr);
 
-	if(res == MSG_TIMEOUT)
+	bool eom = FALSE;
+	size_t bytes_received = 0;
+
+	while(!eom)
 	{
-		uinfo("[TMC] Read in timeout");
-	}else if (res == MSG_RESET)
-	{
-		uinfo("[TMC] Read in reset");
-	}
-	if(res != MSG_OK)
-	{
-		return 0;
+		if(n-bytes_received < read_len)
+			read_len = n-bytes_received;
+
+		msg_t res = _dev_dep_request_msg_in(tmcp, read_len, timeout);
+		if(res == MSG_TIMEOUT)
+		{
+			uinfo("[TMC] Read request timeout");
+		}else if (res == MSG_RESET)
+		{
+			uinfo("[TMC] Read request reset");
+		}
+		if(res != MSG_OK)
+		{
+			return 0;
+		}
+
+
+		size_t len = sizeof(struct dev_dep_msg_in_hdr) + ((read_len+3)/4)*4;
+		osalSysLock();
+		tmcp->in_urb.requestedLength = len;
+		usbhURBObjectResetI(&tmcp->in_urb);
+		res = usbhURBSubmitAndWaitS(&tmcp->in_urb, timeout);
+		osalSysUnlock();
+
+		if(res == MSG_TIMEOUT)
+		{
+			uinfo("[TMC] Read in timeout");
+		}else if (res == MSG_RESET)
+		{
+			uinfo("[TMC] Read in reset");
+		}
+		if(res != MSG_OK)
+		{
+			return 0;
+		}
+
+		len = tmcp->in_urb.actualLength;
+
+		struct dev_dep_msg_in_hdr hdr;
+		memcpy(&hdr, tmcp->in_urb.buff, sizeof(hdr));
+
+		if(hdr.bMsgId != USBH_TMC_MSGID_DEV_DEP_MSG_IN){
+			uerrf("Unexpected read MsgId %u, expected %u", hdr.bMsgId, USBH_TMC_MSGID_DEV_DEP_MSG_IN);
+			return 0;
+		}
+		if(hdr.bTag != tmcp->last_btag || hdr.bTagInverse != (uint8_t)(~tmcp->last_btag) )
+		{
+			uerrf("Bad read tag %02x, inverse %02x. Expected %02x", hdr.bTag, hdr.bTagInverse, tmcp->last_btag);
+			return 0;
+		}
+		eom = (hdr.bmTransferAttributes & USBH_TMC_ATTRIBUTE_EOM);
+		if(hdr.dwTransferSize > n)
+		{
+			uerrf("Read size %u larger than request %u", hdr.dwTransferSize, n);
+			return 0;
+		}
+		if(((hdr.dwTransferSize+3)/4)*4 + sizeof(hdr) != len)
+		{
+			uerrf("Read indicated and actual length mismatch");
+			return 0;
+		}
+		memcpy(data+bytes_received, tmcp->in_urb.buff + sizeof(hdr), hdr.dwTransferSize);
+		bytes_received += hdr.dwTransferSize;
+		data[bytes_received] = 0;
+		if(n-bytes_received <= 0)
+			break;
 	}
 
-	len = tmcp->in_urb.actualLength;
-
-	struct dev_dep_msg_in_hdr hdr;
-	memcpy(&hdr, tmcp->in_urb.buff, sizeof(hdr));
-	if(hdr.bMsgId != USBH_TMC_MSGID_DEV_DEP_MSG_IN){
-		uerrf("Unexpected read MsgId %u, expected %u", hdr.bMsgId, USBH_TMC_MSGID_DEV_DEP_MSG_IN);
-		return 0;
-	}
-	if(hdr.bTag != tmcp->last_btag || hdr.bTagInverse != (uint8_t)(~tmcp->last_btag) )
-	{
-		uerrf("Bad read tag %02x, inverse %02x. Expected %02x", hdr.bTag, hdr.bTagInverse, tmcp->last_btag);
-		return 0;
-	}
-	if(hdr.dwTransferSize > n)
-	{
-		uerrf("Read size %u larger than requeste %u", hdr.dwTransferSize, n);
-		return 0;
-	}
-	if(((hdr.dwTransferSize+3)/4)*4 + sizeof(hdr) != len)
-	{
-		uerrf("Read indicated and actual length mismatch");
-		return 0;
-	}
-	if(!(hdr.bmTransferAttributes & USBH_TMC_ATTRIBUTE_EOM))
-	{
-		uerrf("Transfer does not inicate EOM and mult-part transfers not yet suppoted");
-		return 0;
-	}
-	memcpy(data, tmcp->in_urb.buff + sizeof(hdr), hdr.dwTransferSize);
-	data[hdr.dwTransferSize] = 0;
-
-	return hdr.dwTransferSize;
+	return bytes_received;
 }
 
 size_t usbhtmcWrite(USBHTmcDriver * tmcp, const char *data, size_t n, systime_t timeout)
