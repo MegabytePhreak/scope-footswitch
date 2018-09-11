@@ -12,7 +12,7 @@
 #include "usbcfg.h"
 #include "scpi/scpi.h"
 
-
+static scpi_result_t SCPI_Flush(scpi_t * context);
 
 #define SCPI_INPUT_BUFFER_LENGTH 256
 #define SCPI_ERROR_QUEUE_SIZE 17
@@ -177,10 +177,13 @@ static scpi_result_t dpo3034_acquire_stopafterQ(scpi_t * context) {
 
 static scpi_result_t dpo3034_acquire_acquireQ(scpi_t * context) {
     SCPI_ResultMnemonic(context, dpo3034_stopafter ==  STOPAFTER_RUNSTOP ? "RUNSTOP" : "SEQUENCE");
+    SCPI_Flush(context);
     SCPI_ResultInt32(context, scope_state == STATE_STOPPED ? 0 : 1);
     SCPI_ResultMnemonic(context, "SAMPLE");
+    SCPI_Flush(context);
     SCPI_ResultMnemonic(context, "INFINITE");
     SCPI_ResultInt32(context, 16);
+    SCPI_Flush(context);
     SCPI_ResultMnemonic(context, "2.5000E+9");
 
 
@@ -238,27 +241,27 @@ const scpi_command_t scpi_commands[] = {
     SCPI_CMD_LIST_END
 };
 
-size_t SCPI_Write(scpi_t * context, const char * data, size_t len) {
+static size_t SCPI_Write(scpi_t * context, const char * data, size_t len) {
     (void) context;
     (void)streamWrite(&SD1, (uint8_t *)data, len);
     return obqWriteTimeout(&(TMC1.obqueue), (uint8_t *)data, len, TIME_INFINITE);
 }
 
-scpi_result_t SCPI_Flush(scpi_t * context) {
+static scpi_result_t SCPI_Flush(scpi_t * context) {
     (void) context;
 
     obqFlush(&(TMC1.obqueue));
     return SCPI_RES_OK;
 }
 
-int SCPI_Error(scpi_t * context, int_fast16_t err) {
+static int SCPI_Error(scpi_t * context, int_fast16_t err) {
     (void) context;
 
     chprintf((BaseSequentialStream *)&SD1, "**ERROR: %d, \"%s\"\r\n", (int16_t) err, SCPI_ErrorTranslate(err));
     return 0;
 }
 
-scpi_result_t SCPI_Control(scpi_t * context, scpi_ctrl_name_t ctrl, scpi_reg_val_t val) {
+static scpi_result_t SCPI_Control(scpi_t * context, scpi_ctrl_name_t ctrl, scpi_reg_val_t val) {
     (void) context;
 
     if (SCPI_CTRL_SRQ == ctrl) {
@@ -269,7 +272,7 @@ scpi_result_t SCPI_Control(scpi_t * context, scpi_ctrl_name_t ctrl, scpi_reg_val
     return SCPI_RES_OK;
 }
 
-scpi_result_t SCPI_Reset(scpi_t * context) {
+static scpi_result_t SCPI_Reset(scpi_t * context) {
     (void) context;
 
     chprintf((BaseSequentialStream *)&SD1, "**Reset\r\n");

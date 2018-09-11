@@ -549,7 +549,7 @@ static void txDevDepMsgIn(USBTMCDriver* tmcp, uint8_t btag, uint8_t* txbuf, size
   txbuf[5]  = (txsize >> 8) & 0xFF;
   txbuf[6]  = (txsize >> 16) & 0xFF;
   txbuf[7]  = (txsize >> 24) & 0xFF;
-  txbuf[8]  = 1;
+  txbuf[8]  = txbuf[txsize+12-1] == '\n' ? 1 : 0;
   txbuf[9]  = 0;
   txbuf[10]  = 0;
   txbuf[11]  = 0;
