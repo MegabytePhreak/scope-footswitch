@@ -428,9 +428,9 @@ static size_t _read_locked(USBHTmcDriver * tmcp, char *data, size_t n, systime_t
 			uerrf("Read size %u larger than request %u", hdr.dwTransferSize, n);
 			return 0;
 		}
-		if(((hdr.dwTransferSize+3)/4)*4 + sizeof(hdr) != len)
+		if(len < hdr.dwTransferSize + sizeof(hdr))
 		{
-			uerrf("Read indicated and actual length mismatch");
+			uerrf("Received data length %u less than indicated %u", len, hdr.dwTransferSize + sizeof(hdr));
 			return 0;
 		}
 		memcpy(data+bytes_received, tmcp->in_urb.buff + sizeof(hdr), hdr.dwTransferSize);

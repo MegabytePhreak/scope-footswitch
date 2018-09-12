@@ -240,7 +240,7 @@ bool tektronixParseState(const char * buf)
 
     while(*buf)
     {
-        if(*buf == ',')
+        if(*buf == ',' || *buf == ';')
         {
             field++;
         } else if(field == 1)
