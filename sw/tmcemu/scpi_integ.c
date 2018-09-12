@@ -13,6 +13,8 @@
 #include "scpi/scpi.h"
 
 static scpi_result_t SCPI_Flush(scpi_t * context);
+static size_t SCPI_Write(scpi_t * context, const char * data, size_t len);
+
 
 #define SCPI_INPUT_BUFFER_LENGTH 256
 #define SCPI_ERROR_QUEUE_SIZE 17
@@ -175,15 +177,28 @@ static scpi_result_t dpo3034_acquire_stopafterQ(scpi_t * context) {
     return SCPI_RES_OK;
 }
 
+
+// Hacky emulation of dso3034 behaviour. Response returned in multiple transactions
+// Also the dso3034 seems to separate responses with semicolons and not commas
 static scpi_result_t dpo3034_acquire_acquireQ(scpi_t * context) {
     SCPI_ResultMnemonic(context, dpo3034_stopafter ==  STOPAFTER_RUNSTOP ? "RUNSTOP" : "SEQUENCE");
+    SCPI_Write(context, ";", 1);
     SCPI_Flush(context);
+    context->output_count = 0;
     SCPI_ResultInt32(context, scope_state == STATE_STOPPED ? 0 : 1);
+    SCPI_Write(context, ";", 1);
+    context->output_count = 0;
     SCPI_ResultMnemonic(context, "SAMPLE");
+    SCPI_Write(context, ";", 1);
     SCPI_Flush(context);
+    context->output_count = 0;
     SCPI_ResultMnemonic(context, "INFINITE");
+    SCPI_Write(context, ";", 1);
+    context->output_count = 0;
     SCPI_ResultInt32(context, 16);
+    SCPI_Write(context, ";", 1);
     SCPI_Flush(context);
+    context->output_count = 0;
     SCPI_ResultMnemonic(context, "2.5000E+9");
 
 
