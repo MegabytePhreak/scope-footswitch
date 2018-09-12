@@ -329,11 +329,30 @@ THD_FUNCTION(scpiThread, arg) {
 
   dso9404a_set_state(STATE_STOPPED);
 
+
+  char * idn1 = SCPI_IDN1, *idn2 = SCPI_IDN2, *idn3 = SCPI_IDN4, *idn4 = SCPI_IDN4;
+  switch(emu_device)
+  {
+    case EMU_DEVICE_TEK_DPO3034:
+      idn1 = "TEKTRONIX";
+      idn2 = "dpo3034";
+      break;
+
+    case EMU_DEVICE_KEYSIGHT_DSO9404A:
+      idn1 = "KEYSIGHT";
+      idn2 = "DSO9404A";
+      break;
+
+    default:
+      break;
+  }
+
+
   SCPI_Init(&scpi_context,
           scpi_commands,
           &scpi_interface,
           scpi_units_def,
-          SCPI_IDN1, SCPI_IDN2, SCPI_IDN3, SCPI_IDN4,
+          idn1, idn2, idn3, idn4,
           scpi_input_buffer, SCPI_INPUT_BUFFER_LENGTH,
           scpi_error_queue_data, SCPI_ERROR_QUEUE_SIZE);
 
