@@ -192,6 +192,7 @@
 #define STM32_SERIAL_USART1_PRIORITY        12
 #define STM32_SERIAL_USART2_PRIORITY        12
 #define STM32_SERIAL_USART6_PRIORITY        12
+#define CON ((BaseSequentialStream*)&SD2)
 
 /*
  * SPI driver system settings.

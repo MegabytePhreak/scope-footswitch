@@ -23,85 +23,9 @@
 #include "led_manager.h"
 #include "ws2812.h"
 #include "events.h"
-#include  "usbh_usbtmc.h"
+#include "usbh_usbtmc.h"
+#include "scope.h"
 
-
-static const char runcmd[] = "ACQuire:STATE RUN\r\n";
-static const char stopcmd[] = "ACQuire:STATE STOP\r\n";
-static const char setsinglecmd[] = "ACQuire:STOPAfter SEQUENCE\r\n";
-static const char setrunstopcmd[] = "ACQuire:STOPAfter RUNSTOP\r\n";
-static const char idncmd[] = "*IDN?\r\n";
-static const char statecmd[] = "ACQuire:STATE?\r\n";
-static const char stopaftercmd[] = "ACQuire:STOPAfter?\r\n";
-static const char allstatecmd[] = "ACQuire?\r\n";
-
-#if 0
-static THD_WORKING_AREA(waTestTMC, 1024);
-
-static void ThreadTestTMC(void *p) {
-    (void)p;
-
-    chRegSetThreadName("TMC");
-
-    int j  = 0;
-    for (;;) {
-        for (uint8_t i = 0; i < USBH_TMC_MAX_INSTANCES; i++) {
-            if (USBHTMCD[i].state == USBHTMC_STATE_ACTIVE) {
-                usbDbgPrintf("TMC: Connected, TMC%d", i);
-                usbhtmcStart(&USBHTMCD[i]);
-                j = 0;
-            } else if (USBHTMCD[i].state == USBHTMC_STATE_READY) {
-                char buf[50+1];
-
-                usbDbgPrintf("TMC test loop iteration %d", j++);
-                if(usbhtmcIndicatorPulse(&USBHTMCD[i], NULL) != USBH_URBSTATUS_OK)
-                {
-                    usbDbgPrintf("TMC CTRL Error");
-                }
-
-                chThdSleepMilliseconds(2000);
-
-                if(!usbhtmcWrite(&USBHTMCD[i], runcmd, strlen(runcmd), TIME_MS2I(1000) )){
-                    usbDbgPrintf("TMC Write returned 0");
-                }
-
-                chThdSleepMilliseconds(2000);
-
-
-                if(!usbhtmcWrite(&USBHTMCD[i], stopcmd, strlen(stopcmd), TIME_MS2I(1000) )){
-                    usbDbgPrintf("TMC Write returned 0");
-                }
-
-                chThdSleepMilliseconds(2000);
-
-                if(!usbhtmcWrite(&USBHTMCD[i], idncmd, strlen(idncmd), TIME_MS2I(1000) )){
-                    usbDbgPrintf("TMC Write returned 0");
-                }
-
-                chThdSleepMilliseconds(2000);
-
-                if(!usbhtmcRead(&USBHTMCD[i], buf, 50, TIME_MS2I(1000))){
-                    usbDbgPrintf("TMC Read returned 0");
-                } else {
-                   usbDbgPrintf("TMC Read response: '%s'", buf);
-                }
-
-                chThdSleepMilliseconds(2000);
-
-                if(!usbhtmcAsk(&USBHTMCD[i], statecmd, strlen(statecmd), buf, 50, TIME_MS2I(1000))){
-                    usbDbgPrintf("TMC ASK returned 0");
-                } else {
-                    usbDbgPrintf("TMC Ask response: '%s'", buf);
-                }
-
-                chThdSleepMilliseconds(2000);
-            }
-        }
-        chThdSleepMilliseconds(200);
-    }
-
-}
-#endif
 
 #define PWM_FREQ 2000
 static PWMConfig tim3_pwmcfg = {
@@ -145,7 +69,7 @@ static LedManagerEntry g_leds[] = {
 };
 
 static LedManagerWS2812 g_rgb_leds[] = {
-    {LED_MODE_REMAP, {WS2812_RED} , 3000, 500, 3000, 50},
+    {LED_MODE_REMAP, {WS2812_RED} , 3000, 500, 3000, 200},
 };
 
 static WS2812Pixel ws2812_pixel_buf[1];
@@ -180,23 +104,8 @@ static THD_FUNCTION(ThreadLed, arg){
 
 
 
-enum {
-    SCOPE_STATE_STOPPED,
-    SCOPE_STATE_RUNNING,
-    SCOPE_STATE_SINGLE
-};
-
-static void update_leds(uint8_t state)
+static void update_leds(scope_state_t state)
 {
-    if(USBHTMCD[0].state == USBHTMC_STATE_READY)
-    {
-        setLedColor(&led_config, 0, WS2812_BLUE);
-        setLedTarget(&led_config, TRUE, 0, 5000);
-    } else {
-        setLedColor(&led_config, 0, WS2812_RED);
-        setLedTarget(&led_config, TRUE, 0, 5000);
-    }
-
     switch (state)
     {
         case SCOPE_STATE_RUNNING:
@@ -205,7 +114,7 @@ static void update_leds(uint8_t state)
             break;
         case SCOPE_STATE_SINGLE:
             setLedTarget(&led_config, FALSE, LED_MODE_GREEN, 10000);
-            setLedTarget(&led_config, FALSE, LED_MODE_RED,   7000);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED,   6000);
             break;
         case SCOPE_STATE_STOPPED:
             setLedTarget(&led_config, FALSE, LED_MODE_GREEN, 0);
@@ -214,62 +123,23 @@ static void update_leds(uint8_t state)
         default:
             setLedColor(&led_config, 0, WS2812_RED);
             setLedFlashing(&led_config, TRUE, 0);
-            setLedTarget(&led_config, FALSE, LED_MODE_RED,   0);
-            setLedTarget(&led_config, FALSE, LED_MODE_RED,   0);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED, 0);
+            setLedTarget(&led_config, FALSE, LED_MODE_RED, 0);
             break;
     }
 }
 
 
-static uint8_t scope_state;
 
 
-bool tektronixParseState(const char * buf)
-{
-    uint8_t newstate = SCOPE_STATE_STOPPED;
-
-    int field = 0;
-
-    if(*buf == 'R')
-    {
-        newstate = SCOPE_STATE_RUNNING;
-    } else if(*buf == 'S')
-    {
-        newstate = SCOPE_STATE_SINGLE;
-    }
-
-    while(*buf)
-    {
-        if(*buf == ',' || *buf == ';')
-        {
-            field++;
-        } else if(field == 1)
-        {
-            if(*buf == '0')
-            {
-                newstate = SCOPE_STATE_STOPPED;
-            }
-            break;
-        }
-        buf++;
-    }
-
-    if(scope_state != newstate)
-    {
-        scope_state = newstate;
-        return TRUE;
-    }
-    return FALSE;
-}
-
-static THD_WORKING_AREA(waThreadMain, 256);
+static THD_WORKING_AREA(waThreadMain, 512);
 static THD_FUNCTION(ThreadMain, arg) {
 
     (void)arg;
-    char buf[50+1];
 
     events_init();
-    scope_state = SCOPE_STATE_STOPPED;
+    scope_state_t scope_state = SCOPE_STATE_STOPPED;
+    const scope_config_t* cfg = NULL;
     systime_t last_update_time = chVTGetSystemTimeX();
 
     while (true) {
@@ -282,30 +152,41 @@ static THD_FUNCTION(ThreadMain, arg) {
             if (USBHTMCD[0].state == USBHTMC_STATE_ACTIVE) {
                 usbDbgPrintf("TMC: Connected, TMC%d", 0);
                 usbhtmcStart(&USBHTMCD[0]);
-                if(!usbhtmcAsk(&USBHTMCD[0], idncmd, strlen(idncmd), buf, sizeof(buf)-1, TIME_MS2I(1000))){
-                    usbDbgPrintf("TMC ASK IDN returned 0");
+                cfg = detect_scope(&USBHTMCD[0]);
+                if(!cfg)
+                {
+                    setLedColor(&led_config, 0, WS2812_RED);
+                    setLedFlashing(&led_config, TRUE, 0);
                 } else {
-                    usbDbgPrintf("TMC ASK IDN response: '%s'", buf);
-
+                    setLedColor(&led_config, 0, WS2812_BLUE);
+                    setLedTarget(&led_config, TRUE, 0, 5000);
                 }
-
                 if(evt == MSG_TIMEOUT)
                 {
                     evt = EVT_NOP;
                 }
             } else if(USBHTMCD[0].state == USBHTMC_STATE_READY) {
-                if(!usbhtmcAsk(&USBHTMCD[0], allstatecmd, strlen(allstatecmd), buf, sizeof(buf)-1, TIME_MS2I(1000))){
-                    usbDbgPrintf("TMC ASK returned 0");
-                } else {
-                    usbDbgPrintf("TMC ASK ACQUIRE? response: '%s'", buf);
-                    if(tektronixParseState(buf))
+                if(cfg)
+                {
+                    scope_state_t newstate;
+                    if(!cfg->get_state(&USBHTMCD[0], &newstate))
                     {
-                        if(evt == MSG_TIMEOUT)
+                        setLedColor(&led_config, 0, WS2812_RED);
+                        setLedFlashing(&led_config, TRUE, 0);
+                    } else {
+                        if(scope_state != newstate)
                         {
-                            evt = EVT_NOP;
+                            scope_state = newstate;
+                            if(evt == MSG_TIMEOUT)
+                            {
+                                evt = EVT_NOP;
+                            }
                         }
                     }
                 }
+            } else {
+                setLedColor(&led_config, 0, WS2812_RED);
+                setLedTarget(&led_config, TRUE, 0, 5000);
             }
         }
         if( evt == MSG_TIMEOUT)
@@ -319,36 +200,24 @@ static THD_FUNCTION(ThreadMain, arg) {
             case EVT_FOOTSW1_PRESS:
             case EVT_FOOTSW2_PRESS:
             case EVT_BTN_CLICK:
-                if(USBHTMCD[0].state == USBHTMC_STATE_READY)
+                if(USBHTMCD[0].state == USBHTMC_STATE_READY && cfg)
                 {
+                    scope_state_t newstate = SCOPE_STATE_STOPPED;
                     if(scope_state == SCOPE_STATE_STOPPED)
                     {
                         if(palReadLine(LINE_MODE))
                         {
-                            if(!usbhtmcWrite(&USBHTMCD[0], setrunstopcmd, strlen(setrunstopcmd), TIME_MS2I(1000) ))
-                            {
-                                usbDbgPrintf("TMC Write returned 0");
-                            }
-                            if(!usbhtmcWrite(&USBHTMCD[0], runcmd, strlen(runcmd), TIME_MS2I(1000) ))
-                            {
-                                usbDbgPrintf("TMC Write returned 0");
-                            }
+                            newstate = SCOPE_STATE_RUNNING;
                         }else
                         {
-                            if(!usbhtmcWrite(&USBHTMCD[0], setsinglecmd, strlen(setsinglecmd), TIME_MS2I(1000) ))
-                            {
-                                usbDbgPrintf("TMC Write returned 0");
-                            }
-                            if(!usbhtmcWrite(&USBHTMCD[0], runcmd, strlen(runcmd), TIME_MS2I(1000) ))
-                            {
-                                usbDbgPrintf("TMC Write returned 0");
-                            }
+                            newstate = SCOPE_STATE_SINGLE;
                         }
+                    }
+                    if(!cfg->set_state(&USBHTMCD[0], newstate))
+                    {
+                        setLedFlashing(&led_config, TRUE, 0);
                     } else {
-                        if(!usbhtmcWrite(&USBHTMCD[0], stopcmd, strlen(stopcmd), TIME_MS2I(1000) ))
-                        {
-                            usbDbgPrintf("TMC Write returned 0");
-                        }
+                        scope_state = newstate;
                     }
                 }
                 break;

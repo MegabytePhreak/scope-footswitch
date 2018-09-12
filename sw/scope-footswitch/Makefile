@@ -117,7 +117,7 @@ include $(CHIBIOS)/os/hal/lib/streams/streams.mk
 # setting.
 CSRC = $(ALLCSRC) \
        $(TESTSRC) \
-       events.c \
+       events.c scope.c \
        main.c usbh_usbtmc.c \
        ws2812.c led_manager.c
 

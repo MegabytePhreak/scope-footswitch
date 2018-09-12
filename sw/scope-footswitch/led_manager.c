@@ -169,7 +169,7 @@ void setLedFlashing(LedManagerConfig* cfg, uint8_t is_ws2812, uint8_t index)
     {
         LedManagerEntry * led = &cfg->leds[index];
         led->mode |= LED_MODE_CYCLE;
-        led->min = 0;
+        led->min = 2000;
         led->max = 10000;
     }
 }
