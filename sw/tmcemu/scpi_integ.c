@@ -339,8 +339,10 @@ THD_FUNCTION(scpiThread, arg) {
       break;
 
     case EMU_DEVICE_KEYSIGHT_DSO9404A:
-      idn1 = "KEYSIGHT";
+      idn1 = "KEYSIGHT TECHNOLOGIES";
       idn2 = "DSO9404A";
+      idn3 = "MY53020105";
+      idn4 = "06.20.01002";
       break;
 
     default:

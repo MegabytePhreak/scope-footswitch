@@ -251,10 +251,10 @@ void tmcObjectInit(USBTMCDriver *tmcp) {
   osalEventObjectInit(&tmcp->event);
   tmcp->state = TMC_STOP;
   ibqObjectInit(&tmcp->ibqueue, true, tmcp->ib,
-                SERIAL_USB_BUFFERS_SIZE, SERIAL_USB_BUFFERS_NUMBER,
+                USB_TMC_BUFFERS_SIZE, USB_TMC_BUFFERS_NUMBER,
                 ibnotify, tmcp);
   obqObjectInit(&tmcp->obqueue, true, tmcp->ob,
-                SERIAL_USB_BUFFERS_SIZE, SERIAL_USB_BUFFERS_NUMBER,
+                USB_TMC_BUFFERS_SIZE, USB_TMC_BUFFERS_NUMBER,
                 obnotify, tmcp);
 }
 
@@ -523,7 +523,7 @@ static int handleMsgOut(USBTMCDriver* tmcp, uint8_t* buf,size_t size)
   {
     return -1;
   }
-  if(TransferSize > (SERIAL_USB_BUFFERS_SIZE-12-1) || bmTransferAttributes != 1
+  if(TransferSize > (USB_TMC_BUFFERS_SIZE-12-1) || bmTransferAttributes != 1
     || size != ((TransferSize+3)/4)*4 + 12)
   {
     return -1;
@@ -583,7 +583,7 @@ static int handleMsgIn(USBTMCDriver* tmcp, uint8_t* buf, size_t size)
     tmcp->next_btag = bTag;
     tmcp->in_size = TransferSize;
     return 0;
-  } else if(txsize > (SERIAL_USB_BUFFERS_SIZE-12) || txsize > TransferSize)
+  } else if(txsize > (USB_TMC_BUFFERS_SIZE-12) || txsize > TransferSize)
   {
     return -1;
   }

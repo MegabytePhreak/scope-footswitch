@@ -20,7 +20,7 @@
 #include <memory.h>
 
 USBTMCDriver TMC1;
-enum emu_device_t emu_device = EMU_DEVICE_TEK_DPO3034;
+enum emu_device_t emu_device = EMU_DEVICE_KEYSIGHT_DSO9404A;
 
 /*
  * Endpoints to be used for USBD1.
