@@ -221,7 +221,7 @@ static const struct {
 	const scope_config_t* config;
 } id_table[] = {
 	{ "Tektronix", NULL, &tektronix_cfg },
-	{ "Keysight", NULL, &keysight_cfg},
+	{ "KEYSIGHT TECHNOLOGIES", NULL, &keysight_cfg},
 	{ "Agilent", NULL, &keysight_cfg},
 	{ NULL, "TMCEMU", &tmcemu_cfg}
 };
@@ -240,7 +240,7 @@ const scope_config_t * detect_scope(USBHTmcDriver* tmcp)
 		ELEM_MODEL = 1
 	};
 
-	char buf[129];
+	char buf[256];
 	char * elems[4];
 	int len = 0;
 	if(!(len = usbhtmcAsk(tmcp, idncmd, strlen(idncmd), buf, sizeof(buf)-1, CMD_TIMEOUT))){

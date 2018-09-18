@@ -132,7 +132,7 @@ static void update_leds(scope_state_t state)
 
 
 
-static THD_WORKING_AREA(waThreadMain, 512);
+static THD_WORKING_AREA(waThreadMain, 1024);
 static THD_FUNCTION(ThreadMain, arg) {
 
     (void)arg;

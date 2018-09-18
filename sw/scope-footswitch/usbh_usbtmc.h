@@ -26,7 +26,7 @@
 /* Driver pre-compile time settings.                                         */
 /*===========================================================================*/
 #define USBH_TMC_MAX_INSTANCES      1
-#define USBH_TMC_BUF_SIZE     	(1<<6)
+#define USBH_TMC_BUF_SIZE     	(1<<8)
 
 /*===========================================================================*/
 /* Derived constants and error checks.                                       */
