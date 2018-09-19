@@ -4,19 +4,18 @@
 #include "hal.h"
 
 enum events {
-	EVT_NOP = 0,
-	EVT_STARTUP,
-	EVT_BTN_CLICK,
-	EVT_BTN_HOLD,
-	EVT_FOOTSW1_PRESS,
-	EVT_FOOTSW2_PRESS,
-	EVT_MODE_CHANGE,
-	EVT_VBUS_FAULT,
-	EVT_STATE_CHANGE
+    EVT_NOP = 0,
+    EVT_STARTUP,
+    EVT_BTN_CLICK,
+    EVT_BTN_HOLD,
+    EVT_FOOTSW1_PRESS,
+    EVT_FOOTSW2_PRESS,
+    EVT_MODE_CHANGE,
+    EVT_VBUS_FAULT,
+    EVT_STATE_CHANGE
 };
 
 extern input_queue_t event_queue;
-void events_init(void);
-
+void                 events_init(void);
 
 #endif
