@@ -506,11 +506,10 @@ static int handleMsgOut(USBTMCDriver *tmcp, uint8_t *buf, size_t size) {
     uint8_t  bmTransferAttributes = buf[8];
 
 #pragma GCC diagnostic ignored "-Wsign-compare"
-    if (bTag != (uint8_t)(~bTagInverse))
-#pragma GCC diagnostic pop
-    {
+    if (bTag != (uint8_t)(~bTagInverse)) {
         return -1;
     }
+#pragma GCC diagnostic pop
     if (TransferSize > (USB_TMC_BUFFERS_SIZE - 12 - 1) ||
         bmTransferAttributes != 1 ||
         size != ((TransferSize + 3) / 4) * 4 + 12) {
@@ -554,11 +553,10 @@ static int handleMsgIn(USBTMCDriver *tmcp, uint8_t *buf, size_t size) {
     uint32_t TransferSize = buf[4] | buf[5] << 8 | buf[6] << 16 | buf[7] << 24;
     uint8_t  bmTransferAttributes = buf[8];
 #pragma GCC diagnostic ignored "-Wsign-compare"
-    if (bTag != (uint8_t)(~bTagInverse) || size != 12)
-#pragma GCC diagnostic pop
-    {
+    if (bTag != (uint8_t)(~bTagInverse) || size != 12) {
         return -1;
     }
+#pragma GCC diagnostic pop
     if (bmTransferAttributes != 0) {
         return -1;
     }
