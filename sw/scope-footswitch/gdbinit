@@ -1,0 +1,11 @@
+#set target-async on
+set confirm off
+set history save
+set mem inaccessible-by-default off
+
+tar ext /dev/ttyACM0
+mon version
+mon swdp_scan
+
+attach 1
+
