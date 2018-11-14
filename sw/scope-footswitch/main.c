@@ -213,17 +213,14 @@ int main(void) {
     chThdCreateStatic(waThreadMain, sizeof(waThreadMain), NORMALPRIO,
                       ThreadMain, 0);
 
-    bool en_device = palReadLine(LINE_EN_DEVICE);
-    if (!en_device) {
-        // turn on USB power
-        palSetPad(GPIOA, GPIOA_HOST_VBUS_EN);
-        chThdSleepMilliseconds(100);
+    // turn on USB power
+    palSetPad(GPIOA, GPIOA_HOST_VBUS_EN);
+    chThdSleepMilliseconds(100);
 
-        usbhStart(&USBHD1);
-    }
+    usbhStart(&USBHD1);
+
     for (;;) {
-        if (!en_device)
-            usbhMainLoop(&USBHD1);
+        usbhMainLoop(&USBHD1);
 
         chThdSleepMilliseconds(100);
     }

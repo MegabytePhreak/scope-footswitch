@@ -288,7 +288,7 @@
                                      PIN_MODE_INPUT(GPIOB_BOOT1) |          \
                                      PIN_MODE_INPUT(3U) |                   \
                                      PIN_MODE_INPUT(4U) |                   \
-                                     PIN_MODE_INPUT(GPIOB_EN_DEVICE) |      \
+                                     PIN_MODE_OUTPUT(GPIOB_EN_DEVICE) |      \
                                      PIN_MODE_INPUT(GPIOB_I2C_SCL) |        \
                                      PIN_MODE_INPUT(7U) |                   \
                                      PIN_MODE_INPUT(8U) |                   \
@@ -336,7 +336,7 @@
                                      PIN_PUPDR_PULLUP(GPIOB_BOOT1) |          \
                                      PIN_PUPDR_PULLUP(3U) |                   \
                                      PIN_PUPDR_PULLUP(4U) |                   \
-                                     PIN_PUPDR_PULLUP(GPIOB_EN_DEVICE) |      \
+                                     PIN_PUPDR_FLOATING(GPIOB_EN_DEVICE) |      \
                                      PIN_PUPDR_PULLUP(GPIOB_I2C_SCL) |        \
                                      PIN_PUPDR_PULLUP(7U) |                   \
                                      PIN_PUPDR_PULLUP(8U) |                   \
@@ -352,7 +352,7 @@
                                      PIN_ODR_HIGH(GPIOB_BOOT1) |          \
                                      PIN_ODR_HIGH(3U) |                   \
                                      PIN_ODR_HIGH(4U) |                   \
-                                     PIN_ODR_HIGH(GPIOB_EN_DEVICE) |      \
+                                     PIN_ODR_LOW(GPIOB_EN_DEVICE) |      \
                                      PIN_ODR_HIGH(GPIOB_I2C_SCL) |        \
                                      PIN_ODR_HIGH(7U) |                   \
                                      PIN_ODR_HIGH(8U) |                   \
