@@ -1,10 +1,25 @@
+/*
+ * This file is part of the scope-footswitch project.
+ *
+ * Copyright (C) 2018 Paul Roukema <paul@paulroukema.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #include "ws2812.h"
 #include "hal.h"
 
-//#include "pwm.h"
-//#include "stm32_dma.h"
-//#include "chprintf.h"
 
 static void dma_isr(void *p, uint32_t flags) {
     WS2812Config *cfg = (WS2812Config *)p;
