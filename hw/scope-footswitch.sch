@@ -6,10 +6,10 @@ $Descr B 17000 11000
 encoding utf-8
 Sheet 1 1
 Title "Oscilloscope Footswitch"
-Date "2018-08-10"
-Rev "1.0"
+Date "2018-10-09"
+Rev "1.3"
 Comp "Paul Roukema"
-Comment1 ""
+Comment1 "CC-BY-SA-4.0"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -64,12 +64,12 @@ NoConn ~ 600  1600
 $Comp
 L power:GND #PWR0104
 U 1 1 5B5E341F
-P 2050 2550
-F 0 "#PWR0104" H 2050 2300 50  0001 C CNN
-F 1 "GND" H 2055 2377 50  0000 C CNN
-F 2 "" H 2050 2550 50  0001 C CNN
-F 3 "" H 2050 2550 50  0001 C CNN
-	1    2050 2550
+P 2050 2650
+F 0 "#PWR0104" H 2050 2400 50  0001 C CNN
+F 1 "GND" H 2055 2477 50  0000 C CNN
+F 2 "" H 2050 2650 50  0001 C CNN
+F 3 "" H 2050 2650 50  0001 C CNN
+	1    2050 2650
 	-1   0    0    -1  
 $EndComp
 Text Label 2600 2200 2    50   ~ 0
@@ -220,12 +220,12 @@ $Comp
 L connectors:CN00050 J1
 U 1 1 5B5EB658
 P 5300 8650
-F 0 "J1" H 5677 8646 50  0000 L CNN
+F 0 "J1" H 5550 9000 50  0000 L CNN
 F 1 "CN00050" H 5400 8300 50  0001 C CNN
 F 2 "footprints:J_CUI_SJ1-3533NG" H 5100 8650 50  0001 C CNN
 F 3 "https://www.cui.com/product/resource/digikeypdf/sj1-353xng.pdf" H 5100 8650 50  0001 C CNN
 F 4 "CUI" H 5300 8650 50  0001 L CNN "Manufacturer"
-F 5 "SJ1-3533NG" H 5677 8555 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
+F 5 "SJ1-3533NG" H 5150 8900 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
 F 6 "CONN JACK STEREO 3.5MM R/A" H 5300 8650 50  0001 L CNN "Description"
 F 7 "07/29/18 00:00:00" H 5300 8650 50  0001 L CNN "CREATED_ON"
 F 8 "Drawing" H 5300 8650 50  0001 L CNN "ComponentLink1Description"
@@ -336,37 +336,6 @@ F 23 "" H 6150 9650 50  0001 L CNN "Supplier Part Number 3"
 	-1   0    0    -1  
 $EndComp
 $Comp
-L diodes:D00005 D1
-U 1 1 5B5EC13B
-P 2350 1600
-F 0 "D1" H 2400 1250 50  0000 C CNN
-F 1 "D00005" H 2450 1300 50  0001 C CNN
-F 2 "footprints:SOT_3_950_2900X1300X1000_ONSEMI" H 2350 1600 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/BAV70LT1-D.PDF" H 2350 1800 50  0001 C CNN
-F 4 "Array" H 2350 1600 50  0001 L CNN "Type"
-F 5 "225mW" H 2350 1600 50  0001 L CNN "Power"
-F 6 "70mV @ 1mA" H 2350 1600 50  0001 L CNN "VF"
-F 7 "200mA" H 2350 1600 50  0001 L CNN "IF"
-F 8 "100V" H 2350 1600 50  0001 L CNN "VR"
-F 9 "ON Semiconductior" H 2350 1600 50  0001 L CNN "Manufacturer"
-F 10 "BAV70LT3G" H 2400 1350 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
-F 11 "DIODE ARRAY GP 100V 200MA SOT23" H 2350 1600 50  0001 L CNN "Description"
-F 12 "07/29/18 00:00:00" H 2350 1600 50  0001 L CNN "CREATED_ON"
-F 13 "Datasheet" H 2350 1600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 2350 1600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 2350 1600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 2350 1600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 2350 1600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-Key" H 2350 1600 50  0001 L CNN "Supplier 1"
-F 19 "BAV70LT3GOSCT-ND" H 2350 1600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "" H 2350 1600 50  0001 L CNN "Supplier 2"
-F 21 "" H 2350 1600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 2350 1600 50  0001 L CNN "Supplier 3"
-F 23 "" H 2350 1600 50  0001 L CNN "Supplier Part Number 3"
-	1    2350 1600
-	-1   0    0    1   
-$EndComp
-$Comp
 L misc:M00027 SW1
 U 1 1 5B5EC4AF
 P 1000 1600
@@ -396,8 +365,6 @@ Wire Wire Line
 	14850 5800 14750 5800
 Wire Wire Line
 	14750 5800 14750 5700
-Wire Wire Line
-	2050 2200 2700 2200
 $Comp
 L ics:U00086 U2
 U 1 1 5B5F2964
@@ -521,7 +488,7 @@ F 2 "footprints:C_0603_1608M" H 5830 1450 50  0001 C CNN
 F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM188R61A105KA61.pdf" H 5550 1610 50  0001 C CNN
 F 4 "1µ" H 5473 1554 50  0000 R CNN "Capacitance"
 F 5 "X5R" H 5473 1645 50  0000 R CNN "Dielectric"
-F 6 "0603" H 5750 1450 50  0001 C CNN "Package"
+F 6 "0603" H 5750 1450 50  0000 C CNN "Package"
 F 7 "±10%" H 5660 1460 50  0001 C CNN "Tolerance"
 F 8 "10V" H 5473 1736 50  0000 R CNN "Voltage"
 F 9 "Murata" H 5550 1600 50  0001 L CNN "Manufacturer"
@@ -529,16 +496,10 @@ F 10 "GRM188R61A105KA61D" H 5550 1600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "CAP CER 1.0UF 10V 10% X5R 0603" H 5550 1600 50  0001 L CNN "Description"
 F 12 "02/18/11 00:00:00" H 5550 1600 50  0001 L CNN "CREATED_ON"
 F 13 "Datasheet" H 5550 1600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 5550 1600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 5550 1600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 5550 1600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 5550 1600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 5550 1600 50  0001 L CNN "Supplier 1"
-F 19 "490-1543-2-ND" H 5550 1600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 5550 1600 50  0001 L CNN "Supplier 2"
-F 21 "490-1543-2-ND" H 5550 1600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 5550 1600 50  0001 L CNN "Supplier 3"
-F 23 "" H 5550 1600 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 5550 1600 50  0001 L CNN "Supplier 1"
+F 15 "490-1543-2-ND" H 5550 1600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 5550 1600 50  0001 L CNN "Supplier 2"
+F 17 "490-1543-2-ND" H 5550 1600 50  0001 L CNN "Supplier Part Number 2"
 	1    5550 1600
 	1    0    0    1   
 $EndComp
@@ -546,63 +507,51 @@ $Comp
 L capacitors:C00004 C10
 U 1 1 5B5F484F
 P 6650 1600
-F 0 "C10" H 6728 1737 50  0000 L CNN
+F 0 "C10" H 6728 1782 50  0000 L CNN
 F 1 "C00004" H 6650 1600 50  0001 C CNN
 F 2 "footprints:C_0805_2012M" H 6930 1450 50  0001 C CNN
 F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM21BR60J106ME19.pdf" H 6650 1610 50  0001 C CNN
-F 4 "10µ" H 6728 1646 50  0000 L CNN "Capacitance"
-F 5 "X5R" H 6728 1555 50  0000 L CNN "Dielectric"
-F 6 "0805" H 6850 1450 50  0001 C CNN "Package"
+F 4 "10µ" H 6728 1691 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 6728 1600 50  0000 L CNN "Dielectric"
+F 6 "0805" H 6728 1509 50  0000 L CNN "Package"
 F 7 "±20%" H 6760 1460 50  0001 C CNN "Tolerance"
-F 8 "6.3V" H 6728 1464 50  0000 L CNN "Voltage"
+F 8 "6.3V" H 6728 1418 50  0000 L CNN "Voltage"
 F 9 "Murata" H 6650 1600 50  0001 L CNN "Manufacturer"
 F 10 "GRM21BR60J106ME19L" H 6650 1600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "CAP CER 10UF 6.3V 20% X5R 0805" H 6650 1600 50  0001 L CNN "Description"
 F 12 "02/18/11 00:00:00" H 6650 1600 50  0001 L CNN "CREATED_ON"
 F 13 "Datasheet" H 6650 1600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 6650 1600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 6650 1600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 6650 1600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 6650 1600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 6650 1600 50  0001 L CNN "Supplier 1"
-F 19 "490-1718-2-ND" H 6650 1600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 6650 1600 50  0001 L CNN "Supplier 2"
-F 21 "490-1718-1-ND" H 6650 1600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 6650 1600 50  0001 L CNN "Supplier 3"
-F 23 "" H 6650 1600 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 6650 1600 50  0001 L CNN "Supplier 1"
+F 15 "490-1718-2-ND" H 6650 1600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 6650 1600 50  0001 L CNN "Supplier 2"
+F 17 "490-1718-1-ND" H 6650 1600 50  0001 L CNN "Supplier Part Number 2"
 	1    6650 1600
 	1    0    0    -1  
 $EndComp
-Connection ~ 6650 1500
 $Comp
 L resistors:R00014 R6
 U 1 1 5B5F7086
-P 2050 2050
-F 0 "R6" H 1983 1959 50  0000 R CNN
-F 1 "R00014" H 2050 2050 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 2050 2020 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2050 2050 60  0001 C CNN
-F 4 "10K" H 1983 2050 50  0000 R CNN "Resistance"
-F 5 "1/16W" H 2120 1980 50  0001 L CNN "Power"
-F 6 "0402" H 2050 2080 60  0001 C CNN "Package"
-F 7 "1%" H 1983 2141 50  0000 R CNN "Tolerance"
-F 8 "Thick Film" H 2050 2050 50  0001 L CNN "Type"
-F 9 "Yageo" H 2050 2050 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 2050 2050 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2050 2050 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 2050 2050 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 2050 2050 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 2050 2050 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 2050 2050 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 2050 2050 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 2050 2050 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 2050 2050 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 2050 2050 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 2050 2050 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 2050 2050 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 2050 2050 50  0001 L CNN "Supplier 3"
-F 23 "" H 2050 2050 50  0001 L CNN "Supplier Part Number 3"
-	1    2050 2050
+P 2050 1950
+F 0 "R6" H 1982 1859 50  0000 R CNN
+F 1 "R00014" H 2050 1950 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 2050 1920 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2050 1950 60  0001 C CNN
+F 4 "10K" H 1982 1950 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 2120 1880 50  0001 L CNN "Power"
+F 6 "0402" H 2050 1980 60  0001 C CNN "Package"
+F 7 "1%" H 1982 1995 50  0001 R CNN "Tolerance"
+F 8 "Thick Film" H 2050 1950 50  0001 L CNN "Type"
+F 9 "Yageo" H 2050 1950 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 2050 1950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2050 1950 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 2050 1950 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 2050 1950 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 2050 1950 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 2050 1950 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 2050 1950 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 2050 1950 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 1982 2041 50  0000 R CNN "DNP"
+	1    2050 1950
 	1    0    0    1   
 $EndComp
 $Comp
@@ -641,7 +590,7 @@ Wire Wire Line
 Wire Wire Line
 	5550 1700 5750 1700
 Wire Wire Line
-	2550 1600 2900 1600
+	2550 1600 2600 1600
 $Comp
 L resistors:R00009 R14
 U 1 1 5B5F88F9
@@ -701,23 +650,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4650 12
 F 4 "10K" H 4718 1250 50  0000 L CNN "Resistance"
 F 5 "1/16W" H 4720 1180 50  0001 L CNN "Power"
 F 6 "0402" H 4650 1280 60  0001 C CNN "Package"
-F 7 "1%" H 4718 1159 50  0000 L CNN "Tolerance"
+F 7 "1%" H 4718 1159 50  0001 L CNN "Tolerance"
 F 8 "Thick Film" H 4650 1250 50  0001 L CNN "Type"
 F 9 "Yageo" H 4650 1250 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 4650 1250 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4650 1250 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 4650 1250 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 4650 1250 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 4650 1250 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 4650 1250 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 4650 1250 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 4650 1250 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 4650 1250 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 4650 1250 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 4650 1250 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 4650 1250 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 4650 1250 50  0001 L CNN "Supplier 3"
-F 23 "" H 4650 1250 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 4650 1250 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 4650 1250 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 4650 1250 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 4650 1250 50  0001 L CNN "Supplier Part Number 2"
 	1    4650 1250
 	1    0    0    -1  
 $EndComp
@@ -739,7 +682,7 @@ Wire Wire Line
 Wire Wire Line
 	4650 2200 4650 2150
 Wire Wire Line
-	2050 2550 2050 2500
+	2050 2650 2050 2550
 $Comp
 L capacitors:C00001 C29
 U 1 1 5B5FEB96
@@ -984,23 +927,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1550 39
 F 4 "100K" H 1618 3950 50  0000 L CNN "Resistance"
 F 5 "1/16W" H 1620 3880 50  0001 L CNN "Power"
 F 6 "0402" H 1550 3980 60  0001 C CNN "Package"
-F 7 "1%" H 1618 3859 50  0000 L CNN "Tolerance"
+F 7 "1%" H 1618 3859 50  0001 L CNN "Tolerance"
 F 8 "Thick Film" H 1550 3950 50  0001 L CNN "Type"
 F 9 "Yageo" H 1550 3950 50  0001 L CNN "Manufacturer"
 F 10 "RC0402JR-07100KL" H 1550 3950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 100K OHM 1/16W 5% 0402 SMD" H 1550 3950 50  0001 L CNN "Description"
 F 12 "09/25/11 00:00:00" H 1550 3950 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 1550 3950 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 1550 3950 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 1550 3950 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 1550 3950 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 1550 3950 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 1550 3950 50  0001 L CNN "Supplier 1"
-F 19 "311-100KJRTR-ND" H 1550 3950 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 1550 3950 50  0001 L CNN "Supplier 2"
-F 21 "311-100KJRCT-ND" H 1550 3950 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 1550 3950 50  0001 L CNN "Supplier 3"
-F 23 "" H 1550 3950 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 1550 3950 50  0001 L CNN "Supplier 1"
+F 15 "311-100KJRTR-ND" H 1550 3950 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 1550 3950 50  0001 L CNN "Supplier 2"
+F 17 "311-100KJRCT-ND" H 1550 3950 50  0001 L CNN "Supplier Part Number 2"
 	1    1550 3950
 	1    0    0    -1  
 $EndComp
@@ -1008,30 +945,24 @@ $Comp
 L resistors:R00016 R3
 U 1 1 5B62745E
 P 1550 4850
-F 0 "R3" H 1618 4941 50  0000 L CNN
+F 0 "R3" H 1618 4896 50  0000 L CNN
 F 1 "R00016" H 1550 4850 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 1550 4820 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1550 4850 60  0001 C CNN
-F 4 "100K" H 1618 4850 50  0000 L CNN "Resistance"
+F 4 "100K" H 1618 4805 50  0000 L CNN "Resistance"
 F 5 "1/16W" H 1620 4780 50  0001 L CNN "Power"
 F 6 "0402" H 1550 4880 60  0001 C CNN "Package"
-F 7 "1%" H 1618 4759 50  0000 L CNN "Tolerance"
+F 7 "1%" H 1618 4759 50  0001 L CNN "Tolerance"
 F 8 "Thick Film" H 1550 4850 50  0001 L CNN "Type"
 F 9 "Yageo" H 1550 4850 50  0001 L CNN "Manufacturer"
 F 10 "RC0402JR-07100KL" H 1550 4850 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 100K OHM 1/16W 5% 0402 SMD" H 1550 4850 50  0001 L CNN "Description"
 F 12 "09/25/11 00:00:00" H 1550 4850 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 1550 4850 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 1550 4850 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 1550 4850 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 1550 4850 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 1550 4850 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 1550 4850 50  0001 L CNN "Supplier 1"
-F 19 "311-100KJRTR-ND" H 1550 4850 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 1550 4850 50  0001 L CNN "Supplier 2"
-F 21 "311-100KJRCT-ND" H 1550 4850 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 1550 4850 50  0001 L CNN "Supplier 3"
-F 23 "" H 1550 4850 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 1550 4850 50  0001 L CNN "Supplier 1"
+F 15 "311-100KJRTR-ND" H 1550 4850 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 1550 4850 50  0001 L CNN "Supplier 2"
+F 17 "311-100KJRCT-ND" H 1550 4850 50  0001 L CNN "Supplier Part Number 2"
 	1    1550 4850
 	1    0    0    -1  
 $EndComp
@@ -1079,30 +1010,24 @@ $Comp
 L resistors:R00014 R4
 U 1 1 5B6336C2
 P 1900 3950
-F 0 "R4" H 1833 3859 50  0000 R CNN
+F 0 "R4" H 1832 3996 50  0000 R CNN
 F 1 "R00014" H 1900 3950 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 1900 3920 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1900 3950 60  0001 C CNN
-F 4 "10K" H 1833 3950 50  0000 R CNN "Resistance"
+F 4 "10K" H 1832 3905 50  0000 R CNN "Resistance"
 F 5 "1/16W" H 1970 3880 50  0001 L CNN "Power"
 F 6 "0402" H 1900 3980 60  0001 C CNN "Package"
-F 7 "1%" H 1833 4041 50  0000 R CNN "Tolerance"
+F 7 "1%" H 1833 4041 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 1900 3950 50  0001 L CNN "Type"
 F 9 "Yageo" H 1900 3950 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 1900 3950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 1900 3950 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 1900 3950 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 1900 3950 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 1900 3950 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 1900 3950 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 1900 3950 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 1900 3950 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 1900 3950 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 1900 3950 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 1900 3950 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 1900 3950 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 1900 3950 50  0001 L CNN "Supplier 3"
-F 23 "" H 1900 3950 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 1900 3950 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 1900 3950 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 1900 3950 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 1900 3950 50  0001 L CNN "Supplier Part Number 2"
 	1    1900 3950
 	-1   0    0    -1  
 $EndComp
@@ -1331,30 +1256,24 @@ $Comp
 L resistors:R00014 R8
 U 1 1 5B686B37
 P 2150 8300
-F 0 "R8" V 1855 8300 50  0000 C CNN
+F 0 "R8" V 1945 8300 50  0000 C CNN
 F 1 "R00014" H 2150 8300 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 2150 8270 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2150 8300 60  0001 C CNN
-F 4 "10K" V 1946 8300 50  0000 C CNN "Resistance"
+F 4 "10K" V 2036 8300 50  0000 C CNN "Resistance"
 F 5 "1/16W" H 2220 8230 50  0001 L CNN "Power"
 F 6 "0402" H 2150 8330 60  0001 C CNN "Package"
-F 7 "1%" V 2037 8300 50  0000 C CNN "Tolerance"
+F 7 "1%" V 2037 8300 50  0001 C CNN "Tolerance"
 F 8 "Thick Film" H 2150 8300 50  0001 L CNN "Type"
 F 9 "Yageo" H 2150 8300 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 2150 8300 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2150 8300 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 2150 8300 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 2150 8300 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 2150 8300 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 2150 8300 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 2150 8300 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 2150 8300 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 2150 8300 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 2150 8300 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 2150 8300 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 2150 8300 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 2150 8300 50  0001 L CNN "Supplier 3"
-F 23 "" H 2150 8300 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 2150 8300 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 2150 8300 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 2150 8300 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 2150 8300 50  0001 L CNN "Supplier Part Number 2"
 	1    2150 8300
 	0    -1   1    0   
 $EndComp
@@ -1369,23 +1288,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2000 86
 F 4 "10K" H 1932 8600 50  0000 R CNN "Resistance"
 F 5 "1/16W" H 2070 8530 50  0001 L CNN "Power"
 F 6 "0402" H 2000 8630 60  0001 C CNN "Package"
-F 7 "1%" H 1932 8509 50  0000 R CNN "Tolerance"
+F 7 "1%" H 1932 8509 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 2000 8600 50  0001 L CNN "Type"
 F 9 "Yageo" H 2000 8600 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 2000 8600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2000 8600 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 2000 8600 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 2000 8600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 2000 8600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 2000 8600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 2000 8600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 2000 8600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 2000 8600 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 2000 8600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 2000 8600 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 2000 8600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 2000 8600 50  0001 L CNN "Supplier 3"
-F 23 "" H 2000 8600 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 2000 8600 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 2000 8600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 2000 8600 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 2000 8600 50  0001 L CNN "Supplier Part Number 2"
 	1    2000 8600
 	-1   0    0    -1  
 $EndComp
@@ -1667,23 +1580,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 13200 9
 F 4 "10K" H 13268 950 50  0000 L CNN "Resistance"
 F 5 "1/16W" H 13270 880 50  0001 L CNN "Power"
 F 6 "0402" H 13200 980 60  0001 C CNN "Package"
-F 7 "1%" H 13268 859 50  0000 L CNN "Tolerance"
+F 7 "1%" H 13268 859 50  0001 L CNN "Tolerance"
 F 8 "Thick Film" H 13200 950 50  0001 L CNN "Type"
 F 9 "Yageo" H 13200 950 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 13200 950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 13200 950 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 13200 950 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 13200 950 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 13200 950 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 13200 950 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 13200 950 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 13200 950 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 13200 950 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 13200 950 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 13200 950 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 13200 950 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 13200 950 50  0001 L CNN "Supplier 3"
-F 23 "" H 13200 950 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 13200 950 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 13200 950 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 13200 950 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 13200 950 50  0001 L CNN "Supplier Part Number 2"
 	1    13200 950 
 	1    0    0    -1  
 $EndComp
@@ -1720,23 +1627,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 13800 1
 F 4 "100K" H 13868 1700 50  0000 L CNN "Resistance"
 F 5 "1/16W" H 13870 1630 50  0001 L CNN "Power"
 F 6 "0402" H 13800 1730 60  0001 C CNN "Package"
-F 7 "1%" H 13868 1609 50  0000 L CNN "Tolerance"
+F 7 "1%" H 13868 1609 50  0001 L CNN "Tolerance"
 F 8 "Thick Film" H 13800 1700 50  0001 L CNN "Type"
 F 9 "Yageo" H 13800 1700 50  0001 L CNN "Manufacturer"
 F 10 "RC0402JR-07100KL" H 13800 1700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 100K OHM 1/16W 5% 0402 SMD" H 13800 1700 50  0001 L CNN "Description"
 F 12 "09/25/11 00:00:00" H 13800 1700 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 13800 1700 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 13800 1700 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 13800 1700 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 13800 1700 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 13800 1700 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 13800 1700 50  0001 L CNN "Supplier 1"
-F 19 "311-100KJRTR-ND" H 13800 1700 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 13800 1700 50  0001 L CNN "Supplier 2"
-F 21 "311-100KJRCT-ND" H 13800 1700 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 13800 1700 50  0001 L CNN "Supplier 3"
-F 23 "" H 13800 1700 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 13800 1700 50  0001 L CNN "Supplier 1"
+F 15 "311-100KJRTR-ND" H 13800 1700 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 13800 1700 50  0001 L CNN "Supplier 2"
+F 17 "311-100KJRCT-ND" H 13800 1700 50  0001 L CNN "Supplier Part Number 2"
 	1    13800 1700
 	1    0    0    -1  
 $EndComp
@@ -1808,30 +1709,24 @@ $Comp
 L resistors:R00037 R9
 U 1 1 5B8919EE
 P 3000 9600
-F 0 "R9" V 2705 9600 50  0000 C CNN
+F 0 "R9" V 2795 9600 50  0000 C CNN
 F 1 "R00037" H 3000 9600 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 3000 9570 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 3000 9600 60  0001 C CNN
-F 4 "240R" V 2796 9600 50  0000 C CNN "Resistance"
+F 4 "240R" V 2886 9600 50  0000 C CNN "Resistance"
 F 5 "1/16W" H 3070 9530 50  0001 L CNN "Power"
 F 6 "0402" H 3000 9630 60  0001 C CNN "Package"
-F 7 "1%" V 2887 9600 50  0000 C CNN "Tolerance"
+F 7 "1%" V 2887 9600 50  0001 C CNN "Tolerance"
 F 8 "Thick Film" H 3000 9600 50  0001 L CNN "Type"
 F 9 "Yageo" H 3000 9600 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-07240R1L" H 3000 9600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 240 OHM 1/16W 1% 0402 SMD" H 3000 9600 50  0001 L CNN "Description"
 F 12 "07/24/17 00:00:00" H 3000 9600 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 3000 9600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 3000 9600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 3000 9600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 3000 9600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 3000 9600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 3000 9600 50  0001 L CNN "Supplier 1"
-F 19 "311-240LRTR-ND" H 3000 9600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 3000 9600 50  0001 L CNN "Supplier 2"
-F 21 "311-240LRCT-ND" H 3000 9600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 3000 9600 50  0001 L CNN "Supplier 3"
-F 23 "" H 3000 9600 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 3000 9600 50  0001 L CNN "Supplier 1"
+F 15 "311-240LRTR-ND" H 3000 9600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 3000 9600 50  0001 L CNN "Supplier 2"
+F 17 "311-240LRCT-ND" H 3000 9600 50  0001 L CNN "Supplier Part Number 2"
 	1    3000 9600
 	0    1    1    0   
 $EndComp
@@ -1914,30 +1809,24 @@ $Comp
 L capacitors:C00007 C12
 U 1 1 5B8F4A79
 P 6350 4000
-F 0 "C12" H 6250 3900 50  0000 R CNN
+F 0 "C12" H 6272 3818 50  0000 R CNN
 F 1 "C00007" H 6350 4000 50  0001 C CNN
 F 2 "footprints:C_0603_1608M" H 6630 3850 50  0001 C CNN
 F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM188R60J475ME19.pdf" H 6350 4010 50  0001 C CNN
-F 4 "4u7" H 6250 4000 50  0000 R CNN "Capacitance"
-F 5 "X5R" H 6250 4100 50  0000 R CNN "Dielectric"
-F 6 "0603" H 6550 3850 50  0001 C CNN "Package"
+F 4 "4u7" H 6272 3909 50  0000 R CNN "Capacitance"
+F 5 "X5R" H 6272 4000 50  0000 R CNN "Dielectric"
+F 6 "0603" H 6272 4091 50  0000 R CNN "Package"
 F 7 "±20%" H 6460 3860 50  0001 C CNN "Tolerance"
-F 8 "6.3V" H 6250 4200 50  0000 R CNN "Voltage"
+F 8 "6.3V" H 6272 4182 50  0000 R CNN "Voltage"
 F 9 "Murata" H 6350 4000 50  0001 L CNN "Manufacturer"
 F 10 "GRM188R60J475ME19D" H 6350 4000 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "CAP CER 4.7UF 6.3V X5R 0603" H 6350 4000 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 6350 4000 50  0001 L CNN "CREATED_ON"
 F 13 "Datasheet" H 6350 4000 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 6350 4000 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 6350 4000 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 6350 4000 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 6350 4000 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 6350 4000 50  0001 L CNN "Supplier 1"
-F 19 "490-5421-2-ND" H 6350 4000 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 6350 4000 50  0001 L CNN "Supplier 2"
-F 21 "490-5421-1-ND" H 6350 4000 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 6350 4000 50  0001 L CNN "Supplier 3"
-F 23 "" H 6350 4000 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 6350 4000 50  0001 L CNN "Supplier 1"
+F 15 "490-5421-2-ND" H 6350 4000 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 6350 4000 50  0001 L CNN "Supplier 2"
+F 17 "490-5421-1-ND" H 6350 4000 50  0001 L CNN "Supplier Part Number 2"
 	1    6350 4000
 	1    0    0    1   
 $EndComp
@@ -1970,26 +1859,20 @@ F 0 "R24" V 8100 8750 50  0000 C CNN
 F 1 "R00014" H 8150 8550 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 8150 8520 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 8150 8550 60  0001 C CNN
-F 4 "10K" V 8200 8750 50  0000 C CNN "Resistance"
+F 4 "10K" V 8200 8400 50  0000 C CNN "Resistance"
 F 5 "1/16W" H 8220 8480 50  0001 L CNN "Power"
 F 6 "0402" H 8150 8580 60  0001 C CNN "Package"
-F 7 "1%" V 8200 8400 50  0000 C CNN "Tolerance"
+F 7 "1%" V 8200 8400 50  0001 C CNN "Tolerance"
 F 8 "Thick Film" H 8150 8550 50  0001 L CNN "Type"
 F 9 "Yageo" H 8150 8550 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 8150 8550 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 8150 8550 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 8150 8550 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 8150 8550 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 8150 8550 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 8150 8550 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 8150 8550 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 8150 8550 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 8150 8550 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 8150 8550 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 8150 8550 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 8150 8550 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 8150 8550 50  0001 L CNN "Supplier 3"
-F 23 "" H 8150 8550 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 8150 8550 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 8150 8550 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 8150 8550 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 8150 8550 50  0001 L CNN "Supplier Part Number 2"
 	1    8150 8550
 	0    -1   1    0   
 $EndComp
@@ -2004,23 +1887,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 6850 83
 F 4 "10K" H 6782 8300 50  0000 R CNN "Resistance"
 F 5 "1/16W" H 6920 8230 50  0001 L CNN "Power"
 F 6 "0402" H 6850 8330 60  0001 C CNN "Package"
-F 7 "1%" H 6782 8209 50  0000 R CNN "Tolerance"
+F 7 "1%" H 6782 8209 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 6850 8300 50  0001 L CNN "Type"
 F 9 "Yageo" H 6850 8300 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 6850 8300 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 6850 8300 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 6850 8300 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 6850 8300 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 6850 8300 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 6850 8300 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 6850 8300 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 6850 8300 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 6850 8300 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 6850 8300 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 6850 8300 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 6850 8300 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 6850 8300 50  0001 L CNN "Supplier 3"
-F 23 "" H 6850 8300 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 6850 8300 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 6850 8300 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 6850 8300 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 6850 8300 50  0001 L CNN "Supplier Part Number 2"
 	1    6850 8300
 	-1   0    0    -1  
 $EndComp
@@ -2071,158 +1948,143 @@ Wire Wire Line
 $Comp
 L connectors:CN00052 P1
 U 1 1 5B9448B4
-P 1050 6600
-F 0 "P1" H 969 5985 50  0000 C CNN
-F 1 "CN00052" H 1000 6150 50  0001 C CNN
-F 2 "footprints:P_FCI_68000-206" H 1050 6550 50  0001 C CNN
-F 3 "http://portal.fciconnect.com/Comergent//fci/drawing/68000.pdf" H 1050 6550 50  0001 C CNN
-F 4 "FCI" H 1050 6600 50  0001 L CNN "Manufacturer"
-F 5 "68000-206HLF" H 969 6076 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
-F 6 "BERGSTIK II 6POS .100\" SR STRAIGHT" H 1050 6600 50  0001 L CNN "Description"
-F 7 "07/31/18 00:00:00" H 1050 6600 50  0001 L CNN "CREATED_ON"
-F 8 "Drawing" H 1050 6600 50  0001 L CNN "ComponentLink1Description"
-F 9 "" H 1050 6600 50  0001 L CNN "ComponentLink2URL"
-F 10 "" H 1050 6600 50  0001 L CNN "ComponentLink2Description"
-F 11 "" H 1050 6600 50  0001 L CNN "ComponentLink3URL"
-F 12 "" H 1050 6600 50  0001 L CNN "ComponentLink3Description"
-F 13 "Digi-Key" H 1050 6600 50  0001 L CNN "Supplier 1"
-F 14 "609-3256-ND" H 1050 6600 50  0001 L CNN "Supplier Part Number 1"
-F 15 "" H 1050 6600 50  0001 L CNN "Supplier 2"
-F 16 "" H 1050 6600 50  0001 L CNN "Supplier Part Number 2"
-F 17 "" H 1050 6600 50  0001 L CNN "Supplier 3"
-F 18 "" H 1050 6600 50  0001 L CNN "Supplier Part Number 3"
-	1    1050 6600
+P 1000 6900
+F 0 "P1" H 1000 6300 50  0000 C CNN
+F 1 "CN00052" H 950 6450 50  0001 C CNN
+F 2 "footprints:P_FCI_68000-206" H 1000 6850 50  0001 C CNN
+F 3 "http://portal.fciconnect.com/Comergent//fci/drawing/68000.pdf" H 1000 6850 50  0001 C CNN
+F 4 "FCI" H 1000 6900 50  0001 L CNN "Manufacturer"
+F 5 "68000-206HLF" H 919 6376 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "BERGSTIK II 6POS .100\" SR STRAIGHT" H 1000 6900 50  0001 L CNN "Description"
+F 7 "07/31/18 00:00:00" H 1000 6900 50  0001 L CNN "CREATED_ON"
+F 8 "Drawing" H 1000 6900 50  0001 L CNN "ComponentLink1Description"
+F 9 "" H 1000 6900 50  0001 L CNN "ComponentLink2URL"
+F 10 "" H 1000 6900 50  0001 L CNN "ComponentLink2Description"
+F 11 "" H 1000 6900 50  0001 L CNN "ComponentLink3URL"
+F 12 "" H 1000 6900 50  0001 L CNN "ComponentLink3Description"
+F 13 "Digi-Key" H 1000 6900 50  0001 L CNN "Supplier 1"
+F 14 "609-3256-ND" H 1000 6900 50  0001 L CNN "Supplier Part Number 1"
+F 15 "" H 1000 6900 50  0001 L CNN "Supplier 2"
+F 16 "" H 1000 6900 50  0001 L CNN "Supplier Part Number 2"
+F 17 "" H 1000 6900 50  0001 L CNN "Supplier 3"
+F 18 "" H 1000 6900 50  0001 L CNN "Supplier Part Number 3"
+	1    1000 6900
 	-1   0    0    1   
 $EndComp
-Text Label 1750 6400 0    50   ~ 0
+Text Label 2150 6700 0    50   ~ 0
 UART_RX
-Text Label 1750 6300 0    50   ~ 0
+Text Label 2150 6600 0    50   ~ 0
 UART_TX
 $Comp
 L power:GND #PWR0145
 U 1 1 5B94558C
-P 1300 6750
-F 0 "#PWR0145" H 1300 6500 50  0001 C CNN
-F 1 "GND" H 1305 6577 50  0000 C CNN
-F 2 "" H 1300 6750 50  0001 C CNN
-F 3 "" H 1300 6750 50  0001 C CNN
-	1    1300 6750
+P 1250 7050
+F 0 "#PWR0145" H 1250 6800 50  0001 C CNN
+F 1 "GND" H 1255 6877 50  0000 C CNN
+F 2 "" H 1250 7050 50  0001 C CNN
+F 3 "" H 1250 7050 50  0001 C CNN
+	1    1250 7050
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	1250 6700 1300 6700
+	1200 7000 1250 7000
 Wire Wire Line
-	1300 6700 1300 6750
-Wire Wire Line
-	1250 6400 1500 6400
+	1250 7000 1250 7050
 $Comp
 L resistors:R00014 R1
 U 1 1 5B96FBD1
-P 1500 6100
-F 0 "R1" H 1432 6191 50  0000 R CNN
-F 1 "R00014" H 1500 6100 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 1500 6070 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1500 6100 60  0001 C CNN
-F 4 "10K" H 1432 6100 50  0000 R CNN "Resistance"
-F 5 "1/16W" H 1570 6030 50  0001 L CNN "Power"
-F 6 "0402" H 1500 6130 60  0001 C CNN "Package"
-F 7 "1%" H 1432 6009 50  0000 R CNN "Tolerance"
-F 8 "Thick Film" H 1500 6100 50  0001 L CNN "Type"
-F 9 "Yageo" H 1500 6100 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 1500 6100 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 1500 6100 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 1500 6100 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 1500 6100 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 1500 6100 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 1500 6100 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 1500 6100 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 1500 6100 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 1500 6100 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 1500 6100 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 1500 6100 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 1500 6100 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 1500 6100 50  0001 L CNN "Supplier 3"
-F 23 "" H 1500 6100 50  0001 L CNN "Supplier Part Number 3"
-	1    1500 6100
+P 2050 6200
+F 0 "R1" H 1982 6246 50  0000 R CNN
+F 1 "R00014" H 2050 6200 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 2050 6170 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2050 6200 60  0001 C CNN
+F 4 "10K" H 1982 6155 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 2120 6130 50  0001 L CNN "Power"
+F 6 "0402" H 2050 6230 60  0001 C CNN "Package"
+F 7 "1%" H 1982 6109 50  0001 R CNN "Tolerance"
+F 8 "Thick Film" H 2050 6200 50  0001 L CNN "Type"
+F 9 "Yageo" H 2050 6200 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 2050 6200 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2050 6200 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 2050 6200 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 2050 6200 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 2050 6200 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 2050 6200 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 2050 6200 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 2050 6200 50  0001 L CNN "Supplier Part Number 2"
+	1    2050 6200
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:+3.3V #PWR0146
 U 1 1 5B97A91C
-P 1500 5900
-F 0 "#PWR0146" H 1500 5750 50  0001 C CNN
-F 1 "+3.3V" H 1515 6073 50  0000 C CNN
-F 2 "" H 1500 5900 50  0001 C CNN
-F 3 "" H 1500 5900 50  0001 C CNN
-	1    1500 5900
+P 2050 5850
+F 0 "#PWR0146" H 2050 5700 50  0001 C CNN
+F 1 "+3.3V" H 2065 6023 50  0000 C CNN
+F 2 "" H 2050 5850 50  0001 C CNN
+F 3 "" H 2050 5850 50  0001 C CNN
+	1    2050 5850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1500 5950 1500 5900
-Wire Wire Line
-	1500 6250 1500 6400
-Connection ~ 1500 6400
-Wire Wire Line
-	1500 6400 2150 6400
-Wire Wire Line
-	1250 6300 2150 6300
+	2050 6050 2050 5900
 $Comp
 L transistors:Q00002 Q1
 U 1 1 5B9D8EF8
-P 10450 9300
-F 0 "Q1" H 10637 9300 50  0000 L CNN
-F 1 "Q00002" H 11200 9250 50  0001 C CNN
-F 2 "footprints:SOT_6_650_2150X1300x1100_DIODES" H 10650 9300 50  0001 C CNN
-F 3 "http://www.diodes.com/datasheets/DMN63D8LDW.pdf" H 10650 9300 50  0001 C CNN
-F 4 "N-FET" H 10450 9300 50  0001 L CNN "Type"
-F 5 "300mW" H 10450 9300 50  0001 L CNN "Power"
-F 6 "30V" H 10450 9300 50  0001 L CNN "Vdss"
-F 7 "1.5V" H 10450 9300 50  0001 L CNN "Vgsth"
-F 8 "220mA" H 10450 9300 50  0001 L CNN "Id"
-F 9 "2" H 10450 9300 50  0001 L CNN "NUMBER"
-F 10 "Diodes Inc" H 10450 9300 50  0001 L CNN "Manufacturer"
-F 11 "DMN63D8LDW-7" H 10650 9200 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
-F 12 "MOSFET 2N-CH 30V 220MA SOT363" H 10450 9300 50  0001 L CNN "Description"
-F 13 "07/08/15 00:00:00" H 10450 9300 50  0001 L CNN "CREATED_ON"
-F 14 "Datasheet" H 10450 9300 50  0001 L CNN "ComponentLink1Description"
-F 15 "Digi-Key" H 10450 9300 50  0001 L CNN "Supplier 1"
-F 16 "DMN63D8LDW-7CT-ND" H 10450 9300 50  0001 L CNN "Supplier Part Number 1"
-	1    10450 9300
+P 10450 9350
+F 0 "Q1" H 10637 9350 50  0000 L CNN
+F 1 "Q00002" H 11200 9300 50  0001 C CNN
+F 2 "footprints:SOT_6_650_2150X1300x1100_DIODES" H 10650 9350 50  0001 C CNN
+F 3 "http://www.diodes.com/datasheets/DMN63D8LDW.pdf" H 10650 9350 50  0001 C CNN
+F 4 "N-FET" H 10450 9350 50  0001 L CNN "Type"
+F 5 "300mW" H 10450 9350 50  0001 L CNN "Power"
+F 6 "30V" H 10450 9350 50  0001 L CNN "Vdss"
+F 7 "1.5V" H 10450 9350 50  0001 L CNN "Vgsth"
+F 8 "220mA" H 10450 9350 50  0001 L CNN "Id"
+F 9 "2" H 10450 9350 50  0001 L CNN "NUMBER"
+F 10 "Diodes Inc" H 10450 9350 50  0001 L CNN "Manufacturer"
+F 11 "DMN63D8LDW-7" H 10650 9250 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
+F 12 "MOSFET 2N-CH 30V 220MA SOT363" H 10450 9350 50  0001 L CNN "Description"
+F 13 "07/08/15 00:00:00" H 10450 9350 50  0001 L CNN "CREATED_ON"
+F 14 "Datasheet" H 10450 9350 50  0001 L CNN "ComponentLink1Description"
+F 15 "Digi-Key" H 10450 9350 50  0001 L CNN "Supplier 1"
+F 16 "DMN63D8LDW-7CT-ND" H 10450 9350 50  0001 L CNN "Supplier Part Number 1"
+	1    10450 9350
 	1    0    0    -1  
 $EndComp
 $Comp
 L transistors:Q00002 Q1
 U 2 1 5B9D9127
-P 11250 9850
-F 0 "Q1" H 11437 9896 50  0000 L CNN
-F 1 "Q00002" H 12000 9800 50  0001 C CNN
-F 2 "footprints:SOT_6_650_2150X1300x1100_DIODES" H 11450 9850 50  0001 C CNN
-F 3 "http://www.diodes.com/datasheets/DMN63D8LDW.pdf" H 11450 9850 50  0001 C CNN
-F 4 "N-FET" H 11250 9850 50  0001 L CNN "Type"
-F 5 "300mW" H 11250 9850 50  0001 L CNN "Power"
-F 6 "30V" H 11250 9850 50  0001 L CNN "Vdss"
-F 7 "1.5V" H 11250 9850 50  0001 L CNN "Vgsth"
-F 8 "220mA" H 11250 9850 50  0001 L CNN "Id"
-F 9 "2" H 11250 9850 50  0001 L CNN "NUMBER"
-F 10 "Diodes Inc" H 11250 9850 50  0001 L CNN "Manufacturer"
-F 11 "DMN63D8LDW-7" H 11437 9805 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
-F 12 "MOSFET 2N-CH 30V 220MA SOT363" H 11250 9850 50  0001 L CNN "Description"
-F 13 "07/08/15 00:00:00" H 11250 9850 50  0001 L CNN "CREATED_ON"
-F 14 "Datasheet" H 11250 9850 50  0001 L CNN "ComponentLink1Description"
-F 15 "" H 11250 9850 50  0001 L CNN "ComponentLink2URL"
-F 16 "" H 11250 9850 50  0001 L CNN "ComponentLink2Description"
-F 17 "" H 11250 9850 50  0001 L CNN "ComponentLink3URL"
-F 18 "" H 11250 9850 50  0001 L CNN "ComponentLink3Description"
-F 19 "Digi-Key" H 11250 9850 50  0001 L CNN "Supplier 1"
-F 20 "DMN63D8LDW-7CT-ND" H 11250 9850 50  0001 L CNN "Supplier Part Number 1"
-F 21 "" H 11250 9850 50  0001 L CNN "Supplier 2"
-F 22 "" H 11250 9850 50  0001 L CNN "Supplier Part Number 2"
-F 23 "" H 11250 9850 50  0001 L CNN "Supplier 3"
-F 24 "" H 11250 9850 50  0001 L CNN "Supplier Part Number 3"
-F 25 "" H 11250 9850 50  0001 L CNN "Ic"
-F 26 "" H 11250 9850 50  0001 L CNN "Vce"
-F 27 "" H 11250 9850 50  0001 L CNN "hFE"
-	2    11250 9850
+P 11250 9900
+F 0 "Q1" H 11437 9946 50  0000 L CNN
+F 1 "Q00002" H 12000 9850 50  0001 C CNN
+F 2 "footprints:SOT_6_650_2150X1300x1100_DIODES" H 11450 9900 50  0001 C CNN
+F 3 "http://www.diodes.com/datasheets/DMN63D8LDW.pdf" H 11450 9900 50  0001 C CNN
+F 4 "N-FET" H 11250 9900 50  0001 L CNN "Type"
+F 5 "300mW" H 11250 9900 50  0001 L CNN "Power"
+F 6 "30V" H 11250 9900 50  0001 L CNN "Vdss"
+F 7 "1.5V" H 11250 9900 50  0001 L CNN "Vgsth"
+F 8 "220mA" H 11250 9900 50  0001 L CNN "Id"
+F 9 "2" H 11250 9900 50  0001 L CNN "NUMBER"
+F 10 "Diodes Inc" H 11250 9900 50  0001 L CNN "Manufacturer"
+F 11 "DMN63D8LDW-7" H 11437 9855 50  0000 L CNN "MANUFACTURER_PART_NUMBER"
+F 12 "MOSFET 2N-CH 30V 220MA SOT363" H 11250 9900 50  0001 L CNN "Description"
+F 13 "07/08/15 00:00:00" H 11250 9900 50  0001 L CNN "CREATED_ON"
+F 14 "Datasheet" H 11250 9900 50  0001 L CNN "ComponentLink1Description"
+F 15 "" H 11250 9900 50  0001 L CNN "ComponentLink2URL"
+F 16 "" H 11250 9900 50  0001 L CNN "ComponentLink2Description"
+F 17 "" H 11250 9900 50  0001 L CNN "ComponentLink3URL"
+F 18 "" H 11250 9900 50  0001 L CNN "ComponentLink3Description"
+F 19 "Digi-Key" H 11250 9900 50  0001 L CNN "Supplier 1"
+F 20 "DMN63D8LDW-7CT-ND" H 11250 9900 50  0001 L CNN "Supplier Part Number 1"
+F 21 "" H 11250 9900 50  0001 L CNN "Supplier 2"
+F 22 "" H 11250 9900 50  0001 L CNN "Supplier Part Number 2"
+F 23 "" H 11250 9900 50  0001 L CNN "Supplier 3"
+F 24 "" H 11250 9900 50  0001 L CNN "Supplier Part Number 3"
+F 25 "" H 11250 9900 50  0001 L CNN "Ic"
+F 26 "" H 11250 9900 50  0001 L CNN "Vce"
+F 27 "" H 11250 9900 50  0001 L CNN "hFE"
+	2    11250 9900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -2245,126 +2107,56 @@ F 3 "" H 11350 8050 50  0001 C CNN
 	1    11350 8050
 	1    0    0    -1  
 $EndComp
-$Comp
-L resistors:R00079 R31
-U 1 1 5B9FE0E6
-P 11350 9150
-F 0 "R31" H 11418 9241 50  0000 L CNN
-F 1 "R00079" H 11350 9150 50  0001 C CNN
-F 2 "footprints:R_0603_1608M" H 11350 9120 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_2.pdf" H 11350 9150 60  0001 C CNN
-F 4 "100R" H 11418 9150 50  0000 L CNN "Resistance"
-F 5 "1/10W" H 11420 9080 50  0001 L CNN "Power"
-F 6 "0603" H 11350 9180 60  0001 C CNN "Package"
-F 7 "1%" H 11418 9059 50  0000 L CNN "Tolerance"
-F 8 "Thick Film" H 11350 9150 50  0001 L CNN "Type"
-F 9 "Yageo" H 11350 9150 50  0001 L CNN "Manufacturer"
-F 10 "RC0603FR-07100RL" H 11350 9150 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES SMD 100 OHM 1% 1/10W 0603" H 11350 9150 50  0001 L CNN "Description"
-F 12 "07/15/15 00:00:00" H 11350 9150 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 11350 9150 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 11350 9150 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 11350 9150 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 11350 9150 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 11350 9150 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 11350 9150 50  0001 L CNN "Supplier 1"
-F 19 "311-100HRCT-ND" H 11350 9150 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 11350 9150 50  0001 L CNN "Supplier 2"
-F 21 "311-100HRTR-ND" H 11350 9150 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 11350 9150 50  0001 L CNN "Supplier 3"
-F 23 "" H 11350 9150 50  0001 L CNN "Supplier Part Number 3"
-	1    11350 9150
-	1    0    0    -1  
-$EndComp
-$Comp
-L resistors:R00079 R29
-U 1 1 5B9FE226
-P 10550 8900
-F 0 "R29" H 10618 8991 50  0000 L CNN
-F 1 "R00079" H 10550 8900 50  0001 C CNN
-F 2 "footprints:R_0603_1608M" H 10550 8870 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_2.pdf" H 10550 8900 60  0001 C CNN
-F 4 "100R" H 10618 8900 50  0000 L CNN "Resistance"
-F 5 "1/10W" H 10620 8830 50  0001 L CNN "Power"
-F 6 "0603" H 10550 8930 60  0001 C CNN "Package"
-F 7 "1%" H 10618 8809 50  0000 L CNN "Tolerance"
-F 8 "Thick Film" H 10550 8900 50  0001 L CNN "Type"
-F 9 "Yageo" H 10550 8900 50  0001 L CNN "Manufacturer"
-F 10 "RC0603FR-07100RL" H 10550 8900 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES SMD 100 OHM 1% 1/10W 0603" H 10550 8900 50  0001 L CNN "Description"
-F 12 "07/15/15 00:00:00" H 10550 8900 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 10550 8900 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 10550 8900 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 10550 8900 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 10550 8900 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 10550 8900 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 10550 8900 50  0001 L CNN "Supplier 1"
-F 19 "311-100HRCT-ND" H 10550 8900 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 10550 8900 50  0001 L CNN "Supplier 2"
-F 21 "311-100HRTR-ND" H 10550 8900 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 10550 8900 50  0001 L CNN "Supplier 3"
-F 23 "" H 10550 8900 50  0001 L CNN "Supplier Part Number 3"
-	1    10550 8900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	11350 8800 11400 8800
-Wire Wire Line
-	10550 9050 10550 9100
 $Comp
 L power:GND #PWR0148
 U 1 1 5BA46C9A
-P 11350 10100
-F 0 "#PWR0148" H 11350 9850 50  0001 C CNN
-F 1 "GND" H 11355 9927 50  0000 C CNN
-F 2 "" H 11350 10100 50  0001 C CNN
-F 3 "" H 11350 10100 50  0001 C CNN
-	1    11350 10100
+P 11350 10150
+F 0 "#PWR0148" H 11350 9900 50  0001 C CNN
+F 1 "GND" H 11355 9977 50  0000 C CNN
+F 2 "" H 11350 10150 50  0001 C CNN
+F 3 "" H 11350 10150 50  0001 C CNN
+	1    11350 10150
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0149
 U 1 1 5BA5F567
-P 10550 9550
-F 0 "#PWR0149" H 10550 9300 50  0001 C CNN
-F 1 "GND" H 10555 9377 50  0000 C CNN
-F 2 "" H 10550 9550 50  0001 C CNN
-F 3 "" H 10550 9550 50  0001 C CNN
-	1    10550 9550
+P 10550 9600
+F 0 "#PWR0149" H 10550 9350 50  0001 C CNN
+F 1 "GND" H 10555 9427 50  0000 C CNN
+F 2 "" H 10550 9600 50  0001 C CNN
+F 3 "" H 10550 9600 50  0001 C CNN
+	1    10550 9600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	11350 10100 11350 10050
+	11350 10150 11350 10100
 Wire Wire Line
-	10550 9550 10550 9500
+	10550 9600 10550 9550
 $Comp
 L resistors:R00014 R26
 U 1 1 5BAD027D
 P 10100 8200
-F 0 "R26" V 9805 8200 50  0000 C CNN
+F 0 "R26" V 9895 8200 50  0000 C CNN
 F 1 "R00014" H 10100 8200 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 10100 8170 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10100 8200 60  0001 C CNN
-F 4 "10K" V 9896 8200 50  0000 C CNN "Resistance"
+F 4 "10K" V 9986 8200 50  0000 C CNN "Resistance"
 F 5 "1/16W" H 10170 8130 50  0001 L CNN "Power"
 F 6 "0402" H 10100 8230 60  0001 C CNN "Package"
-F 7 "1%" V 9987 8200 50  0000 C CNN "Tolerance"
+F 7 "1%" V 9987 8200 50  0001 C CNN "Tolerance"
 F 8 "Thick Film" H 10100 8200 50  0001 L CNN "Type"
 F 9 "Yageo" H 10100 8200 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 10100 8200 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10100 8200 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 10100 8200 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 10100 8200 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 10100 8200 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 10100 8200 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 10100 8200 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 10100 8200 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 10100 8200 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 10100 8200 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 10100 8200 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 10100 8200 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 10100 8200 50  0001 L CNN "Supplier 3"
-F 23 "" H 10100 8200 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 10100 8200 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 10100 8200 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 10100 8200 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 10100 8200 50  0001 L CNN "Supplier Part Number 2"
 	1    10100 8200
 	0    1    1    0   
 $EndComp
@@ -2372,30 +2164,24 @@ $Comp
 L resistors:R00014 R28
 U 1 1 5BAD0298
 P 10250 8500
-F 0 "R28" H 10182 8591 50  0000 R CNN
+F 0 "R28" H 10318 8546 50  0000 L CNN
 F 1 "R00014" H 10250 8500 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 10250 8470 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10250 8500 60  0001 C CNN
-F 4 "10K" H 10182 8500 50  0000 R CNN "Resistance"
+F 4 "10K" H 10318 8455 50  0000 L CNN "Resistance"
 F 5 "1/16W" H 10320 8430 50  0001 L CNN "Power"
 F 6 "0402" H 10250 8530 60  0001 C CNN "Package"
-F 7 "1%" H 10182 8409 50  0000 R CNN "Tolerance"
+F 7 "1%" H 10182 8409 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 10250 8500 50  0001 L CNN "Type"
 F 9 "Yageo" H 10250 8500 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 10250 8500 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10250 8500 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 10250 8500 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 10250 8500 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 10250 8500 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 10250 8500 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 10250 8500 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 10250 8500 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 10250 8500 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 10250 8500 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 10250 8500 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 10250 8500 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 10250 8500 50  0001 L CNN "Supplier 3"
-F 23 "" H 10250 8500 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 10250 8500 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 10250 8500 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 10250 8500 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 10250 8500 50  0001 L CNN "Supplier Part Number 2"
 	1    10250 8500
 	1    0    0    -1  
 $EndComp
@@ -2468,104 +2254,90 @@ MODE_R
 Text Label 9600 8200 0    50   ~ 0
 MODE
 Wire Wire Line
-	11350 9000 11350 8800
+	11350 9350 11350 9700
 Wire Wire Line
-	11350 9300 11350 9650
+	11050 9900 10800 9900
 Wire Wire Line
-	11050 9850 10800 9850
-Wire Wire Line
-	10250 9300 10000 9300
-Text Label 9750 9300 0    50   ~ 0
+	10250 9350 10000 9350
+Text Label 9750 9350 0    50   ~ 0
 MODE_LED_R
-Text Label 9750 9850 0    50   ~ 0
+Text Label 9750 9900 0    50   ~ 0
 MODE_LED_G
 $Comp
 L resistors:R00014 R27
 U 1 1 5BBBEEFA
-P 10150 9500
-F 0 "R27" V 10250 9600 50  0000 R CNN
-F 1 "R00014" H 10150 9500 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 10150 9470 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10150 9500 60  0001 C CNN
-F 4 "10K" V 10050 9650 50  0000 R CNN "Resistance"
-F 5 "1/16W" H 10220 9430 50  0001 L CNN "Power"
-F 6 "0402" H 10150 9530 60  0001 C CNN "Package"
-F 7 "1%" V 10050 9450 50  0000 R CNN "Tolerance"
-F 8 "Thick Film" H 10150 9500 50  0001 L CNN "Type"
-F 9 "Yageo" H 10150 9500 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 10150 9500 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10150 9500 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 10150 9500 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 10150 9500 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 10150 9500 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 10150 9500 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 10150 9500 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 10150 9500 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 10150 9500 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 10150 9500 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 10150 9500 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 10150 9500 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 10150 9500 50  0001 L CNN "Supplier 3"
-F 23 "" H 10150 9500 50  0001 L CNN "Supplier Part Number 3"
-	1    10150 9500
+P 10150 9550
+F 0 "R27" V 10250 9650 50  0000 R CNN
+F 1 "R00014" H 10150 9550 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 10150 9520 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10150 9550 60  0001 C CNN
+F 4 "10K" V 10050 9700 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 10220 9480 50  0001 L CNN "Power"
+F 6 "0402" H 10150 9580 60  0001 C CNN "Package"
+F 7 "1%" V 10050 9500 50  0001 R CNN "Tolerance"
+F 8 "Thick Film" H 10150 9550 50  0001 L CNN "Type"
+F 9 "Yageo" H 10150 9550 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 10150 9550 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10150 9550 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 10150 9550 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 10150 9550 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 10150 9550 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 10150 9550 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 10150 9550 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 10150 9550 50  0001 L CNN "Supplier Part Number 2"
+	1    10150 9550
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	10550 9500 10300 9500
-Connection ~ 10550 9500
+	10550 9550 10300 9550
+Connection ~ 10550 9550
 Wire Wire Line
-	10000 9500 10000 9300
-Connection ~ 10000 9300
+	10000 9550 10000 9350
+Connection ~ 10000 9350
 Wire Wire Line
-	10000 9300 9650 9300
+	10000 9350 9650 9350
 $Comp
 L resistors:R00014 R30
 U 1 1 5BBD9B89
-P 10950 10050
-F 0 "R30" V 11050 10150 50  0000 R CNN
-F 1 "R00014" H 10950 10050 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 10950 10020 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10950 10050 60  0001 C CNN
-F 4 "10K" V 10850 10200 50  0000 R CNN "Resistance"
-F 5 "1/16W" H 11020 9980 50  0001 L CNN "Power"
-F 6 "0402" H 10950 10080 60  0001 C CNN "Package"
-F 7 "1%" V 10850 10000 50  0000 R CNN "Tolerance"
-F 8 "Thick Film" H 10950 10050 50  0001 L CNN "Type"
-F 9 "Yageo" H 10950 10050 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 10950 10050 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10950 10050 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 10950 10050 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 10950 10050 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 10950 10050 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 10950 10050 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 10950 10050 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 10950 10050 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 10950 10050 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 10950 10050 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 10950 10050 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 10950 10050 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 10950 10050 50  0001 L CNN "Supplier 3"
-F 23 "" H 10950 10050 50  0001 L CNN "Supplier Part Number 3"
-	1    10950 10050
+P 10950 10100
+F 0 "R30" V 11050 10200 50  0000 R CNN
+F 1 "R00014" H 10950 10100 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 10950 10070 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 10950 10100 60  0001 C CNN
+F 4 "10K" V 10850 10250 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 11020 10030 50  0001 L CNN "Power"
+F 6 "0402" H 10950 10130 60  0001 C CNN "Package"
+F 7 "1%" V 10850 10050 50  0001 R CNN "Tolerance"
+F 8 "Thick Film" H 10950 10100 50  0001 L CNN "Type"
+F 9 "Yageo" H 10950 10100 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 10950 10100 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 10950 10100 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 10950 10100 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 10950 10100 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 10950 10100 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 10950 10100 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 10950 10100 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 10950 10100 50  0001 L CNN "Supplier Part Number 2"
+	1    10950 10100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	11350 10050 11100 10050
-Connection ~ 11350 10050
+	11350 10100 11100 10100
+Connection ~ 11350 10100
 Wire Wire Line
-	10800 10050 10800 9850
-Connection ~ 10800 9850
+	10800 10100 10800 9900
+Connection ~ 10800 9900
 Connection ~ 9900 8200
 Wire Wire Line
 	9350 8200 9900 8200
 Wire Wire Line
 	10250 8200 11400 8200
 Wire Wire Line
-	10550 8700 10550 8750
+	10550 8700 10550 8800
 Wire Wire Line
 	10550 8700 11400 8700
 Wire Wire Line
-	9650 9850 10800 9850
+	9650 9900 10800 9900
 NoConn ~ 12200 8700
 NoConn ~ 12200 8800
 Text Label 9200 4400 0    50   ~ 0
@@ -2591,23 +2363,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 11950 1
 F 4 "10K" H 11882 1600 50  0000 R CNN "Resistance"
 F 5 "1/16W" H 12020 1530 50  0001 L CNN "Power"
 F 6 "0402" H 11950 1630 60  0001 C CNN "Package"
-F 7 "1%" H 11882 1509 50  0000 R CNN "Tolerance"
+F 7 "1%" H 11882 1509 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 11950 1600 50  0001 L CNN "Type"
 F 9 "Yageo" H 11950 1600 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 11950 1600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 11950 1600 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 11950 1600 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 11950 1600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 11950 1600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 11950 1600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 11950 1600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 11950 1600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 11950 1600 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 11950 1600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 11950 1600 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 11950 1600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 11950 1600 50  0001 L CNN "Supplier 3"
-F 23 "" H 11950 1600 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 11950 1600 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 11950 1600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 11950 1600 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 11950 1600 50  0001 L CNN "Supplier Part Number 2"
 	1    11950 1600
 	-1   0    0    -1  
 $EndComp
@@ -2935,23 +2701,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 7150 83
 F 4 "10K" H 7082 8300 50  0000 R CNN "Resistance"
 F 5 "1/16W" H 7220 8230 50  0001 L CNN "Power"
 F 6 "0402" H 7150 8330 60  0001 C CNN "Package"
-F 7 "1%" H 7082 8209 50  0000 R CNN "Tolerance"
+F 7 "1%" H 7082 8209 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 7150 8300 50  0001 L CNN "Type"
 F 9 "Yageo" H 7150 8300 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 7150 8300 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 7150 8300 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 7150 8300 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 7150 8300 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 7150 8300 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 7150 8300 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 7150 8300 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 7150 8300 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 7150 8300 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 7150 8300 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 7150 8300 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 7150 8300 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 7150 8300 50  0001 L CNN "Supplier 3"
-F 23 "" H 7150 8300 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 7150 8300 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 7150 8300 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 7150 8300 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 7150 8300 50  0001 L CNN "Supplier Part Number 2"
 	1    7150 8300
 	-1   0    0    -1  
 $EndComp
@@ -2969,26 +2729,20 @@ F 0 "R25" V 8100 8950 50  0000 C CNN
 F 1 "R00014" H 8150 8750 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 8150 8720 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 8150 8750 60  0001 C CNN
-F 4 "10K" V 8200 8950 50  0000 C CNN "Resistance"
+F 4 "10K" V 8200 8600 50  0000 C CNN "Resistance"
 F 5 "1/16W" H 8220 8680 50  0001 L CNN "Power"
 F 6 "0402" H 8150 8780 60  0001 C CNN "Package"
-F 7 "1%" V 8200 8600 50  0000 C CNN "Tolerance"
+F 7 "1%" V 8200 8600 50  0001 C CNN "Tolerance"
 F 8 "Thick Film" H 8150 8750 50  0001 L CNN "Type"
 F 9 "Yageo" H 8150 8750 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 8150 8750 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 8150 8750 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 8150 8750 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 8150 8750 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 8150 8750 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 8150 8750 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 8150 8750 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 8150 8750 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 8150 8750 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 8150 8750 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 8150 8750 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 8150 8750 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 8150 8750 50  0001 L CNN "Supplier 3"
-F 23 "" H 8150 8750 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 8150 8750 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 8150 8750 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 8150 8750 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 8150 8750 50  0001 L CNN "Supplier Part Number 2"
 	1    8150 8750
 	0    -1   1    0   
 $EndComp
@@ -3102,9 +2856,8 @@ BTN
 Text Label 7000 5700 0    50   ~ 0
 HOST_FAULT_N
 NoConn ~ 11400 8300
-NoConn ~ 1250 6500
-NoConn ~ 1250 6600
-NoConn ~ 1250 6200
+NoConn ~ 1200 6800
+NoConn ~ 1200 6900
 Text Notes 900  7700 0    75   ~ 15
 Pushbutton with Illuminated LightPipe\n
 $Comp
@@ -3195,14 +2948,12 @@ Wire Wire Line
 	13550 4650 13550 6000
 Wire Wire Line
 	13450 4550 13450 6100
-Text Notes 14850 4200 0    75   ~ 15
-USB Device
+Text Notes 14650 4250 0    75   ~ 15
+USB Device & Power
 Text Notes 14800 1000 0    75   ~ 15
 USB Host
 Wire Wire Line
 	1400 1700 2150 1700
-Wire Wire Line
-	2050 1900 2050 1600
 Connection ~ 2050 1600
 Wire Wire Line
 	2050 1600 2150 1600
@@ -3210,99 +2961,6 @@ Wire Wire Line
 	13400 4350 13400 3000
 Wire Wire Line
 	13500 4250 13500 3100
-$Comp
-L resistors:R00047 R34
-U 1 1 5C68FBF8
-P 13700 5700
-F 0 "R34" H 13768 5746 50  0000 L CNN
-F 1 "R00047" H 13700 5700 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 13700 5670 60  0001 C CNN
-F 3 "" H 13700 5700 60  0001 C CNN
-F 4 "DNP" H 13768 5655 50  0000 L CNN "Resistance"
-F 5 "" H 13770 5630 50  0001 L CNN "Power"
-F 6 "0402" H 13700 5730 60  0001 C CNN "Package"
-F 7 "" H 13770 5700 50  0000 L CNN "Tolerance"
-F 8 "" H 13700 5700 50  0001 L CNN "Type"
-F 9 "" H 13700 5700 50  0001 L CNN "Manufacturer"
-F 10 "" H 13700 5700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "No Place" H 13700 5700 50  0001 L CNN "Description"
-F 12 "08/01/17 00:00:00" H 13700 5700 50  0001 L CNN "CREATED_ON"
-F 13 "" H 13700 5700 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 13700 5700 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 13700 5700 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 13700 5700 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 13700 5700 50  0001 L CNN "ComponentLink3Description"
-F 18 "" H 13700 5700 50  0001 L CNN "Supplier 1"
-F 19 "" H 13700 5700 50  0001 L CNN "Supplier Part Number 1"
-F 20 "" H 13700 5700 50  0001 L CNN "Supplier 2"
-F 21 "" H 13700 5700 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 13700 5700 50  0001 L CNN "Supplier 3"
-F 23 "" H 13700 5700 50  0001 L CNN "Supplier Part Number 3"
-	1    13700 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L resistors:R00047 R36
-U 1 1 5C68FE05
-P 13800 3350
-F 0 "R36" H 13868 3396 50  0000 L CNN
-F 1 "R00047" H 13800 3350 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 13800 3320 60  0001 C CNN
-F 3 "" H 13800 3350 60  0001 C CNN
-F 4 "DNP" H 13868 3305 50  0000 L CNN "Resistance"
-F 5 "" H 13870 3280 50  0001 L CNN "Power"
-F 6 "0402" H 13800 3380 60  0001 C CNN "Package"
-F 7 "" H 13870 3350 50  0000 L CNN "Tolerance"
-F 8 "" H 13800 3350 50  0001 L CNN "Type"
-F 9 "" H 13800 3350 50  0001 L CNN "Manufacturer"
-F 10 "" H 13800 3350 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "No Place" H 13800 3350 50  0001 L CNN "Description"
-F 12 "08/01/17 00:00:00" H 13800 3350 50  0001 L CNN "CREATED_ON"
-F 13 "" H 13800 3350 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 13800 3350 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 13800 3350 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 13800 3350 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 13800 3350 50  0001 L CNN "ComponentLink3Description"
-F 18 "" H 13800 3350 50  0001 L CNN "Supplier 1"
-F 19 "" H 13800 3350 50  0001 L CNN "Supplier Part Number 1"
-F 20 "" H 13800 3350 50  0001 L CNN "Supplier 2"
-F 21 "" H 13800 3350 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 13800 3350 50  0001 L CNN "Supplier 3"
-F 23 "" H 13800 3350 50  0001 L CNN "Supplier Part Number 3"
-	1    13800 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L resistors:R00047 R38
-U 1 1 5C68FEDB
-P 14100 3350
-F 0 "R38" H 14168 3396 50  0000 L CNN
-F 1 "R00047" H 14100 3350 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 14100 3320 60  0001 C CNN
-F 3 "" H 14100 3350 60  0001 C CNN
-F 4 "DNP" H 14168 3305 50  0000 L CNN "Resistance"
-F 5 "" H 14170 3280 50  0001 L CNN "Power"
-F 6 "0402" H 14100 3380 60  0001 C CNN "Package"
-F 7 "" H 14170 3350 50  0000 L CNN "Tolerance"
-F 8 "" H 14100 3350 50  0001 L CNN "Type"
-F 9 "" H 14100 3350 50  0001 L CNN "Manufacturer"
-F 10 "" H 14100 3350 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "No Place" H 14100 3350 50  0001 L CNN "Description"
-F 12 "08/01/17 00:00:00" H 14100 3350 50  0001 L CNN "CREATED_ON"
-F 13 "" H 14100 3350 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 14100 3350 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 14100 3350 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 14100 3350 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 14100 3350 50  0001 L CNN "ComponentLink3Description"
-F 18 "" H 14100 3350 50  0001 L CNN "Supplier 1"
-F 19 "" H 14100 3350 50  0001 L CNN "Supplier Part Number 1"
-F 20 "" H 14100 3350 50  0001 L CNN "Supplier 2"
-F 21 "" H 14100 3350 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 14100 3350 50  0001 L CNN "Supplier 3"
-F 23 "" H 14100 3350 50  0001 L CNN "Supplier Part Number 3"
-	1    14100 3350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	13550 6000 14000 6000
 Wire Wire Line
@@ -3329,37 +2987,6 @@ Wire Wire Line
 	13800 3550 14100 3550
 Wire Wire Line
 	14100 3550 14100 3500
-$Comp
-L resistors:R00047 R37
-U 1 1 5C76D957
-P 14000 5700
-F 0 "R37" H 14068 5746 50  0000 L CNN
-F 1 "R00047" H 14000 5700 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 14000 5670 60  0001 C CNN
-F 3 "" H 14000 5700 60  0001 C CNN
-F 4 "DNP" H 14068 5655 50  0000 L CNN "Resistance"
-F 5 "" H 14070 5630 50  0001 L CNN "Power"
-F 6 "0402" H 14000 5730 60  0001 C CNN "Package"
-F 7 "" H 14070 5700 50  0000 L CNN "Tolerance"
-F 8 "" H 14000 5700 50  0001 L CNN "Type"
-F 9 "" H 14000 5700 50  0001 L CNN "Manufacturer"
-F 10 "" H 14000 5700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "No Place" H 14000 5700 50  0001 L CNN "Description"
-F 12 "08/01/17 00:00:00" H 14000 5700 50  0001 L CNN "CREATED_ON"
-F 13 "" H 14000 5700 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 14000 5700 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 14000 5700 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 14000 5700 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 14000 5700 50  0001 L CNN "ComponentLink3Description"
-F 18 "" H 14000 5700 50  0001 L CNN "Supplier 1"
-F 19 "" H 14000 5700 50  0001 L CNN "Supplier Part Number 1"
-F 20 "" H 14000 5700 50  0001 L CNN "Supplier 2"
-F 21 "" H 14000 5700 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 14000 5700 50  0001 L CNN "Supplier 3"
-F 23 "" H 14000 5700 50  0001 L CNN "Supplier Part Number 3"
-	1    14000 5700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	14000 5850 14000 6000
 Connection ~ 14000 6000
@@ -3661,9 +3288,9 @@ F 3 "" H 7450 2950 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Connection ~ 7450 2950
-Text Notes 4650 3100 0    75   ~ 15
+Text Notes 4600 3050 0    75   ~ 15
 Bootloader Enable
-Text Notes 3700 5600 0    75   ~ 15
+Text Notes 3650 5350 0    75   ~ 15
 I2C EEPROM
 $Comp
 L power:+5V #PWR0163
@@ -3694,26 +3321,20 @@ F 0 "R20" V 6100 8500 50  0000 C CNN
 F 1 "R00011" H 6150 8750 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 6150 8720 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 6150 8750 60  0001 C CNN
-F 4 "100R" V 6200 8550 50  0000 C CNN "Resistance"
+F 4 "100R" V 6200 8950 50  0000 C CNN "Resistance"
 F 5 "1/16W" H 6220 8680 50  0001 L CNN "Power"
 F 6 "0402" H 6150 8780 60  0001 C CNN "Package"
-F 7 "1%" V 6200 8900 50  0000 C CNN "Tolerance"
+F 7 "1%" V 6200 8900 50  0001 C CNN "Tolerance"
 F 8 "Thick Film" H 6150 8750 50  0001 L CNN "Type"
 F 9 "Yageo" H 6150 8750 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-07100RL" H 6150 8750 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 100 OHM 1/16W 1% 0402 SMD" H 6150 8750 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 6150 8750 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 6150 8750 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 6150 8750 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 6150 8750 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 6150 8750 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 6150 8750 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 6150 8750 50  0001 L CNN "Supplier 1"
-F 19 "311-100LRTR-ND" H 6150 8750 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 6150 8750 50  0001 L CNN "Supplier 2"
-F 21 "311-100LRCT-ND" H 6150 8750 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 6150 8750 50  0001 L CNN "Supplier 3"
-F 23 "" H 6150 8750 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 6150 8750 50  0001 L CNN "Supplier 1"
+F 15 "311-100LRTR-ND" H 6150 8750 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 6150 8750 50  0001 L CNN "Supplier 2"
+F 17 "311-100LRCT-ND" H 6150 8750 50  0001 L CNN "Supplier Part Number 2"
 	1    6150 8750
 	0    1    1    0   
 $EndComp
@@ -3725,26 +3346,20 @@ F 0 "R19" V 6100 8300 50  0000 C CNN
 F 1 "R00011" H 6150 8550 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 6150 8520 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 6150 8550 60  0001 C CNN
-F 4 "100R" V 6200 8350 50  0000 C CNN "Resistance"
+F 4 "100R" V 6200 8750 50  0000 C CNN "Resistance"
 F 5 "1/16W" H 6220 8480 50  0001 L CNN "Power"
 F 6 "0402" H 6150 8580 60  0001 C CNN "Package"
-F 7 "1%" V 6200 8700 50  0000 C CNN "Tolerance"
+F 7 "1%" V 6200 8700 50  0001 C CNN "Tolerance"
 F 8 "Thick Film" H 6150 8550 50  0001 L CNN "Type"
 F 9 "Yageo" H 6150 8550 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-07100RL" H 6150 8550 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 100 OHM 1/16W 1% 0402 SMD" H 6150 8550 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 6150 8550 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 6150 8550 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 6150 8550 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 6150 8550 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 6150 8550 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 6150 8550 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 6150 8550 50  0001 L CNN "Supplier 1"
-F 19 "311-100LRTR-ND" H 6150 8550 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 6150 8550 50  0001 L CNN "Supplier 2"
-F 21 "311-100LRCT-ND" H 6150 8550 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 6150 8550 50  0001 L CNN "Supplier 3"
-F 23 "" H 6150 8550 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 6150 8550 50  0001 L CNN "Supplier 1"
+F 15 "311-100LRTR-ND" H 6150 8550 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 6150 8550 50  0001 L CNN "Supplier 2"
+F 17 "311-100LRCT-ND" H 6150 8550 50  0001 L CNN "Supplier Part Number 2"
 	1    6150 8550
 	0    1    1    0   
 $EndComp
@@ -3795,47 +3410,38 @@ $Comp
 L ics:U00087 U4
 U 1 1 5CBF23B8
 P 5300 3650
-F 0 "U4" H 5300 4015 50  0000 C CNN
+F 0 "U4" H 5300 4105 50  0000 C CNN
 F 1 "U00087" H 5300 3400 50  0001 C CNN
 F 2 "footprints:SOT_5_950_2900X1600X1100_DIODES" H 5300 3650 50  0001 C CNN
 F 3 "https://www.diodes.com/assets/Datasheets/74AHCT1G08.pdf" H 5300 3650 50  0001 C CNN
 F 4 "Diodes" H 5300 3650 50  0001 L CNN "Manufacturer"
-F 5 "74AHCT1G08W5-7" H 5300 3924 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 5 "74AHCT1G08W5-7" H 5300 4014 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
 F 6 "IC GATE AND 1CH 2-INP SOT25" H 5300 3650 50  0001 L CNN "Description"
 F 7 "08/05/18 00:00:00" H 5300 3650 50  0001 L CNN "CREATED_ON"
 F 8 "Datasheet" H 5300 3650 50  0001 L CNN "ComponentLink1Description"
-F 9 "" H 5300 3650 50  0001 L CNN "ComponentLink2URL"
-F 10 "" H 5300 3650 50  0001 L CNN "ComponentLink2Description"
-F 11 "" H 5300 3650 50  0001 L CNN "ComponentLink3URL"
-F 12 "" H 5300 3650 50  0001 L CNN "ComponentLink3Description"
-F 13 "Digi-Key" H 5300 3650 50  0001 L CNN "Supplier 1"
-F 14 "74AHCT1G08W5-7DICT-ND" H 5300 3650 50  0001 L CNN "Supplier Part Number 1"
-F 15 "" H 5300 3650 50  0001 L CNN "Supplier 2"
-F 16 "" H 5300 3650 50  0001 L CNN "Supplier Part Number 2"
-F 17 "" H 5300 3650 50  0001 L CNN "Supplier 3"
-F 18 "" H 5300 3650 50  0001 L CNN "Supplier Part Number 3"
+F 9 "Digi-Key" H 5300 3650 50  0001 L CNN "Supplier 1"
+F 10 "74AHCT1G08W5-7DICT-ND" H 5300 3650 50  0001 L CNN "Supplier Part Number 1"
+F 11 "DNP" H 5300 3923 50  0000 C CNN "DNP"
 	1    5300 3650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5600 3650 5800 3650
 Text Label 5650 3650 0    50   ~ 0
 BOOT0
 $Comp
 L power:+3.3V #PWR0164
 U 1 1 5CC10207
-P 5750 3450
-F 0 "#PWR0164" H 5750 3300 50  0001 C CNN
-F 1 "+3.3V" H 5765 3623 50  0000 C CNN
-F 2 "" H 5750 3450 50  0001 C CNN
-F 3 "" H 5750 3450 50  0001 C CNN
-	1    5750 3450
+P 5850 3400
+F 0 "#PWR0164" H 5850 3250 50  0001 C CNN
+F 1 "+3.3V" H 5865 3573 50  0000 C CNN
+F 2 "" H 5850 3400 50  0001 C CNN
+F 3 "" H 5850 3400 50  0001 C CNN
+	1    5850 3400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5600 3550 5750 3550
+	5600 3550 5850 3550
 Wire Wire Line
-	5750 3550 5750 3450
+	5850 3550 5850 3400
 $Comp
 L capacitors:C00001 C13
 U 1 1 5CC2E031
@@ -3877,60 +3483,60 @@ Connection ~ 6500 3850
 $Comp
 L capacitors:C00001 C7
 U 1 1 5CCA737A
-P 6050 3100
-F 0 "C7" H 6128 3237 50  0000 L CNN
-F 1 "C00001" H 6050 3100 50  0001 C CNN
-F 2 "footprints:C_0402_1005M" H 6330 2950 50  0001 C CNN
-F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 6050 3110 50  0001 C CNN
-F 4 "100n" H 6128 3146 50  0000 L CNN "Capacitance"
-F 5 "X5R" H 6128 3055 50  0000 L CNN "Dielectric"
-F 6 "0402" H 6250 2950 50  0001 C CNN "Package"
-F 7 "±10%" H 6160 2960 50  0001 C CNN "Tolerance"
-F 8 "10V" H 6128 2964 50  0000 L CNN "Voltage"
-F 9 "Murata" H 6050 3100 50  0001 L CNN "Manufacturer"
-F 10 "GRM155R61A104KA01D" H 6050 3100 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "CAP CER .1UF 10V 10% X5R 0402" H 6050 3100 50  0001 L CNN "Description"
-F 12 "02/17/11 00:00:00" H 6050 3100 50  0001 L CNN "CREATED_ON"
-F 13 "Datasheet" H 6050 3100 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 6050 3100 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 6050 3100 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 6050 3100 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 6050 3100 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 6050 3100 50  0001 L CNN "Supplier 1"
-F 19 "490-1318-2-ND" H 6050 3100 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 6050 3100 50  0001 L CNN "Supplier 2"
-F 21 "490-1318-1-ND" H 6050 3100 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 6050 3100 50  0001 L CNN "Supplier 3"
-F 23 "" H 6050 3100 50  0001 L CNN "Supplier Part Number 3"
-	1    6050 3100
+P 5200 4400
+F 0 "C7" H 5278 4537 50  0000 L CNN
+F 1 "C00001" H 5200 4400 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 5480 4250 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 5200 4410 50  0001 C CNN
+F 4 "100n" H 5278 4446 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 5278 4355 50  0000 L CNN "Dielectric"
+F 6 "0402" H 5400 4250 50  0001 C CNN "Package"
+F 7 "±10%" H 5310 4260 50  0001 C CNN "Tolerance"
+F 8 "10V" H 5278 4264 50  0000 L CNN "Voltage"
+F 9 "Murata" H 5200 4400 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 5200 4400 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 5200 4400 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 5200 4400 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 5200 4400 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 5200 4400 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 5200 4400 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 5200 4400 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 5200 4400 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 5200 4400 50  0001 L CNN "Supplier 1"
+F 19 "490-1318-2-ND" H 5200 4400 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 5200 4400 50  0001 L CNN "Supplier 2"
+F 21 "490-1318-1-ND" H 5200 4400 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 5200 4400 50  0001 L CNN "Supplier 3"
+F 23 "" H 5200 4400 50  0001 L CNN "Supplier Part Number 3"
+	1    5200 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0165
 U 1 1 5CCA745C
-P 6050 3250
-F 0 "#PWR0165" H 6050 3000 50  0001 C CNN
-F 1 "GND" H 6055 3077 50  0000 C CNN
-F 2 "" H 6050 3250 50  0001 C CNN
-F 3 "" H 6050 3250 50  0001 C CNN
-	1    6050 3250
+P 5200 4550
+F 0 "#PWR0165" H 5200 4300 50  0001 C CNN
+F 1 "GND" H 5205 4377 50  0000 C CNN
+F 2 "" H 5200 4550 50  0001 C CNN
+F 3 "" H 5200 4550 50  0001 C CNN
+	1    5200 4550
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:+3.3V #PWR0166
 U 1 1 5CCA7507
-P 6050 2950
-F 0 "#PWR0166" H 6050 2800 50  0001 C CNN
-F 1 "+3.3V" H 6065 3123 50  0000 C CNN
-F 2 "" H 6050 2950 50  0001 C CNN
-F 3 "" H 6050 2950 50  0001 C CNN
-	1    6050 2950
+P 5200 4250
+F 0 "#PWR0166" H 5200 4100 50  0001 C CNN
+F 1 "+3.3V" H 5215 4423 50  0000 C CNN
+F 2 "" H 5200 4250 50  0001 C CNN
+F 3 "" H 5200 4250 50  0001 C CNN
+	1    5200 4250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6050 2950 6050 3000
+	5200 4250 5200 4300
 Wire Wire Line
-	6050 3250 6050 3200
+	5200 4550 5200 4500
 $Comp
 L power:GND #PWR0167
 U 1 1 5CCE593A
@@ -3957,47 +3563,41 @@ Wire Wire Line
 $Comp
 L resistors:R00014 R18
 U 1 1 5CD86664
-P 5800 3800
-F 0 "R18" H 5732 3891 50  0000 R CNN
-F 1 "R00014" H 5800 3800 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 5800 3770 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 5800 3800 60  0001 C CNN
-F 4 "10K" H 5732 3800 50  0000 R CNN "Resistance"
-F 5 "1/16W" H 5870 3730 50  0001 L CNN "Power"
-F 6 "0402" H 5800 3830 60  0001 C CNN "Package"
-F 7 "1%" H 5732 3709 50  0000 R CNN "Tolerance"
-F 8 "Thick Film" H 5800 3800 50  0001 L CNN "Type"
-F 9 "Yageo" H 5800 3800 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 5800 3800 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 5800 3800 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 5800 3800 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 5800 3800 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 5800 3800 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 5800 3800 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 5800 3800 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 5800 3800 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 5800 3800 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 5800 3800 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 5800 3800 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 5800 3800 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 5800 3800 50  0001 L CNN "Supplier 3"
-F 23 "" H 5800 3800 50  0001 L CNN "Supplier Part Number 3"
-	1    5800 3800
+P 5800 3950
+F 0 "R18" H 5732 3996 50  0000 R CNN
+F 1 "R00014" H 5800 3950 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 5800 3920 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 5800 3950 60  0001 C CNN
+F 4 "10K" H 5732 3905 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 5870 3880 50  0001 L CNN "Power"
+F 6 "0402" H 5800 3980 60  0001 C CNN "Package"
+F 7 "1%" H 5732 3859 50  0001 R CNN "Tolerance"
+F 8 "Thick Film" H 5800 3950 50  0001 L CNN "Type"
+F 9 "Yageo" H 5800 3950 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 5800 3950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 5800 3950 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 5800 3950 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 5800 3950 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 5800 3950 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 5800 3950 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 5800 3950 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 5800 3950 50  0001 L CNN "Supplier Part Number 2"
+	1    5800 3950
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0168
 U 1 1 5CD869C6
-P 5800 4000
-F 0 "#PWR0168" H 5800 3750 50  0001 C CNN
-F 1 "GND" H 5805 3827 50  0000 C CNN
-F 2 "" H 5800 4000 50  0001 C CNN
-F 3 "" H 5800 4000 50  0001 C CNN
-	1    5800 4000
+P 5800 4150
+F 0 "#PWR0168" H 5800 3900 50  0001 C CNN
+F 1 "GND" H 5805 3977 50  0000 C CNN
+F 2 "" H 5800 4150 50  0001 C CNN
+F 3 "" H 5800 4150 50  0001 C CNN
+	1    5800 4150
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	5800 4000 5800 3950
+	5800 4150 5800 4100
 $Comp
 L capacitors:C00001 C23
 U 1 1 5B6ED55B
@@ -4172,205 +3772,172 @@ $EndComp
 $Comp
 L ics:U00055 U3
 U 1 1 5B7B7843
-P 3950 6500
-F 0 "U3" H 3950 6965 50  0000 C CNN
-F 1 "U00055" H 4100 6050 50  0001 C CNN
-F 2 "footprints:SOIC_8_1270_4900X3900X1750" H 3900 6600 50  0001 C CNN
-F 3 "http://www2.st.com/content/ccc/resource/technical/document/datasheet/b0/d8/50/40/5a/85/49/6f/DM00071904.pdf/files/DM00071904.pdf/jcr:content/translations/en.DM00071904.pdf" H 3900 6600 50  0001 C CNN
-F 4 "ST" H 3950 6500 50  0001 L CNN "Manufacturer"
-F 5 "M24C02-FMN6TP" H 3950 6874 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
-F 6 "	IC EEPROM 2KBIT 400KHZ 8SOIC" H 3950 6500 50  0001 L CNN "Description"
-F 7 "04/29/16 00:00:00" H 3950 6500 50  0001 L CNN "CREATED_ON"
-F 8 "Datasheet" H 3950 6500 50  0001 L CNN "ComponentLink1Description"
-F 9 "" H 3950 6500 50  0001 L CNN "ComponentLink2URL"
-F 10 "" H 3950 6500 50  0001 L CNN "ComponentLink2Description"
-F 11 "" H 3950 6500 50  0001 L CNN "ComponentLink3URL"
-F 12 "" H 3950 6500 50  0001 L CNN "ComponentLink3Description"
-F 13 "Digi-Key" H 3950 6500 50  0001 L CNN "Supplier 1"
-F 14 "497-15748-1-ND" H 3950 6500 50  0001 L CNN "Supplier Part Number 1"
-F 15 "" H 3950 6500 50  0001 L CNN "Supplier 2"
-F 16 "" H 3950 6500 50  0001 L CNN "Supplier Part Number 2"
-F 17 "" H 3950 6500 50  0001 L CNN "Supplier 3"
-F 18 "" H 3950 6500 50  0001 L CNN "Supplier Part Number 3"
-	1    3950 6500
+P 4000 6500
+F 0 "U3" H 4000 7055 50  0000 C CNN
+F 1 "U00055" H 4150 6050 50  0001 C CNN
+F 2 "footprints:SOIC_8_1270_4900X3900X1750" H 3950 6600 50  0001 C CNN
+F 3 "http://www2.st.com/content/ccc/resource/technical/document/datasheet/b0/d8/50/40/5a/85/49/6f/DM00071904.pdf/files/DM00071904.pdf/jcr:content/translations/en.DM00071904.pdf" H 3950 6600 50  0001 C CNN
+F 4 "ST" H 4000 6500 50  0001 L CNN "Manufacturer"
+F 5 "M24C02-FMN6TP" H 4000 6964 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 6 "	IC EEPROM 2KBIT 400KHZ 8SOIC" H 4000 6500 50  0001 L CNN "Description"
+F 7 "04/29/16 00:00:00" H 4000 6500 50  0001 L CNN "CREATED_ON"
+F 8 "Datasheet" H 4000 6500 50  0001 L CNN "ComponentLink1Description"
+F 9 "Digi-Key" H 4000 6500 50  0001 L CNN "Supplier 1"
+F 10 "497-15748-1-ND" H 4000 6500 50  0001 L CNN "Supplier Part Number 1"
+F 11 "DNP" H 4000 6873 50  0000 C CNN "DNP"
+	1    4000 6500
 	1    0    0    -1  
 $EndComp
 $Comp
 L capacitors:C00001 C5
 U 1 1 5B7B7EFC
-P 5050 6450
-F 0 "C5" H 5128 6587 50  0000 L CNN
-F 1 "C00001" H 5050 6450 50  0001 C CNN
-F 2 "footprints:C_0402_1005M" H 5330 6300 50  0001 C CNN
-F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 5050 6460 50  0001 C CNN
-F 4 "100n" H 5128 6496 50  0000 L CNN "Capacitance"
-F 5 "X5R" H 5128 6405 50  0000 L CNN "Dielectric"
-F 6 "0402" H 5250 6300 50  0001 C CNN "Package"
-F 7 "±10%" H 5160 6310 50  0001 C CNN "Tolerance"
-F 8 "10V" H 5128 6314 50  0000 L CNN "Voltage"
-F 9 "Murata" H 5050 6450 50  0001 L CNN "Manufacturer"
-F 10 "GRM155R61A104KA01D" H 5050 6450 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "CAP CER .1UF 10V 10% X5R 0402" H 5050 6450 50  0001 L CNN "Description"
-F 12 "02/17/11 00:00:00" H 5050 6450 50  0001 L CNN "CREATED_ON"
-F 13 "Datasheet" H 5050 6450 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 5050 6450 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 5050 6450 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 5050 6450 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 5050 6450 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 5050 6450 50  0001 L CNN "Supplier 1"
-F 19 "490-1318-2-ND" H 5050 6450 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 5050 6450 50  0001 L CNN "Supplier 2"
-F 21 "490-1318-1-ND" H 5050 6450 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 5050 6450 50  0001 L CNN "Supplier 3"
-F 23 "" H 5050 6450 50  0001 L CNN "Supplier Part Number 3"
-	1    5050 6450
+P 4650 5750
+F 0 "C5" H 4728 5932 50  0000 L CNN
+F 1 "C00001" H 4650 5750 50  0001 C CNN
+F 2 "footprints:C_0402_1005M" H 4930 5600 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/GRM155R61A104KA01.pdf" H 4650 5760 50  0001 C CNN
+F 4 "100n" H 4728 5841 50  0000 L CNN "Capacitance"
+F 5 "X5R" H 4728 5750 50  0000 L CNN "Dielectric"
+F 6 "0402" H 4850 5600 50  0001 C CNN "Package"
+F 7 "±10%" H 4760 5610 50  0001 C CNN "Tolerance"
+F 8 "10V" H 4728 5659 50  0000 L CNN "Voltage"
+F 9 "Murata" H 4650 5750 50  0001 L CNN "Manufacturer"
+F 10 "GRM155R61A104KA01D" H 4650 5750 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "CAP CER .1UF 10V 10% X5R 0402" H 4650 5750 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 4650 5750 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 4650 5750 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 4650 5750 50  0001 L CNN "Supplier 1"
+F 15 "490-1318-2-ND" H 4650 5750 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 4650 5750 50  0001 L CNN "Supplier 2"
+F 17 "490-1318-1-ND" H 4650 5750 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 4728 5568 50  0000 L CNN "DNP"
+	1    4650 5750
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0175
 U 1 1 5B7B7F03
-P 5050 6600
-F 0 "#PWR0175" H 5050 6350 50  0001 C CNN
-F 1 "GND" H 5055 6427 50  0000 C CNN
-F 2 "" H 5050 6600 50  0001 C CNN
-F 3 "" H 5050 6600 50  0001 C CNN
-	1    5050 6600
+P 4650 5900
+F 0 "#PWR0175" H 4650 5650 50  0001 C CNN
+F 1 "GND" H 4655 5727 50  0000 C CNN
+F 2 "" H 4650 5900 50  0001 C CNN
+F 3 "" H 4650 5900 50  0001 C CNN
+	1    4650 5900
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:+3.3V #PWR0176
 U 1 1 5B7B7F09
-P 5050 6300
-F 0 "#PWR0176" H 5050 6150 50  0001 C CNN
-F 1 "+3.3V" H 5065 6473 50  0000 C CNN
-F 2 "" H 5050 6300 50  0001 C CNN
-F 3 "" H 5050 6300 50  0001 C CNN
-	1    5050 6300
+P 4650 5600
+F 0 "#PWR0176" H 4650 5450 50  0001 C CNN
+F 1 "+3.3V" H 4665 5773 50  0000 C CNN
+F 2 "" H 4650 5600 50  0001 C CNN
+F 3 "" H 4650 5600 50  0001 C CNN
+	1    4650 5600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5050 6300 5050 6350
+	4650 5600 4650 5650
 Wire Wire Line
-	5050 6600 5050 6550
+	4650 5900 4650 5850
 $Comp
 L resistors:R00014 R15
 U 1 1 5B81F03E
-P 4650 6600
-F 0 "R15" V 4600 6800 50  0000 C CNN
-F 1 "R00014" H 4650 6600 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 4650 6570 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4650 6600 60  0001 C CNN
-F 4 "10K" V 4700 6400 50  0000 C CNN "Resistance"
-F 5 "1/16W" H 4720 6530 50  0001 L CNN "Power"
-F 6 "0402" H 4650 6630 60  0001 C CNN "Package"
-F 7 "1%" V 4700 6450 50  0001 C CNN "Tolerance"
-F 8 "Thick Film" H 4650 6600 50  0001 L CNN "Type"
-F 9 "Yageo" H 4650 6600 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 4650 6600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4650 6600 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 4650 6600 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 4650 6600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 4650 6600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 4650 6600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 4650 6600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 4650 6600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 4650 6600 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 4650 6600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 4650 6600 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 4650 6600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 4650 6600 50  0001 L CNN "Supplier 3"
-F 23 "" H 4650 6600 50  0001 L CNN "Supplier Part Number 3"
-	1    4650 6600
+P 4700 6600
+F 0 "R15" V 4650 6800 50  0000 C CNN
+F 1 "R00014" H 4700 6600 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 4700 6570 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4700 6600 60  0001 C CNN
+F 4 "10K" V 4750 6400 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 4770 6530 50  0001 L CNN "Power"
+F 6 "0402" H 4700 6630 60  0001 C CNN "Package"
+F 7 "1%" V 4750 6450 50  0001 C CNN "Tolerance"
+F 8 "Thick Film" H 4700 6600 50  0001 L CNN "Type"
+F 9 "Yageo" H 4700 6600 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 4700 6600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4700 6600 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 4700 6600 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 4700 6600 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 4700 6600 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 4700 6600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 4700 6600 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 4700 6600 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" V 4650 6100 50  0000 L CNN "DNP"
+	1    4700 6600
 	0    -1   1    0   
 $EndComp
 $Comp
 L resistors:R00014 R17
 U 1 1 5B81F449
-P 4650 6800
-F 0 "R17" V 4600 7000 50  0000 C CNN
-F 1 "R00014" H 4650 6800 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 4650 6770 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4650 6800 60  0001 C CNN
-F 4 "10K" V 4700 6600 50  0000 C CNN "Resistance"
-F 5 "1/16W" H 4720 6730 50  0001 L CNN "Power"
-F 6 "0402" H 4650 6830 60  0001 C CNN "Package"
-F 7 "1%" V 4700 6650 50  0001 C CNN "Tolerance"
-F 8 "Thick Film" H 4650 6800 50  0001 L CNN "Type"
-F 9 "Yageo" H 4650 6800 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 4650 6800 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4650 6800 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 4650 6800 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 4650 6800 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 4650 6800 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 4650 6800 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 4650 6800 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 4650 6800 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 4650 6800 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 4650 6800 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 4650 6800 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 4650 6800 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 4650 6800 50  0001 L CNN "Supplier 3"
-F 23 "" H 4650 6800 50  0001 L CNN "Supplier Part Number 3"
-	1    4650 6800
+P 4700 6800
+F 0 "R17" V 4650 7000 50  0000 C CNN
+F 1 "R00014" H 4700 6800 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 4700 6770 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4700 6800 60  0001 C CNN
+F 4 "10K" V 4750 6600 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 4770 6730 50  0001 L CNN "Power"
+F 6 "0402" H 4700 6830 60  0001 C CNN "Package"
+F 7 "1%" V 4750 6650 50  0001 C CNN "Tolerance"
+F 8 "Thick Film" H 4700 6800 50  0001 L CNN "Type"
+F 9 "Yageo" H 4700 6800 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 4700 6800 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4700 6800 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 4700 6800 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 4700 6800 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 4700 6800 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 4700 6800 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 4700 6800 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 4700 6800 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" V 4650 6300 50  0000 L CNN "DNP"
+	1    4700 6800
 	0    -1   1    0   
 $EndComp
 $Comp
 L resistors:R00014 R16
 U 1 1 5B841936
-P 4650 6700
-F 0 "R16" V 4600 6900 50  0000 C CNN
-F 1 "R00014" H 4650 6700 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 4650 6670 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4650 6700 60  0001 C CNN
-F 4 "10K" V 4700 6500 50  0000 C CNN "Resistance"
-F 5 "1/16W" H 4720 6630 50  0001 L CNN "Power"
-F 6 "0402" H 4650 6730 60  0001 C CNN "Package"
-F 7 "1%" V 4700 6550 50  0001 C CNN "Tolerance"
-F 8 "Thick Film" H 4650 6700 50  0001 L CNN "Type"
-F 9 "Yageo" H 4650 6700 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0710KL" H 4650 6700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4650 6700 50  0001 L CNN "Description"
-F 12 "09/23/11 00:00:00" H 4650 6700 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 4650 6700 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 4650 6700 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 4650 6700 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 4650 6700 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 4650 6700 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 4650 6700 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 4650 6700 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 4650 6700 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 4650 6700 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 4650 6700 50  0001 L CNN "Supplier 3"
-F 23 "" H 4650 6700 50  0001 L CNN "Supplier Part Number 3"
-	1    4650 6700
+P 4700 6700
+F 0 "R16" V 4650 6900 50  0000 C CNN
+F 1 "R00014" H 4700 6700 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 4700 6670 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 4700 6700 60  0001 C CNN
+F 4 "10K" V 4750 6500 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 4770 6630 50  0001 L CNN "Power"
+F 6 "0402" H 4700 6730 60  0001 C CNN "Package"
+F 7 "1%" V 4750 6550 50  0001 C CNN "Tolerance"
+F 8 "Thick Film" H 4700 6700 50  0001 L CNN "Type"
+F 9 "Yageo" H 4700 6700 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 4700 6700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 4700 6700 50  0001 L CNN "Description"
+F 12 "09/23/11 00:00:00" H 4700 6700 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 4700 6700 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 4700 6700 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 4700 6700 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 4700 6700 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 4700 6700 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" V 4650 6200 50  0000 L CNN "DNP"
+	1    4700 6700
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	4350 6600 4500 6600
+	4400 6600 4550 6600
 Wire Wire Line
-	4500 6700 4350 6700
+	4550 6700 4400 6700
 Wire Wire Line
-	4350 6800 4500 6800
+	4400 6800 4550 6800
 Wire Wire Line
-	4800 6800 4950 6800
+	4850 6800 5000 6800
 Wire Wire Line
-	4950 6800 4950 6700
+	5000 6800 5000 6700
 Wire Wire Line
-	4950 6300 4350 6300
+	5000 6300 4400 6300
 Wire Wire Line
-	4950 6300 5050 6300
-Connection ~ 4950 6300
-Connection ~ 5050 6300
+	4850 6600 5000 6600
+Connection ~ 5000 6600
 Wire Wire Line
-	4800 6600 4950 6600
-Connection ~ 4950 6600
+	4850 6700 5000 6700
+Connection ~ 5000 6700
 Wire Wire Line
-	4950 6600 4950 6300
-Wire Wire Line
-	4800 6700 4950 6700
-Connection ~ 4950 6700
-Wire Wire Line
-	4950 6700 4950 6600
+	5000 6700 5000 6600
 $Comp
 L power:GND #PWR0177
 U 1 1 5B93A2BA
@@ -4384,8 +3951,6 @@ F 3 "" H 3200 6900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3200 6900 3200 6800
-Wire Wire Line
-	3200 6800 3550 6800
 $Comp
 L resistors:R00014 R11
 U 1 1 5B95F779
@@ -4404,21 +3969,14 @@ F 10 "RC0402FR-0710KL" H 3350 6600 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 3350 6600 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 3350 6600 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 3350 6600 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 3350 6600 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 3350 6600 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 3350 6600 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 3350 6600 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 3350 6600 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 3350 6600 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 3350 6600 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 3350 6600 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 3350 6600 50  0001 L CNN "Supplier 3"
-F 23 "" H 3350 6600 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 3350 6600 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 3350 6600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 3350 6600 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 3350 6600 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" V 3450 6500 50  0000 L CNN "DNP"
 	1    3350 6600
 	0    -1   1    0   
 $EndComp
-Wire Wire Line
-	3550 6600 3500 6600
 Wire Wire Line
 	3200 6600 3200 6800
 Connection ~ 3200 6800
@@ -4445,23 +4003,18 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 3400 60
 F 4 "4K7" H 3468 6000 50  0000 L CNN "Resistance"
 F 5 "1/16W" H 3470 5930 50  0001 L CNN "Power"
 F 6 "0402" H 3400 6030 60  0001 C CNN "Package"
-F 7 "1%" H 3468 5909 50  0000 L CNN "Tolerance"
+F 7 "1%" H 3468 5955 50  0001 L CNN "Tolerance"
 F 8 "Thick Film" H 3400 6000 50  0001 L CNN "Type"
 F 9 "Yageo" H 3400 6000 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-074K7L" H 3400 6000 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 4.7K OHM 1/16W 1% 0402 SMD" H 3400 6000 50  0001 L CNN "Description"
 F 12 "07/24/17 00:00:00" H 3400 6000 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 3400 6000 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 3400 6000 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 3400 6000 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 3400 6000 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 3400 6000 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 3400 6000 50  0001 L CNN "Supplier 1"
-F 19 "311-4.7KTR-ND" H 3400 6000 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 3400 6000 50  0001 L CNN "Supplier 2"
-F 21 "311-4.7KLRCT-ND" H 3400 6000 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 3400 6000 50  0001 L CNN "Supplier 3"
-F 23 "" H 3400 6000 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 3400 6000 50  0001 L CNN "Supplier 1"
+F 15 "311-4.7KTR-ND" H 3400 6000 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 3400 6000 50  0001 L CNN "Supplier 2"
+F 17 "311-4.7KLRCT-ND" H 3400 6000 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 3468 5909 50  0000 L CNN "DNP"
 	1    3400 6000
 	1    0    0    -1  
 $EndComp
@@ -4469,30 +4022,25 @@ $Comp
 L resistors:R00038 R10
 U 1 1 5BADE62D
 P 3250 6000
-F 0 "R10" H 3183 5909 50  0000 R CNN
+F 0 "R10" H 3182 5909 50  0000 R CNN
 F 1 "R00038" H 3250 6000 50  0001 C CNN
 F 2 "footprints:R_0402_1005M" H 3250 5970 60  0001 C CNN
 F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 3250 6000 60  0001 C CNN
-F 4 "4K7" H 3183 6000 50  0000 R CNN "Resistance"
+F 4 "4K7" H 3182 6000 50  0000 R CNN "Resistance"
 F 5 "1/16W" H 3320 5930 50  0001 L CNN "Power"
 F 6 "0402" H 3250 6030 60  0001 C CNN "Package"
-F 7 "1%" H 3183 6091 50  0000 R CNN "Tolerance"
+F 7 "1%" H 3182 6045 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 3250 6000 50  0001 L CNN "Type"
 F 9 "Yageo" H 3250 6000 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-074K7L" H 3250 6000 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 4.7K OHM 1/16W 1% 0402 SMD" H 3250 6000 50  0001 L CNN "Description"
 F 12 "07/24/17 00:00:00" H 3250 6000 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 3250 6000 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 3250 6000 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 3250 6000 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 3250 6000 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 3250 6000 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 3250 6000 50  0001 L CNN "Supplier 1"
-F 19 "311-4.7KTR-ND" H 3250 6000 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 3250 6000 50  0001 L CNN "Supplier 2"
-F 21 "311-4.7KLRCT-ND" H 3250 6000 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 3250 6000 50  0001 L CNN "Supplier 3"
-F 23 "" H 3250 6000 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 3250 6000 50  0001 L CNN "Supplier 1"
+F 15 "311-4.7KTR-ND" H 3250 6000 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 3250 6000 50  0001 L CNN "Supplier 2"
+F 17 "311-4.7KLRCT-ND" H 3250 6000 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 3182 6091 50  0000 R CNN "DNP"
 	1    3250 6000
 	1    0    0    1   
 $EndComp
@@ -4500,12 +4048,8 @@ Wire Wire Line
 	3400 6400 3400 6150
 Connection ~ 3400 6400
 Wire Wire Line
-	3400 6400 3550 6400
-Wire Wire Line
 	3250 6300 3250 6150
 Connection ~ 3250 6300
-Wire Wire Line
-	3250 6300 3550 6300
 Wire Wire Line
 	3250 5850 3400 5850
 $Comp
@@ -4665,23 +4209,17 @@ F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2900 19
 F 4 "10K" H 2833 1900 50  0000 R CNN "Resistance"
 F 5 "1/16W" H 2970 1830 50  0001 L CNN "Power"
 F 6 "0402" H 2900 1930 60  0001 C CNN "Package"
-F 7 "1%" H 2833 1991 50  0000 R CNN "Tolerance"
+F 7 "1%" H 2833 1991 50  0001 R CNN "Tolerance"
 F 8 "Thick Film" H 2900 1900 50  0001 L CNN "Type"
 F 9 "Yageo" H 2900 1900 50  0001 L CNN "Manufacturer"
 F 10 "RC0402FR-0710KL" H 2900 1900 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
 F 11 "RES 10.0K OHM 1/16W 1% 0402 SMD" H 2900 1900 50  0001 L CNN "Description"
 F 12 "09/23/11 00:00:00" H 2900 1900 50  0001 L CNN "CREATED_ON"
 F 13 "Series Datasheet" H 2900 1900 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 2900 1900 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 2900 1900 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 2900 1900 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 2900 1900 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 2900 1900 50  0001 L CNN "Supplier 1"
-F 19 "311-10.0KLRTR-ND" H 2900 1900 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 2900 1900 50  0001 L CNN "Supplier 2"
-F 21 "311-10.0KLRCT-ND" H 2900 1900 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 2900 1900 50  0001 L CNN "Supplier 3"
-F 23 "" H 2900 1900 50  0001 L CNN "Supplier Part Number 3"
+F 14 "Digi-key" H 2900 1900 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 2900 1900 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 2900 1900 50  0001 L CNN "Supplier 2"
+F 17 "311-10.0KLRCT-ND" H 2900 1900 50  0001 L CNN "Supplier Part Number 2"
 	1    2900 1900
 	1    0    0    1   
 $EndComp
@@ -4724,32 +4262,26 @@ Wire Wire Line
 $Comp
 L resistors:R00056 R7
 U 1 1 5C463BCE
-P 2050 2350
-F 0 "R7" H 1983 2259 50  0000 R CNN
-F 1 "R00056" H 2050 2350 50  0001 C CNN
-F 2 "footprints:R_0402_1005M" H 2050 2320 60  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2050 2350 60  0001 C CNN
-F 4 "15K" H 1983 2350 50  0000 R CNN "Resistance"
-F 5 "1/16W" H 2120 2280 50  0001 L CNN "Power"
-F 6 "0402" H 2050 2380 60  0001 C CNN "Package"
-F 7 "1%" H 1983 2441 50  0000 R CNN "Tolerance"
-F 8 "Thick Film" H 2050 2350 50  0001 L CNN "Type"
-F 9 "Yageo" H 2050 2350 50  0001 L CNN "Manufacturer"
-F 10 "RC0402FR-0715KL" H 2050 2350 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
-F 11 "RES SMD 15K OHM 1% 1/16W 0402" H 2050 2350 50  0001 L CNN "Description"
-F 12 "08/05/17 00:00:00" H 2050 2350 50  0001 L CNN "CREATED_ON"
-F 13 "Series Datasheet" H 2050 2350 50  0001 L CNN "ComponentLink1Description"
-F 14 "" H 2050 2350 50  0001 L CNN "ComponentLink2URL"
-F 15 "" H 2050 2350 50  0001 L CNN "ComponentLink2Description"
-F 16 "" H 2050 2350 50  0001 L CNN "ComponentLink3URL"
-F 17 "" H 2050 2350 50  0001 L CNN "ComponentLink3Description"
-F 18 "Digi-key" H 2050 2350 50  0001 L CNN "Supplier 1"
-F 19 "311-15K0LRTR-ND" H 2050 2350 50  0001 L CNN "Supplier Part Number 1"
-F 20 "Digi-key" H 2050 2350 50  0001 L CNN "Supplier 2"
-F 21 "311-15K0LRCT-ND" H 2050 2350 50  0001 L CNN "Supplier Part Number 2"
-F 22 "" H 2050 2350 50  0001 L CNN "Supplier 3"
-F 23 "" H 2050 2350 50  0001 L CNN "Supplier Part Number 3"
-	1    2050 2350
+P 2050 2400
+F 0 "R7" H 1983 2309 50  0000 R CNN
+F 1 "R00056" H 2050 2400 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 2050 2370 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 2050 2400 60  0001 C CNN
+F 4 "15K" H 1983 2400 50  0000 R CNN "Resistance"
+F 5 "1/16W" H 2120 2330 50  0001 L CNN "Power"
+F 6 "0402" H 2050 2430 60  0001 C CNN "Package"
+F 7 "1%" H 1983 2491 50  0001 R CNN "Tolerance"
+F 8 "Thick Film" H 2050 2400 50  0001 L CNN "Type"
+F 9 "Yageo" H 2050 2400 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0715KL" H 2050 2400 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES SMD 15K OHM 1% 1/16W 0402" H 2050 2400 50  0001 L CNN "Description"
+F 12 "08/05/17 00:00:00" H 2050 2400 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 2050 2400 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 2050 2400 50  0001 L CNN "Supplier 1"
+F 15 "311-15K0LRTR-ND" H 2050 2400 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 2050 2400 50  0001 L CNN "Supplier 2"
+F 17 "311-15K0LRCT-ND" H 2050 2400 50  0001 L CNN "Supplier Part Number 2"
+	1    2050 2400
 	1    0    0    1   
 $EndComp
 Connection ~ 2050 2200
@@ -4777,7 +4309,408 @@ F 3 "" H 9200 2950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 9200 2950
+$Comp
+L resistors:R00080 R29
+U 1 1 5BA70DDD
+P 10550 8950
+F 0 "R29" H 10618 9132 50  0000 L CNN
+F 1 "R00080" H 10550 8950 50  0001 C CNN
+F 2 "footprints:R_0603_1608M" H 10550 8920 60  0001 C CNN
+F 3 "https://www.seielect.com/Catalog/SEI-RMCF_RMCP.pdf" H 10550 8950 60  0001 C CNN
+F 4 "64R9" H 10618 9041 50  0000 L CNN "Resistance"
+F 5 "1/10W" H 10618 8950 50  0000 L CNN "Power"
+F 6 "0603" H 10618 8859 50  0000 L CNN "Package"
+F 7 "1%" H 10618 8768 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 10550 8950 50  0001 L CNN "Type"
+F 9 "Stackpole" H 10550 8950 50  0001 L CNN "Manufacturer"
+F 10 "RMCF0603FT64R9" H 10550 8950 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 64.9 OHM 1% 1/10W 0603" H 10550 8950 50  0001 L CNN "Description"
+F 12 "09/20/18 00:00:00" H 10550 8950 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 10550 8950 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 10550 8950 50  0001 L CNN "Supplier 1"
+F 15 "RMCF0603FT64R9TR-ND" H 10550 8950 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 10550 8950 50  0001 L CNN "Supplier 2"
+F 17 "RMCF0603FT64R9CT-ND" H 10550 8950 50  0001 L CNN "Supplier Part Number 2"
+	1    10550 8950
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00080 R31
+U 1 1 5BAF07E0
+P 11350 9200
+F 0 "R31" H 11418 9382 50  0000 L CNN
+F 1 "R00080" H 11350 9200 50  0001 C CNN
+F 2 "footprints:R_0603_1608M" H 11350 9170 60  0001 C CNN
+F 3 "https://www.seielect.com/Catalog/SEI-RMCF_RMCP.pdf" H 11350 9200 60  0001 C CNN
+F 4 "64R9" H 11418 9291 50  0000 L CNN "Resistance"
+F 5 "1/10W" H 11418 9200 50  0000 L CNN "Power"
+F 6 "0603" H 11418 9109 50  0000 L CNN "Package"
+F 7 "1%" H 11418 9018 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 11350 9200 50  0001 L CNN "Type"
+F 9 "Stackpole" H 11350 9200 50  0001 L CNN "Manufacturer"
+F 10 "RMCF0603FT64R9" H 11350 9200 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 64.9 OHM 1% 1/10W 0603" H 11350 9200 50  0001 L CNN "Description"
+F 12 "09/20/18 00:00:00" H 11350 9200 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 11350 9200 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 11350 9200 50  0001 L CNN "Supplier 1"
+F 15 "RMCF0603FT64R9TR-ND" H 11350 9200 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 11350 9200 50  0001 L CNN "Supplier 2"
+F 17 "RMCF0603FT64R9CT-ND" H 11350 9200 50  0001 L CNN "Supplier Part Number 2"
+	1    11350 9200
+	1    0    0    -1  
+$EndComp
+$Comp
+L diodes:D00006 D1
+U 1 1 5BB1DE06
+P 2350 1600
+F 0 "D1" H 2350 1195 50  0000 C CNN
+F 1 "D00006" H 2450 1300 50  0001 C CNN
+F 2 "footprints:SOT_3_950_2900X1300X1000_ONSEMI" H 2350 1600 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/BAT54CLT1-D.PDF" H 2350 1800 50  0001 C CNN
+F 4 "Array" H 2350 1600 50  0001 L CNN "Type"
+F 5 "225mQ" H 2350 1600 50  0001 L CNN "Power"
+F 6 "300mV @ 1MA" H 2350 1600 50  0001 L CNN "VF"
+F 7 "200mA" H 2350 1600 50  0001 L CNN "IF"
+F 8 "30V" H 2350 1600 50  0001 L CNN "VR"
+F 9 "ON Semiconductior" H 2350 1600 50  0001 L CNN "Manufacturer"
+F 10 "BAT54CLT3G" H 2350 1286 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 11 "DIODE ARRAY SCHOTTKY 30V SOT23-3" H 2350 1600 50  0001 L CNN "Description"
+F 12 "09/23/18 00:00:00" H 2350 1600 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 2350 1600 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-Key" H 2350 1600 50  0001 L CNN "Supplier 1"
+F 15 "BAT54CLT3GOSCT-ND" H 2350 1600 50  0001 L CNN "Supplier Part Number 1"
+F 16 "DNP" H 2350 1377 50  0000 C CNN "DNP"
+	1    2350 1600
+	-1   0    0    1   
+$EndComp
+$Comp
+L diodes:D00006 D6
+U 1 1 5BB48E6F
+P 1650 6000
+F 0 "D6" H 1650 6325 50  0000 C CNN
+F 1 "D00006" H 1750 5700 50  0001 C CNN
+F 2 "footprints:SOT_3_950_2900X1300X1000_ONSEMI" H 1650 6000 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/BAT54CLT1-D.PDF" H 1650 6200 50  0001 C CNN
+F 4 "Array" H 1650 6000 50  0001 L CNN "Type"
+F 5 "225mQ" H 1650 6000 50  0001 L CNN "Power"
+F 6 "300mV @ 1MA" H 1650 6000 50  0001 L CNN "VF"
+F 7 "200mA" H 1650 6000 50  0001 L CNN "IF"
+F 8 "30V" H 1650 6000 50  0001 L CNN "VR"
+F 9 "ON Semiconductior" H 1650 6000 50  0001 L CNN "Manufacturer"
+F 10 "BAT54CLT3G" H 1650 6234 50  0000 C CNN "MANUFACTURER_PART_NUMBER"
+F 11 "DIODE ARRAY SCHOTTKY 30V SOT23-3" H 1650 6000 50  0001 L CNN "Description"
+F 12 "09/23/18 00:00:00" H 1650 6000 50  0001 L CNN "CREATED_ON"
+F 13 "Datasheet" H 1650 6000 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-Key" H 1650 6000 50  0001 L CNN "Supplier 1"
+F 15 "BAT54CLT3GOSCT-ND" H 1650 6000 50  0001 L CNN "Supplier Part Number 1"
+	1    1650 6000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1200 6600 2550 6600
+Wire Wire Line
+	2050 6350 2050 6700
+Connection ~ 2050 6700
+Wire Wire Line
+	2050 6700 2550 6700
+Wire Wire Line
+	1200 6700 2050 6700
+Wire Wire Line
+	1200 6500 1450 6500
+Wire Wire Line
+	1450 6500 1450 6000
+Wire Wire Line
+	1850 6100 1850 5900
+Wire Wire Line
+	1850 5900 2050 5900
+Connection ~ 1850 5900
+Connection ~ 2050 5900
+Wire Wire Line
+	2050 5900 2050 5850
+Wire Wire Line
+	2250 1900 2150 1900
+Wire Wire Line
+	2150 1900 2150 1700
+Wire Wire Line
+	2550 1900 2600 1900
+Wire Wire Line
+	2600 1900 2600 1600
+Connection ~ 2600 1600
+Wire Wire Line
+	2600 1600 2900 1600
+Text Notes 700  1100 0    50   ~ 0
+For on/off only fit G12AV for SW1,\n0R R42 and DNP R6, D1, U4
+Wire Wire Line
+	1650 2200 2050 2200
+$Comp
+L power:+3.3V #PWR01
+U 1 1 5C034560
+P 1150 2100
+F 0 "#PWR01" H 1150 1950 50  0001 C CNN
+F 1 "+3.3V" H 1165 2273 50  0000 C CNN
+F 2 "" H 1150 2100 50  0001 C CNN
+F 3 "" H 1150 2100 50  0001 C CNN
+	1    1150 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 2200 1150 2200
+Wire Wire Line
+	1150 2200 1150 2100
+Wire Wire Line
+	6750 3500 6850 3500
+Wire Wire Line
+	6850 3500 6850 3650
+Connection ~ 6850 3650
+Wire Wire Line
+	6850 3650 7650 3650
+Text Label 6200 3500 2    50   ~ 0
+BTN
+Wire Wire Line
+	6000 3500 6450 3500
+Connection ~ 2150 1700
+$Comp
+L resistors:R00001 R42
+U 1 1 5C126E7B
+P 2400 1900
+F 0 "R42" V 2450 2050 50  0000 C CNN
+F 1 "R00001" H 2400 1900 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 2400 1870 60  0001 C CNN
+F 3 "http://www.seielect.com/Catalog/SEI-RMC.pdf" H 2400 1900 60  0001 C CNN
+F 4 "0R" V 2350 1750 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 2470 1830 50  0001 L CNN "Power"
+F 6 "0402" H 2400 1930 60  0001 C CNN "Package"
+F 7 "" H 2470 1900 50  0000 L CNN "Tolerance"
+F 8 "Thick Film" H 2400 1900 50  0001 L CNN "Type"
+F 9 "Stackpole Electronics" H 2400 1900 50  0001 L CNN "Manufacturer"
+F 10 "RMCF0402ZT0R00" H 2400 1900 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 0.0 OHM 1/16W 0402 SMD" H 2400 1900 50  0001 L CNN "Description"
+F 12 "02/17/11 00:00:00" H 2400 1900 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 2400 1900 50  0001 L CNN "ComponentLink1Description"
+F 14 "" H 2400 1900 50  0001 L CNN "ComponentLink2URL"
+F 15 "" H 2400 1900 50  0001 L CNN "ComponentLink2Description"
+F 16 "" H 2400 1900 50  0001 L CNN "ComponentLink3URL"
+F 17 "" H 2400 1900 50  0001 L CNN "ComponentLink3Description"
+F 18 "Digi-key" H 2400 1900 50  0001 L CNN "Supplier 1"
+F 19 "RMCF0402ZT0R00TR-ND" H 2400 1900 50  0001 L CNN "Supplier Part Number 1"
+F 20 "Digi-key" H 2400 1900 50  0001 L CNN "Supplier 2"
+F 21 "RMCF0402ZT0R00CT-ND" H 2400 1900 50  0001 L CNN "Supplier Part Number 2"
+F 22 "" H 2400 1900 50  0001 L CNN "Supplier 3"
+F 23 "" H 2400 1900 50  0001 L CNN "Supplier Part Number 3"
+	1    2400 1900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L resistors:R00001 R44
+U 1 1 5C18862B
+P 6600 3500
+F 0 "R44" V 6550 3300 50  0000 C CNN
+F 1 "R00001" H 6600 3500 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 6600 3470 60  0001 C CNN
+F 3 "http://www.seielect.com/Catalog/SEI-RMC.pdf" H 6600 3500 60  0001 C CNN
+F 4 "0R" V 6650 3650 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 6670 3430 50  0001 L CNN "Power"
+F 6 "0402" H 6600 3530 60  0001 C CNN "Package"
+F 7 "Thick Film" H 6600 3500 50  0001 L CNN "Type"
+F 8 "Stackpole Electronics" H 6600 3500 50  0001 L CNN "Manufacturer"
+F 9 "RMCF0402ZT0R00" H 6600 3500 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 10 "RES 0.0 OHM 1/16W 0402 SMD" H 6600 3500 50  0001 L CNN "Description"
+F 11 "02/17/11 00:00:00" H 6600 3500 50  0001 L CNN "CREATED_ON"
+F 12 "Series Datasheet" H 6600 3500 50  0001 L CNN "ComponentLink1Description"
+F 13 "Digi-key" H 6600 3500 50  0001 L CNN "Supplier 1"
+F 14 "RMCF0402ZT0R00TR-ND" H 6600 3500 50  0001 L CNN "Supplier Part Number 1"
+F 15 "Digi-key" H 6600 3500 50  0001 L CNN "Supplier 2"
+F 16 "RMCF0402ZT0R00CT-ND" H 6600 3500 50  0001 L CNN "Supplier Part Number 2"
+F 17 "DNP" V 6650 3300 50  0000 C CNN "DNP"
+	1    6600 3500
+	0    1    1    0   
+$EndComp
+$Comp
+L resistors:R00056 R38
+U 1 1 5C18D504
+P 14100 3350
+F 0 "R38" H 14168 3441 50  0000 L CNN
+F 1 "R00056" H 14100 3350 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 14100 3320 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 14100 3350 60  0001 C CNN
+F 4 "15K" H 14168 3350 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 14170 3280 50  0001 L CNN "Power"
+F 6 "0402" H 14100 3380 60  0001 C CNN "Package"
+F 7 "1%" H 14168 3259 50  0001 L CNN "Tolerance"
+F 8 "Thick Film" H 14100 3350 50  0001 L CNN "Type"
+F 9 "Yageo" H 14100 3350 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0715KL" H 14100 3350 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES SMD 15K OHM 1% 1/16W 0402" H 14100 3350 50  0001 L CNN "Description"
+F 12 "08/05/17 00:00:00" H 14100 3350 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 14100 3350 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 14100 3350 50  0001 L CNN "Supplier 1"
+F 15 "311-15K0LRTR-ND" H 14100 3350 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 14100 3350 50  0001 L CNN "Supplier 2"
+F 17 "311-15K0LRCT-ND" H 14100 3350 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 14168 3259 50  0000 L CNN "DNP"
+	1    14100 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00056 R36
+U 1 1 5C18DD72
+P 13800 3350
+F 0 "R36" H 13868 3441 50  0000 L CNN
+F 1 "R00056" H 13800 3350 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 13800 3320 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 13800 3350 60  0001 C CNN
+F 4 "15K" H 13868 3350 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 13870 3280 50  0001 L CNN "Power"
+F 6 "0402" H 13800 3380 60  0001 C CNN "Package"
+F 7 "1%" H 13868 3259 50  0001 L CNN "Tolerance"
+F 8 "Thick Film" H 13800 3350 50  0001 L CNN "Type"
+F 9 "Yageo" H 13800 3350 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0715KL" H 13800 3350 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES SMD 15K OHM 1% 1/16W 0402" H 13800 3350 50  0001 L CNN "Description"
+F 12 "08/05/17 00:00:00" H 13800 3350 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 13800 3350 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 13800 3350 50  0001 L CNN "Supplier 1"
+F 15 "311-15K0LRTR-ND" H 13800 3350 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 13800 3350 50  0001 L CNN "Supplier 2"
+F 17 "311-15K0LRCT-ND" H 13800 3350 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 13868 3259 50  0000 L CNN "DNP"
+	1    13800 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 6300 5000 6600
+$Comp
+L power:+3.3V #PWR0181
+U 1 1 5C3FC939
+P 5000 6300
+F 0 "#PWR0181" H 5000 6150 50  0001 C CNN
+F 1 "+3.3V" H 5015 6473 50  0000 C CNN
+F 2 "" H 5000 6300 50  0001 C CNN
+F 3 "" H 5000 6300 50  0001 C CNN
+	1    5000 6300
+	1    0    0    -1  
+$EndComp
+Connection ~ 5000 6300
+$Comp
+L resistors:R00081 R37
+U 1 1 5C4600C6
+P 14000 5700
+F 0 "R37" H 14068 5791 50  0000 L CNN
+F 1 "R00081" H 14000 5700 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 14000 5670 60  0001 C CNN
+F 3 "https://www.seielect.com/Catalog/SEI-RMCF_RMCP.pdf" H 14000 5700 60  0001 C CNN
+F 4 "1K5" H 14068 5700 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 14070 5630 50  0001 L CNN "Power"
+F 6 "0402" H 14000 5730 60  0001 C CNN "Package"
+F 7 "1%" H 14068 5655 50  0001 L CNN "Tolerance"
+F 8 "Thick Film" H 14000 5700 50  0001 L CNN "Type"
+F 9 "Stackpole" H 14000 5700 50  0001 L CNN "Manufacturer"
+F 10 "RMCF0402FT1K50" H 14000 5700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 1.5K OHM 1% 1/16W 0402" H 14000 5700 50  0001 L CNN "Description"
+F 12 "09/30/18 00:00:00" H 14000 5700 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 14000 5700 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 14000 5700 50  0001 L CNN "Supplier 1"
+F 15 "RMCF0402FT1K50TR-ND" H 14000 5700 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 14000 5700 50  0001 L CNN "Supplier 2"
+F 17 "RMCF0402FT1K50CT-ND" H 14000 5700 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 14068 5609 50  0000 L CNN "DNP"
+	1    14000 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00081 R34
+U 1 1 5C4610E7
+P 13700 5700
+F 0 "R34" H 13768 5791 50  0000 L CNN
+F 1 "R00081" H 13700 5700 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 13700 5670 60  0001 C CNN
+F 3 "https://www.seielect.com/Catalog/SEI-RMCF_RMCP.pdf" H 13700 5700 60  0001 C CNN
+F 4 "1K5" H 13768 5700 50  0000 L CNN "Resistance"
+F 5 "1/16W" H 13770 5630 50  0001 L CNN "Power"
+F 6 "0402" H 13700 5730 60  0001 C CNN "Package"
+F 7 "1%" H 13768 5655 50  0001 L CNN "Tolerance"
+F 8 "Thick Film" H 13700 5700 50  0001 L CNN "Type"
+F 9 "Stackpole" H 13700 5700 50  0001 L CNN "Manufacturer"
+F 10 "RMCF0402FT1K50" H 13700 5700 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 1.5K OHM 1% 1/16W 0402" H 13700 5700 50  0001 L CNN "Description"
+F 12 "09/30/18 00:00:00" H 13700 5700 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 13700 5700 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 13700 5700 50  0001 L CNN "Supplier 1"
+F 15 "RMCF0402FT1K50TR-ND" H 13700 5700 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 13700 5700 50  0001 L CNN "Supplier 2"
+F 17 "RMCF0402FT1K50CT-ND" H 13700 5700 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" H 13768 5609 50  0000 L CNN "DNP"
+	1    13700 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L resistors:R00046 R43
+U 1 1 5C46739E
+P 1500 2200
+F 0 "R43" V 1450 2000 50  0000 C CNN
+F 1 "R00046" H 1500 2200 50  0001 C CNN
+F 2 "footprints:R_0402_1005M" H 1500 2170 60  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6.pdf" H 1500 2200 60  0001 C CNN
+F 4 "10K" V 1550 2400 50  0000 C CNN "Resistance"
+F 5 "1/16W" H 1570 2130 50  0001 L CNN "Power"
+F 6 "0402" H 1500 2230 60  0001 C CNN "Package"
+F 7 "1%" V 1550 2050 50  0001 C CNN "Tolerance"
+F 8 "Thick Film" H 1500 2200 50  0001 L CNN "Type"
+F 9 "Yageo" H 1500 2200 50  0001 L CNN "Manufacturer"
+F 10 "RC0402FR-0710KL" H 1500 2200 50  0001 L CNN "MANUFACTURER_PART_NUMBER"
+F 11 "RES 10K OHM 1/16W 1% 0402 SMD" H 1500 2200 50  0001 L CNN "Description"
+F 12 "08/01/17 00:00:00" H 1500 2200 50  0001 L CNN "CREATED_ON"
+F 13 "Series Datasheet" H 1500 2200 50  0001 L CNN "ComponentLink1Description"
+F 14 "Digi-key" H 1500 2200 50  0001 L CNN "Supplier 1"
+F 15 "311-10.0KLRTR-ND" H 1500 2200 50  0001 L CNN "Supplier Part Number 1"
+F 16 "Digi-key" H 1500 2200 50  0001 L CNN "Supplier 2"
+F 17 "	311-10.0KLRCT-ND" H 1500 2200 50  0001 L CNN "Supplier Part Number 2"
+F 18 "DNP" V 1550 2050 50  0000 C CNN "DNP"
+	1    1500 2200
+	0    1    1    0   
+$EndComp
+Connection ~ 6650 1500
+Wire Wire Line
+	11350 8800 11350 9050
+Wire Wire Line
+	10550 9100 10550 9150
+Wire Wire Line
+	3250 6300 3600 6300
+Wire Wire Line
+	3400 6400 3600 6400
+Wire Wire Line
+	3500 6600 3600 6600
+Wire Wire Line
+	3200 6800 3600 6800
+Wire Wire Line
+	2050 1800 2050 1600
+Wire Wire Line
+	2050 2100 2050 2200
+Wire Wire Line
+	2050 2200 2700 2200
+Wire Wire Line
+	2050 2250 2050 2200
+Wire Wire Line
+	5600 3650 5800 3650
+Wire Wire Line
+	5800 3800 5800 3650
 Connection ~ 5800 3650
 Wire Wire Line
-	5800 3650 7650 3650
+	5800 3650 6850 3650
+Text Notes 12300 9200 0    50   ~ 0
+Notes:\n- All resistors are 1% 0402 unless otherwise specified\n- All non-polarized capacitors are 0402 ceramic unless otherwise specified
+$Comp
+L misc:M00028 M1
+U 1 1 5BC47734
+P 15150 8550
+F 0 "M1" H 14750 8850 50  0000 L CNN
+F 1 "M00028" H 15150 8300 50  0001 C CNN
+F 2 "footprints:OSHW-Logo_7.5x8mm_SilkScreen" H 15150 8550 50  0001 C CNN
+F 3 "" H 15150 8550 50  0001 C CNN
+F 4 "OSHW Logo" H 15150 8550 50  0001 L CNN "Description"
+F 5 "10/12/18 00:00:00" H 15150 8550 50  0001 L CNN "CREATED_ON"
+F 6 "1" H 15150 8550 50  0001 L CNN "BOM_IGNORE"
+	1    15150 8550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
