@@ -33,96 +33,89 @@ uint32_t app_address = 0x08004000;
 
 int dfu_activity_counter = 0;
 
-#define LED_PORT  GPIOA
+#define LED_PORT GPIOA
 #define LED_R GPIO6
 #define LED_G GPIO7
 
 #define BTN_PORT GPIOC
-#define BTN      GPIO13
+#define BTN GPIO13
 
 #define EN_DEVICE_PORT GPIOB
-#define EN_DEVICE  	   GPIO5
+#define EN_DEVICE GPIO5
 
-void dfu_detach(void)
-{
-	/* USB device must detach, we just reset... */
-	scb_reset_system();
+void dfu_detach(void) {
+    /* USB device must detach, we just reset... */
+    scb_reset_system();
 }
 
-int main(void)
-{
-	usbd_device *usbd_dev;
+int main(void) {
+    usbd_device *usbd_dev;
 
-	rcc_periph_clock_enable(RCC_GPIOC);
-	dfu_protect();
+    rcc_periph_clock_enable(RCC_GPIOC);
+    dfu_protect();
 
-	// Force bootload if button pressed
-	if (!gpio_get(BTN_PORT, BTN)) {
-		/* Boot the application if it's valid. */
-		dfu_jump_app_if_valid();
-	}
+    // Force bootload if button pressed
+    if (!gpio_get(BTN_PORT, BTN)) {
+        /* Boot the application if it's valid. */
+        dfu_jump_app_if_valid();
+    }
 
-	rcc_clock_setup_hse_3v3(&rcc_hse_8mhz_3v3[RCC_CLOCK_3V3_48MHZ]);
+    rcc_clock_setup_hse_3v3(&rcc_hse_8mhz_3v3[RCC_CLOCK_3V3_48MHZ]);
 
-	systick_set_clocksource(STK_CSR_CLKSOURCE_AHB_DIV8);
-	systick_set_reload(900000);
+    systick_set_clocksource(STK_CSR_CLKSOURCE_AHB_DIV8);
+    systick_set_reload(900000);
 
-	rcc_periph_clock_enable(RCC_GPIOA);
-	rcc_periph_clock_enable(RCC_GPIOB);
-	rcc_periph_clock_enable(RCC_OTGFS);
+    rcc_periph_clock_enable(RCC_GPIOA);
+    rcc_periph_clock_enable(RCC_GPIOB);
+    rcc_periph_clock_enable(RCC_OTGFS);
 
-	// Drive EN_DEVICE high to switch to device mode
-	gpio_mode_setup(EN_DEVICE_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, EN_DEVICE);
-	gpio_set(EN_DEVICE_PORT, EN_DEVICE);
+    // Drive EN_DEVICE high to switch to device mode
+    gpio_mode_setup(EN_DEVICE_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE,
+                    EN_DEVICE);
+    gpio_set(EN_DEVICE_PORT, EN_DEVICE);
 
-	// Enable mode switch leds
-	gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_R | LED_G);
-	gpio_set(LED_PORT, LED_G);
-	gpio_clear(LED_PORT, LED_R);
+    // Enable mode switch leds
+    gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_R | LED_G);
+    gpio_set(LED_PORT, LED_G);
+    gpio_clear(LED_PORT, LED_R);
 
-	systick_interrupt_enable();
-	systick_counter_enable();
+    systick_interrupt_enable();
+    systick_counter_enable();
 
+    // Enable USB AF
+    gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
+    gpio_set_af(GPIOA, GPIO_AF10, GPIO11 | GPIO12);
 
-	// Enable USB AF
-	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
-	gpio_set_af(GPIOA, GPIO_AF10, GPIO11 | GPIO12);
+    // VBUS pin is not connected since the device is bus powered, so disable
+    // sensing
+    OTG_FS_GCCFG |= OTG_GCCFG_NOVBUSSENS;
+    dfu_init(&otgfs_usb_driver);
 
-
-	// VBUS pin is not connected since the device is bus powered, so disable sensing
-	OTG_FS_GCCFG |= OTG_GCCFG_NOVBUSSENS;
-	dfu_init(&otgfs_usb_driver);
-
-	dfu_main();
+    dfu_main();
 }
 
+void dfu_event(void) {
+    /* If the counter was at 0 before we should reset LED status. */
+    if (dfu_activity_counter == 0) {
+        gpio_clear(LED_PORT, LED_R | LED_G);
+    }
 
-void dfu_event(void)
-{
-	/* If the counter was at 0 before we should reset LED status. */
-	if (dfu_activity_counter == 0) {
-		gpio_clear(LED_PORT, LED_R | LED_G);
-	}
+    /* Prevent the sys_tick_handler from blinking leds for a bit. */
+    dfu_activity_counter = 10;
 
-	/* Prevent the sys_tick_handler from blinking leds for a bit. */
-	dfu_activity_counter = 10;
-
-	/* Toggle the DFU activity LED. */
-	gpio_toggle(LED_PORT, LED_G);
+    /* Toggle the DFU activity LED. */
+    gpio_toggle(LED_PORT, LED_G);
 }
 
-void sys_tick_handler(void)
-{
+void sys_tick_handler(void) {
 
-	/* Run the LED show only if there is no DFU activity. */
-	if (dfu_activity_counter != 0) {
-		dfu_activity_counter--;
-		if(dfu_activity_counter == 0)
-		{
-			gpio_set(LED_PORT, LED_G);
-		}
-	} else {
-		gpio_toggle(LED_PORT, LED_R|LED_G);
-
-	}
+    /* Run the LED show only if there is no DFU activity. */
+    if (dfu_activity_counter != 0) {
+        dfu_activity_counter--;
+        if (dfu_activity_counter == 0) {
+            gpio_set(LED_PORT, LED_G);
+        }
+    } else {
+        gpio_toggle(LED_PORT, LED_R | LED_G);
+    }
 }
