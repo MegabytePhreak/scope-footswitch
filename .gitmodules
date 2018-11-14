@@ -10,3 +10,6 @@
 [submodule "sw/target/tmcemu/scpi-parser"]
 	path = sw/tmcemu/scpi-parser
 	url = git@github.com:MegabytePhreak/scpi-parser.git
+[submodule "sw/libopencm3"]
+	path = sw/libopencm3
+	url = https://github.com/libopencm3/libopencm3.git
