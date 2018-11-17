@@ -6,7 +6,7 @@ STM32F401 based oscilloscope-footswitch interface using USBTMC.
 
 Tools:
 
-Others may work, this is what is currently tested
+Other versions may work, this is just what is currently tested
 
 HW:
 * KiCad 5.0.0
