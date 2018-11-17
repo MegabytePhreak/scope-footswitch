@@ -7,9 +7,10 @@
 [submodule "sw/target/ChibiOS-RT"]
 	path = sw/ChibiOS-RT
 	url = https://github.com/ChibiOS/ChibiOS.git
+	branch = stable_18.2.x
 [submodule "sw/target/tmcemu/scpi-parser"]
 	path = sw/tmcemu/scpi-parser
-	url = git@github.com:MegabytePhreak/scpi-parser.git
+	url = https://github.com/j123b567/scpi-parser.git
 [submodule "sw/libopencm3"]
 	path = sw/libopencm3
 	url = https://github.com/libopencm3/libopencm3.git
