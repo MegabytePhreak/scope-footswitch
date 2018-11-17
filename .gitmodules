@@ -1,6 +1,6 @@
 [submodule "hw/kicad-library"]
 	path = hw/kicad-library
-	url = git@bitbucket.org:megabytephreak/kicad-library.git
+	url = git@github.com:MegabytePhreak/kicad-library.git
 [submodule "sw/target/ChibiOS-Contrib"]
 	path = sw/ChibiOS-Contrib
 	url = git@github.com:MegabytePhreak/ChibiOS-Contrib.git
