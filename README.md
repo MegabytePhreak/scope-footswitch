@@ -4,6 +4,9 @@ SCOPE-FOOTSWITCH
 
 STM32F401 based oscilloscope-footswitch interface using USBTMC.
 
+Hardware is licensed CC-BY-SA-4.0
+Software is GPLv3 for easy license compatability with ChibiOS
+
 Tools:
 
 Other versions may work, this is just what is currently tested
