@@ -12,7 +12,7 @@ Tools:
 Other versions may work, this is just what is currently tested
 
 HW:
-* KiCad 5.0.0
+* KiCAD 5.0.0
 
 SW:
 * arm-none-eabi-gcc (GNU Tools for Arm Embedded Processors 7-2018-q2-update) 7.3.1 20180622 (release) [ARM/embedded-7-branch revision 261907]
@@ -21,6 +21,7 @@ SW:
 * libopencm3 and DFU code from BlackMagicProbe
 
 This repo uses several submodules, make sure they are up to date.
+After checking out the kicad-library repo, make sure to cd to it and run make to generate the actual KiCAD libraries.
 
 SW Build Process:
 1. Make sure the arm-none-eabi toolchain is on your path: which arm-none-eabi-gcc
@@ -36,4 +37,5 @@ SW Programming process:
 5. Power cycle hardware, holding down the front panel button to force entry to the bootloader
 6. cd ../scope-footswitch
 7. ./dfu.sh
+
 
