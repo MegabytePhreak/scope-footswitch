@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "Oscilloscope Footswitch"
 Date "2018-10-09"
-Rev "1.3"
+Rev "1.4"
 Comp "Paul Roukema"
 Comment1 "CC-BY-SA-4.0"
 Comment2 ""
