@@ -12,7 +12,7 @@ Tools:
 Other versions may work, this is just what is currently tested
 
 HW:
-* KiCAD 5.0.0
+* KiCAD 5.0.1
 
 SW:
 * arm-none-eabi-gcc (GNU Tools for Arm Embedded Processors 7-2018-q2-update) 7.3.1 20180622 (release) [ARM/embedded-7-branch revision 261907]
