@@ -21,7 +21,7 @@
 #include <string.h>
 #include <libopencm3/stm32/f4/flash.h>
 #define DFU_IFACE_STRING                                                       \
-    "@Internal Flash  /0x08000000/1*016Ka,3*016Kg,1*064Kg,1*128Kg"
+    "@Internal Flash  /0x08000000/1*016Ka,3*016Kg,1*064Kg"
 
 #include <libopencm3/usb/usbd.h>
 #include <libopencm3/usb/dfu.h>
@@ -53,8 +53,8 @@ const struct usb_device_descriptor dev = {
     .bDeviceSubClass    = 0,
     .bDeviceProtocol    = 0,
     .bMaxPacketSize0    = 64,
-    .idVendor           = 0x0483,
-    .idProduct          = 0xdf11,
+    .idVendor           = 0x1d50,
+    .idProduct          = 0x613b,
     .bcdDevice          = 0x0100,
     .iManufacturer      = 1,
     .iProduct           = 2,
