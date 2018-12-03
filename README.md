@@ -33,7 +33,7 @@ SW Programming process:
 1. Connect SWD debugger (e.g. blackmagicprobe) to hardware
 2. Connect micro-usb from pc to hardware
 3. `cd sw/bootloader`
-4. `arm-none-eabi-gdb build/bootloader.elf --batch -ex "source ../scope-footswitch/gdbinit" -ex "load"`
+4. `./flash.sh`
 5. Power cycle hardware, holding down the front panel button to force entry to the bootloader
 6. `cd ../scope-footswitch`
 7. `./dfu.sh`
