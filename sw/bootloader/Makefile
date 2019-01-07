@@ -1,7 +1,7 @@
 PROJECT = bootloader
 BUILD_DIR = build
 
-CFILES = dfu_f4.c dfucore.c main.c
+CFILES = dfu_f4.c dfucore.c  hidcore.c main.c
 
 DEVICE=stm32f401cbu6
 

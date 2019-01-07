@@ -29,9 +29,9 @@
 
 #include "usbdfu.h"
 
-usbd_device *usbdev;
+static usbd_device *usbdev;
 /* We need a special large control buffer for this device: */
-uint8_t usbd_control_buffer[1024];
+static uint8_t usbd_control_buffer[1024];
 
 static uint32_t max_address;
 
@@ -45,7 +45,7 @@ static struct {
 } prog;
 static uint8_t current_error;
 
-const struct usb_device_descriptor dev = {
+static const struct usb_device_descriptor dev = {
     .bLength            = USB_DT_DEVICE_SIZE,
     .bDescriptorType    = USB_DT_DEVICE,
     .bcdUSB             = 0x0200,
@@ -62,7 +62,7 @@ const struct usb_device_descriptor dev = {
     .bNumConfigurations = 1,
 };
 
-const struct usb_dfu_descriptor dfu_function = {
+static const struct usb_dfu_descriptor dfu_function = {
     .bLength         = sizeof(struct usb_dfu_descriptor),
     .bDescriptorType = DFU_FUNCTIONAL,
     .bmAttributes =
@@ -72,7 +72,7 @@ const struct usb_dfu_descriptor dfu_function = {
     .bcdDFUVersion  = 0x011A,
 };
 
-const struct usb_interface_descriptor iface = {
+static const struct usb_interface_descriptor iface = {
     .bLength            = USB_DT_INTERFACE_SIZE,
     .bDescriptorType    = USB_DT_INTERFACE,
     .bInterfaceNumber   = 0,
@@ -90,12 +90,12 @@ const struct usb_interface_descriptor iface = {
     .extralen = sizeof(dfu_function),
 };
 
-const struct usb_interface ifaces[] = {{
+static const struct usb_interface ifaces[] = {{
     .num_altsetting = 1,
     .altsetting     = &iface,
 }};
 
-const struct usb_config_descriptor config = {
+static const struct usb_config_descriptor config = {
     .bLength             = USB_DT_CONFIGURATION_SIZE,
     .bDescriptorType     = USB_DT_CONFIGURATION,
     .wTotalLength        = 0,

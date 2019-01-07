@@ -34,7 +34,7 @@ static uint16_t sector_erase_time[12] = {500,  500,  500,  500,  1100, 2600,
 static uint8_t  sector_num            = 0xff;
 
 /* Find the sector number for a given address*/
-static void get_sector_num(uint32_t addr) {
+void dfu_get_sector_num(uint32_t addr) {
     int i = 0;
     while (sector_addr[i + 1]) {
         if (addr < sector_addr[i + 1])
@@ -63,7 +63,7 @@ uint32_t dfu_poll_timeout(uint8_t cmd, uint32_t addr, uint16_t blocknum) {
     /* Erase for big pages on STM2/4 needs "long" time
        Try not to hit USB timeouts*/
     if ((blocknum == 0) && (cmd == CMD_ERASE)) {
-        get_sector_num(addr);
+        dfu_get_sector_num(addr);
         if (addr == sector_addr[sector_num])
             return sector_erase_time[sector_num];
     }

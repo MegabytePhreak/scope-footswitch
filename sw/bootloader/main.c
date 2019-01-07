@@ -18,6 +18,8 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#define HID_MODE
+
 #include <string.h>
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
@@ -27,11 +29,16 @@
 #include <libopencm3/cm3/nvic.h>
 #include <libopencm3/usb/usbd.h>
 #include <libopencm3/usb/dwc/otg_fs.h>
+
+#ifdef HID_MODE
+#include "usbhid.h"
+#else
 #include "usbdfu.h"
+#endif
 
 uint32_t app_address = 0x08004000;
 
-int dfu_activity_counter = 0;
+int activity_counter = 0;
 
 #define LED_PORT GPIOA
 #define LED_R GPIO6
@@ -89,30 +96,51 @@ int main(void) {
     // VBUS pin is not connected since the device is bus powered, so disable
     // sensing
     OTG_FS_GCCFG |= OTG_GCCFG_NOVBUSSENS;
+#ifdef HID_MODE
+    hid_init(&otgfs_usb_driver);
+
+    hid_main();
+#else
     dfu_init(&otgfs_usb_driver);
 
     dfu_main();
+#endif
 }
 
 void dfu_event(void) {
     /* If the counter was at 0 before we should reset LED status. */
-    if (dfu_activity_counter == 0) {
+    if (activity_counter == 0) {
         gpio_clear(LED_PORT, LED_R | LED_G);
     }
 
     /* Prevent the sys_tick_handler from blinking leds for a bit. */
-    dfu_activity_counter = 10;
+    activity_counter = 10;
 
     /* Toggle the DFU activity LED. */
     gpio_toggle(LED_PORT, LED_G);
 }
 
+void hid_event(void) {
+    /* If the counter was at 0 before we should reset LED status. */
+    if (activity_counter == 0) {
+        gpio_clear(LED_PORT, LED_R | LED_G);
+        activity_counter = 100;
+    } else {
+        activity_counter--;
+        if(activity_counter == 50){
+            /* Toggle the DFU activity LED. */
+            gpio_toggle(LED_PORT, LED_G);
+        }
+
+    }
+}
+
 void sys_tick_handler(void) {
 
     /* Run the LED show only if there is no DFU activity. */
-    if (dfu_activity_counter != 0) {
-        dfu_activity_counter--;
-        if (dfu_activity_counter == 0) {
+    if (activity_counter != 0) {
+        activity_counter--;
+        if (activity_counter == 0) {
             gpio_set(LED_PORT, LED_G);
         }
     } else {
