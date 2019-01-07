@@ -14,3 +14,6 @@
 [submodule "sw/libopencm3"]
 	path = sw/libopencm3
 	url = https://github.com/libopencm3/libopencm3.git
+[submodule "sw/progtool/hidapi"]
+	path = sw/progtool/hidapi
+	url = https://github.com/signal11/hidapi.git
