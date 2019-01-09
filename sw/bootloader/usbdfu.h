@@ -39,6 +39,7 @@ uint32_t dfu_poll_timeout(uint8_t cmd, uint32_t addr, uint16_t blocknum);
 void     dfu_jump_app_if_valid(void);
 void     dfu_event(void);
 void     dfu_protect(void);
+void     dfu_get_sector_num(uint32_t addr);
 
 /* Platform specific function */
 void dfu_detach(void);

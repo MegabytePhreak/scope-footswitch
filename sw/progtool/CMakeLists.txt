@@ -2,7 +2,7 @@
 cmake_minimum_required (VERSION 2.6)
 project (progtool)
 
-set(progtool_sources progtool.c ../bootloader/hidprog.h)
+set(progtool_sources progtool.c hidprog.c ../bootloader/hidprog_cmds.h)
 
 if (WIN32)
     set(progtool_sources ${progtool_sources} hidapi/windows/hid.c)

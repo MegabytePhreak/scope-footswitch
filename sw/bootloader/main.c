@@ -124,10 +124,10 @@ void hid_event(void) {
     /* If the counter was at 0 before we should reset LED status. */
     if (activity_counter == 0) {
         gpio_clear(LED_PORT, LED_R | LED_G);
-        activity_counter = 100;
+        activity_counter = 5000;
     } else {
         activity_counter--;
-        if(activity_counter == 50){
+        if(activity_counter == 2500){
             /* Toggle the DFU activity LED. */
             gpio_toggle(LED_PORT, LED_G);
         }

@@ -19,8 +19,8 @@
  */
  
  
-#ifndef HIDPROG_H
-#define HIDPROG_H
+#ifndef HIDPROG_CMDS_H
+#define HIDPROG_CMDS_H
 
 #include <stdint.h>
 
@@ -39,7 +39,7 @@ enum {
 #define HIDPROG_COMMAND_LEN 64 
 #define HIDPROG_DATA_LEN (HIDPROG_COMMAND_LEN-4)
 
-typedef union hid_command {
+typedef union hidprog_command {
     uint8_t bytes[HIDPROG_COMMAND_LEN];
 
     struct {
@@ -81,7 +81,7 @@ typedef union hid_command {
     } getinfo;
 } hidprog_command_t;
 
-typedef union hid_hid_response {
+typedef union hidprog_response {
     uint8_t bytes[HIDPROG_COMMAND_LEN];
 
     struct {
@@ -121,6 +121,7 @@ typedef union hid_hid_response {
         uint8_t id;
         uint8_t version;
         uint8_t magic [4];
+        uint8_t flash_base [4];
         uint8_t flash_size [4];
         uint8_t block_count [8];
         uint8_t block_size  [8];

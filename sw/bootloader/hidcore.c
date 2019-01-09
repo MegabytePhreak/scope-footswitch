@@ -26,7 +26,7 @@
 #include <libopencm3/stm32/desig.h>
 
 #include "usbhid.h"
-#include "hidprog.h"
+#include "hidprog_cmds.h"
 
 #define ARRAY_SIZE(x)  (sizeof(x)/sizeof(x[0]))
 
@@ -39,6 +39,22 @@ static uint8_t usbd_control_buffer[256];
 
 static uint32_t max_address;
 static uint32_t flash_size;
+/* Skip one sector for the bootloader */
+static const uint32_t flash_base = 0x08004000;
+
+static void hid_get_flash_size(void) {
+#define FLASH_SIZE_R 0x1fff7A22
+
+
+    /* Calculated the upper flash limit from the exported data
+       in theparameter block*/
+    flash_size = *(uint32_t *)FLASH_SIZE_R & 0xfff;
+    flash_size <<= 10;
+    /* Skip one sector for the bootloader */
+    flash_size -= (1<<14); 
+    max_address = flash_base + (flash_size);
+
+}
 
 const struct usb_device_descriptor devdesc = {
     .bLength            = USB_DT_DEVICE_SIZE,
@@ -66,7 +82,7 @@ static const uint8_t hid_report_descriptor[] = {
     0x15, 0x01,         //   LOGICAL_MINIMUM (0)        
 	0x26, 0xFF, 0x00,    //   LOGICAL_MAXIMUM (255)        
     0x75, 0x08,         //   REPORT_SIZE (8)
-    0x85, 0x01,         //   REPORT_ID (1)
+   // 0x85, 0x00,         //   REPORT_ID (1)
     0x95, 0x40,         //   REPORT_COUNT (64)
     0x81, 0x00,         //   Input (Data, Array, Abs): Instantiates input packet fields based on the above report size, count, logical min/max, and usage.
     0x19, 0x01,         //   USAGE_MINIMUM (0)
@@ -177,19 +193,6 @@ static void put_le32(uint8_t buf[4], uint32_t val)
     buf[3] = (val >> 24) & 0xFF;
 }
 
-
-
-static void hid_get_flash_size(void) {
-#define FLASH_SIZE_R 0x1fff7A22
-
-
-    /* Calculated the upper flash limit from the exported data
-       in theparameter block*/
-    flash_size = *(uint32_t *)FLASH_SIZE_R & 0xfff;
-    flash_size <<= 10;
-    max_address = 0x8000000 + (flash_size);
-}
-
 typedef void (hidprog_cmd_callback)(hidprog_command_t* cmd, hidprog_response_t* rsp);
 
 static void process_ping(hidprog_command_t* cmd, hidprog_response_t* rsp)
@@ -203,14 +206,12 @@ static void process_getinfo(hidprog_command_t* cmd, hidprog_response_t* rsp)
 {
     (void) cmd;
     rsp->getinfo.version = 0;
-    rsp->getinfo.magic[3] = 0x76;
-    rsp->getinfo.magic[2] = 0x54;
-    rsp->getinfo.magic[1] = 0x32;
-    rsp->getinfo.magic[0] = 0x10;
-    rsp->getinfo.flash_size[0] = (flash_size >> 0) & 0xFF; 
-    rsp->getinfo.flash_size[1] = (flash_size >> 8) & 0xFF; 
-    rsp->getinfo.flash_size[2] = (flash_size >> 16) & 0xFF; 
-    rsp->getinfo.flash_size[3] = (flash_size >> 24) & 0xFF; 
+    rsp->getinfo.magic[0] = 'F';
+    rsp->getinfo.magic[1] = 'T';
+    rsp->getinfo.magic[2] = 'S';
+    rsp->getinfo.magic[3] = 'W';
+    put_le32(rsp->getinfo.flash_size, flash_size);
+    put_le32(rsp->getinfo.flash_base, flash_base);
     rsp->getinfo.block_count[0] = 1;
     rsp->getinfo.block_count[1] = 3;
     rsp->getinfo.block_count[2] = 1;
@@ -290,8 +291,6 @@ static void process_cmd(usbd_device *dev, hidprog_command_t* cmd) {
 static void hid_rx_cb(usbd_device *dev, uint8_t ep)
 {
 	(void)ep;
-
-	char buf[64];
 
     hidprog_command_t cmd;
 
