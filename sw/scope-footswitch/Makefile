@@ -150,7 +150,8 @@ ASMSRC =
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 
 INCDIR = $(ALLINC) $(TESTINC) \
-         $(CHIBIOS_CONTRIB)/os/various
+         $(CHIBIOS_CONTRIB)/os/various \
+         ../common
 
 #
 # Project, sources and paths
