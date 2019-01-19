@@ -29,6 +29,7 @@
 #include "scope.h"
 #include "usbh_usbtmc.h"
 #include "ws2812.h"
+#include "image_header.h"
 
 #define PWM_FREQ 2000
 static PWMConfig tim3_pwmcfg = {
@@ -203,6 +204,17 @@ static THD_FUNCTION(ThreadMain, arg) {
         update_leds(scope_state);
     }
 }
+
+
+
+const struct image_header __attribute__((section(".header"))) image_header = {
+    .magic = {'B', 'L', 'D', 'R'}, 
+    .version_major = 1,
+    .version_minor = 0,
+    .vid = 0x1d50, 
+    .pid = 0x613b, 
+    .bootloader_magic = {'F','T','S','W'}, 
+};
 
 int main(void) {
 

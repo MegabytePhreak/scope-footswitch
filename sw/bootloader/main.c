@@ -36,7 +36,7 @@
 #include "usbdfu.h"
 #endif
 
-uint32_t app_address = 0x08004000;
+uint32_t app_address = 0x08004200;
 
 int activity_counter = 0;
 

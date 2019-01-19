@@ -19,7 +19,9 @@
  */
 MEMORY
 {
-    flash0  : org = 0x08004000, len = 112k
+    /* Header can be up to 52 bytes long since the vector table must be size aligned */
+    header  : org = 0x08004000, len = 512
+    flash0  : org = 0x08004000+512, len = 112k - 512
     flash1  : org = 0x00000000, len = 0
     flash2  : org = 0x00000000, len = 0
     flash3  : org = 0x00000000, len = 0
@@ -81,5 +83,13 @@ REGION_ALIAS("BSS_RAM", ram0);
 /* RAM region to be used for the default heap.*/
 REGION_ALIAS("HEAP_RAM", ram0);
 
+
 /* Generic rules inclusion.*/
 INCLUDE rules.ld
+
+SECTIONS {
+    .header : ALIGN(16)
+    {
+        KEEP(*(.header))
+    } > header AT > header
+}
