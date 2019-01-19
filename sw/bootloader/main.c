@@ -107,35 +107,33 @@ int main(void) {
 #endif
 }
 
+#ifdef HID_MODE
+#define PRESCALE (64)
+#else
+#define PRESCALE (1)
+#endif
+
+static int prescaler = 0;
 void dfu_event(void) {
-    /* If the counter was at 0 before we should reset LED status. */
-    if (activity_counter == 0) {
-        gpio_clear(LED_PORT, LED_R | LED_G);
-    }
-
-    /* Prevent the sys_tick_handler from blinking leds for a bit. */
-    activity_counter = 10;
-
-    /* Toggle the DFU activity LED. */
-    gpio_toggle(LED_PORT, LED_G);
-}
-
-void hid_event(void) {
-    /* If the counter was at 0 before we should reset LED status. */
-    if (activity_counter == 0) {
-        gpio_clear(LED_PORT, LED_R | LED_G);
-        activity_counter = 5000;
-    } else {
-        activity_counter--;
-        if(activity_counter == 2500){
-            /* Toggle the DFU activity LED. */
-            gpio_toggle(LED_PORT, LED_G);
+    prescaler = (prescaler+1) % PRESCALE;
+    if(prescaler == 0) {
+        /* If the counter was at 0 before we should reset LED status. */
+        if (activity_counter == 0) {
+            gpio_clear(LED_PORT, LED_R | LED_G);
         }
 
+        /* Prevent the sys_tick_handler from blinking leds for a bit. */
+        activity_counter = 5;
+
+        /* Toggle the DFU activity LED. */
+        gpio_toggle(LED_PORT, LED_G);
     }
 }
 
 void sys_tick_handler(void) {
+    #ifdef HID_MODE
+        hid_tick();
+    #endif
 
     /* Run the LED show only if there is no DFU activity. */
     if (activity_counter != 0) {

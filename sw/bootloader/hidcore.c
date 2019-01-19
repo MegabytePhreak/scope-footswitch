@@ -254,6 +254,7 @@ static void process_readdata(hidprog_command_t* cmd, hidprog_response_t* rsp)
     memcpy(rsp->readdata.data, (void*)state.addr, len);
     rsp->readdata.len =  len/4;
     state.addr += len;
+    dfu_event();
 }
 
 static int do_reboot = 0;
@@ -262,7 +263,7 @@ static void process_finish(hidprog_command_t* cmd, hidprog_response_t* rsp)
     (void)rsp;
     if(cmd->finish.flags & HIDPROG_FINISH_FLAG_REBOOT)
     {
-        do_reboot = 1;
+        do_reboot = 3;
     }
 }
 
@@ -344,10 +345,14 @@ void hid_init(const usbd_driver *driver) {
 void hid_main(void) {
     while (1){
         usbd_poll(usbdev);
-        if(do_reboot)
-            dfu_detach();
     }
 }
 
-
+void hid_tick(void) {
+    if(do_reboot == 1) {
+        dfu_detach();
+    } else if(do_reboot > 1) {
+        do_reboot--;
+    }
+}
 

@@ -29,13 +29,14 @@ extern uint32_t app_address;
 /* hidcore.c - HID core, common to libopencm3 platforms. */
 void hid_init(const usbd_driver *driver);
 void hid_main(void);
+void hid_tick(void);
 
 /* Device specific functions */
 void     dfu_check_and_do_sector_erase(uint32_t sector);
 void     dfu_flash_program_buffer(uint32_t baseaddr, void *buf, int len);
 uint32_t dfu_poll_timeout(uint8_t cmd, uint32_t addr, uint16_t blocknum);
 void     dfu_jump_app_if_valid(void);
-void     hid_event(void);
+void     dfu_event(void);
 void     dfu_protect(void);
 void     dfu_get_sector_num(uint32_t addr);
 
