@@ -25,7 +25,7 @@ After checking out the kicad-library repo, make sure to cd to it and run make to
 
 SW Build Process:
 1. Make sure the arm-none-eabi toolchain is on your path: `which arm-none-eabi-gcc`
-2. Pre-build the libopencm3 library: `cd sw/libopencm3 && make -j && cd ../..`
+2. Pre-build the libopencm3 library: `cd sw/ext/libopencm3 && make -j && cd ../../..`
 3. Build the bootloader: `cd sw/bootloader && make -j && cd ../..`
 4. Build the main application: `cd sw/scope-footswitch && make -j && cd ../..`
 

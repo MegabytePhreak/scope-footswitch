@@ -89,7 +89,7 @@ PROJECT = $(BOARD)
 
 
 # Imported source files and paths
-CHIBIOS = ../ChibiOS-RT
+CHIBIOS = ../ext/ChibiOS-RT
 CHIBIOS_CONTRIB = $(CHIBIOS)/../ChibiOS-Contrib
 
 # Licensing files.

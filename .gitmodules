@@ -1,19 +1,19 @@
 [submodule "hw/kicad-library"]
 	path = hw/kicad-library
 	url =  https://github.com/MegabytePhreak/kicad-library.git
-[submodule "sw/target/ChibiOS-Contrib"]
-	path = sw/ChibiOS-Contrib
+[submodule "sw/ext/ChibiOS-Contrib"]
+	path = sw/ext/ChibiOS-Contrib
 	url = https://github.com/ChibiOS/ChibiOS-Contrib.git
-[submodule "sw/target/ChibiOS-RT"]
-	path = sw/ChibiOS-RT
+[submodule "sw/ext/ChibiOS-RT"]
+	path = sw/ext/ChibiOS-RT
 	url = https://github.com/ChibiOS/ChibiOS.git
 	branch = stable_18.2.x
-[submodule "sw/target/tmcemu/scpi-parser"]
-	path = sw/tmcemu/scpi-parser
+[submodule "sw/ext/scpi-parser"]
+	path = sw/ext/scpi-parser
 	url = https://github.com/j123b567/scpi-parser.git
-[submodule "sw/libopencm3"]
-	path = sw/libopencm3
+[submodule "sw/ext/libopencm3"]
+	path = sw/ext/libopencm3
 	url = https://github.com/libopencm3/libopencm3.git
-[submodule "sw/progtool/hidapi"]
-	path = sw/progtool/hidapi
+[submodule "sw/ext/hidapi"]
+	path = sw/ext/hidapi
 	url = https://github.com/signal11/hidapi.git

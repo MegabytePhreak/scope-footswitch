@@ -5,9 +5,9 @@ project (progtool)
 set(progtool_sources progtool.c ../common/hidprog.c ../common/hidprog_cmds.h)
 
 if (WIN32)
-    set(progtool_sources ${progtool_sources} hidapi/windows/hid.c)
-    include_directories ("${PROJECT_SOURCE_DIR}/hidapi/")
-	  include_directories ("${PROJECT_SOURCE_DIR}/hidapi/hidapi")
+    set(progtool_sources ${progtool_sources} ../ext/hidapi/windows/hid.c)
+    include_directories ("${PROJECT_SOURCE_DIR}/../ext/hidapi/")
+	  include_directories ("${PROJECT_SOURCE_DIR}/../ext/hidapi/hidapi")
 endif (WIN32)
 
 include_directories ("${PROJECT_SOURCE_DIR}")

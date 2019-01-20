@@ -81,7 +81,7 @@ endif
 PROJECT = tmcemu
 
 # Imported source files and paths
-CHIBIOS = ../ChibiOS-RT
+CHIBIOS = ../ext/ChibiOS-RT
 
 # Licensing files.
 include $(CHIBIOS)/os/license/license.mk
@@ -105,7 +105,7 @@ include $(CHIBIOS)/os/various/shell/shell.mk
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F072xB.ld
 
-SCPISRC = $(addprefix scpi-parser/libscpi/src/, \
+SCPISRC = $(addprefix ../ext/scpi-parser/libscpi/src/, \
     error.c fifo.c ieee488.c \
     minimal.c parser.c units.c utils.c \
     scpi_integ.c \
@@ -147,7 +147,7 @@ TCPPSRC =
 ASMSRC = $(ALLASMSRC)
 ASMXSRC = $(ALLXASMSRC)
 
-INCDIR = $(ALLINC) $(TESTINC) scpi-parser/libscpi/inc
+INCDIR = $(ALLINC) $(TESTINC) ../ext/scpi-parser/libscpi/inc
 
 #
 # Project, sources and paths
