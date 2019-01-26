@@ -51,7 +51,7 @@ int hidprog_run_command(hid_device *handle, hidprog_command_t *cmd,
     int res = hidprog_send_command(handle, cmd);
     if (res)
         return res;
-    res = hidprog_get_response(handle, rsp, -1);
+    res = hidprog_get_response(handle, rsp, 1000);
     if(res)
         return res;
 
@@ -70,10 +70,12 @@ int hidprog_program(hid_device *handle, uint32_t base_address,
     if(!handle || !data)
         return -1;
 
-    res = hidprog_setaddr(handle, base_address);
-    if (res)
-        return res;
-
+	if (base_address != (uint32_t)-1)
+	{
+		res = hidprog_setaddr(handle, base_address);
+		if (res)
+			return res;
+	}
     for (size_t i = 0; i < len;) {
         cmd.id            = HIDPROG_ID_WRITEDATA;
 
@@ -102,9 +104,11 @@ int hidprog_read(hid_device *handle, uint32_t base_address,
     if(!handle || !data)
         return -1;
 
-    res = hidprog_setaddr(handle, base_address);
-    if (res)
-        return res;
+	if (base_address != (uint32_t)-1) {
+        res = hidprog_setaddr(handle, base_address);
+        if (res)
+            return res;
+    }
 
     for (size_t i = 0; i < len;) {
         cmd.id            = HIDPROG_ID_READDATA;
@@ -133,10 +137,11 @@ int hidprog_verify(hid_device *handle, uint32_t base_address,
     if(!handle || !data)
         return -1;
 
-    res = hidprog_setaddr(handle, base_address);
-    if (res)
-        return res;
-
+	if (base_address != (uint32_t)-1) {
+        res = hidprog_setaddr(handle, base_address);
+        if (res)
+            return res;
+    }
     for (size_t i = 0; i < len;) {
         cmd.id            = HIDPROG_ID_READDATA;
 
