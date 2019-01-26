@@ -1,0 +1,197 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef _USING_V110_SDK71_
+#define _USING_V110_SDK71_
+#endif
+#include <windows.h>
+#ifndef IDC_STATIC
+#define IDC_STATIC -1
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(1252)
+
+        /////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UPDATE DIALOGEX 0, 0, 309, 87
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "FTSW-1 Updater"
+FONT 9, "Segoe UI", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Help",IDHELP,6,57,50,14
+    PUSHBUTTON      "Exit",IDEXIT,252,57,50,14
+    COMBOBOX        IDC_DEVICE,72,7,176,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Program",IDC_PROGRAM,198,57,50,14
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,39,295,14
+    PUSHBUTTON      "Refresh",IDC_REFRESH,252,7,50,12
+    RTEXT           "Current Version:",IDC_STATIC2,8,26,61,8
+    LTEXT           "<No Device>",IDC_CURRENT_VERSION,72,26,56,8
+    RTEXT           "Update Version:",IDC_STATIC4,129,26,61,8
+    LTEXT           "<No Device>",IDC_UPDATE_VERSION,193,26,54,8
+    CONTROL         "",IDC_STATUS_BAR,"msctls_statusbar32",0x0,7,71,295,9,WS_EX_TOPMOST
+    RTEXT           "Target Device:",IDC_STATIC,8,7,61,12,SS_CENTERIMAGE
+END
+
+IDD_HELP DIALOGEX 0, 0, 373, 327
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 9, "Segoe UI", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,316,306,50,14
+    CONTROL         "",IDC_HEADER,"RichEdit20W",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,359,100
+    CONTROL         "",IDC_LICENSE,"RichEdit20W",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,119,359,183
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_UPDATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 366
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 320
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_UPDATE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_HELP AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RCDATA
+//
+
+IDR_FIRMWARE            RCDATA                  "firmware.bin"
+
+#ifdef APSTUDIO_INVOKED
+    /////////////////////////////////////////////////////////////////////////////
+    //
+    // TEXTINCLUDE
+    //
+
+    1 TEXTINCLUDE BEGIN "resource.h\0" END
+
+    2 TEXTINCLUDE BEGIN
+    "#ifndef _USING_V110_SDK71_\r\n"
+    "#define _USING_V110_SDK71_\r\n"
+    "#endif\r\n"
+    "#include <windows.h>\r\n"
+    "#ifndef IDC_STATIC\r\n"
+    "#define IDC_STATIC -1\r\n"
+    "#endif\r\n"
+    "\0" END
+
+    3 TEXTINCLUDE BEGIN
+    "\r\n"
+    "\0" END
+
+#endif // APSTUDIO_INVOKED
+        /////////////////////////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////////////////////////
+        //
+        // Icon
+        //
+
+        // Icon with lowest ID value placed first to ensure application icon
+        // remains consistent on all systems.
+        IDI_ICON ICON "proggui.ico"
+
+    /////////////////////////////////////////////////////////////////////////////
+    //
+    // Version
+    //
+
+    VS_VERSION_INFO VERSIONINFO FILEVERSION 1,
+    0, 0, 1 PRODUCTVERSION 1, 0, 0,
+    1 FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+    FILEFLAGS 0x1L
+#else
+    FILEFLAGS 0x0L
+#endif
+    FILEOS 0x40004L FILETYPE 0x1L FILESUBTYPE 0x0L BEGIN BLOCK
+    "StringFileInfo" BEGIN BLOCK "000004b0" BEGIN VALUE "CompanyName",
+    "Paul Roukema  <https://github.com/MegabytePhreak/scope-footswitch>" VALUE
+    "FileDescription",
+    "Firmware update tool for FTSW-1 Oscilloscope Footswitch" VALUE
+    "FileVersion",
+    "1.0.1" VALUE "InternalName", "proggui.exe" VALUE "LegalCopyright",
+    "Copyright (C) 2019" VALUE "OriginalFilename",
+    "proggui.exe" VALUE "ProductName", "FTSW-1 Updater" VALUE "ProductVersion",
+    "1.0.1" END END BLOCK "VarFileInfo" BEGIN VALUE "Translation", 0x0,
+    1200 END                                  END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+// Must reference a manifest for visual styles and elevation
+// Oh, and it must happen at the end, or MinGW will ignore it!
+#if defined(__GNUC__)
+        CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "proggui.manifest"
+#endif
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
