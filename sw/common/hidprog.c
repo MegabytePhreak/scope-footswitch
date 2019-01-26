@@ -20,7 +20,7 @@ static void put_le32(uint8_t buf[4], uint32_t val) {
 int hidprog_send_command(hid_device *handle, hidprog_command_t *cmd) {
     uint8_t buf[sizeof(*cmd) + 1];
 
-    if(!handle || !cmd)
+    if (!handle || !cmd)
         return -1;
 
     buf[0] = 0; // Report ID
@@ -31,9 +31,9 @@ int hidprog_send_command(hid_device *handle, hidprog_command_t *cmd) {
 }
 
 int hidprog_get_response(hid_device *handle, hidprog_response_t *rsp,
-                        int timeout) {
+                         int timeout) {
     uint8_t buf[sizeof(*rsp) + 1];
-    if(!handle || !rsp)
+    if (!handle || !rsp)
         return -1;
 
     int len = hid_read_timeout(handle, buf, sizeof(buf), timeout);
@@ -47,43 +47,43 @@ int hidprog_get_response(hid_device *handle, hidprog_response_t *rsp,
 }
 
 int hidprog_run_command(hid_device *handle, hidprog_command_t *cmd,
-                       hidprog_response_t *rsp) {
+                        hidprog_response_t *rsp) {
     int res = hidprog_send_command(handle, cmd);
     if (res)
         return res;
     res = hidprog_get_response(handle, rsp, 1000);
-    if(res)
+    if (res)
         return res;
 
-    if(rsp->id != cmd->id)
+    if (rsp->id != cmd->id)
         return -1;
 
     return 0;
 }
 
-int hidprog_program(hid_device *handle, uint32_t base_address,
-                         uint8_t *data, size_t len) {
+int hidprog_program(hid_device *handle, uint32_t base_address, uint8_t *data,
+                    size_t len) {
     hidprog_command_t  cmd = {0};
     hidprog_response_t rsp = {0};
     int                res;
 
-    if(!handle || !data)
+    if (!handle || !data)
         return -1;
 
-	if (base_address != (uint32_t)-1)
-	{
-		res = hidprog_setaddr(handle, base_address);
-		if (res)
-			return res;
-	}
+    if (base_address != (uint32_t)-1) {
+        res = hidprog_setaddr(handle, base_address);
+        if (res)
+            return res;
+    }
     for (size_t i = 0; i < len;) {
-        cmd.id            = HIDPROG_ID_WRITEDATA;
+        cmd.id = HIDPROG_ID_WRITEDATA;
 
         int remain = len - i;
         if (remain > 16)
             remain = 16;
 
-        cmd.writedata.len = ((remain+3)/4) | HIDPROG_WRITEDATA_LEN_MAY_ERASE;
+        cmd.writedata.len =
+            ((remain + 3) / 4) | HIDPROG_WRITEDATA_LEN_MAY_ERASE;
 
         memcpy(cmd.writedata.data, data + i, remain);
         res = hidprog_run_command(handle, &cmd, &rsp);
@@ -95,75 +95,74 @@ int hidprog_program(hid_device *handle, uint32_t base_address,
     return 0;
 }
 
-int hidprog_read(hid_device *handle, uint32_t base_address,
-                         uint8_t *data, size_t len) {
+int hidprog_read(hid_device *handle, uint32_t base_address, uint8_t *data,
+                 size_t len) {
     hidprog_command_t  cmd = {0};
     hidprog_response_t rsp = {0};
     int                res;
 
-    if(!handle || !data)
+    if (!handle || !data)
         return -1;
 
-	if (base_address != (uint32_t)-1) {
+    if (base_address != (uint32_t)-1) {
         res = hidprog_setaddr(handle, base_address);
         if (res)
             return res;
     }
 
     for (size_t i = 0; i < len;) {
-        cmd.id            = HIDPROG_ID_READDATA;
+        cmd.id = HIDPROG_ID_READDATA;
 
         int remain = len - i;
         if (remain > 16)
             remain = 16;
-        cmd.readdata.len = ((remain+3)/4);
+        cmd.readdata.len = ((remain + 3) / 4);
 
         res = hidprog_run_command(handle, &cmd, &rsp);
         if (res) {
             return res;
         }
-        memcpy(data + i, rsp.readdata.data,  remain);
+        memcpy(data + i, rsp.readdata.data, remain);
         i += remain;
     }
     return 0;
 }
 
-int hidprog_verify(hid_device *handle, uint32_t base_address,
-                         uint8_t *data, size_t len) {
+int hidprog_verify(hid_device *handle, uint32_t base_address, uint8_t *data,
+                   size_t len) {
     hidprog_command_t  cmd = {0};
     hidprog_response_t rsp = {0};
     int                res;
 
-    if(!handle || !data)
+    if (!handle || !data)
         return -1;
 
-	if (base_address != (uint32_t)-1) {
+    if (base_address != (uint32_t)-1) {
         res = hidprog_setaddr(handle, base_address);
         if (res)
             return res;
     }
     for (size_t i = 0; i < len;) {
-        cmd.id            = HIDPROG_ID_READDATA;
+        cmd.id = HIDPROG_ID_READDATA;
 
         int remain = len - i;
         if (remain > 16)
             remain = 16;
-        cmd.readdata.len = ((remain+3)/4);
+        cmd.readdata.len = ((remain + 3) / 4);
 
         res = hidprog_run_command(handle, &cmd, &rsp);
         if (res) {
             return res;
         }
-        if(memcmp(data + i, rsp.readdata.data,  remain) != 0)
+        if (memcmp(data + i, rsp.readdata.data, remain) != 0)
             return -1;
         i += remain;
     }
     return 0;
 }
 
-int hidprog_setaddr(hid_device *handle, uint32_t address)
-{
-    if(!handle)
+int hidprog_setaddr(hid_device *handle, uint32_t address) {
+    if (!handle)
         return -1;
 
     hidprog_command_t  cmd = {0};
@@ -174,9 +173,8 @@ int hidprog_setaddr(hid_device *handle, uint32_t address)
     return hidprog_run_command(handle, &cmd, &rsp);
 }
 
-int hidprog_getaddr(hid_device *handle, uint32_t* address)
-{
-    if(!handle || !address)
+int hidprog_getaddr(hid_device *handle, uint32_t *address) {
+    if (!handle || !address)
         return -1;
 
     hidprog_command_t  cmd = {0};
@@ -184,7 +182,7 @@ int hidprog_getaddr(hid_device *handle, uint32_t* address)
     int                res;
 
     cmd.getaddr.id = HIDPROG_ID_GETADDR;
-    res = hidprog_run_command(handle, &cmd, &rsp);
+    res            = hidprog_run_command(handle, &cmd, &rsp);
     if (res)
         return res;
 
@@ -193,35 +191,34 @@ int hidprog_getaddr(hid_device *handle, uint32_t* address)
     return 0;
 }
 
-int hidprog_getinfo(hid_device *handle, hidprog_info_t* info)
-{
+int hidprog_getinfo(hid_device *handle, hidprog_info_t *info) {
     hidprog_command_t  cmd = {0};
     hidprog_response_t rsp = {0};
     int                res;
 
-    if(!handle || !info)
+    if (!handle || !info)
         return -1;
 
     memset(info, 0, sizeof(*info));
 
     cmd.getaddr.id = HIDPROG_ID_GETINFO;
-    res = hidprog_run_command(handle, &cmd, &rsp);
+    res            = hidprog_run_command(handle, &cmd, &rsp);
     if (res)
         return res;
 
-    info->version   = rsp.getinfo.version;
-    info->magic     = get_le32(rsp.getinfo.magic);
+    info->version    = rsp.getinfo.version;
+    info->magic      = get_le32(rsp.getinfo.magic);
     info->flash_base = get_le32(rsp.getinfo.flash_base);
     info->flash_size = get_le32(rsp.getinfo.flash_size);
 
     int i;
-    for(i = 0; i<8; i++)
-    {
-        if(rsp.getinfo.block_count[i] == 0)
+    for (i = 0; i < 8; i++) {
+        if (rsp.getinfo.block_count[i] == 0)
             break;
 
-        info->blocks[i].size = 1 << (rsp.getinfo.block_size[i] & HIDPROG_GETINFO_BLOCKSIZE_SIZE);
-        if(rsp.getinfo.block_size[i] & HIDPROG_GETINFO_BLOCKSIZE_READONY)
+        info->blocks[i].size =
+            1 << (rsp.getinfo.block_size[i] & HIDPROG_GETINFO_BLOCKSIZE_SIZE);
+        if (rsp.getinfo.block_size[i] & HIDPROG_GETINFO_BLOCKSIZE_READONY)
             info->blocks[i].flags |= HIDPROG_BLOCK_FLAG_READONLY;
         info->blocks[i].count = rsp.getinfo.block_count[i];
     }
@@ -230,15 +227,14 @@ int hidprog_getinfo(hid_device *handle, hidprog_info_t* info)
     return 0;
 }
 
-int hidprog_reset(hid_device *handle)
-{
-    if(!handle)
+int hidprog_reset(hid_device *handle) {
+    if (!handle)
         return -1;
 
     hidprog_command_t  cmd = {0};
     hidprog_response_t rsp = {0};
 
-    cmd.id = HIDPROG_ID_FINISH;
+    cmd.id           = HIDPROG_ID_FINISH;
     cmd.finish.flags = HIDPROG_FINISH_FLAG_REBOOT;
     return hidprog_run_command(handle, &cmd, &rsp);
 }
@@ -302,4 +298,3 @@ void hidprog_dump_response(hidprog_response_t *rsp) {
             break;
     }
 }
-

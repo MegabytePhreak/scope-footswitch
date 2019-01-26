@@ -17,27 +17,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
- 
+
 #ifndef HIDPROG_CMDS_H
 #define HIDPROG_CMDS_H
 
 #include <stdint.h>
 
 enum {
-    HIDPROG_ID_PING = 0,
-    HIDPROG_ID_SETADDR = 1,
-    HIDPROG_ID_GETADDR = 2,
+    HIDPROG_ID_PING      = 0,
+    HIDPROG_ID_SETADDR   = 1,
+    HIDPROG_ID_GETADDR   = 2,
     HIDPROG_ID_WRITEDATA = 3,
-    HIDPROG_ID_READDATA = 4,
-    HIDPROG_ID_FINISH = 5,
-    HIDPROG_ID_GETINFO = 6,
-    HIDPROG_ID_UNKNOWN = 0xFF
+    HIDPROG_ID_READDATA  = 4,
+    HIDPROG_ID_FINISH    = 5,
+    HIDPROG_ID_GETINFO   = 6,
+    HIDPROG_ID_UNKNOWN   = 0xFF
 };
 
-
-#define HIDPROG_COMMAND_LEN 64 
-#define HIDPROG_DATA_LEN (HIDPROG_COMMAND_LEN-4)
+#define HIDPROG_COMMAND_LEN 64
+#define HIDPROG_DATA_LEN (HIDPROG_COMMAND_LEN - 4)
 
 typedef union hidprog_command {
     uint8_t bytes[HIDPROG_COMMAND_LEN];
@@ -63,7 +61,7 @@ typedef union hidprog_command {
     struct {
         uint8_t id;
         uint8_t len;
-        uint8_t data[HIDPROG_DATA_LEN-4];
+        uint8_t data[HIDPROG_DATA_LEN - 4];
     } writedata;
 
     struct {
@@ -76,7 +74,7 @@ typedef union hidprog_command {
         uint8_t flags;
     } finish;
 
-    struct { 
+    struct {
         uint8_t id;
     } getinfo;
 } hidprog_command_t;
@@ -114,17 +112,17 @@ typedef union hidprog_response {
     struct {
         uint8_t id;
         uint8_t len;
-        uint8_t data[HIDPROG_DATA_LEN-4];
+        uint8_t data[HIDPROG_DATA_LEN - 4];
     } readdata;
 
-    struct { 
+    struct {
         uint8_t id;
         uint8_t version;
-        uint8_t magic [4];
-        uint8_t flash_base [4];
-        uint8_t flash_size [4];
-        uint8_t block_count [8];
-        uint8_t block_size  [8];
+        uint8_t magic[4];
+        uint8_t flash_base[4];
+        uint8_t flash_size[4];
+        uint8_t block_count[8];
+        uint8_t block_size[8];
     } getinfo;
 
 } hidprog_response_t;
