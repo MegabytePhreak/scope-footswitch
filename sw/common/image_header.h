@@ -17,20 +17,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #ifndef IMAGE_HEADER_H
 #define IMAGE_HEADER_H
 
 #include <stdint.h>
 
 struct image_header {
-    uint8_t magic[4];
-    uint8_t version_major;
-    uint8_t version_minor;
-    uint8_t version_patch;
+    uint8_t  magic[4];
+    uint8_t  version_major;
+    uint8_t  version_minor;
+    uint8_t  version_patch;
     uint16_t vid;
     uint16_t pid;
-    uint8_t bootloader_magic[4];
+    uint8_t  bootloader_magic[4];
 };
+
+#define IMAGE_HEADER_MAGIC_STR "IHDR"
+#define IMAGE_HEADER_MAGIC_INIT { 'I', 'H', 'D', 'R"' }
 
 #endif
