@@ -712,6 +712,10 @@ static void onProgramDone(HWND hDlg, WPARAM wParam) {
                         (LPARAM) _T("Error verifying device"));
             break;
     }
+    if (wParam != PROGRAM_RESULT_SUCCESS) {
+        MessageBox(hDlg, _T("Programming Failed"), _T("Error"),
+                   MB_ICONERROR | MB_OK);
+    }
 
     EnableWindow(GetDlgItem(hDlg, IDC_REFRESH), TRUE);
     EnableWindow(GetDlgItem(hDlg, IDC_DEVICE), TRUE);
