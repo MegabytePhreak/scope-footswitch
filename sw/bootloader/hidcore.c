@@ -165,7 +165,7 @@ static const struct usb_config_descriptor config = {
     .interface = ifaces,
 };
 
-static char serial_no[9];
+static char serial_no[20];
 
 static const char *usb_strings[] = {
     "www.paulroukema.com",
