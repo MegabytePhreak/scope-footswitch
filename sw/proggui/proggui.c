@@ -129,7 +129,6 @@ static void CenterDialog(HWND hDlg) {
 
 static void *GetResource(HMODULE hModule, LPTSTR lpName, LPTSTR lpType,
                          size_t *len) {
-
     HRSRC hRes = FindResource(hModule, lpName, lpType);
     if (hRes == NULL) {
         return NULL;
@@ -613,7 +612,8 @@ static void onProgram(HWND hDlg) {
     SendMessage(GetDlgItem(hDlg, IDC_STATUS_BAR), SB_SETTEXT, 0,
                 (LPARAM) _T(""));
 
-    if (versionIsNewer(&info->devImageInfo, &info->fwImageInfo)) {
+    if (!isValidImageHeader(&info->devImageInfo) ||
+        versionIsNewer(&info->devImageInfo, &info->fwImageInfo)) {
         do_update = TRUE;
 
     } else {
@@ -715,6 +715,8 @@ static void onProgramDone(HWND hDlg, WPARAM wParam) {
     if (wParam != PROGRAM_RESULT_SUCCESS) {
         MessageBox(hDlg, _T("Programming Failed"), _T("Error"),
                    MB_ICONERROR | MB_OK);
+    } else {
+        FlashWindow(hDlg, TRUE);
     }
 
     EnableWindow(GetDlgItem(hDlg, IDC_REFRESH), TRUE);
