@@ -96,7 +96,7 @@ static int tektronix_set_state(USBHTmcDriver *tmcp, scope_state_t state) {
 }
 
 static int tektronix_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
-    static const char allstatecmd[] = "ACQuire?";
+    static const char allstatecmd[] = "ACQuire:STOPAfter?; STATE?";
     enum { ELEM_STOPAFTER, ELEM_STATE };
 
     scope_state_t newstate;
@@ -110,9 +110,10 @@ static int tektronix_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
     }
     buf[len] = 0;
 
+    size_t count;
     char *elems[6];
-    if (tokenize(buf, elems, 6) != 6) {
-        chprintf(CON, "State query failed tokenize");
+    if ((count = tokenize(buf, elems, 2)) < 2) {
+        chprintf(CON, "State query failed tokenize %u", count);
         return 0;
     }
 
