@@ -7,6 +7,12 @@ STM32F401 based oscilloscope-footswitch interface using USBTMC.
 Hardware is licensed CC-BY-SA-4.0
 Software is GPLv3 for easy license compatibility with ChibiOS
 
+Links:
+* [Hackaday Coverage](https://hackaday.com/2018/12/02/keep-both-hands-on-the-probes-with-this-oscilloscope-footswitch/)
+* [Initial Announcement](https://twitter.com/roukemap/status/1066811243237904384)
+* [Rev.2 Batch](https://twitter.com/roukemap/status/1068734964215115776)
+* [Custom Panels](https://twitter.com/roukemap/status/1072344658313908224)
+
 Tools:
 
 Other versions may work, this is just what is currently tested
@@ -37,5 +43,6 @@ SW Programming process:
 5. Power cycle hardware, holding down the front panel button to force entry to the bootloader
 6. `cd ../scope-footswitch`
 7. `./dfu.sh`
+
 
 
