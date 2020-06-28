@@ -1,0 +1,8 @@
+
+build/
+.dep/
+.gdb_history
+
+bootloader/generated*
+
+.vscode
