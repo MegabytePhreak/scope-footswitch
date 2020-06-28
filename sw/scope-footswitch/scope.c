@@ -17,7 +17,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #include "scope.h"
 
 #include "ch.h"
@@ -26,6 +25,43 @@
 #include "usbh_usbtmc.h"
 
 #include <string.h>
+
+#define SCOPE_DEBUG_ENABLE_TRACE 0
+#define SCOPE_DEBUG_ENABLE_INFO 1
+#define SCOPE_DEBUG_ENABLE_WARNINGS 1
+#define SCOPE_DEBUG_ENABLE_ERRORS 1
+
+#if SCOPE_DEBUG_ENABLE_TRACE
+#define sdbgf(f, ...) chprintf(CON, f, ##__VA_ARGS__)
+#else
+#define sdbgf(f, ...)                                                          \
+    do {                                                                       \
+    } while (0)
+#endif
+
+#if SCOPE_DEBUG_ENABLE_INFO
+#define sinfof(f, ...) chprintf(CON, f, ##__VA_ARGS__)
+#else
+#define sinfof(f, ...)                                                         \
+    do {                                                                       \
+    } while (0)
+#endif
+
+#if SCOPE_DEBUG_ENABLE_WARNINGS
+#define swarnf(f, ...) chprintf(CON, f, ##__VA_ARGS__)
+#else
+#define swarnf(f, ...)                                                         \
+    do {                                                                       \
+    } while (0)
+#endif
+
+#if SCOPE_DEBUG_ENABLE_ERRORS
+#define serrf(f, ...) chprintf(CON, f, ##__VA_ARGS__)
+#else
+#define serrf(f, ...)                                                          \
+    do {                                                                       \
+    } while (0)
+#endif
 
 #define CMD_TIMEOUT TIME_MS2I(1000)
 const char *strip_chars = " \r\n\t";
@@ -65,12 +101,31 @@ static size_t tokenize(char *resp, char *elems[], size_t num_elems) {
     return found;
 }
 
-static int runcmd(USBHTmcDriver *tmcp, const char *cmd) {
-    chprintf(CON, "Running scope command '%s'\r\n", cmd);
+static int run_cmd(USBHTmcDriver *tmcp, const char *cmd) {
+    sdbgf("Running scope command '%s'\r\n", cmd);
     if (!usbhtmcWrite(tmcp, cmd, strlen(cmd), CMD_TIMEOUT)) {
-        chprintf(CON, "Scope command failed");
+        serrf("Scope command '%s' failed\r\n", cmd);
         return 0;
     }
+    return 1;
+}
+
+static int run_ask(USBHTmcDriver *tmcp, const char *cmd, char *buf,
+                   size_t buf_len) {
+    chDbgAssert(tmcp, "tmcp");
+    chDbgAssert(cmd, "tmcp");
+    chDbgAssert(buf, "buf");
+    chDbgAssert(buf_len > 0, "buf_len");
+    size_t len;
+
+    sdbgf("Asking '%s'\r\n", cmd);
+    if (!(len = usbhtmcAsk(tmcp, cmd, strlen(cmd), buf, buf_len - 1,
+                           CMD_TIMEOUT))) {
+        serrf("State query failed ask '%s'\r\n", cmd);
+        return 0;
+    }
+    buf[len] = 0;
+
     return 1;
 }
 
@@ -92,7 +147,7 @@ static int tektronix_set_state(USBHTmcDriver *tmcp, scope_state_t state) {
             break;
     }
 
-    return runcmd(tmcp, cmd);
+    return run_cmd(tmcp, cmd);
 }
 
 static int tektronix_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
@@ -101,19 +156,15 @@ static int tektronix_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
 
     scope_state_t newstate;
     char          buf[65];
-    int           len = 0;
-    chprintf(CON, "Querying '%s'\r\n", allstatecmd);
-    if (!(len = usbhtmcAsk(tmcp, allstatecmd, strlen(allstatecmd), buf,
-                           sizeof(buf) - 1, CMD_TIMEOUT))) {
-        chprintf(CON, "State query failed ask");
+
+    if (!run_ask(tmcp, allstatecmd, buf, sizeof(buf))) {
         return 0;
     }
-    buf[len] = 0;
 
     size_t count;
-    char *elems[6];
+    char * elems[6];
     if ((count = tokenize(buf, elems, 2)) < 2) {
-        chprintf(CON, "State query failed tokenize %u", count);
+        serrf("State query failed tokenize %u\r\n", count);
         return 0;
     }
 
@@ -123,7 +174,7 @@ static int tektronix_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
     } else if (!strcasecmp(elems[ELEM_STOPAFTER], "SEQUENCE")) {
         newstate = SCOPE_STATE_SINGLE;
     } else {
-        chprintf(CON, "State query failed to parse STOPAfter");
+        serrf("State query failed to parse STOPAfter\r\n");
         return 0;
     }
 
@@ -133,7 +184,7 @@ static int tektronix_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
     } else if (!strcasecmp(elems[ELEM_STATE], "1")) {
         /* running*/
     } else {
-        chprintf(CON, "State query failed to parse STATE");
+        serrf("State query failed to parse STATE\r\n");
         return 0;
     }
     *state = newstate;
@@ -158,20 +209,16 @@ static int keysight_set_state(USBHTmcDriver *tmcp, scope_state_t state) {
             break;
     }
 
-    return runcmd(tmcp, cmd);
+    return run_cmd(tmcp, cmd);
 }
 
 static int keysight_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
     static const char rstatecmd[] = "RSTate?";
     char              buf[65];
-    int               len = 0;
-    chprintf(CON, "Querying '%s'\r\n", rstatecmd);
-    if (!(len = usbhtmcAsk(tmcp, rstatecmd, strlen(rstatecmd), buf,
-                           sizeof(buf) - 1, CMD_TIMEOUT))) {
-        chprintf(CON, "State query failed ask");
+
+    if (!run_ask(tmcp, rstatecmd, buf, sizeof(buf))) {
         return 0;
     }
-    buf[len] = 0;
 
     char *resp = strstrip(buf, strip_chars);
 
@@ -215,17 +262,15 @@ const scope_config_t *detect_scope(USBHTmcDriver *tmcp) {
 
     char  buf[256];
     char *elems[4];
-    int   len = 0;
-    if (!(len = usbhtmcAsk(tmcp, idncmd, strlen(idncmd), buf, sizeof(buf) - 1,
-                           CMD_TIMEOUT))) {
-        chprintf(CON, "Scope *IDN? failed");
-        return NULL;
+
+    if (!run_ask(tmcp, idncmd, buf, sizeof(buf))) {
+        return 0;
     }
-    buf[len] = 0;
-    chprintf(CON, "Scope *IDN? returns '%s'", buf);
+
+    sinfof("Scope *IDN? returns '%s'", buf);
 
     if (tokenize(buf, elems, 4) != 4) {
-        chprintf(CON, "Failed to tokenize IDN");
+        serrf("Failed to tokenize IDN");
         return NULL;
     }
 
