@@ -230,7 +230,67 @@ static int keysight_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
     } else if (!strcasecmp(resp, "STOP")) {
         *state = SCOPE_STATE_STOPPED;
     } else {
-        chprintf(CON, "State query failed to parse RSTate");
+        serrf("State query failed to parse RSTate: %s\r\n", resp);
+        return 0;
+    }
+
+    return 1;
+}
+
+static int rigol_set_state(USBHTmcDriver *tmcp, scope_state_t state) {
+    static const char stopcmd[]      = "STOP";
+    static const char runsinglecmd[] = "SINGle";
+    static const char runcmd[]       = "RUN";
+    const char *      cmd            = 0;
+    switch (state) {
+        case SCOPE_STATE_SINGLE:
+            cmd = runsinglecmd;
+            break;
+        case SCOPE_STATE_RUNNING:
+            cmd = runcmd;
+            break;
+        case SCOPE_STATE_STOPPED:
+        default:
+            cmd = stopcmd;
+            break;
+    }
+
+    return run_cmd(tmcp, cmd);
+}
+
+static int rigol_get_state(USBHTmcDriver *tmcp, scope_state_t *state) {
+    static const char cmd[] = "TRIGger:STATus?;SWEep?";
+    char              buf[65];
+
+    if (!run_ask(tmcp, cmd, buf, sizeof(buf))) {
+        return 0;
+    }
+
+    char *resp = strstrip(buf, strip_chars);
+
+    sdbgf("State query got '%s'\r\n", resp);
+
+    size_t count;
+    char * elems[2];
+    if ((count = tokenize(resp, elems, 2)) < 2) {
+        serrf("State query failed tokenize %u\r\n", count);
+        return 0;
+    }
+    sdbgf("tokens  '%s' '%s'\r\n", elems[0], elems[1]);
+
+    // First check the status
+    if (!strcasecmp(elems[0], "RUN") || !strcasecmp(elems[0], "TD") ||
+        !strcasecmp(elems[0], "AUTO") || !strcasecmp(elems[0], "WAIT")) {
+        // Then check if we are in single sweep
+        if (!strcasecmp(elems[1], "SING")) {
+            *state = SCOPE_STATE_SINGLE;
+        } else {
+            *state = SCOPE_STATE_RUNNING;
+        }
+    } else if (!strcasecmp(elems[0], "STOP")) {
+        *state = SCOPE_STATE_STOPPED;
+    } else {
+        serrf("State query failed to parse TRIGger:STATus '%s'\r\n", elems[0]);
         return 0;
     }
 
@@ -243,6 +303,8 @@ static const scope_config_t tektronix_cfg = {tektronix_set_state,
 static const scope_config_t keysight_cfg = {keysight_set_state,
                                             keysight_get_state};
 
+static const scope_config_t rigol_cfg = {rigol_set_state, rigol_get_state};
+
 static const scope_config_t tmcemu_cfg = {tektronix_set_state,
                                           keysight_get_state};
 
@@ -253,6 +315,7 @@ static const struct {
 } id_table[] = {{"Tektronix", NULL, &tektronix_cfg},
                 {"KEYSIGHT TECHNOLOGIES", NULL, &keysight_cfg},
                 {"Agilent", NULL, &keysight_cfg},
+                {"RIGOL TECHNOLOGIES", NULL, &rigol_cfg},
                 {NULL, "TMCEMU", &tmcemu_cfg}};
 
 const scope_config_t *detect_scope(USBHTmcDriver *tmcp) {
