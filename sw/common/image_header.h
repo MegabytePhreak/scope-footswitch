@@ -34,6 +34,6 @@ struct image_header {
 
 #define IMAGE_HEADER_MAGIC_STR "IHDR"
 #define IMAGE_HEADER_MAGIC_INIT                                                \
-    { 'I', 'H', 'D', 'R"' }
+    { 'I', 'H', 'D', 'R' }
 
 #endif
