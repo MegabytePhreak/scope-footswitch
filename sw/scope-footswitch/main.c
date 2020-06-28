@@ -210,8 +210,8 @@ static THD_FUNCTION(ThreadMain, arg) {
 const struct image_header __attribute__((section(".header"))) image_header = {
     .magic = IMAGE_HEADER_MAGIC_INIT,
     .version_major = 1,
-    .version_minor = 0,
-    .version_patch = 2,
+    .version_minor = 1,
+    .version_patch = 0,
     .vid = 0x1d50, 
     .pid = 0x613b, 
     .bootloader_magic = {'F','T','S','W'},
